@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
+  output: isGithubPages ? "export" : undefined,
+  basePath: isGithubPages ? "/WC2026-Simulator" : undefined,
+  assetPrefix: isGithubPages ? "/WC2026-Simulator/" : undefined,
   images: {
+    unoptimized: isGithubPages,
     remotePatterns: [
       {
         protocol: "https",
