@@ -10,6 +10,7 @@ import {
   pruneKnockoutWinners,
 } from "./fifa/knockout-sync";
 import { seed } from "./data";
+import type { ScrollableTabId, TabId } from "./tabs";
 import type { GroupStanding, MatchResult, Team } from "./fifa/types";
 
 export type KnockoutSyncNotice = {
@@ -17,10 +18,7 @@ export type KnockoutSyncNotice = {
   picksRemoved: number;
 };
 
-export type ScrollPositions = {
-  groups: number;
-  third: number;
-};
+export type ScrollPositions = Record<ScrollableTabId, number>;
 
 export type BracketView = {
   userZoom: number;
@@ -32,11 +30,11 @@ type SimulationStore = {
   manualOrder: Record<string, string[] | null>;
   knockoutWinners: Record<number, string>;
   knockoutSyncNotice: KnockoutSyncNotice | null;
-  activeTab: "groups" | "third" | "knockout";
+  activeTab: TabId;
   scrollPositions: ScrollPositions;
   bracketView: BracketView;
-  setActiveTab: (tab: "groups" | "third" | "knockout") => void;
-  setScrollPosition: (tab: "groups" | "third", y: number) => void;
+  setActiveTab: (tab: TabId) => void;
+  setScrollPosition: (tab: ScrollableTabId, y: number) => void;
   setBracketView: (view: BracketView) => void;
   dismissKnockoutSyncNotice: () => void;
   setScore: (matchId: string, home?: number | null, away?: number | null) => void;
@@ -89,7 +87,7 @@ export const useSimulation = create<SimulationStore>()(
       knockoutWinners: {},
       knockoutSyncNotice: null,
       activeTab: "groups",
-      scrollPositions: { groups: 0, third: 0 },
+      scrollPositions: { groups: 0, schedule: 0, third: 0 },
       bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
 
       setActiveTab: (tab) =>
@@ -97,7 +95,7 @@ export const useSimulation = create<SimulationStore>()(
           const scrollPositions = { ...s.scrollPositions };
           if (
             typeof window !== "undefined" &&
-            (s.activeTab === "groups" || s.activeTab === "third")
+            (s.activeTab === "groups" || s.activeTab === "schedule" || s.activeTab === "third")
           ) {
             scrollPositions[s.activeTab] = window.scrollY;
           }
@@ -186,7 +184,7 @@ export const useSimulation = create<SimulationStore>()(
           manualOrder: {},
           knockoutWinners: {},
           knockoutSyncNotice: null,
-          scrollPositions: { groups: 0, third: 0 },
+          scrollPositions: { groups: 0, schedule: 0, third: 0 },
           bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
           activeTab: "groups",
         }),

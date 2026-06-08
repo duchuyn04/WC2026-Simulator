@@ -7,12 +7,15 @@ import { seed } from "@/lib/data";
 import { GroupCard } from "./GroupCard";
 import { ThirdPlacePanel } from "./ThirdPlacePanel";
 import { KnockoutBracket } from "./KnockoutBracket";
+import { SchedulePanel } from "./SchedulePanel";
 import { getFifaRankingsMeta } from "@/lib/fifa/rankings";
+import type { TabId } from "@/lib/tabs";
 
-const TABS = [
-  { id: "groups" as const, label: "Vòng bảng" },
-  { id: "third" as const, label: "Hạng 3" },
-  { id: "knockout" as const, label: "Knockout" },
+const TABS: { id: TabId; label: string }[] = [
+  { id: "groups", label: "Vòng bảng" },
+  { id: "schedule", label: "Lịch thi đấu" },
+  { id: "third", label: "Hạng 3" },
+  { id: "knockout", label: "Knockout" },
 ];
 
 export function AppShell() {
@@ -74,7 +77,7 @@ export function AppShell() {
           </div>
 
           <nav
-            className={`flex w-full sm:w-fit gap-0.5 sm:gap-1 p-1 rounded-lg bg-zinc-900/80 border border-zinc-800 ${
+            className={`grid grid-cols-2 sm:flex sm:w-fit gap-0.5 sm:gap-1 p-1 rounded-lg bg-zinc-900/80 border border-zinc-800 ${
               activeTab === "knockout" ? "mt-2" : "mt-4"
             }`}
           >
@@ -91,7 +94,7 @@ export function AppShell() {
                   data-testid={`tab-${tab.id}`}
                   onClick={() => setActiveTab(tab.id)}
                   className={[
-                    "relative flex-1 sm:flex-none px-2 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base font-medium rounded-md transition-colors whitespace-nowrap",
+                    "relative w-full sm:w-auto sm:flex-none px-2 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-base font-medium rounded-md transition-colors whitespace-nowrap",
                     activeTab === tab.id
                       ? "bg-amber-500 text-black"
                       : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800",
@@ -130,6 +133,7 @@ export function AppShell() {
             ))}
           </div>
         )}
+        {activeTab === "schedule" && <SchedulePanel />}
         {activeTab === "third" && <ThirdPlacePanel />}
         {activeTab === "knockout" && <KnockoutBracket />}
       </main>

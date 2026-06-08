@@ -3,12 +3,13 @@
 import { useEffect, useRef } from "react";
 import { useSimulation } from "./store";
 import { useStoreHydrated } from "./hooks";
+import type { ScrollableTabId, TabId } from "./tabs";
 
-export function usePersistedScroll(activeTab: "groups" | "third" | "knockout") {
+export function usePersistedScroll(activeTab: TabId) {
   const hydrated = useStoreHydrated();
   const scrollPositions = useSimulation((s) => s.scrollPositions);
   const setScrollPosition = useSimulation((s) => s.setScrollPosition);
-  const prevTabRef = useRef<"groups" | "third" | "knockout" | null>(null);
+  const prevTabRef = useRef<TabId | null>(null);
   const didInitialRestore = useRef(false);
 
   useEffect(() => {
@@ -16,12 +17,12 @@ export function usePersistedScroll(activeTab: "groups" | "third" | "knockout") {
 
     if (!didInitialRestore.current) {
       didInitialRestore.current = true;
-      if (activeTab !== "knockout") {
-        requestAnimationFrame(() =>
-          window.scrollTo({ top: scrollPositions[activeTab], behavior: "instant" })
-        );
-      } else {
+      if (activeTab === "knockout") {
         window.scrollTo(0, 0);
+      } else {
+        requestAnimationFrame(() =>
+          window.scrollTo({ top: scrollPositions[activeTab] ?? 0, behavior: "instant" })
+        );
       }
       prevTabRef.current = activeTab;
       return;
@@ -33,7 +34,7 @@ export function usePersistedScroll(activeTab: "groups" | "third" | "knockout") {
       window.scrollTo(0, 0);
     } else {
       requestAnimationFrame(() =>
-        window.scrollTo({ top: scrollPositions[activeTab], behavior: "instant" })
+        window.scrollTo({ top: scrollPositions[activeTab] ?? 0, behavior: "instant" })
       );
     }
     prevTabRef.current = activeTab;
@@ -41,7 +42,7 @@ export function usePersistedScroll(activeTab: "groups" | "third" | "knockout") {
 
   useEffect(() => {
     if (!hydrated) return;
-    if (activeTab !== "groups" && activeTab !== "third") return;
+    if (activeTab !== "groups" && activeTab !== "schedule" && activeTab !== "third") return;
 
     let ticking = false;
     const onScroll = () => {

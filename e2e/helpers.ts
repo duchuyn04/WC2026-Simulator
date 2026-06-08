@@ -12,7 +12,10 @@ export async function gotoFresh(page: Page) {
   await page.getByRole("heading", { name: "WC 2026 Simulator" }).waitFor();
 }
 
-export async function goToTab(page: Page, tab: "groups" | "third" | "knockout") {
+export async function goToTab(
+  page: Page,
+  tab: "groups" | "schedule" | "third" | "knockout"
+) {
   await page.getByTestId(`tab-${tab}`).click();
 }
 

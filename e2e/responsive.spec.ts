@@ -61,8 +61,17 @@ for (const vp of VIEWPORTS) {
       await assertNoHorizontalOverflow(page);
     });
 
-    test("tab nav — đủ 3 tab, chuyển được", async ({ page }) => {
-      const tabs = ["groups", "third", "knockout"] as const;
+    test("lịch thi đấu — danh sách và lọc", async ({ page }) => {
+      await goToTab(page, "schedule");
+      await expect(page.getByTestId("schedule-panel")).toBeVisible();
+      await expect(page.getByTestId("schedule-match-1")).toBeVisible();
+      await page.getByTestId("schedule-filter-knockout").click();
+      await expect(page.getByTestId("schedule-match-1")).toBeHidden();
+      await assertNoHorizontalOverflow(page);
+    });
+
+    test("tab nav — đủ 4 tab, chuyển được", async ({ page }) => {
+      const tabs = ["groups", "schedule", "third", "knockout"] as const;
       for (const tab of tabs) {
         await goToTab(page, tab);
         await expect(page.getByTestId(`tab-${tab}`)).toHaveClass(/bg-amber-500/);

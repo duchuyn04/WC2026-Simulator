@@ -6,6 +6,7 @@ import { calculateGroupStandings, buildStandingsFromOrder } from "./fifa/standin
 import { rankThirdPlaceTeams } from "./fifa/third-place";
 import { resolveKnockoutBracket, getMatchesByStage } from "./fifa/bracket";
 import { seed } from "./data";
+import { buildScheduleEntries } from "./schedule";
 import type { GroupStanding, MatchResult, Team } from "./fifa/types";
 
 function computeStandings(
@@ -56,7 +57,7 @@ export function useThirdPlace() {
   return useMemo(() => rankThirdPlaceTeams(standings), [standings]);
 }
 
-export function useKnockout() {
+function useResolvedKnockoutMatches() {
   const standings = useGroupStandings();
   const knockoutWinners = useSimulation((s) => s.knockoutWinners);
 
@@ -72,13 +73,26 @@ export function useKnockout() {
       const team = allTeams.get(teamId);
       if (team) winners[Number(num)] = team;
     }
-    const resolved = resolveKnockoutBracket(
+    return resolveKnockoutBracket(
       seed.knockout,
       standings,
       third.qualifyingGroups,
       winners,
       losers
     );
-    return getMatchesByStage(resolved);
   }, [standings, knockoutWinners]);
+}
+
+export function useKnockout() {
+  const resolved = useResolvedKnockoutMatches();
+  return useMemo(() => getMatchesByStage(resolved), [resolved]);
+}
+
+export function useSchedule() {
+  const matchResults = useSimulation((s) => s.matchResults);
+  const resolved = useResolvedKnockoutMatches();
+  return useMemo(
+    () => buildScheduleEntries(matchResults, resolved),
+    [matchResults, resolved]
+  );
 }

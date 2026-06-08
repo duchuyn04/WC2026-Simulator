@@ -29,7 +29,17 @@ test.describe("Điều hướng & tiện ích", () => {
     await expect(groupDetailModal(page, "A").locator('input[type="number"]').first()).toHaveValue("");
   });
 
-  test("vòng lặp đủ 3 tab", async ({ page }) => {
+  test("tab Lịch thi đấu hiển thị danh sách trận", async ({ page }) => {
+    await goToTab(page, "schedule");
+    await expect(page.getByTestId("schedule-panel")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Lịch thi đấu" })).toBeVisible();
+    await expect(page.getByTestId("schedule-match-1")).toBeVisible();
+    await expect(page.getByText("104 trận")).toBeVisible();
+  });
+
+  test("vòng lặp đủ 4 tab", async ({ page }) => {
+    await goToTab(page, "schedule");
+    await expect(page.getByRole("heading", { name: "Lịch thi đấu" })).toBeVisible();
     await goToTab(page, "third");
     await expect(page.getByRole("heading", { name: "8 đội hạng 3 tốt nhất" })).toBeVisible();
     await goToTab(page, "knockout");
