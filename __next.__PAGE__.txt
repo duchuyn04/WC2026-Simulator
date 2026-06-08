@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[49830,["/WC2026-Simulator/_next/static/chunks/158myu8e_yme3.js","/WC2026-Simulator/_next/static/chunks/08u48djb1w52b.js","/WC2026-Simulator/_next/static/chunks/1553em0hap22q.js","/WC2026-Simulator/_next/static/chunks/03370be0orujk.js"],"AppShell"]
+3:I[97367,["/WC2026-Simulator/_next/static/chunks/158myu8e_yme3.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/WC2026-Simulator/_next/static/chunks/08u48djb1w52b.js","async":true}],["$","script","script-1",{"src":"/WC2026-Simulator/_next/static/chunks/1553em0hap22q.js","async":true}],["$","script","script-2",{"src":"/WC2026-Simulator/_next/static/chunks/03370be0orujk.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"XCARcDneJ925nz4als9Yc"}
+5:null
