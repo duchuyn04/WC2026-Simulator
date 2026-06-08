@@ -53,8 +53,16 @@ for (const vp of VIEWPORTS) {
       await expect(page.getByTestId("bracket-zoom-in")).toBeVisible();
 
       const hint = page.getByTestId("bracket-zoom-hint");
+      const isMobile = vp.width < 640;
+
+      if (isMobile) {
+        await expect(hint).toContainText("130%");
+        const slotBox = await page.locator("[data-match-slot]").first().boundingBox();
+        expect(slotBox?.width ?? 0).toBeGreaterThan(100);
+      }
+
       await page.getByTestId("bracket-zoom-in").click();
-      await expect(hint).toContainText("110%");
+      await expect(hint).toContainText(isMobile ? "143%" : "110%");
 
       await page.getByTestId("bracket-fit-frame").click();
       await expect(hint).toContainText("100%");

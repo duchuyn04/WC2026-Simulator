@@ -10,8 +10,15 @@ import {
   type RefObject,
 } from "react";
 import { seed } from "@/lib/data";
+import {
+  clampBracketZoom,
+  getDisplayFitScale,
+  getMaxZoom,
+  resolveInitialBracketZoom,
+} from "@/lib/bracket-viewport";
 import { useSimulation } from "@/lib/store";
 import { useStoreHydrated } from "@/lib/hooks";
+import { useIsMobile } from "@/lib/use-is-mobile";
 import {
   buildKnockoutTree,
   layoutBracketSubtree,
@@ -31,8 +38,6 @@ const ROUND_WIDTH = MATCH_WIDTH + CONNECTOR;
 const MATCH_HEIGHT = 64;
 const FIT_PAD = 4;
 
-const MIN_ZOOM = 1;
-const MAX_ZOOM = 2.5;
 const ZOOM_FACTOR = 1.1;
 const DRAG_THRESHOLD = 5;
 const MATCH_FOCUS_ZOOM = 1.75;
@@ -83,10 +88,6 @@ function pointerDistance(a: PointerRecord, b: PointerRecord) {
 
 function pointerCenter(a: PointerRecord, b: PointerRecord, el: HTMLElement): Pan {
   return cursorFromEvent(el, (a.x + b.x) / 2, (a.y + b.y) / 2);
-}
-
-function clampZoom(zoom: number) {
-  return Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, zoom));
 }
 
 function zoomPanToCursor(
@@ -530,12 +531,14 @@ export function BracketTree({ matches, onPickWinner }: Props) {
   const third = matches.get(tree.third);
 
   const hydrated = useStoreHydrated();
+  const isMobile = useIsMobile();
   const bracketView = useSimulation((s) => s.bracketView);
   const setBracketView = useSimulation((s) => s.setBracketView);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const bracketSize = useMemo(() => computeBracketDimensions(centerRow), [centerRow]);
   const fitScale = useBracketFit(containerRef, bracketSize);
+  const displayFitScale = getDisplayFitScale(fitScale, isMobile);
   const [userZoom, setUserZoom] = useState(1);
   const [pan, setPan] = useState<Pan>({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -545,15 +548,18 @@ export function BracketTree({ matches, onPickWinner }: Props) {
   const pointersRef = useRef(new Map<number, PointerRecord>());
   const pinchRef = useRef<PinchState>({ ...EMPTY_PINCH });
 
-  const scale = fitScale * userZoom;
+  const scale = displayFitScale * userZoom;
   const zoomPercent = Math.round(userZoom * 100);
 
-  const applyView = useCallback((nextZoom: number, nextPan: Pan) => {
-    const zoom = clampZoom(nextZoom);
-    viewRef.current = { userZoom: zoom, pan: nextPan };
-    setUserZoom(zoom);
-    setPan(nextPan);
-  }, []);
+  const applyView = useCallback(
+    (nextZoom: number, nextPan: Pan) => {
+      const zoom = clampBracketZoom(nextZoom, isMobile);
+      viewRef.current = { userZoom: zoom, pan: nextPan };
+      setUserZoom(zoom);
+      setPan(nextPan);
+    },
+    [isMobile]
+  );
 
   const focusAt = useCallback(
     (clientX: number, clientY: number, targetZoom = MATCH_FOCUS_ZOOM) => {
@@ -562,17 +568,17 @@ export function BracketTree({ matches, onPickWinner }: Props) {
 
       const cursor = cursorFromEvent(el, clientX, clientY);
       const currentZoom = viewRef.current.userZoom;
-      const nextZoom = Math.max(currentZoom, clampZoom(targetZoom));
+      const nextZoom = Math.max(currentZoom, clampBracketZoom(targetZoom, isMobile));
       const nextPan = zoomPanToCursor(
         cursor,
         viewRef.current.pan,
         currentZoom,
         nextZoom,
-        fitScale
+        displayFitScale
       );
       applyView(nextZoom, nextPan);
     },
-    [applyView, fitScale]
+    [applyView, displayFitScale, isMobile]
   );
 
   useEffect(() => {
@@ -582,8 +588,13 @@ export function BracketTree({ matches, onPickWinner }: Props) {
   useEffect(() => {
     if (!hydrated || viewRestoredRef.current || fitScale <= 0) return;
     viewRestoredRef.current = true;
-    applyView(bracketView.userZoom, bracketView.pan);
-  }, [hydrated, fitScale, bracketView, applyView]);
+    const initialZoom = resolveInitialBracketZoom(
+      bracketView.userZoom,
+      fitScale,
+      isMobile
+    );
+    applyView(initialZoom, bracketView.pan);
+  }, [hydrated, fitScale, isMobile, bracketView, applyView]);
 
   useEffect(() => {
     if (!hydrated || !viewRestoredRef.current) return;
@@ -601,20 +612,20 @@ export function BracketTree({ matches, onPickWinner }: Props) {
       const factor = e.deltaY < 0 ? ZOOM_FACTOR : 1 / ZOOM_FACTOR;
       const cursor = cursorFromEvent(el, e.clientX, e.clientY);
       const currentZoom = viewRef.current.userZoom;
-      const nextZoom = clampZoom(currentZoom * factor);
+      const nextZoom = clampBracketZoom(currentZoom * factor, isMobile);
       const nextPan = zoomPanToCursor(
         cursor,
         viewRef.current.pan,
         currentZoom,
         nextZoom,
-        fitScale
+        displayFitScale
       );
       applyView(nextZoom, nextPan);
     };
 
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
-  }, [applyView, fitScale]);
+  }, [applyView, displayFitScale, isMobile]);
 
   const cancelDrag = useCallback((el: HTMLElement, pointerId?: number) => {
     const drag = dragRef.current;
@@ -707,13 +718,13 @@ export function BracketTree({ matches, onPickWinner }: Props) {
 
       const dist = pointerDistance(pts[0], pts[1]);
       const ratio = dist / pinch.startDistance;
-      const nextZoom = clampZoom(pinch.startZoom * ratio);
+      const nextZoom = clampBracketZoom(pinch.startZoom * ratio, isMobile);
       const nextPan = zoomPanToCursor(
         pinch.center,
         pinch.startPan,
         pinch.startZoom,
         nextZoom,
-        fitScale
+        displayFitScale
       );
       applyView(nextZoom, nextPan);
       return;
@@ -760,11 +771,17 @@ export function BracketTree({ matches, onPickWinner }: Props) {
 
       const cursor = { x: 0, y: 0 };
       const currentZoom = viewRef.current.userZoom;
-      const nextZoom = clampZoom(currentZoom * factor);
-      const nextPan = zoomPanToCursor(cursor, viewRef.current.pan, currentZoom, nextZoom, fitScale);
+      const nextZoom = clampBracketZoom(currentZoom * factor, isMobile);
+      const nextPan = zoomPanToCursor(
+        cursor,
+        viewRef.current.pan,
+        currentZoom,
+        nextZoom,
+        displayFitScale
+      );
       applyView(nextZoom, nextPan);
     },
-    [applyView, fitScale]
+    [applyView, displayFitScale, isMobile]
   );
 
   const fitToFrame = () => {
@@ -836,7 +853,7 @@ export function BracketTree({ matches, onPickWinner }: Props) {
           className="pointer-events-none absolute inset-x-0 bottom-2 z-20 px-2 sm:px-3 text-center text-[10px] sm:text-xs text-zinc-500"
         >
           <span className="sm:hidden">
-            Bấm đội · Kéo di chuyển · Chụm hoặc +/− phóng to ({zoomPercent}%)
+            Bấm đội · Kéo xem các vòng · Chụm hoặc +/− phóng to ({zoomPercent}%)
           </span>
           <span className="hidden sm:inline">
             Bấm đội chọn người thắng · Lăn chuột phóng to (tối thiểu 100%) · Kéo nền di chuyển ·
@@ -848,7 +865,7 @@ export function BracketTree({ matches, onPickWinner }: Props) {
             type="button"
             data-testid="bracket-zoom-out"
             onClick={() => zoomAtCenter(1 / ZOOM_FACTOR)}
-            disabled={userZoom <= MIN_ZOOM}
+            disabled={userZoom <= 1}
             className="rounded-md border border-zinc-700 bg-zinc-950/80 px-2 py-1 text-sm font-medium text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100 disabled:opacity-40 disabled:pointer-events-none"
             aria-label="Thu nhỏ"
           >
@@ -858,7 +875,7 @@ export function BracketTree({ matches, onPickWinner }: Props) {
             type="button"
             data-testid="bracket-zoom-in"
             onClick={() => zoomAtCenter(ZOOM_FACTOR)}
-            disabled={userZoom >= MAX_ZOOM}
+            disabled={userZoom >= getMaxZoom(isMobile)}
             className="rounded-md border border-zinc-700 bg-zinc-950/80 px-2 py-1 text-sm font-medium text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100 disabled:opacity-40 disabled:pointer-events-none"
             aria-label="Phóng to"
           >
