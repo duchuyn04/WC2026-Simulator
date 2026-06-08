@@ -1,4 +1,5 @@
 import seedData from "../../data/wc2026-seed.json";
+import { assetPath } from "./base-path";
 import type { GroupData, KnockoutMatch } from "./fifa/types";
 import { fifaCodeToIso2 } from "./fifa/flag-codes";
 
@@ -16,7 +17,7 @@ export function getGroup(letter: string) {
 
 /** Local flags in /public/flags — FIFA CDN returns empty body for hotlinking */
 export function flagUrl(code: string) {
-  return `/flags/${code}.png`;
+  return assetPath(`/flags/${code}.png`);
 }
 
 export function flagCdnUrl(code: string, width = 80) {
