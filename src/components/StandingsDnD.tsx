@@ -27,7 +27,10 @@ type Props = {
   onReorder: (teamIds: string[]) => void;
   onClearManual: () => void;
   highlightChanges?: boolean;
+  hideStats?: boolean;
+  compact?: boolean;
   size?: "md" | "lg";
+  testId?: string;
 };
 
 function RankDelta({ delta }: { delta: number }) {
@@ -51,12 +54,14 @@ function SortableRow({
   highlight,
   rankDelta,
   size,
+  hideStats,
 }: {
   stat: TeamStats;
   position: number;
   highlight: boolean;
   rankDelta: number;
   size: "md" | "lg";
+  hideStats?: boolean;
 }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: stat.team.id,
@@ -99,21 +104,23 @@ function SortableRow({
       <div className="min-w-0 flex-1 overflow-hidden">
         <TeamBadge team={stat.team} size={large ? "md" : "sm"} compact />
       </div>
-      <div
-        className={[
-          "shrink-0 flex items-center font-mono tabular-nums text-zinc-400 whitespace-nowrap",
-          large ? "text-sm sm:text-base gap-1.5 sm:gap-3" : "text-xs sm:text-sm gap-1.5 sm:gap-2",
-        ].join(" ")}
-      >
-        {highlight && <RankDelta delta={rankDelta} />}
-        <span title="Điểm" className={large ? "font-semibold text-zinc-200" : ""}>
-          {stat.points}pts
-        </span>
-        <span title="Hiệu số" className="hidden min-[360px]:inline">
-          {stat.gf}:{stat.ga}
-        </span>
-        <span title="GD">{stat.gd > 0 ? `+${stat.gd}` : stat.gd}</span>
-      </div>
+      {!hideStats && (
+        <div
+          className={[
+            "shrink-0 flex items-center font-mono tabular-nums text-zinc-400 whitespace-nowrap",
+            large ? "text-sm sm:text-base gap-1.5 sm:gap-3" : "text-xs sm:text-sm gap-1.5 sm:gap-2",
+          ].join(" ")}
+        >
+          {highlight && <RankDelta delta={rankDelta} />}
+          <span title="Điểm" className={large ? "font-semibold text-zinc-200" : ""}>
+            {stat.points}pts
+          </span>
+          <span title="Hiệu số" className="hidden min-[360px]:inline">
+            {stat.gf}:{stat.ga}
+          </span>
+          <span title="GD">{stat.gd > 0 ? `+${stat.gd}` : stat.gd}</span>
+        </div>
+      )}
     </div>
   );
 }
@@ -124,7 +131,10 @@ export function StandingsDnD({
   onReorder,
   onClearManual,
   highlightChanges = false,
+  hideStats = false,
+  compact = false,
   size = "md",
+  testId,
 }: Props) {
   const rankDeltas = useRankChanges(ranked);
   const sensors = useSensors(
@@ -144,40 +154,45 @@ export function StandingsDnD({
   }
 
   return (
-    <div className="space-y-2">
-      <div className="flex items-center justify-between">
-        <h4
-          className={[
-            "font-semibold uppercase tracking-wider text-zinc-500",
-            size === "lg" ? "text-base" : "text-sm",
-          ].join(" ")}
-        >
-          Bảng xếp hạng
-        </h4>
-        {manual && (
-          <button
-            type="button"
-            onClick={onClearManual}
-            className="text-xs text-amber-400 hover:text-amber-300"
-          >
-            Tính lại từ tỉ số
-          </button>
-        )}
-      </div>
-      {manual && (
-        <p className="text-xs text-amber-400/80">Đang dùng thứ hạng thủ công (kéo thả)</p>
+    <div className={compact ? "space-y-1" : "space-y-2"} data-testid={testId}>
+      {!compact && (
+        <>
+          <div className="flex items-center justify-between">
+            <h4
+              className={[
+                "font-semibold uppercase tracking-wider text-zinc-500",
+                size === "lg" ? "text-base" : "text-sm",
+              ].join(" ")}
+            >
+              Bảng xếp hạng
+            </h4>
+            {manual && (
+              <button
+                type="button"
+                onClick={onClearManual}
+                className="text-xs text-amber-400 hover:text-amber-300"
+              >
+                Tính lại từ tỉ số
+              </button>
+            )}
+          </div>
+          {manual && (
+            <p className="text-xs text-amber-400/80">Đang dùng thứ hạng thủ công (kéo thả)</p>
+          )}
+        </>
       )}
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={ids} strategy={verticalListSortingStrategy}>
-          <div className="space-y-1">
+          <div className={compact ? "space-y-1.5" : "space-y-1"}>
             {ranked.map((stat, i) => (
               <SortableRow
                 key={stat.team.id}
                 stat={stat}
                 position={i}
-                highlight={highlightChanges}
+                highlight={highlightChanges && !hideStats}
                 rankDelta={rankDeltas.get(stat.team.id) ?? 0}
                 size={size}
+                hideStats={hideStats}
               />
             ))}
           </div>

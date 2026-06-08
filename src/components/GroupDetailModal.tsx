@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { GroupPanel } from "./GroupPanel";
 import type { GroupData, GroupStanding, MatchResult } from "@/lib/fifa/types";
+import type { GroupInputMode } from "@/lib/store";
 
 type Props = {
   open: boolean;
@@ -10,7 +11,9 @@ type Props = {
   group: GroupData;
   standing: GroupStanding;
   matchResults: Record<string, MatchResult>;
+  inputMode: GroupInputMode;
   isManual: boolean;
+  manualOrder: string[];
   onScore: (matchId: string, home?: number | null, away?: number | null) => void;
   onReorder: (teamIds: string[]) => void;
   onClearManual: () => void;
@@ -22,7 +25,9 @@ export function GroupDetailModal({
   group,
   standing,
   matchResults,
+  inputMode,
   isManual,
+  manualOrder,
   onScore,
   onReorder,
   onClearManual,
@@ -98,7 +103,9 @@ export function GroupDetailModal({
             group={group}
             standing={standing}
             matchResults={matchResults}
+            inputMode={inputMode}
             isManual={isManual}
+            manualOrder={manualOrder}
             onScore={onScore}
             onReorder={onReorder}
             onClearManual={onClearManual}

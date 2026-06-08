@@ -1,24 +1,8 @@
 import { seed } from "../data";
 import { resolveKnockoutBracket } from "./bracket";
-import { calculateGroupStandings, buildStandingsFromOrder } from "./standings";
+import { computeStandings } from "../compute-standings";
 import { rankThirdPlaceTeams } from "./third-place";
 import type { GroupStanding, KnockoutMatch, MatchResult, Team } from "./types";
-
-function computeStandings(
-  matchResults: Record<string, MatchResult>,
-  manualOrder: Record<string, string[] | null>
-): GroupStanding[] {
-  return seed.groups.map((group) => {
-    const manual = manualOrder[group.letter];
-    if (manual) {
-      const teams = manual
-        .map((id) => group.teams.find((t) => t.id === id))
-        .filter((t): t is Team => !!t);
-      if (teams.length === 4) return buildStandingsFromOrder(group, teams);
-    }
-    return calculateGroupStandings(group, matchResults);
-  });
-}
 
 export function getDependentKnockoutMatches(
   matchNumber: number,
@@ -49,14 +33,15 @@ export function getDependentKnockoutMatches(
 export function pruneKnockoutWinners(
   matchResults: Record<string, MatchResult>,
   manualOrder: Record<string, string[] | null>,
-  knockoutWinners: Record<number, string>
+  knockoutWinners: Record<number, string>,
+  thirdPlaceOrder?: string[] | null
 ): { winners: Record<number, string>; removedCount: number } {
   if (Object.keys(knockoutWinners).length === 0) {
     return { winners: {}, removedCount: 0 };
   }
 
   const standings = computeStandings(matchResults, manualOrder);
-  const third = rankThirdPlaceTeams(standings);
+  const third = rankThirdPlaceTeams(standings, thirdPlaceOrder);
   const allTeams = new Map<string, Team>();
   for (const g of seed.groups) {
     for (const t of g.teams) allTeams.set(t.id, t);

@@ -14,6 +14,13 @@ test.describe("Điều hướng & tiện ích", () => {
     await expect(qualified).toHaveCount(8);
   });
 
+  test("tab Hạng 3 mode thứ hạng — kéo thả 12 đội", async ({ page }) => {
+    await page.getByTestId("group-mode-ranks").click();
+    await goToTab(page, "third");
+    await expect(page.getByTestId("third-place-rank-list")).toBeVisible();
+    await expect(page.locator("[data-testid^='sortable-team-']")).toHaveCount(12);
+  });
+
   test("tab Hạng 3 hiện 4 đội bị loại", async ({ page }) => {
     await goToTab(page, "third");
     await expect(page.getByText("Bị loại (hạng 3)")).toBeVisible();

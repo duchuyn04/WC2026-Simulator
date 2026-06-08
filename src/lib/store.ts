@@ -3,8 +3,9 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { resolveKnockoutBracket, getMatchesByStage } from "./fifa/bracket";
-import { calculateGroupStandings, buildStandingsFromOrder } from "./fifa/standings";
-import { rankThirdPlaceTeams } from "./fifa/third-place";
+import { calculateGroupStandings } from "./fifa/standings";
+import { computeStandings } from "./compute-standings";
+import { rankThirdPlaceTeams, seedThirdPlaceOrder } from "./fifa/third-place";
 import {
   getDependentKnockoutMatches,
   pruneKnockoutWinners,
@@ -25,9 +26,13 @@ export type BracketView = {
   pan: { x: number; y: number };
 };
 
+export type GroupInputMode = "scores" | "ranks";
+
 type SimulationStore = {
   matchResults: Record<string, MatchResult>;
   manualOrder: Record<string, string[] | null>;
+  groupInputMode: GroupInputMode;
+  thirdPlaceOrder: string[] | null;
   knockoutWinners: Record<number, string>;
   knockoutSyncNotice: KnockoutSyncNotice | null;
   activeTab: TabId;
@@ -36,6 +41,9 @@ type SimulationStore = {
   setActiveTab: (tab: TabId) => void;
   setScrollPosition: (tab: ScrollableTabId, y: number) => void;
   setBracketView: (view: BracketView) => void;
+  setGroupInputMode: (mode: GroupInputMode) => void;
+  setThirdPlaceOrder: (teamIds: string[]) => void;
+  clearThirdPlaceOrder: () => void;
   dismissKnockoutSyncNotice: () => void;
   setScore: (matchId: string, home?: number | null, away?: number | null) => void;
   setManualOrder: (group: string, teamIds: string[]) => void;
@@ -47,31 +55,42 @@ type SimulationStore = {
   getKnockout: () => ReturnType<typeof getMatchesByStage>;
 };
 
-function computeStandings(
+function seedManualOrdersFromStandings(
   matchResults: Record<string, MatchResult>,
   manualOrder: Record<string, string[] | null>
-): GroupStanding[] {
-  return seed.groups.map((group) => {
-    const manual = manualOrder[group.letter];
-    if (manual) {
-      const teams = manual
-        .map((id) => group.teams.find((t) => t.id === id))
-        .filter((t): t is Team => !!t);
-      if (teams.length === 4) return buildStandingsFromOrder(group, teams);
-    }
-    return calculateGroupStandings(group, matchResults);
-  });
+): Record<string, string[] | null> {
+  const next = { ...manualOrder };
+  for (const group of seed.groups) {
+    if (next[group.letter]) continue;
+    const standing = calculateGroupStandings(group, matchResults);
+    next[group.letter] = standing.ranked.map((row) => row.team.id);
+  }
+  return next;
+}
+
+function resolveThirdPlaceForStore(
+  standings: GroupStanding[],
+  groupInputMode: GroupInputMode,
+  thirdPlaceOrder: string[] | null
+) {
+  if (groupInputMode === "ranks" && thirdPlaceOrder) {
+    return rankThirdPlaceTeams(standings, thirdPlaceOrder);
+  }
+  return rankThirdPlaceTeams(standings);
 }
 
 function syncKnockoutFromGroups(
   matchResults: Record<string, MatchResult>,
   manualOrder: Record<string, string[] | null>,
-  knockoutWinners: Record<number, string>
+  knockoutWinners: Record<number, string>,
+  groupInputMode: GroupInputMode = "scores",
+  thirdPlaceOrder: string[] | null = null
 ) {
   const { winners, removedCount } = pruneKnockoutWinners(
     matchResults,
     manualOrder,
-    knockoutWinners
+    knockoutWinners,
+    groupInputMode === "ranks" ? thirdPlaceOrder : null
   );
   return {
     knockoutWinners: winners,
@@ -84,6 +103,8 @@ export const useSimulation = create<SimulationStore>()(
     (set, get) => ({
       matchResults: {},
       manualOrder: {},
+      groupInputMode: "scores",
+      thirdPlaceOrder: null,
       knockoutWinners: {},
       knockoutSyncNotice: null,
       activeTab: "groups",
@@ -108,6 +129,61 @@ export const useSimulation = create<SimulationStore>()(
         })),
 
       setBracketView: (view) => set({ bracketView: view }),
+
+      setGroupInputMode: (mode) =>
+        set((s) => {
+          if (mode === s.groupInputMode) return {};
+          if (mode === "ranks") {
+            const manualOrder = seedManualOrdersFromStandings(s.matchResults, s.manualOrder);
+            const standings = computeStandings(s.matchResults, manualOrder);
+            const thirdPlaceOrder = seedThirdPlaceOrder(standings);
+            return {
+              groupInputMode: mode,
+              manualOrder,
+              thirdPlaceOrder,
+              ...syncKnockoutFromGroups(
+                s.matchResults,
+                manualOrder,
+                s.knockoutWinners,
+                "ranks",
+                thirdPlaceOrder
+              ),
+            };
+          }
+          return {
+            groupInputMode: mode,
+            thirdPlaceOrder: null,
+            manualOrder: s.groupInputMode === "ranks" ? {} : s.manualOrder,
+          };
+        }),
+
+      setThirdPlaceOrder: (teamIds) =>
+        set((s) => ({
+          thirdPlaceOrder: teamIds,
+          ...syncKnockoutFromGroups(
+            s.matchResults,
+            s.manualOrder,
+            s.knockoutWinners,
+            s.groupInputMode,
+            teamIds
+          ),
+        })),
+
+      clearThirdPlaceOrder: () =>
+        set((s) => {
+          const standings = computeStandings(s.matchResults, s.manualOrder);
+          const thirdPlaceOrder = seedThirdPlaceOrder(standings);
+          return {
+            thirdPlaceOrder,
+            ...syncKnockoutFromGroups(
+              s.matchResults,
+              s.manualOrder,
+              s.knockoutWinners,
+              s.groupInputMode,
+              thirdPlaceOrder
+            ),
+          };
+        }),
 
       dismissKnockoutSyncNotice: () =>
         set((s) =>
@@ -145,7 +221,13 @@ export const useSimulation = create<SimulationStore>()(
           return {
             matchResults,
             manualOrder,
-            ...syncKnockoutFromGroups(matchResults, manualOrder, s.knockoutWinners),
+            ...syncKnockoutFromGroups(
+              matchResults,
+              manualOrder,
+              s.knockoutWinners,
+              s.groupInputMode,
+              s.thirdPlaceOrder
+            ),
           };
         }),
 
@@ -154,7 +236,13 @@ export const useSimulation = create<SimulationStore>()(
           const manualOrder = { ...s.manualOrder, [group]: teamIds };
           return {
             manualOrder,
-            ...syncKnockoutFromGroups(s.matchResults, manualOrder, s.knockoutWinners),
+            ...syncKnockoutFromGroups(
+              s.matchResults,
+              manualOrder,
+              s.knockoutWinners,
+              s.groupInputMode,
+              s.thirdPlaceOrder
+            ),
           };
         }),
 
@@ -163,7 +251,13 @@ export const useSimulation = create<SimulationStore>()(
           const manualOrder = { ...s.manualOrder, [group]: null };
           return {
             manualOrder,
-            ...syncKnockoutFromGroups(s.matchResults, manualOrder, s.knockoutWinners),
+            ...syncKnockoutFromGroups(
+              s.matchResults,
+              manualOrder,
+              s.knockoutWinners,
+              s.groupInputMode,
+              s.thirdPlaceOrder
+            ),
           };
         }),
 
@@ -182,6 +276,8 @@ export const useSimulation = create<SimulationStore>()(
         set({
           matchResults: {},
           manualOrder: {},
+          groupInputMode: "scores",
+          thirdPlaceOrder: null,
           knockoutWinners: {},
           knockoutSyncNotice: null,
           scrollPositions: { groups: 0, schedule: 0, third: 0 },
@@ -191,11 +287,23 @@ export const useSimulation = create<SimulationStore>()(
 
       getGroupStandings: () => computeStandings(get().matchResults, get().manualOrder),
 
-      getThirdPlace: () => rankThirdPlaceTeams(get().getGroupStandings()),
+      getThirdPlace: () => {
+        const state = get();
+        return resolveThirdPlaceForStore(
+          state.getGroupStandings(),
+          state.groupInputMode,
+          state.thirdPlaceOrder
+        );
+      },
 
       getKnockout: () => {
-        const standings = get().getGroupStandings();
-        const third = rankThirdPlaceTeams(standings);
+        const state = get();
+        const standings = state.getGroupStandings();
+        const third = resolveThirdPlaceForStore(
+          standings,
+          state.groupInputMode,
+          state.thirdPlaceOrder
+        );
         const winners: Record<number, Team> = {};
         const losers: Record<number, Team> = {};
 
@@ -225,6 +333,8 @@ export const useSimulation = create<SimulationStore>()(
       partialize: (state) => ({
         matchResults: state.matchResults,
         manualOrder: state.manualOrder,
+        groupInputMode: state.groupInputMode,
+        thirdPlaceOrder: state.thirdPlaceOrder,
         knockoutWinners: state.knockoutWinners,
         activeTab: state.activeTab,
         scrollPositions: state.scrollPositions,

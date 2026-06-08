@@ -1,7 +1,10 @@
 import { describe, it, expect, test } from "vitest";
 import annexData from "../../../../data/third-place-combinations.json";
 import {
+  buildThirdPlaceResult,
   getThirdPlaceMapping,
+  getThirdPlaceTeams,
+  orderThirdPlaceTeams,
   rankThirdPlaceTeams,
   resolveThirdPlaceSlot,
 } from "../third-place";
@@ -51,6 +54,19 @@ describe("Annex C data integrity", () => {
       const label = resolveThirdPlaceSlot(key, slot);
       expect(label).toMatch(/^3[A-L]$/);
     }
+  });
+});
+
+describe("orderThirdPlaceTeams", () => {
+  it("applies manual order for all 12 teams", () => {
+    const standings = computeAllStandings();
+    const thirds = getThirdPlaceTeams(standings);
+    const manual = [...thirds].reverse().map((t) => t.team.id);
+    const ordered = orderThirdPlaceTeams(thirds, manual);
+    expect(ordered[0]?.team.id).toBe(manual[0]);
+    const result = buildThirdPlaceResult(ordered);
+    expect(result.qualified).toHaveLength(8);
+    expect(result.eliminated).toHaveLength(4);
   });
 });
 

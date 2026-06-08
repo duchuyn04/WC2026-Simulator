@@ -2,28 +2,12 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useSimulation } from "./store";
-import { calculateGroupStandings, buildStandingsFromOrder } from "./fifa/standings";
+import { computeStandings } from "./compute-standings";
 import { rankThirdPlaceTeams } from "./fifa/third-place";
 import { resolveKnockoutBracket, getMatchesByStage } from "./fifa/bracket";
 import { seed } from "./data";
 import { buildScheduleEntries } from "./schedule";
 import type { GroupStanding, MatchResult, Team } from "./fifa/types";
-
-function computeStandings(
-  matchResults: Record<string, MatchResult>,
-  manualOrder: Record<string, string[] | null>
-): GroupStanding[] {
-  return seed.groups.map((group) => {
-    const manual = manualOrder[group.letter];
-    if (manual) {
-      const teams = manual
-        .map((id) => group.teams.find((t) => t.id === id))
-        .filter((t): t is Team => !!t);
-      if (teams.length === 4) return buildStandingsFromOrder(group, teams);
-    }
-    return calculateGroupStandings(group, matchResults);
-  });
-}
 
 /** Chờ localStorage hydrate xong trước khi render UI (tránh nhảy về tab đầu). */
 export function useStoreHydrated() {
@@ -54,15 +38,28 @@ export function useGroupStandings() {
 
 export function useThirdPlace() {
   const standings = useGroupStandings();
-  return useMemo(() => rankThirdPlaceTeams(standings), [standings]);
+  const groupInputMode = useSimulation((s) => s.groupInputMode);
+  const thirdPlaceOrder = useSimulation((s) => s.thirdPlaceOrder);
+
+  return useMemo(() => {
+    if (groupInputMode === "ranks" && thirdPlaceOrder) {
+      return rankThirdPlaceTeams(standings, thirdPlaceOrder);
+    }
+    return rankThirdPlaceTeams(standings);
+  }, [standings, groupInputMode, thirdPlaceOrder]);
 }
 
 function useResolvedKnockoutMatches() {
   const standings = useGroupStandings();
   const knockoutWinners = useSimulation((s) => s.knockoutWinners);
+  const groupInputMode = useSimulation((s) => s.groupInputMode);
+  const thirdPlaceOrder = useSimulation((s) => s.thirdPlaceOrder);
 
   return useMemo(() => {
-    const third = rankThirdPlaceTeams(standings);
+    const third =
+      groupInputMode === "ranks" && thirdPlaceOrder
+        ? rankThirdPlaceTeams(standings, thirdPlaceOrder)
+        : rankThirdPlaceTeams(standings);
     const winners: Record<number, Team> = {};
     const losers: Record<number, Team> = {};
     const allTeams = new Map<string, Team>();
@@ -80,7 +77,7 @@ function useResolvedKnockoutMatches() {
       winners,
       losers
     );
-  }, [standings, knockoutWinners]);
+  }, [standings, knockoutWinners, groupInputMode, thirdPlaceOrder]);
 }
 
 export function useKnockout() {

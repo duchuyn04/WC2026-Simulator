@@ -9,6 +9,8 @@ function resetStore() {
   useSimulation.setState({
     matchResults: {},
     manualOrder: {},
+    groupInputMode: "scores",
+    thirdPlaceOrder: null,
     knockoutWinners: {},
     knockoutSyncNotice: null,
     activeTab: "groups",
@@ -63,11 +65,71 @@ describe("useSimulation store", () => {
 
   it("resetAll clears everything", () => {
     useSimulation.getState().setScore("x", 1, 1);
+    useSimulation.getState().setGroupInputMode("ranks");
     useSimulation.getState().resetAll();
     const s = useSimulation.getState();
     expect(s.matchResults).toEqual({});
     expect(s.knockoutWinners).toEqual({});
     expect(s.knockoutSyncNotice).toBeNull();
+    expect(s.groupInputMode).toBe("scores");
+  });
+
+  it("đặt lại → thứ hạng → tỉ số không khôi phục BXH từ manualOrder", () => {
+    const group = seed.groups[0];
+    const match = group.matches.find((m) => m.home && m.away)!;
+    useSimulation.getState().setScore(match.id, 3, 0);
+    useSimulation.getState().resetAll();
+    useSimulation.getState().setGroupInputMode("ranks");
+    useSimulation.getState().setGroupInputMode("scores");
+
+    const state = useSimulation.getState();
+    expect(state.matchResults).toEqual({});
+    expect(state.manualOrder[group.letter]).toBeUndefined();
+
+    const standing = state.getGroupStandings().find((s) => s.letter === group.letter)!;
+    const fromScores = calculateGroupStandings(group, {});
+    expect(standing.ranked.map((r) => r.team.id)).toEqual(
+      fromScores.ranked.map((r) => r.team.id)
+    );
+    expect(standing.first.points).toBe(0);
+  });
+
+  it("chuyển từ thứ hạng về tỉ số xóa manualOrder", () => {
+    useSimulation.getState().setGroupInputMode("ranks");
+    expect(Object.keys(useSimulation.getState().manualOrder).length).toBeGreaterThan(0);
+    useSimulation.getState().setGroupInputMode("scores");
+    expect(useSimulation.getState().manualOrder).toEqual({});
+  });
+
+  it("setGroupInputMode ranks seeds manual order for all groups", () => {
+    useSimulation.getState().setGroupInputMode("ranks");
+    const state = useSimulation.getState();
+    expect(state.groupInputMode).toBe("ranks");
+    for (const group of seed.groups) {
+      expect(state.manualOrder[group.letter]).toHaveLength(4);
+    }
+    expect(state.thirdPlaceOrder).toHaveLength(12);
+    expect(state.knockoutSyncNotice?.pending).toBe(true);
+  });
+
+  it("setThirdPlaceOrder reorders qualified teams", () => {
+    useSimulation.getState().setGroupInputMode("ranks");
+    const initial = useSimulation.getState().thirdPlaceOrder!;
+    const reordered = [...initial.slice(1), initial[0]!];
+    useSimulation.getState().setThirdPlaceOrder(reordered);
+    const third = useSimulation.getState().getThirdPlace();
+    expect(third.qualified[0]?.team.id).toBe(reordered[0]);
+    expect(third.qualified).toHaveLength(8);
+  });
+
+  it("rank mode pick updates standings", () => {
+    const group = seed.groups[0];
+    useSimulation.getState().setGroupInputMode("ranks");
+    const reversed = [...group.teams].reverse().map((t) => t.id);
+    useSimulation.getState().setManualOrder(group.letter, reversed);
+    const standing = useSimulation.getState().getGroupStandings().find((s) => s.letter === group.letter)!;
+    expect(standing.first.team.id).toBe(reversed[0]);
+    expect(standing.fourth.team.id).toBe(reversed[3]);
   });
 
   test.each(seed.groups.map((g) => g.letter))(

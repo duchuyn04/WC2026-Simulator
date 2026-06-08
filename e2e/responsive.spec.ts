@@ -40,9 +40,11 @@ for (const vp of VIEWPORTS) {
     });
 
     test("hạng 3 — danh sách hiển thị đủ", async ({ page }) => {
+      await page.getByTestId("group-mode-ranks").click();
       await goToTab(page, "third");
       await expect(page.getByRole("heading", { name: "8 đội hạng 3 tốt nhất" })).toBeVisible();
-      await expect(page.locator(".border-emerald-800\\/50")).toHaveCount(8);
+      await expect(page.getByTestId("third-place-rank-list")).toBeVisible();
+      await expect(page.locator("[data-testid^='sortable-team-']")).toHaveCount(12);
       await assertNoHorizontalOverflow(page);
     });
 

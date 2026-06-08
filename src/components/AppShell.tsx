@@ -5,6 +5,7 @@ import { useGroupStandings, useStoreHydrated } from "@/lib/hooks";
 import { usePersistedScroll } from "@/lib/use-persisted-scroll";
 import { seed } from "@/lib/data";
 import { GroupCard } from "./GroupCard";
+import { GroupInputModeToggle } from "./GroupInputModeToggle";
 import { ThirdPlacePanel } from "./ThirdPlacePanel";
 import { KnockoutBracket } from "./KnockoutBracket";
 import { SchedulePanel } from "./SchedulePanel";
@@ -25,6 +26,7 @@ export function AppShell() {
   const setActiveTab = useSimulation((s) => s.setActiveTab);
   const knockoutSyncNotice = useSimulation((s) => s.knockoutSyncNotice);
   const standings = useGroupStandings();
+  const groupInputMode = useSimulation((s) => s.groupInputMode);
   const resetAll = useSimulation((s) => s.resetAll);
 
   const standingMap = new Map(standings.map((s) => [s.letter, s]));
@@ -59,7 +61,9 @@ export function AppShell() {
               </h1>
               {activeTab !== "knockout" && (
                 <p className="text-base text-zinc-500 mt-0.5">
-                  Nhập tỉ số · Kéo thả thứ hạng · Dự đoán knockout
+                  {activeTab === "groups" && groupInputMode === "ranks"
+                    ? "Kéo thả thứ hạng · Xếp hạng 3 · Knockout"
+                    : "Nhập tỉ số · Kéo thả thứ hạng · Dự đoán knockout"}
                 </p>
               )}
             </div>
@@ -123,14 +127,17 @@ export function AppShell() {
         }
       >
         {activeTab === "groups" && (
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {seed.groups.map((g) => (
-              <GroupCard
-                key={g.letter}
-                group={g}
-                standing={standingMap.get(g.letter)!}
-              />
-            ))}
+          <div className="space-y-4">
+            <GroupInputModeToggle />
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {seed.groups.map((g) => (
+                <GroupCard
+                  key={g.letter}
+                  group={g}
+                  standing={standingMap.get(g.letter)!}
+                />
+              ))}
+            </div>
           </div>
         )}
         {activeTab === "schedule" && <SchedulePanel />}
