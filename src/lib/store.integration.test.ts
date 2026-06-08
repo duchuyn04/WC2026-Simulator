@@ -70,16 +70,6 @@ describe("useSimulation store", () => {
     expect(s.knockoutSyncNotice).toBeNull();
   });
 
-  it("export/import roundtrip preserves data", () => {
-    const group = seed.groups[0];
-    const match = group.matches.find((m) => m.home && m.away)!;
-    useSimulation.getState().setScore(match.id, 2, 2);
-    const json = useSimulation.getState().exportScenario();
-    resetStore();
-    useSimulation.getState().importScenario(json);
-    expect(useSimulation.getState().matchResults[match.id]).toEqual({ home: 2, away: 2 });
-  });
-
   test.each(seed.groups.map((g) => g.letter))(
     "manual order for group %s updates knockout sync",
     (letter) => {

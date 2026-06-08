@@ -19,13 +19,6 @@ test.describe("Điều hướng & tiện ích", () => {
     await expect(page.getByText("Bị loại (hạng 3)")).toBeVisible();
   });
 
-  test("xuất JSON tải file", async ({ page }) => {
-    const downloadPromise = page.waitForEvent("download");
-    await page.getByRole("button", { name: "Xuất JSON" }).click();
-    const download = await downloadPromise;
-    expect(download.suggestedFilename()).toBe("wc2026-scenario.json");
-  });
-
   test("đặt lại xóa dữ liệu sau confirm", async ({ page }) => {
     page.on("dialog", (d) => d.accept());
     await openGroupDetail(page, "A");

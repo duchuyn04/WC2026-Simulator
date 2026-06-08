@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import { useSimulation } from "@/lib/store";
 import { useGroupStandings, useStoreHydrated } from "@/lib/hooks";
 import { usePersistedScroll } from "@/lib/use-persisted-scroll";
@@ -24,9 +23,6 @@ export function AppShell() {
   const knockoutSyncNotice = useSimulation((s) => s.knockoutSyncNotice);
   const standings = useGroupStandings();
   const resetAll = useSimulation((s) => s.resetAll);
-  const exportScenario = useSimulation((s) => s.exportScenario);
-  const importScenario = useSimulation((s) => s.importScenario);
-  const fileRef = useRef<HTMLInputElement>(null);
 
   const standingMap = new Map(standings.map((s) => [s.letter, s]));
   const fifaRankMeta = getFifaRankingsMeta();
@@ -37,24 +33,6 @@ export function AppShell() {
         Đang tải...
       </div>
     );
-  }
-
-  function handleExport() {
-    const blob = new Blob([exportScenario()], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "wc2026-scenario.json";
-    a.click();
-    URL.revokeObjectURL(url);
-  }
-
-  function handleImport(file: File) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (typeof reader.result === "string") importScenario(reader.result);
-    };
-    reader.readAsText(file);
   }
 
   return (
@@ -83,31 +61,6 @@ export function AppShell() {
               )}
             </div>
             <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={handleExport}
-                className="px-3 py-2 text-sm rounded-lg border border-zinc-700 hover:bg-zinc-800 transition-colors"
-              >
-                Xuất JSON
-              </button>
-              <button
-                type="button"
-                onClick={() => fileRef.current?.click()}
-                className="px-3 py-2 text-sm rounded-lg border border-zinc-700 hover:bg-zinc-800 transition-colors"
-              >
-                Nhập JSON
-              </button>
-              <input
-                ref={fileRef}
-                type="file"
-                accept=".json"
-                className="hidden"
-                onChange={(e) => {
-                  const f = e.target.files?.[0];
-                  if (f) handleImport(f);
-                  e.target.value = "";
-                }}
-              />
               <button
                 type="button"
                 onClick={() => {

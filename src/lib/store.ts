@@ -44,8 +44,6 @@ type SimulationStore = {
   clearManualOrder: (group: string) => void;
   setKnockoutWinner: (matchNumber: number, teamId: string | null) => void;
   resetAll: () => void;
-  importScenario: (json: string) => void;
-  exportScenario: () => string;
   getGroupStandings: () => GroupStanding[];
   getThirdPlace: () => ReturnType<typeof rankThirdPlaceTeams>;
   getKnockout: () => ReturnType<typeof getMatchesByStage>;
@@ -192,27 +190,6 @@ export const useSimulation = create<SimulationStore>()(
           bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
           activeTab: "groups",
         }),
-
-      importScenario: (json) => {
-        try {
-          const data = JSON.parse(json);
-          const matchResults = data.matchResults ?? {};
-          const manualOrder = data.manualOrder ?? {};
-          const importedWinners = data.knockoutWinners ?? {};
-          set({
-            matchResults,
-            manualOrder,
-            ...syncKnockoutFromGroups(matchResults, manualOrder, importedWinners),
-          });
-        } catch {
-          /* ignore */
-        }
-      },
-
-      exportScenario: () => {
-        const { matchResults, manualOrder, knockoutWinners } = get();
-        return JSON.stringify({ matchResults, manualOrder, knockoutWinners }, null, 2);
-      },
 
       getGroupStandings: () => computeStandings(get().matchResults, get().manualOrder),
 
