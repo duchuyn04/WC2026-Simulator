@@ -66,18 +66,29 @@ function rankTeams(
 ): TeamStats[] {
   if (teams.length <= 1) return teams;
 
-  const groups = new Map<number, TeamStats[]>();
-  for (const t of teams) {
-    const list = groups.get(t.points) ?? [];
-    list.push(t);
-    groups.set(t.points, list);
-  }
-
   const ranked: TeamStats[] = [];
-  const pointLevels = [...groups.keys()].sort((a, b) => b - a);
+  const sorted = [...teams].sort((a, b) => {
+    if (b.points !== a.points) return b.points - a.points;
+    if (b.gd !== a.gd) return b.gd - a.gd;
+    return b.gf - a.gf;
+  });
 
-  for (const pts of pointLevels) {
-    const tied = groups.get(pts)!;
+  let i = 0;
+  while (i < sorted.length) {
+    const current = sorted[i];
+    const tied = [current];
+    let j = i + 1;
+    while (
+      j < sorted.length &&
+      sorted[j].points === current.points &&
+      sorted[j].gd === current.gd &&
+      sorted[j].gf === current.gf
+    ) {
+      tied.push(sorted[j]);
+      j++;
+    }
+    i = j;
+
     if (tied.length === 1) {
       ranked.push(tied[0]);
       continue;
@@ -99,6 +110,7 @@ function rankTeams(
       );
 
       if (sameAsTop.length < remaining.length) {
+        let changed = false;
         for (const s of h2hSorted) {
           if (!ranked.find((r) => r.team.id === s.team.id)) {
             const done = h2hSorted.filter(
@@ -112,14 +124,15 @@ function rankTeams(
             if (done.length === 1) {
               ranked.push(teams.find((t) => t.team.id === s.team.id)!);
               remaining = remaining.filter((r) => r.team.id !== s.team.id);
+              changed = true;
             }
           }
         }
         const unresolved = remaining.filter((r) => !ranked.find((x) => x.team.id === r.team.id));
         if (unresolved.length > 1) {
-          const sorted = [...unresolved].sort(compareStats);
-          const best = sorted[0];
-          const tiedBest = sorted.filter(
+          const sortedSubset = [...unresolved].sort(compareStats);
+          const best = sortedSubset[0];
+          const tiedBest = sortedSubset.filter(
             (s) =>
               s.points === best.points &&
               s.gd === best.gd &&
@@ -128,9 +141,10 @@ function rankTeams(
               s.fifaRanking === best.fifaRanking
           );
           if (tiedBest.length === 1) {
-            ranked.push(best);
+            ranked.push(teams.find((t) => t.team.id === best.team.id)!);
             remaining = remaining.filter((r) => r.team.id !== best.team.id);
-          } else {
+            changed = true;
+          } else if (!changed) {
             break;
           }
         }
@@ -141,7 +155,9 @@ function rankTeams(
 
     if (remaining.length > 0) {
       remaining.sort(compareStats);
-      ranked.push(...remaining);
+      for (const r of remaining) {
+        ranked.push(teams.find((t) => t.team.id === r.team.id)!);
+      }
     }
   }
 

@@ -45,7 +45,7 @@ describe("Annex C data integrity", () => {
     expect(mapping).not.toBeNull();
     const label = mapping![slot as keyof typeof mapping];
     expect(label).toMatch(/^3[A-L]$/);
-    const groupLetter = label.slice(1);
+    const groupLetter = (label as string).slice(1);
     expect(key.split(",")).toContain(groupLetter);
   });
 

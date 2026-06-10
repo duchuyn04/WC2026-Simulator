@@ -6,13 +6,15 @@ function stat(id: string, code: string, points = 0): TeamStats {
   return {
     team: { id, code, name: code, flagUrl: "" },
     played: 0,
-    wins: 0,
-    draws: 0,
-    losses: 0,
+    won: 0,
+    drawn: 0,
+    lost: 0,
     gf: 0,
     ga: 0,
     gd: 0,
     points,
+    fairPlay: 0,
+    fifaRanking: 0,
   };
 }
 
