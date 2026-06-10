@@ -69,13 +69,14 @@ export function resolveKnockoutBracket(
 ): ResolvedKnockoutMatch[] {
   const positions = buildPositionMap(standings, qualifyingGroups);
   const winMap = { ...winners };
+  const loseMap = { ...losers };
 
   const sorted = [...knockoutMatches].sort((a, b) => a.matchNumber - b.matchNumber);
   const resolved: ResolvedKnockoutMatch[] = [];
 
   for (const m of sorted) {
-    const homeTeam = resolvePlaceholder(m.placeholderA, positions, winMap, losers);
-    const awayTeam = resolvePlaceholder(m.placeholderB, positions, winMap, losers);
+    const homeTeam = resolvePlaceholder(m.placeholderA, positions, winMap, loseMap);
+    const awayTeam = resolvePlaceholder(m.placeholderB, positions, winMap, loseMap);
 
     let winner: Team | null = null;
     if (winMap[m.matchNumber]) {
@@ -84,9 +85,9 @@ export function resolveKnockoutBracket(
 
     if (winner && homeTeam && awayTeam) {
       if (winner.id === homeTeam.id) {
-        losers[m.matchNumber] = awayTeam;
+        loseMap[m.matchNumber] = awayTeam;
       } else {
-        losers[m.matchNumber] = homeTeam;
+        loseMap[m.matchNumber] = homeTeam;
       }
     }
 
