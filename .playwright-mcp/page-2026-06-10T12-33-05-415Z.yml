@@ -1,0 +1,520 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "← Tất cả đội tuyển" [ref=e6] [cursor=pointer]:
+          - /url: /teams
+        - link "Mô phỏng" [ref=e7] [cursor=pointer]:
+          - /url: /
+      - generic [ref=e9]:
+        - img "Cờ USA" [ref=e10]
+        - generic [ref=e11]:
+          - paragraph [ref=e12]: Bảng D · CONCACAF
+          - heading "USA" [level=1] [ref=e13]
+          - paragraph [ref=e14]: "FIFA #16 · 11 lần tham dự · Chủ nhà"
+    - generic [ref=e15]:
+      - complementary [ref=e16]:
+        - generic [ref=e17]:
+          - heading "Thông tin đội" [level=2] [ref=e18]
+          - generic [ref=e19]:
+            - generic [ref=e20]:
+              - term [ref=e21]: Mã đội
+              - definition [ref=e22]: USA
+            - generic [ref=e23]:
+              - term [ref=e24]: Bảng
+              - definition [ref=e25]: D
+            - generic [ref=e26]:
+              - term [ref=e27]: Liên đoàn
+              - definition [ref=e28]: CONCACAF
+            - generic [ref=e29]:
+              - term [ref=e30]: Cầu thủ
+              - definition [ref=e31]: "26"
+        - generic [ref=e32]:
+          - heading "Ban huấn luyện" [level=2] [ref=e33]
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - paragraph [ref=e36]: Jesus PEREZ
+              - paragraph [ref=e37]: Coach · ESP
+            - generic [ref=e38]:
+              - paragraph [ref=e39]: Miguel DAGOSTINO
+              - paragraph [ref=e40]: Coach · ARG
+            - generic [ref=e41]:
+              - paragraph [ref=e42]: Mauricio POCHETTINO
+              - paragraph [ref=e43]: Head coach · ARG
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - heading "HLV trưởng" [level=2] [ref=e47]
+            - generic [ref=e48]: ARG
+          - article [ref=e49]:
+            - generic [ref=e50]:
+              - generic [ref=e51]: USA
+              - generic [ref=e52]: HLV
+            - generic [ref=e53]:
+              - heading "Mauricio POCHETTINO" [level=3] [ref=e54]
+              - paragraph [ref=e56]: Head coach · 54 tuổi
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - heading "Goalkeeper" [level=2] [ref=e59]
+            - generic [ref=e60]: 3 cầu thủ
+          - generic [ref=e61]:
+            - article [ref=e62]:
+              - generic [ref=e63]:
+                - img "Matt TURNER" [ref=e64]
+                - generic [ref=e65]: "1"
+              - generic [ref=e66]:
+                - heading "Matt TURNER" [level=3] [ref=e67]
+                - paragraph [ref=e69]: Goalkeeper
+              - generic [ref=e70]:
+                - generic [ref=e71]:
+                  - generic [ref=e72]: "31"
+                  - text: Tuổi
+                - generic [ref=e73]:
+                  - generic [ref=e74]: "190"
+                  - text: cm
+                - generic [ref=e75]:
+                  - generic [ref=e76]: "79"
+                  - text: kg
+            - article [ref=e77]:
+              - generic [ref=e78]:
+                - img "Matt FREESE" [ref=e79]
+                - generic [ref=e80]: "24"
+              - generic [ref=e81]:
+                - heading "Matt FREESE" [level=3] [ref=e82]
+                - paragraph [ref=e84]: Goalkeeper
+              - generic [ref=e85]:
+                - generic [ref=e86]:
+                  - generic [ref=e87]: "27"
+                  - text: Tuổi
+                - generic [ref=e88]:
+                  - generic [ref=e89]: "198"
+                  - text: cm
+                - generic [ref=e90]:
+                  - generic [ref=e91]: "85"
+                  - text: kg
+            - article [ref=e92]:
+              - generic [ref=e93]:
+                - img "Chris BRADY" [ref=e94]
+                - generic [ref=e95]: "25"
+              - generic [ref=e96]:
+                - heading "Chris BRADY" [level=3] [ref=e97]
+                - paragraph [ref=e99]: Goalkeeper
+              - generic [ref=e100]:
+                - generic [ref=e101]:
+                  - generic [ref=e102]: "22"
+                  - text: Tuổi
+                - generic [ref=e103]:
+                  - generic [ref=e104]: "193"
+                  - text: cm
+                - generic [ref=e105]:
+                  - generic [ref=e106]: "83"
+                  - text: kg
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - heading "Defender" [level=2] [ref=e109]
+            - generic [ref=e110]: 10 cầu thủ
+          - generic [ref=e111]:
+            - article [ref=e112]:
+              - generic [ref=e113]:
+                - img "Sergino DEST" [ref=e114]
+                - generic [ref=e115]: "2"
+              - generic [ref=e116]:
+                - heading "Sergino DEST" [level=3] [ref=e117]
+                - paragraph [ref=e119]: Defender
+              - generic [ref=e120]:
+                - generic [ref=e121]:
+                  - generic [ref=e122]: "25"
+                  - text: Tuổi
+                - generic [ref=e123]:
+                  - generic [ref=e124]: "173"
+                  - text: cm
+                - generic [ref=e125]:
+                  - generic [ref=e126]: "62"
+                  - text: kg
+            - article [ref=e127]:
+              - generic [ref=e128]:
+                - img "Chris RICHARDS" [ref=e129]
+                - generic [ref=e130]: "3"
+              - generic [ref=e131]:
+                - heading "Chris RICHARDS" [level=3] [ref=e132]
+                - paragraph [ref=e134]: Defender
+              - generic [ref=e135]:
+                - generic [ref=e136]:
+                  - generic [ref=e137]: "26"
+                  - text: Tuổi
+                - generic [ref=e138]:
+                  - generic [ref=e139]: "189"
+                  - text: cm
+                - generic [ref=e140]:
+                  - generic [ref=e141]: "93"
+                  - text: kg
+            - article [ref=e142]:
+              - generic [ref=e143]:
+                - img "Antonee ROBINSON" [ref=e144]
+                - generic [ref=e145]: "5"
+              - generic [ref=e146]:
+                - heading "Antonee ROBINSON" [level=3] [ref=e147]
+                - paragraph [ref=e149]: Defender
+              - generic [ref=e150]:
+                - generic [ref=e151]:
+                  - generic [ref=e152]: "28"
+                  - text: Tuổi
+                - generic [ref=e153]:
+                  - generic [ref=e154]: "183"
+                  - text: cm
+                - generic [ref=e155]:
+                  - generic [ref=e156]: "70"
+                  - text: kg
+            - article [ref=e157]:
+              - generic [ref=e158]:
+                - img "Auston TRUSTY" [ref=e159]
+                - generic [ref=e160]: "6"
+              - generic [ref=e161]:
+                - heading "Auston TRUSTY" [level=3] [ref=e162]
+                - paragraph [ref=e164]: Defender
+              - generic [ref=e165]:
+                - generic [ref=e166]:
+                  - generic [ref=e167]: "27"
+                  - text: Tuổi
+                - generic [ref=e168]:
+                  - generic [ref=e169]: "190"
+                  - text: cm
+                - generic [ref=e170]:
+                  - generic [ref=e171]: "78"
+                  - text: kg
+            - article [ref=e172]:
+              - generic [ref=e173]:
+                - img "Miles ROBINSON" [ref=e174]
+                - generic [ref=e175]: "12"
+              - generic [ref=e176]:
+                - heading "Miles ROBINSON" [level=3] [ref=e177]
+                - paragraph [ref=e179]: Defender
+              - generic [ref=e180]:
+                - generic [ref=e181]:
+                  - generic [ref=e182]: "29"
+                  - text: Tuổi
+                - generic [ref=e183]:
+                  - generic [ref=e184]: "187"
+                  - text: cm
+                - generic [ref=e185]:
+                  - generic [ref=e186]: "88"
+                  - text: kg
+            - article [ref=e187]:
+              - generic [ref=e188]:
+                - img "Tim REAM" [ref=e189]
+                - generic [ref=e190]: "13"
+              - generic [ref=e191]:
+                - heading "Tim REAM" [level=3] [ref=e192]
+                - paragraph [ref=e194]: Defender
+              - generic [ref=e195]:
+                - generic [ref=e196]:
+                  - generic [ref=e197]: "38"
+                  - text: Tuổi
+                - generic [ref=e198]:
+                  - generic [ref=e199]: "186"
+                  - text: cm
+                - generic [ref=e200]:
+                  - generic [ref=e201]: "79"
+                  - text: kg
+            - article [ref=e202]:
+              - generic [ref=e203]:
+                - img "Alex FREEMAN" [ref=e204]
+                - generic [ref=e205]: "16"
+              - generic [ref=e206]:
+                - heading "Alex FREEMAN" [level=3] [ref=e207]
+                - paragraph [ref=e209]: Defender
+              - generic [ref=e210]:
+                - generic [ref=e211]:
+                  - generic [ref=e212]: "21"
+                  - text: Tuổi
+                - generic [ref=e213]:
+                  - generic [ref=e214]: "188"
+                  - text: cm
+                - generic [ref=e215]:
+                  - generic [ref=e216]: "81"
+                  - text: kg
+            - article [ref=e217]:
+              - generic [ref=e218]:
+                - generic [ref=e219]: "#18"
+                - generic [ref=e220]: "18"
+              - generic [ref=e221]:
+                - heading "Max ARFSTEN" [level=3] [ref=e222]
+                - paragraph [ref=e224]: Defender
+              - generic [ref=e225]:
+                - generic [ref=e226]:
+                  - generic [ref=e227]: "25"
+                  - text: Tuổi
+                - generic [ref=e228]:
+                  - generic [ref=e229]: "185"
+                  - text: cm
+                - generic [ref=e230]:
+                  - generic [ref=e231]: "77"
+                  - text: kg
+            - article [ref=e232]:
+              - generic [ref=e233]:
+                - img "Mark McKENZIE" [ref=e234]
+                - generic [ref=e235]: "22"
+              - generic [ref=e236]:
+                - heading "Mark McKENZIE" [level=3] [ref=e237]
+                - paragraph [ref=e239]: Defender
+              - generic [ref=e240]:
+                - generic [ref=e241]:
+                  - generic [ref=e242]: "27"
+                  - text: Tuổi
+                - generic [ref=e243]:
+                  - generic [ref=e244]: "186"
+                  - text: cm
+                - generic [ref=e245]:
+                  - generic [ref=e246]: "84"
+                  - text: kg
+            - article [ref=e247]:
+              - generic [ref=e248]:
+                - img "Joe SCALLY" [ref=e249]
+                - generic [ref=e250]: "23"
+              - generic [ref=e251]:
+                - heading "Joe SCALLY" [level=3] [ref=e252]
+                - paragraph [ref=e254]: Defender
+              - generic [ref=e255]:
+                - generic [ref=e256]:
+                  - generic [ref=e257]: "23"
+                  - text: Tuổi
+                - generic [ref=e258]:
+                  - generic [ref=e259]: "184"
+                  - text: cm
+                - generic [ref=e260]:
+                  - generic [ref=e261]: "80"
+                  - text: kg
+        - generic [ref=e262]:
+          - generic [ref=e263]:
+            - heading "Midfielder" [level=2] [ref=e264]
+            - generic [ref=e265]: 6 cầu thủ
+          - generic [ref=e266]:
+            - article [ref=e267]:
+              - generic [ref=e268]:
+                - img "Tyler ADAMS" [ref=e269]
+                - generic [ref=e270]: "4"
+              - generic [ref=e271]:
+                - heading "Tyler ADAMS" [level=3] [ref=e272]
+                - paragraph [ref=e274]: Midfielder
+              - generic [ref=e275]:
+                - generic [ref=e276]:
+                  - generic [ref=e277]: "27"
+                  - text: Tuổi
+                - generic [ref=e278]:
+                  - generic [ref=e279]: "175"
+                  - text: cm
+                - generic [ref=e280]:
+                  - generic [ref=e281]: "72"
+                  - text: kg
+            - article [ref=e282]:
+              - generic [ref=e283]:
+                - img "Giovanni REYNA" [ref=e284]
+                - generic [ref=e285]: "7"
+              - generic [ref=e286]:
+                - heading "Giovanni REYNA" [level=3] [ref=e287]
+                - paragraph [ref=e289]: Midfielder
+              - generic [ref=e290]:
+                - generic [ref=e291]:
+                  - generic [ref=e292]: "23"
+                  - text: Tuổi
+                - generic [ref=e293]:
+                  - generic [ref=e294]: "187"
+                  - text: cm
+                - generic [ref=e295]:
+                  - generic [ref=e296]: "79"
+                  - text: kg
+            - article [ref=e297]:
+              - generic [ref=e298]:
+                - img "Weston McKENNIE" [ref=e299]
+                - generic [ref=e300]: "8"
+              - generic [ref=e301]:
+                - heading "Weston McKENNIE" [level=3] [ref=e302]
+                - paragraph [ref=e304]: Midfielder
+              - generic [ref=e305]:
+                - generic [ref=e306]:
+                  - generic [ref=e307]: "27"
+                  - text: Tuổi
+                - generic [ref=e308]:
+                  - generic [ref=e309]: "180"
+                  - text: cm
+                - generic [ref=e310]:
+                  - generic [ref=e311]: "88"
+                  - text: kg
+            - article [ref=e312]:
+              - generic [ref=e313]:
+                - img "Sebastian BERHALTER" [ref=e314]
+                - generic [ref=e315]: "14"
+              - generic [ref=e316]:
+                - heading "Sebastian BERHALTER" [level=3] [ref=e317]
+                - paragraph [ref=e319]: Midfielder
+              - generic [ref=e320]:
+                - generic [ref=e321]:
+                  - generic [ref=e322]: "25"
+                  - text: Tuổi
+                - generic [ref=e323]:
+                  - generic [ref=e324]: "175"
+                  - text: cm
+                - generic [ref=e325]:
+                  - generic [ref=e326]: "69"
+                  - text: kg
+            - article [ref=e327]:
+              - generic [ref=e328]:
+                - img "Cristian ROLDAN" [ref=e329]
+                - generic [ref=e330]: "15"
+              - generic [ref=e331]:
+                - heading "Cristian ROLDAN" [level=3] [ref=e332]
+                - paragraph [ref=e334]: Midfielder
+              - generic [ref=e335]:
+                - generic [ref=e336]:
+                  - generic [ref=e337]: "31"
+                  - text: Tuổi
+                - generic [ref=e338]:
+                  - generic [ref=e339]: "173"
+                  - text: cm
+                - generic [ref=e340]:
+                  - generic [ref=e341]: "75"
+                  - text: kg
+            - article [ref=e342]:
+              - generic [ref=e343]:
+                - img "Malik TILLMAN" [ref=e344]
+                - generic [ref=e345]: "17"
+              - generic [ref=e346]:
+                - heading "Malik TILLMAN" [level=3] [ref=e347]
+                - paragraph [ref=e349]: Midfielder
+              - generic [ref=e350]:
+                - generic [ref=e351]:
+                  - generic [ref=e352]: "24"
+                  - text: Tuổi
+                - generic [ref=e353]:
+                  - generic [ref=e354]: "187"
+                  - text: cm
+                - generic [ref=e355]:
+                  - generic [ref=e356]: "71"
+                  - text: kg
+        - generic [ref=e357]:
+          - generic [ref=e358]:
+            - heading "Forward" [level=2] [ref=e359]
+            - generic [ref=e360]: 7 cầu thủ
+          - generic [ref=e361]:
+            - article [ref=e362]:
+              - generic [ref=e363]:
+                - img "Ricardo PEPI" [ref=e364]
+                - generic [ref=e365]: "9"
+              - generic [ref=e366]:
+                - heading "Ricardo PEPI" [level=3] [ref=e367]
+                - paragraph [ref=e369]: Forward
+              - generic [ref=e370]:
+                - generic [ref=e371]:
+                  - generic [ref=e372]: "23"
+                  - text: Tuổi
+                - generic [ref=e373]:
+                  - generic [ref=e374]: "185"
+                  - text: cm
+                - generic [ref=e375]:
+                  - generic [ref=e376]: "73"
+                  - text: kg
+            - article [ref=e377]:
+              - generic [ref=e378]:
+                - img "Christian PULISIC" [ref=e379]
+                - generic [ref=e380]: "10"
+              - generic [ref=e381]:
+                - heading "Christian PULISIC" [level=3] [ref=e382]
+                - paragraph [ref=e384]: Forward
+              - generic [ref=e385]:
+                - generic [ref=e386]:
+                  - generic [ref=e387]: "27"
+                  - text: Tuổi
+                - generic [ref=e388]:
+                  - generic [ref=e389]: "177"
+                  - text: cm
+                - generic [ref=e390]:
+                  - generic [ref=e391]: "73"
+                  - text: kg
+            - article [ref=e392]:
+              - generic [ref=e393]:
+                - img "Brenden AARONSON" [ref=e394]
+                - generic [ref=e395]: "11"
+              - generic [ref=e396]:
+                - heading "Brenden AARONSON" [level=3] [ref=e397]
+                - paragraph [ref=e399]: Forward
+              - generic [ref=e400]:
+                - generic [ref=e401]:
+                  - generic [ref=e402]: "25"
+                  - text: Tuổi
+                - generic [ref=e403]:
+                  - generic [ref=e404]: "177"
+                  - text: cm
+                - generic [ref=e405]:
+                  - generic [ref=e406]: "66"
+                  - text: kg
+            - article [ref=e407]:
+              - generic [ref=e408]:
+                - img "Haji WRIGHT" [ref=e409]
+                - generic [ref=e410]: "19"
+              - generic [ref=e411]:
+                - heading "Haji WRIGHT" [level=3] [ref=e412]
+                - paragraph [ref=e414]: Forward
+              - generic [ref=e415]:
+                - generic [ref=e416]:
+                  - generic [ref=e417]: "28"
+                  - text: Tuổi
+                - generic [ref=e418]:
+                  - generic [ref=e419]: "191"
+                  - text: cm
+                - generic [ref=e420]:
+                  - generic [ref=e421]: "80"
+                  - text: kg
+            - article [ref=e422]:
+              - generic [ref=e423]:
+                - img "Folarin BALOGUN" [ref=e424]
+                - generic [ref=e425]: "20"
+              - generic [ref=e426]:
+                - heading "Folarin BALOGUN" [level=3] [ref=e427]
+                - paragraph [ref=e429]: Forward
+              - generic [ref=e430]:
+                - generic [ref=e431]:
+                  - generic [ref=e432]: "24"
+                  - text: Tuổi
+                - generic [ref=e433]:
+                  - generic [ref=e434]: "179"
+                  - text: cm
+                - generic [ref=e435]:
+                  - generic [ref=e436]: "66"
+                  - text: kg
+            - article [ref=e437]:
+              - generic [ref=e438]:
+                - img "Timothy WEAH" [ref=e439]
+                - generic [ref=e440]: "21"
+              - generic [ref=e441]:
+                - heading "Timothy WEAH" [level=3] [ref=e442]
+                - paragraph [ref=e444]: Forward
+              - generic [ref=e445]:
+                - generic [ref=e446]:
+                  - generic [ref=e447]: "26"
+                  - text: Tuổi
+                - generic [ref=e448]:
+                  - generic [ref=e449]: "183"
+                  - text: cm
+                - generic [ref=e450]:
+                  - generic [ref=e451]: "66"
+                  - text: kg
+            - article [ref=e452]:
+              - generic [ref=e453]:
+                - img "Alex ZENDEJAS" [ref=e454]
+                - generic [ref=e455]: "26"
+              - generic [ref=e456]:
+                - heading "Alex ZENDEJAS" [level=3] [ref=e457]
+                - paragraph [ref=e459]: Forward
+              - generic [ref=e460]:
+                - generic [ref=e461]:
+                  - generic [ref=e462]: "28"
+                  - text: Tuổi
+                - generic [ref=e463]:
+                  - generic [ref=e464]: "167"
+                  - text: cm
+                - generic [ref=e465]:
+                  - generic [ref=e466]: "66"
+                  - text: kg
+  - button "Open Next.js Dev Tools" [ref=e472] [cursor=pointer]:
+    - img [ref=e473]
+  - alert [ref=e476]

@@ -1,0 +1,82 @@
+[
+  {
+    "alt": "FIFA",
+    "src": "https://digitalhub.fifa.com/transform/befe3a64-328b-453c-8b58-0faeb9103684/FIFA_Logo_White_Generic?&io=transform:fill&quality=75",
+    "width": 1178,
+    "height": 388,
+    "rect": {
+      "x": 136,
+      "y": 6,
+      "width": 55,
+      "height": 28,
+      "top": 6,
+      "right": 191,
+      "bottom": 34,
+      "left": 136
+    }
+  },
+  {
+    "alt": "FIFA",
+    "src": "https://digitalhub.fifa.com/transform/157d23bf-7e13-4d7b-949e-5d27d340987e/WC26_Logo?&io=transform:fill&quality=75",
+    "width": 157,
+    "height": 235,
+    "rect": {
+      "x": 80,
+      "y": 48,
+      "width": 32.0625,
+      "height": 48,
+      "top": 48,
+      "right": 112.0625,
+      "bottom": 96,
+      "left": 80
+    }
+  },
+  {
+    "alt": "",
+    "src": "https://digitalhub.fifa.com/transform/483ea5bf-2a3e-4b01-b9f8-04bf762da0e6/FWC-26-Title-Banner-Desktop?&io=transform:fill,height:120,width:641&quality=75",
+    "width": 641,
+    "height": 120,
+    "rect": {
+      "x": 760.4000244140625,
+      "y": -1096,
+      "width": 854.6625366210938,
+      "height": 160,
+      "top": -1096,
+      "right": 1615.0625610351562,
+      "bottom": -936,
+      "left": 760.4000244140625
+    }
+  },
+  {
+    "alt": "",
+    "src": "https://t.co/1/i/adsct?bci=4&dv=Asia%2FSaigon%26en-US%2Cen%26Google%20Inc.%26Win32%26255%261536%26864%268%2632%261536%26816%260%26na&eci=3&event=%7B%7D&event_id=8364301c-b9a0-418f-bcfb-6666dcec50b8&integration=advertiser&p_id=Twitter&p_user_id=0&pl_id=6cad6cec-2c4e-48fc-85b6-0446d2014813&pt=Kroatien%20%7C%20FIFA%20World%20Cup%202026%E2%84%A2&tw_document_href=https%3A%2F%2Fwww.fifa.com%2Fen%2Ftournaments%2Fmens%2Fworldcup%2Fcanadamexicousa2026%2Fteams%2Fcroatia%2Fsquad&tw_iframe_status=0&tw_pid_src=2&twpid=tw.1781093270720.383778280586446028&txn_id=nrzco&type=javascript&version=2.3.53",
+    "width": 1,
+    "height": 1,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "alt": "",
+    "src": "https://analytics.twitter.com/1/i/adsct?bci=4&dv=Asia%2FSaigon%26en-US%2Cen%26Google%20Inc.%26Win32%26255%261536%26864%268%2632%261536%26816%260%26na&eci=3&event=%7B%7D&event_id=8364301c-b9a0-418f-bcfb-6666dcec50b8&integration=advertiser&p_id=Twitter&p_user_id=0&pl_id=6cad6cec-2c4e-48fc-85b6-0446d2014813&pt=Kroatien%20%7C%20FIFA%20World%20Cup%202026%E2%84%A2&tw_document_href=https%3A%2F%2Fwww.fifa.com%2Fen%2Ftournaments%2Fmens%2Fworldcup%2Fcanadamexicousa2026%2Fteams%2Fcroatia%2Fsquad&tw_iframe_status=0&tw_pid_src=2&twpid=tw.1781093270720.383778280586446028&txn_id=nrzco&type=javascript&version=2.3.53",
+    "width": 1,
+    "height": 1,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  }
+]

@@ -1,0 +1,325 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e4]:
+      - link "← Về mô phỏng" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - paragraph [ref=e7]: FIFA World Cup 2026
+        - heading "48 đội tuyển tham dự" [level=1] [ref=e8]
+        - paragraph [ref=e9]: Hồ sơ từng đội, bảng đấu, thứ hạng FIFA, số lần tham dự, HLV và danh sách 26 cầu thủ được lấy từ FIFA API.
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - paragraph [ref=e12]: "48"
+          - paragraph [ref=e13]: Đội tuyển
+        - generic [ref=e14]:
+          - paragraph [ref=e15]: "1248"
+          - paragraph [ref=e16]: Cầu thủ
+        - generic [ref=e17]:
+          - paragraph [ref=e18]: "12"
+          - paragraph [ref=e19]: Bảng đấu
+    - generic [ref=e20]:
+      - generic [ref=e22]:
+        - button "All48" [ref=e23]
+        - button "AFC9" [ref=e24]
+        - button "CAF10" [ref=e25]
+        - button "CONCACAF6" [ref=e26]
+        - button "CONMEBOL6" [ref=e27]
+        - button "OFC1" [ref=e28]
+        - button "UEFA16" [active] [pressed] [ref=e29]
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Teams & stats
+          - heading "UEFA" [level=2] [ref=e769]
+        - paragraph [ref=e34]: Hiển thị 16 / 48 đội
+      - generic [ref=e35]:
+        - 'link "Cờ Austria UEFA Austria Group J · FIFA #24 26 Cầu thủ 7 Lần dự Ralf RANGNICK HLV" [ref=e81] [cursor=pointer]':
+          - /url: /teams/austria
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - img "Cờ Austria" [ref=e84]
+              - generic [ref=e86]: UEFA
+            - heading "Austria" [level=3] [ref=e87]
+            - paragraph [ref=e88]: "Group J · FIFA #24"
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - generic [ref=e91]: "26"
+              - text: Cầu thủ
+            - generic [ref=e92]:
+              - generic [ref=e93]: "7"
+              - text: Lần dự
+            - generic [ref=e94]:
+              - generic [ref=e95]: Ralf RANGNICK
+              - text: HLV
+        - 'link "Cờ Belgium UEFA Belgium Group G · FIFA #9 26 Cầu thủ 13 Lần dự Rudi GARCIA HLV" [ref=e96] [cursor=pointer]':
+          - /url: /teams/belgium
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - img "Cờ Belgium" [ref=e99]
+              - generic [ref=e101]: UEFA
+            - heading "Belgium" [level=3] [ref=e102]
+            - paragraph [ref=e103]: "Group G · FIFA #9"
+          - generic [ref=e104]:
+            - generic [ref=e105]:
+              - generic [ref=e106]: "26"
+              - text: Cầu thủ
+            - generic [ref=e107]:
+              - generic [ref=e108]: "13"
+              - text: Lần dự
+            - generic [ref=e109]:
+              - generic [ref=e110]: Rudi GARCIA
+              - text: HLV
+        - 'link "Cờ Bosnia and Herzegovina UEFA Bosnia and Herzegovina Group B · FIFA #65 26 Cầu thủ 1 Lần dự Sergej BARBAREZ HLV" [ref=e111] [cursor=pointer]':
+          - /url: /teams/bosnia-herzegovina
+          - generic [ref=e112]:
+            - generic [ref=e113]:
+              - img "Cờ Bosnia and Herzegovina" [ref=e114]
+              - generic [ref=e116]: UEFA
+            - heading "Bosnia and Herzegovina" [level=3] [ref=e117]
+            - paragraph [ref=e118]: "Group B · FIFA #65"
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - generic [ref=e121]: "26"
+              - text: Cầu thủ
+            - generic [ref=e122]:
+              - generic [ref=e123]: "1"
+              - text: Lần dự
+            - generic [ref=e124]:
+              - generic [ref=e125]: Sergej BARBAREZ
+              - text: HLV
+        - 'link "Cờ Croatia UEFA Croatia Group L · FIFA #11 26 Cầu thủ 6 Lần dự Zlatko DALIC HLV" [ref=e217] [cursor=pointer]':
+          - /url: /teams/croatia
+          - generic [ref=e218]:
+            - generic [ref=e219]:
+              - img "Cờ Croatia" [ref=e220]
+              - generic [ref=e222]: UEFA
+            - heading "Croatia" [level=3] [ref=e223]
+            - paragraph [ref=e224]: "Group L · FIFA #11"
+          - generic [ref=e225]:
+            - generic [ref=e226]:
+              - generic [ref=e227]: "26"
+              - text: Cầu thủ
+            - generic [ref=e228]:
+              - generic [ref=e229]: "6"
+              - text: Lần dự
+            - generic [ref=e230]:
+              - generic [ref=e231]: Zlatko DALIC
+              - text: HLV
+        - 'link "Cờ Czechia UEFA Czechia Group A · FIFA #41 26 Cầu thủ 9 Lần dự Miroslav KOUBEK HLV" [ref=e247] [cursor=pointer]':
+          - /url: /teams/czechia
+          - generic [ref=e248]:
+            - generic [ref=e249]:
+              - img "Cờ Czechia" [ref=e250]
+              - generic [ref=e252]: UEFA
+            - heading "Czechia" [level=3] [ref=e253]
+            - paragraph [ref=e254]: "Group A · FIFA #41"
+          - generic [ref=e255]:
+            - generic [ref=e256]:
+              - generic [ref=e257]: "26"
+              - text: Cầu thủ
+            - generic [ref=e258]:
+              - generic [ref=e259]: "9"
+              - text: Lần dự
+            - generic [ref=e260]:
+              - generic [ref=e261]: Miroslav KOUBEK
+              - text: HLV
+        - 'link "Cờ England UEFA England Group L · FIFA #4 26 Cầu thủ 16 Lần dự Thomas TUCHEL HLV" [ref=e292] [cursor=pointer]':
+          - /url: /teams/england
+          - generic [ref=e293]:
+            - generic [ref=e294]:
+              - img "Cờ England" [ref=e295]
+              - generic [ref=e297]: UEFA
+            - heading "England" [level=3] [ref=e298]
+            - paragraph [ref=e299]: "Group L · FIFA #4"
+          - generic [ref=e300]:
+            - generic [ref=e301]:
+              - generic [ref=e302]: "26"
+              - text: Cầu thủ
+            - generic [ref=e303]:
+              - generic [ref=e304]: "16"
+              - text: Lần dự
+            - generic [ref=e305]:
+              - generic [ref=e306]: Thomas TUCHEL
+              - text: HLV
+        - 'link "Cờ France UEFA France Group I · FIFA #1 26 Cầu thủ 16 Lần dự Didier DESCHAMPS HLV" [ref=e307] [cursor=pointer]':
+          - /url: /teams/france
+          - generic [ref=e308]:
+            - generic [ref=e309]:
+              - img "Cờ France" [ref=e310]
+              - generic [ref=e312]: UEFA
+            - heading "France" [level=3] [ref=e313]
+            - paragraph [ref=e314]: "Group I · FIFA #1"
+          - generic [ref=e315]:
+            - generic [ref=e316]:
+              - generic [ref=e317]: "26"
+              - text: Cầu thủ
+            - generic [ref=e318]:
+              - generic [ref=e319]: "16"
+              - text: Lần dự
+            - generic [ref=e320]:
+              - generic [ref=e321]: Didier DESCHAMPS
+              - text: HLV
+        - 'link "Cờ Germany UEFA Germany Group E · FIFA #10 26 Cầu thủ 20 Lần dự Julian NAGELSMANN HLV" [ref=e322] [cursor=pointer]':
+          - /url: /teams/germany
+          - generic [ref=e323]:
+            - generic [ref=e324]:
+              - img "Cờ Germany" [ref=e325]
+              - generic [ref=e327]: UEFA
+            - heading "Germany" [level=3] [ref=e328]
+            - paragraph [ref=e329]: "Group E · FIFA #10"
+          - generic [ref=e330]:
+            - generic [ref=e331]:
+              - generic [ref=e332]: "26"
+              - text: Cầu thủ
+            - generic [ref=e333]:
+              - generic [ref=e334]: "20"
+              - text: Lần dự
+            - generic [ref=e335]:
+              - generic [ref=e336]: Julian NAGELSMANN
+              - text: HLV
+        - 'link "Cờ Netherlands UEFA Netherlands Group F · FIFA #7 26 Cầu thủ 10 Lần dự Ronald KOEMAN HLV" [ref=e473] [cursor=pointer]':
+          - /url: /teams/netherlands
+          - generic [ref=e474]:
+            - generic [ref=e475]:
+              - img "Cờ Netherlands" [ref=e476]
+              - generic [ref=e478]: UEFA
+            - heading "Netherlands" [level=3] [ref=e479]
+            - paragraph [ref=e480]: "Group F · FIFA #7"
+          - generic [ref=e481]:
+            - generic [ref=e482]:
+              - generic [ref=e483]: "26"
+              - text: Cầu thủ
+            - generic [ref=e484]:
+              - generic [ref=e485]: "10"
+              - text: Lần dự
+            - generic [ref=e486]:
+              - generic [ref=e487]: Ronald KOEMAN
+              - text: HLV
+        - 'link "Cờ Norway UEFA Norway Group I · FIFA #31 26 Cầu thủ 3 Lần dự Stale SOLBAKKEN HLV" [ref=e503] [cursor=pointer]':
+          - /url: /teams/norway
+          - generic [ref=e504]:
+            - generic [ref=e505]:
+              - img "Cờ Norway" [ref=e506]
+              - generic [ref=e508]: UEFA
+            - heading "Norway" [level=3] [ref=e509]
+            - paragraph [ref=e510]: "Group I · FIFA #31"
+          - generic [ref=e511]:
+            - generic [ref=e512]:
+              - generic [ref=e513]: "26"
+              - text: Cầu thủ
+            - generic [ref=e514]:
+              - generic [ref=e515]: "3"
+              - text: Lần dự
+            - generic [ref=e516]:
+              - generic [ref=e517]: Stale SOLBAKKEN
+              - text: HLV
+        - 'link "Cờ Portugal UEFA Portugal Group K · FIFA #5 26 Cầu thủ 8 Lần dự Roberto MARTINEZ HLV" [ref=e548] [cursor=pointer]':
+          - /url: /teams/portugal
+          - generic [ref=e549]:
+            - generic [ref=e550]:
+              - img "Cờ Portugal" [ref=e551]
+              - generic [ref=e553]: UEFA
+            - heading "Portugal" [level=3] [ref=e554]
+            - paragraph [ref=e555]: "Group K · FIFA #5"
+          - generic [ref=e556]:
+            - generic [ref=e557]:
+              - generic [ref=e558]: "26"
+              - text: Cầu thủ
+            - generic [ref=e559]:
+              - generic [ref=e560]: "8"
+              - text: Lần dự
+            - generic [ref=e561]:
+              - generic [ref=e562]: Roberto MARTINEZ
+              - text: HLV
+        - 'link "Cờ Scotland UEFA Scotland Group C · FIFA #43 26 Cầu thủ 7 Lần dự Steve CLARKE HLV" [ref=e593] [cursor=pointer]':
+          - /url: /teams/scotland
+          - generic [ref=e594]:
+            - generic [ref=e595]:
+              - img "Cờ Scotland" [ref=e596]
+              - generic [ref=e598]: UEFA
+            - heading "Scotland" [level=3] [ref=e599]
+            - paragraph [ref=e600]: "Group C · FIFA #43"
+          - generic [ref=e601]:
+            - generic [ref=e602]:
+              - generic [ref=e603]: "26"
+              - text: Cầu thủ
+            - generic [ref=e604]:
+              - generic [ref=e605]: "7"
+              - text: Lần dự
+            - generic [ref=e606]:
+              - generic [ref=e607]: Steve CLARKE
+              - text: HLV
+        - 'link "Cờ Spain UEFA Spain Group H · FIFA #2 26 Cầu thủ 16 Lần dự Luis DE LA FUENTE HLV" [ref=e638] [cursor=pointer]':
+          - /url: /teams/spain
+          - generic [ref=e639]:
+            - generic [ref=e640]:
+              - img "Cờ Spain" [ref=e641]
+              - generic [ref=e643]: UEFA
+            - heading "Spain" [level=3] [ref=e644]
+            - paragraph [ref=e645]: "Group H · FIFA #2"
+          - generic [ref=e646]:
+            - generic [ref=e647]:
+              - generic [ref=e648]: "26"
+              - text: Cầu thủ
+            - generic [ref=e649]:
+              - generic [ref=e650]: "16"
+              - text: Lần dự
+            - generic [ref=e651]:
+              - generic [ref=e652]: Luis DE LA FUENTE
+              - text: HLV
+        - 'link "Cờ Sweden UEFA Sweden Group F · FIFA #38 26 Cầu thủ 12 Lần dự Graham POTTER HLV" [ref=e653] [cursor=pointer]':
+          - /url: /teams/sweden
+          - generic [ref=e654]:
+            - generic [ref=e655]:
+              - img "Cờ Sweden" [ref=e656]
+              - generic [ref=e658]: UEFA
+            - heading "Sweden" [level=3] [ref=e659]
+            - paragraph [ref=e660]: "Group F · FIFA #38"
+          - generic [ref=e661]:
+            - generic [ref=e662]:
+              - generic [ref=e663]: "26"
+              - text: Cầu thủ
+            - generic [ref=e664]:
+              - generic [ref=e665]: "12"
+              - text: Lần dự
+            - generic [ref=e666]:
+              - generic [ref=e667]: Graham POTTER
+              - text: HLV
+        - 'link "Cờ Switzerland UEFA Switzerland Group B · FIFA #19 26 Cầu thủ 12 Lần dự Murat YAKIN HLV" [ref=e668] [cursor=pointer]':
+          - /url: /teams/switzerland
+          - generic [ref=e669]:
+            - generic [ref=e670]:
+              - img "Cờ Switzerland" [ref=e671]
+              - generic [ref=e673]: UEFA
+            - heading "Switzerland" [level=3] [ref=e674]
+            - paragraph [ref=e675]: "Group B · FIFA #19"
+          - generic [ref=e676]:
+            - generic [ref=e677]:
+              - generic [ref=e678]: "26"
+              - text: Cầu thủ
+            - generic [ref=e679]:
+              - generic [ref=e680]: "12"
+              - text: Lần dự
+            - generic [ref=e681]:
+              - generic [ref=e682]: Murat YAKIN
+              - text: HLV
+        - 'link "Cờ Türkiye UEFA Türkiye Group D · FIFA #22 26 Cầu thủ 2 Lần dự Vincenzo MONTELLA HLV" [ref=e698] [cursor=pointer]':
+          - /url: /teams/turkiye
+          - generic [ref=e699]:
+            - generic [ref=e700]:
+              - img "Cờ Türkiye" [ref=e701]
+              - generic [ref=e703]: UEFA
+            - heading "Türkiye" [level=3] [ref=e704]
+            - paragraph [ref=e705]: "Group D · FIFA #22"
+          - generic [ref=e706]:
+            - generic [ref=e707]:
+              - generic [ref=e708]: "26"
+              - text: Cầu thủ
+            - generic [ref=e709]:
+              - generic [ref=e710]: "2"
+              - text: Lần dự
+            - generic [ref=e711]:
+              - generic [ref=e712]: Vincenzo MONTELLA
+              - text: HLV
+  - button "Open Next.js Dev Tools" [ref=e764] [cursor=pointer]:
+    - img [ref=e765]
+  - alert [ref=e768]

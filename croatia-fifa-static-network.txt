@@ -1,0 +1,25 @@
+49. [GET] https://digitalhub.fifa.com/transform/befe3a64-328b-453c-8b58-0faeb9103684/FIFA_Logo_White_Generic?&io=transform:fill&quality=75 => [200] 
+50. [GET] https://digitalhub.fifa.com/transform/157d23bf-7e13-4d7b-949e-5d27d340987e/WC26_Logo?&io=transform:fill&quality=75 => [200] 
+67. [GET] https://cxm-api.fifa.com/fifaplusweb/api/sections/titleBanner/iX6SuxRM6EWwEj8ruAyOhw?locale=en&seasonId=285023&teamId=43938 => [200] OK
+79. [GET] https://api.fifa.com/api/v3/teams/43938?language=en => [200] OK
+102. [GET] https://api.fifa.com/api/v3/teams/43938/squad?idCompetition=17&idSeason=285023&language=en => [200] OK
+110. [GET] https://api.fifa.com/api/v3/teams/43938?language=en => [200] OK
+113. [GET] https://digitalhub.fifa.com/transform/483ea5bf-2a3e-4b01-b9f8-04bf762da0e6/FWC-26-Title-Banner-Desktop?&io=transform:fill,height:120,width:641&quality=75 => [200] 
+155. [GET] https://digitalhub.fifa.com/asset/0a5fc31f-67d3-4520-a30f-3315ef92d57a/thumbnail/webimage-fifa_fp_aramco_dbgr => [200] 
+156. [GET] https://digitalhub.fifa.com/asset/1068dee0-1ec8-4767-adc6-5cdca09aa212/thumbnail/webimage-fifa_fp_adidas-co_dbgr => [200] 
+157. [GET] https://digitalhub.fifa.com/asset/a2ab1635-54ac-466e-a8d0-6246dcc3d666/thumbnail/webimage-fifa_fp_adiz-foundation_dbgr => [200] 
+158. [GET] https://digitalhub.fifa.com/asset/101fc5a3-6651-47c4-9576-77d9f29128c5/thumbnail/webimage-fifa_fp_cocacola-co_dbgr => [200] 
+159. [GET] https://digitalhub.fifa.com/asset/9d169473-5372-45d9-afc1-2176a9183dc9/thumbnail/webimage-fifa_fp_hyundai-kia_dbgr => [200] 
+160. [GET] https://digitalhub.fifa.com/asset/9bf5417f-c673-4317-b144-992587d01037/thumbnail/webimage-fifa_fp_lenovo_dbgr => [200] 
+161. [GET] https://digitalhub.fifa.com/asset/2c368f9a-1ae7-4e1a-b34f-97b167056c33/thumbnail/webimage-fifa_fp_qatar-airways_co_dbgr => [200] 
+162. [GET] https://digitalhub.fifa.com/asset/cd2a1abe-c351-4fdd-b1da-580da377b1e3/thumbnail/webimage-fifa_fp_visa_dbgr => [200] 
+163. [GET] https://digitalhub.fifa.com/asset/a1625694-47ad-4524-b9e0-379c3019bbc9/thumbnail/webimage-fifa_sp_abi_dbgr => [200] 
+164. [GET] https://digitalhub.fifa.com/asset/4720b1bd-a660-4b60-8381-208b236d6f8b/thumbnail/webimage-fifa_sp_bank-america_dbgr => [200] 
+165. [GET] https://digitalhub.fifa.com/asset/f509e5a5-b534-46c5-aa78-85361eedca39/thumbnail/webimage-fifa_sp_hisense_dbgr => [200] 
+166. [GET] https://digitalhub.fifa.com/asset/edd3ca2a-7772-45ba-a68c-29ec1624b4fa/thumbnail/webimage-fifa_sp_lays_dbgr => [200] 
+167. [GET] https://digitalhub.fifa.com/asset/246d6a29-e33e-4e0d-aeca-1fdf269287fa/thumbnail/webimage-fifa_sp_mcdonalds_dbgr => [200] 
+168. [GET] https://digitalhub.fifa.com/asset/fd084c98-f5c3-4680-b2f0-a31b880ad0c3/thumbnail/webimage-fifa_sp_mengniu_dbgr => [200] 
+169. [GET] https://digitalhub.fifa.com/asset/3f5f90b4-5d42-4990-ae68-099f8477934a/thumbnail/webimage-fifa_sp_unilever-dove_dbgr => [200] 
+170. [GET] https://digitalhub.fifa.com/asset/a6b1d46d-8967-47d2-b698-f3c8df87eb1c/thumbnail/webimage-fifa_sp_verizon_dbgr => [200] 
+171. [GET] https://digitalhub.fifa.com/asset/78c9b281-e607-414a-b144-7f3f1fc0efd7/thumbnail/webimage-fifa_ts_aaaramco-valvoline_dbgr => [200] 
+172. [GET] https://digitalhub.fifa.com/asset/9bd7462a-e17b-4918-a022-aacb06ec789d/thumbnail/webimage-fifa_ts_pif_dbgr => [200] 

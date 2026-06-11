@@ -1,0 +1,561 @@
+- generic [active] [ref=e1]:
+  - alert [ref=e2]: WC 2026 Simulator
+  - main [ref=e3]:
+    - generic [ref=e5]:
+      - link "← Về mô phỏng" [ref=e6] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e7]:
+        - paragraph [ref=e8]: FIFA World Cup 2026
+        - heading "48 đội tuyển tham dự" [level=1] [ref=e9]
+        - paragraph [ref=e10]: Hồ sơ từng đội, bảng đấu, thứ hạng FIFA, số lần tham dự, HLV và danh sách 26 cầu thủ được lấy từ FIFA API.
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - paragraph [ref=e13]: "48"
+          - paragraph [ref=e14]: Đội tuyển
+        - generic [ref=e15]:
+          - paragraph [ref=e16]: "1248"
+          - paragraph [ref=e17]: Cầu thủ
+        - generic [ref=e18]:
+          - paragraph [ref=e19]: "12"
+          - paragraph [ref=e20]: Bảng đấu
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - heading "Bảng A" [level=2] [ref=e25]
+          - generic [ref=e26]: 4 đội
+        - generic [ref=e27]:
+          - 'link "Cờ Czechia Czechia UEFA · FIFA #41 26 cầu thủ Miroslav KOUBEK" [ref=e28] [cursor=pointer]':
+            - /url: /teams/czechia
+            - generic [ref=e29]:
+              - img "Cờ Czechia" [ref=e30]
+              - generic [ref=e31]:
+                - heading "Czechia" [level=3] [ref=e32]
+                - paragraph [ref=e33]: "UEFA · FIFA #41"
+            - generic [ref=e34]:
+              - generic [ref=e35]: 26 cầu thủ
+              - generic [ref=e36]: Miroslav KOUBEK
+          - 'link "Cờ Korea Republic Korea Republic AFC · FIFA #25 26 cầu thủ HONG Myungbo" [ref=e37] [cursor=pointer]':
+            - /url: /teams/korea-republic
+            - generic [ref=e38]:
+              - img "Cờ Korea Republic" [ref=e39]
+              - generic [ref=e40]:
+                - heading "Korea Republic" [level=3] [ref=e41]
+                - paragraph [ref=e42]: "AFC · FIFA #25"
+            - generic [ref=e43]:
+              - generic [ref=e44]: 26 cầu thủ
+              - generic [ref=e45]: HONG Myungbo
+          - 'link "Cờ Mexico Mexico CONCACAF · FIFA #15 26 cầu thủ Javier AGUIRRE" [ref=e46] [cursor=pointer]':
+            - /url: /teams/mexico
+            - generic [ref=e47]:
+              - img "Cờ Mexico" [ref=e48]
+              - generic [ref=e49]:
+                - heading "Mexico" [level=3] [ref=e50]
+                - paragraph [ref=e51]: "CONCACAF · FIFA #15"
+            - generic [ref=e52]:
+              - generic [ref=e53]: 26 cầu thủ
+              - generic [ref=e54]: Javier AGUIRRE
+          - 'link "Cờ South Africa South Africa CAF · FIFA #60 26 cầu thủ Hugo BROOS" [ref=e55] [cursor=pointer]':
+            - /url: /teams/south-africa
+            - generic [ref=e56]:
+              - img "Cờ South Africa" [ref=e57]
+              - generic [ref=e58]:
+                - heading "South Africa" [level=3] [ref=e59]
+                - paragraph [ref=e60]: "CAF · FIFA #60"
+            - generic [ref=e61]:
+              - generic [ref=e62]: 26 cầu thủ
+              - generic [ref=e63]: Hugo BROOS
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - heading "Bảng B" [level=2] [ref=e66]
+          - generic [ref=e67]: 4 đội
+        - generic [ref=e68]:
+          - 'link "Cờ Bosnia and Herzegovina Bosnia and Herzegovina UEFA · FIFA #65 26 cầu thủ Sergej BARBAREZ" [ref=e69] [cursor=pointer]':
+            - /url: /teams/bosnia-herzegovina
+            - generic [ref=e70]:
+              - img "Cờ Bosnia and Herzegovina" [ref=e71]
+              - generic [ref=e72]:
+                - heading "Bosnia and Herzegovina" [level=3] [ref=e73]
+                - paragraph [ref=e74]: "UEFA · FIFA #65"
+            - generic [ref=e75]:
+              - generic [ref=e76]: 26 cầu thủ
+              - generic [ref=e77]: Sergej BARBAREZ
+          - 'link "Cờ Canada Canada CONCACAF · FIFA #30 26 cầu thủ Jesse MARSCH" [ref=e78] [cursor=pointer]':
+            - /url: /teams/canada
+            - generic [ref=e79]:
+              - img "Cờ Canada" [ref=e80]
+              - generic [ref=e81]:
+                - heading "Canada" [level=3] [ref=e82]
+                - paragraph [ref=e83]: "CONCACAF · FIFA #30"
+            - generic [ref=e84]:
+              - generic [ref=e85]: 26 cầu thủ
+              - generic [ref=e86]: Jesse MARSCH
+          - 'link "Cờ Qatar Qatar AFC · FIFA #55 26 cầu thủ Julen LOPETEGUI" [ref=e87] [cursor=pointer]':
+            - /url: /teams/qatar
+            - generic [ref=e88]:
+              - img "Cờ Qatar" [ref=e89]
+              - generic [ref=e90]:
+                - heading "Qatar" [level=3] [ref=e91]
+                - paragraph [ref=e92]: "AFC · FIFA #55"
+            - generic [ref=e93]:
+              - generic [ref=e94]: 26 cầu thủ
+              - generic [ref=e95]: Julen LOPETEGUI
+          - 'link "Cờ Switzerland Switzerland UEFA · FIFA #19 26 cầu thủ Murat YAKIN" [ref=e96] [cursor=pointer]':
+            - /url: /teams/switzerland
+            - generic [ref=e97]:
+              - img "Cờ Switzerland" [ref=e98]
+              - generic [ref=e99]:
+                - heading "Switzerland" [level=3] [ref=e100]
+                - paragraph [ref=e101]: "UEFA · FIFA #19"
+            - generic [ref=e102]:
+              - generic [ref=e103]: 26 cầu thủ
+              - generic [ref=e104]: Murat YAKIN
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - heading "Bảng C" [level=2] [ref=e107]
+          - generic [ref=e108]: 4 đội
+        - generic [ref=e109]:
+          - 'link "Cờ Brazil Brazil CONMEBOL · FIFA #6 26 cầu thủ Carlo ANCELOTTI" [ref=e110] [cursor=pointer]':
+            - /url: /teams/brazil
+            - generic [ref=e111]:
+              - img "Cờ Brazil" [ref=e112]
+              - generic [ref=e113]:
+                - heading "Brazil" [level=3] [ref=e114]
+                - paragraph [ref=e115]: "CONMEBOL · FIFA #6"
+            - generic [ref=e116]:
+              - generic [ref=e117]: 26 cầu thủ
+              - generic [ref=e118]: Carlo ANCELOTTI
+          - 'link "Cờ Haiti Haiti CONCACAF · FIFA #83 26 cầu thủ Sebastien MIGNE" [ref=e119] [cursor=pointer]':
+            - /url: /teams/haiti
+            - generic [ref=e120]:
+              - img "Cờ Haiti" [ref=e121]
+              - generic [ref=e122]:
+                - heading "Haiti" [level=3] [ref=e123]
+                - paragraph [ref=e124]: "CONCACAF · FIFA #83"
+            - generic [ref=e125]:
+              - generic [ref=e126]: 26 cầu thủ
+              - generic [ref=e127]: Sebastien MIGNE
+          - 'link "Cờ Morocco Morocco CAF · FIFA #8 26 cầu thủ Mohamed OUAHBI" [ref=e128] [cursor=pointer]':
+            - /url: /teams/morocco
+            - generic [ref=e129]:
+              - img "Cờ Morocco" [ref=e130]
+              - generic [ref=e131]:
+                - heading "Morocco" [level=3] [ref=e132]
+                - paragraph [ref=e133]: "CAF · FIFA #8"
+            - generic [ref=e134]:
+              - generic [ref=e135]: 26 cầu thủ
+              - generic [ref=e136]: Mohamed OUAHBI
+          - 'link "Cờ Scotland Scotland UEFA · FIFA #43 26 cầu thủ Steve CLARKE" [ref=e137] [cursor=pointer]':
+            - /url: /teams/scotland
+            - generic [ref=e138]:
+              - img "Cờ Scotland" [ref=e139]
+              - generic [ref=e140]:
+                - heading "Scotland" [level=3] [ref=e141]
+                - paragraph [ref=e142]: "UEFA · FIFA #43"
+            - generic [ref=e143]:
+              - generic [ref=e144]: 26 cầu thủ
+              - generic [ref=e145]: Steve CLARKE
+      - generic [ref=e146]:
+        - generic [ref=e147]:
+          - heading "Bảng D" [level=2] [ref=e148]
+          - generic [ref=e149]: 4 đội
+        - generic [ref=e150]:
+          - 'link "Cờ Australia Australia AFC · FIFA #27 26 cầu thủ Tony POPOVIC" [ref=e151] [cursor=pointer]':
+            - /url: /teams/australia
+            - generic [ref=e152]:
+              - img "Cờ Australia" [ref=e153]
+              - generic [ref=e154]:
+                - heading "Australia" [level=3] [ref=e155]
+                - paragraph [ref=e156]: "AFC · FIFA #27"
+            - generic [ref=e157]:
+              - generic [ref=e158]: 26 cầu thủ
+              - generic [ref=e159]: Tony POPOVIC
+          - 'link "Cờ Paraguay Paraguay CONMEBOL · FIFA #40 26 cầu thủ Gustavo ALFARO" [ref=e160] [cursor=pointer]':
+            - /url: /teams/paraguay
+            - generic [ref=e161]:
+              - img "Cờ Paraguay" [ref=e162]
+              - generic [ref=e163]:
+                - heading "Paraguay" [level=3] [ref=e164]
+                - paragraph [ref=e165]: "CONMEBOL · FIFA #40"
+            - generic [ref=e166]:
+              - generic [ref=e167]: 26 cầu thủ
+              - generic [ref=e168]: Gustavo ALFARO
+          - 'link "Cờ Türkiye Türkiye UEFA · FIFA #22 26 cầu thủ Vincenzo MONTELLA" [ref=e169] [cursor=pointer]':
+            - /url: /teams/turkiye
+            - generic [ref=e170]:
+              - img "Cờ Türkiye" [ref=e171]
+              - generic [ref=e172]:
+                - heading "Türkiye" [level=3] [ref=e173]
+                - paragraph [ref=e174]: "UEFA · FIFA #22"
+            - generic [ref=e175]:
+              - generic [ref=e176]: 26 cầu thủ
+              - generic [ref=e177]: Vincenzo MONTELLA
+          - 'link "Cờ USA USA CONCACAF · FIFA #16 26 cầu thủ Mauricio POCHETTINO" [ref=e178] [cursor=pointer]':
+            - /url: /teams/usa
+            - generic [ref=e179]:
+              - img "Cờ USA" [ref=e180]
+              - generic [ref=e181]:
+                - heading "USA" [level=3] [ref=e182]
+                - paragraph [ref=e183]: "CONCACAF · FIFA #16"
+            - generic [ref=e184]:
+              - generic [ref=e185]: 26 cầu thủ
+              - generic [ref=e186]: Mauricio POCHETTINO
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - heading "Bảng E" [level=2] [ref=e189]
+          - generic [ref=e190]: 4 đội
+        - generic [ref=e191]:
+          - 'link "Cờ Côte d''Ivoire Côte d''Ivoire CAF · FIFA #34 26 cầu thủ Emerse FAE" [ref=e192] [cursor=pointer]':
+            - /url: /teams/cote-d-ivoire
+            - generic [ref=e193]:
+              - img "Cờ Côte d'Ivoire" [ref=e194]
+              - generic [ref=e195]:
+                - heading "Côte d'Ivoire" [level=3] [ref=e196]
+                - paragraph [ref=e197]: "CAF · FIFA #34"
+            - generic [ref=e198]:
+              - generic [ref=e199]: 26 cầu thủ
+              - generic [ref=e200]: Emerse FAE
+          - 'link "Cờ Curaçao Curaçao CONCACAF · FIFA #82 26 cầu thủ Dick ADVOCAAT" [ref=e201] [cursor=pointer]':
+            - /url: /teams/curacao
+            - generic [ref=e202]:
+              - img "Cờ Curaçao" [ref=e203]
+              - generic [ref=e204]:
+                - heading "Curaçao" [level=3] [ref=e205]
+                - paragraph [ref=e206]: "CONCACAF · FIFA #82"
+            - generic [ref=e207]:
+              - generic [ref=e208]: 26 cầu thủ
+              - generic [ref=e209]: Dick ADVOCAAT
+          - 'link "Cờ Ecuador Ecuador CONMEBOL · FIFA #23 26 cầu thủ Sebastian BECCACECE" [ref=e210] [cursor=pointer]':
+            - /url: /teams/ecuador
+            - generic [ref=e211]:
+              - img "Cờ Ecuador" [ref=e212]
+              - generic [ref=e213]:
+                - heading "Ecuador" [level=3] [ref=e214]
+                - paragraph [ref=e215]: "CONMEBOL · FIFA #23"
+            - generic [ref=e216]:
+              - generic [ref=e217]: 26 cầu thủ
+              - generic [ref=e218]: Sebastian BECCACECE
+          - 'link "Cờ Germany Germany UEFA · FIFA #10 26 cầu thủ Julian NAGELSMANN" [ref=e219] [cursor=pointer]':
+            - /url: /teams/germany
+            - generic [ref=e220]:
+              - img "Cờ Germany" [ref=e221]
+              - generic [ref=e222]:
+                - heading "Germany" [level=3] [ref=e223]
+                - paragraph [ref=e224]: "UEFA · FIFA #10"
+            - generic [ref=e225]:
+              - generic [ref=e226]: 26 cầu thủ
+              - generic [ref=e227]: Julian NAGELSMANN
+      - generic [ref=e228]:
+        - generic [ref=e229]:
+          - heading "Bảng F" [level=2] [ref=e230]
+          - generic [ref=e231]: 4 đội
+        - generic [ref=e232]:
+          - 'link "Cờ Japan Japan AFC · FIFA #18 26 cầu thủ Hajime MORIYASU" [ref=e233] [cursor=pointer]':
+            - /url: /teams/japan
+            - generic [ref=e234]:
+              - img "Cờ Japan" [ref=e235]
+              - generic [ref=e236]:
+                - heading "Japan" [level=3] [ref=e237]
+                - paragraph [ref=e238]: "AFC · FIFA #18"
+            - generic [ref=e239]:
+              - generic [ref=e240]: 26 cầu thủ
+              - generic [ref=e241]: Hajime MORIYASU
+          - 'link "Cờ Netherlands Netherlands UEFA · FIFA #7 26 cầu thủ Ronald KOEMAN" [ref=e242] [cursor=pointer]':
+            - /url: /teams/netherlands
+            - generic [ref=e243]:
+              - img "Cờ Netherlands" [ref=e244]
+              - generic [ref=e245]:
+                - heading "Netherlands" [level=3] [ref=e246]
+                - paragraph [ref=e247]: "UEFA · FIFA #7"
+            - generic [ref=e248]:
+              - generic [ref=e249]: 26 cầu thủ
+              - generic [ref=e250]: Ronald KOEMAN
+          - 'link "Cờ Sweden Sweden UEFA · FIFA #38 26 cầu thủ Graham POTTER" [ref=e251] [cursor=pointer]':
+            - /url: /teams/sweden
+            - generic [ref=e252]:
+              - img "Cờ Sweden" [ref=e253]
+              - generic [ref=e254]:
+                - heading "Sweden" [level=3] [ref=e255]
+                - paragraph [ref=e256]: "UEFA · FIFA #38"
+            - generic [ref=e257]:
+              - generic [ref=e258]: 26 cầu thủ
+              - generic [ref=e259]: Graham POTTER
+          - 'link "Cờ Tunisia Tunisia CAF · FIFA #44 26 cầu thủ Sabri LAMOUCHI" [ref=e260] [cursor=pointer]':
+            - /url: /teams/tunisia
+            - generic [ref=e261]:
+              - img "Cờ Tunisia" [ref=e262]
+              - generic [ref=e263]:
+                - heading "Tunisia" [level=3] [ref=e264]
+                - paragraph [ref=e265]: "CAF · FIFA #44"
+            - generic [ref=e266]:
+              - generic [ref=e267]: 26 cầu thủ
+              - generic [ref=e268]: Sabri LAMOUCHI
+      - generic [ref=e269]:
+        - generic [ref=e270]:
+          - heading "Bảng G" [level=2] [ref=e271]
+          - generic [ref=e272]: 4 đội
+        - generic [ref=e273]:
+          - 'link "Cờ Belgium Belgium UEFA · FIFA #9 26 cầu thủ Rudi GARCIA" [ref=e274] [cursor=pointer]':
+            - /url: /teams/belgium
+            - generic [ref=e275]:
+              - img "Cờ Belgium" [ref=e276]
+              - generic [ref=e277]:
+                - heading "Belgium" [level=3] [ref=e278]
+                - paragraph [ref=e279]: "UEFA · FIFA #9"
+            - generic [ref=e280]:
+              - generic [ref=e281]: 26 cầu thủ
+              - generic [ref=e282]: Rudi GARCIA
+          - 'link "Cờ Egypt Egypt CAF · FIFA #29 26 cầu thủ HOSSAM HASSAN" [ref=e283] [cursor=pointer]':
+            - /url: /teams/egypt
+            - generic [ref=e284]:
+              - img "Cờ Egypt" [ref=e285]
+              - generic [ref=e286]:
+                - heading "Egypt" [level=3] [ref=e287]
+                - paragraph [ref=e288]: "CAF · FIFA #29"
+            - generic [ref=e289]:
+              - generic [ref=e290]: 26 cầu thủ
+              - generic [ref=e291]: HOSSAM HASSAN
+          - 'link "Cờ IR Iran IR Iran AFC · FIFA #21 26 cầu thủ Amir GHALEHNOY" [ref=e292] [cursor=pointer]':
+            - /url: /teams/ir-iran
+            - generic [ref=e293]:
+              - img "Cờ IR Iran" [ref=e294]
+              - generic [ref=e295]:
+                - heading "IR Iran" [level=3] [ref=e296]
+                - paragraph [ref=e297]: "AFC · FIFA #21"
+            - generic [ref=e298]:
+              - generic [ref=e299]: 26 cầu thủ
+              - generic [ref=e300]: Amir GHALEHNOY
+          - 'link "Cờ New Zealand New Zealand OFC · FIFA #85 26 cầu thủ Darren BAZELEY" [ref=e301] [cursor=pointer]':
+            - /url: /teams/new-zealand
+            - generic [ref=e302]:
+              - img "Cờ New Zealand" [ref=e303]
+              - generic [ref=e304]:
+                - heading "New Zealand" [level=3] [ref=e305]
+                - paragraph [ref=e306]: "OFC · FIFA #85"
+            - generic [ref=e307]:
+              - generic [ref=e308]: 26 cầu thủ
+              - generic [ref=e309]: Darren BAZELEY
+      - generic [ref=e310]:
+        - generic [ref=e311]:
+          - heading "Bảng H" [level=2] [ref=e312]
+          - generic [ref=e313]: 4 đội
+        - generic [ref=e314]:
+          - 'link "Cờ Cabo Verde Cabo Verde CAF · FIFA #69 26 cầu thủ BUBISTA" [ref=e315] [cursor=pointer]':
+            - /url: /teams/cabo-verde
+            - generic [ref=e316]:
+              - img "Cờ Cabo Verde" [ref=e317]
+              - generic [ref=e318]:
+                - heading "Cabo Verde" [level=3] [ref=e319]
+                - paragraph [ref=e320]: "CAF · FIFA #69"
+            - generic [ref=e321]:
+              - generic [ref=e322]: 26 cầu thủ
+              - generic [ref=e323]: BUBISTA
+          - 'link "Cờ Saudi Arabia Saudi Arabia AFC · FIFA #61 26 cầu thủ Georgios DONIS" [ref=e324] [cursor=pointer]':
+            - /url: /teams/saudi-arabia
+            - generic [ref=e325]:
+              - img "Cờ Saudi Arabia" [ref=e326]
+              - generic [ref=e327]:
+                - heading "Saudi Arabia" [level=3] [ref=e328]
+                - paragraph [ref=e329]: "AFC · FIFA #61"
+            - generic [ref=e330]:
+              - generic [ref=e331]: 26 cầu thủ
+              - generic [ref=e332]: Georgios DONIS
+          - 'link "Cờ Spain Spain UEFA · FIFA #2 26 cầu thủ Luis DE LA FUENTE" [ref=e333] [cursor=pointer]':
+            - /url: /teams/spain
+            - generic [ref=e334]:
+              - img "Cờ Spain" [ref=e335]
+              - generic [ref=e336]:
+                - heading "Spain" [level=3] [ref=e337]
+                - paragraph [ref=e338]: "UEFA · FIFA #2"
+            - generic [ref=e339]:
+              - generic [ref=e340]: 26 cầu thủ
+              - generic [ref=e341]: Luis DE LA FUENTE
+          - 'link "Cờ Uruguay Uruguay CONMEBOL · FIFA #17 26 cầu thủ Marcelo BIELSA" [ref=e342] [cursor=pointer]':
+            - /url: /teams/uruguay
+            - generic [ref=e343]:
+              - img "Cờ Uruguay" [ref=e344]
+              - generic [ref=e345]:
+                - heading "Uruguay" [level=3] [ref=e346]
+                - paragraph [ref=e347]: "CONMEBOL · FIFA #17"
+            - generic [ref=e348]:
+              - generic [ref=e349]: 26 cầu thủ
+              - generic [ref=e350]: Marcelo BIELSA
+      - generic [ref=e351]:
+        - generic [ref=e352]:
+          - heading "Bảng I" [level=2] [ref=e353]
+          - generic [ref=e354]: 4 đội
+        - generic [ref=e355]:
+          - 'link "Cờ France France UEFA · FIFA #1 26 cầu thủ Didier DESCHAMPS" [ref=e356] [cursor=pointer]':
+            - /url: /teams/france
+            - generic [ref=e357]:
+              - img "Cờ France" [ref=e358]
+              - generic [ref=e359]:
+                - heading "France" [level=3] [ref=e360]
+                - paragraph [ref=e361]: "UEFA · FIFA #1"
+            - generic [ref=e362]:
+              - generic [ref=e363]: 26 cầu thủ
+              - generic [ref=e364]: Didier DESCHAMPS
+          - 'link "Cờ Iraq Iraq AFC · FIFA #57 26 cầu thủ Graham ARNOLD" [ref=e365] [cursor=pointer]':
+            - /url: /teams/iraq
+            - generic [ref=e366]:
+              - img "Cờ Iraq" [ref=e367]
+              - generic [ref=e368]:
+                - heading "Iraq" [level=3] [ref=e369]
+                - paragraph [ref=e370]: "AFC · FIFA #57"
+            - generic [ref=e371]:
+              - generic [ref=e372]: 26 cầu thủ
+              - generic [ref=e373]: Graham ARNOLD
+          - 'link "Cờ Norway Norway UEFA · FIFA #31 26 cầu thủ Stale SOLBAKKEN" [ref=e374] [cursor=pointer]':
+            - /url: /teams/norway
+            - generic [ref=e375]:
+              - img "Cờ Norway" [ref=e376]
+              - generic [ref=e377]:
+                - heading "Norway" [level=3] [ref=e378]
+                - paragraph [ref=e379]: "UEFA · FIFA #31"
+            - generic [ref=e380]:
+              - generic [ref=e381]: 26 cầu thủ
+              - generic [ref=e382]: Stale SOLBAKKEN
+          - 'link "Cờ Senegal Senegal CAF · FIFA #14 26 cầu thủ Pape THIAW" [ref=e383] [cursor=pointer]':
+            - /url: /teams/senegal
+            - generic [ref=e384]:
+              - img "Cờ Senegal" [ref=e385]
+              - generic [ref=e386]:
+                - heading "Senegal" [level=3] [ref=e387]
+                - paragraph [ref=e388]: "CAF · FIFA #14"
+            - generic [ref=e389]:
+              - generic [ref=e390]: 26 cầu thủ
+              - generic [ref=e391]: Pape THIAW
+      - generic [ref=e392]:
+        - generic [ref=e393]:
+          - heading "Bảng J" [level=2] [ref=e394]
+          - generic [ref=e395]: 4 đội
+        - generic [ref=e396]:
+          - 'link "Cờ Algeria Algeria CAF · FIFA #28 26 cầu thủ Vladimir PETKOVIC" [ref=e397] [cursor=pointer]':
+            - /url: /teams/algeria
+            - generic [ref=e398]:
+              - img "Cờ Algeria" [ref=e399]
+              - generic [ref=e400]:
+                - heading "Algeria" [level=3] [ref=e401]
+                - paragraph [ref=e402]: "CAF · FIFA #28"
+            - generic [ref=e403]:
+              - generic [ref=e404]: 26 cầu thủ
+              - generic [ref=e405]: Vladimir PETKOVIC
+          - 'link "Cờ Argentina Argentina CONMEBOL · FIFA #3 26 cầu thủ Lionel SCALONI" [ref=e406] [cursor=pointer]':
+            - /url: /teams/argentina
+            - generic [ref=e407]:
+              - img "Cờ Argentina" [ref=e408]
+              - generic [ref=e409]:
+                - heading "Argentina" [level=3] [ref=e410]
+                - paragraph [ref=e411]: "CONMEBOL · FIFA #3"
+            - generic [ref=e412]:
+              - generic [ref=e413]: 26 cầu thủ
+              - generic [ref=e414]: Lionel SCALONI
+          - 'link "Cờ Austria Austria UEFA · FIFA #24 26 cầu thủ Ralf RANGNICK" [ref=e415] [cursor=pointer]':
+            - /url: /teams/austria
+            - generic [ref=e416]:
+              - img "Cờ Austria" [ref=e417]
+              - generic [ref=e418]:
+                - heading "Austria" [level=3] [ref=e419]
+                - paragraph [ref=e420]: "UEFA · FIFA #24"
+            - generic [ref=e421]:
+              - generic [ref=e422]: 26 cầu thủ
+              - generic [ref=e423]: Ralf RANGNICK
+          - 'link "Cờ Jordan Jordan AFC · FIFA #63 26 cầu thủ Jamal SELLAMI" [ref=e424] [cursor=pointer]':
+            - /url: /teams/jordan
+            - generic [ref=e425]:
+              - img "Cờ Jordan" [ref=e426]
+              - generic [ref=e427]:
+                - heading "Jordan" [level=3] [ref=e428]
+                - paragraph [ref=e429]: "AFC · FIFA #63"
+            - generic [ref=e430]:
+              - generic [ref=e431]: 26 cầu thủ
+              - generic [ref=e432]: Jamal SELLAMI
+      - generic [ref=e433]:
+        - generic [ref=e434]:
+          - heading "Bảng K" [level=2] [ref=e435]
+          - generic [ref=e436]: 4 đội
+        - generic [ref=e437]:
+          - 'link "Cờ Colombia Colombia CONMEBOL · FIFA #13 26 cầu thủ Nestor LORENZO" [ref=e438] [cursor=pointer]':
+            - /url: /teams/colombia
+            - generic [ref=e439]:
+              - img "Cờ Colombia" [ref=e440]
+              - generic [ref=e441]:
+                - heading "Colombia" [level=3] [ref=e442]
+                - paragraph [ref=e443]: "CONMEBOL · FIFA #13"
+            - generic [ref=e444]:
+              - generic [ref=e445]: 26 cầu thủ
+              - generic [ref=e446]: Nestor LORENZO
+          - 'link "Cờ Congo DR Congo DR CAF · FIFA #46 26 cầu thủ Sebastien DESABRE" [ref=e447] [cursor=pointer]':
+            - /url: /teams/congo-dr
+            - generic [ref=e448]:
+              - img "Cờ Congo DR" [ref=e449]
+              - generic [ref=e450]:
+                - heading "Congo DR" [level=3] [ref=e451]
+                - paragraph [ref=e452]: "CAF · FIFA #46"
+            - generic [ref=e453]:
+              - generic [ref=e454]: 26 cầu thủ
+              - generic [ref=e455]: Sebastien DESABRE
+          - 'link "Cờ Portugal Portugal UEFA · FIFA #5 26 cầu thủ Roberto MARTINEZ" [ref=e456] [cursor=pointer]':
+            - /url: /teams/portugal
+            - generic [ref=e457]:
+              - img "Cờ Portugal" [ref=e458]
+              - generic [ref=e459]:
+                - heading "Portugal" [level=3] [ref=e460]
+                - paragraph [ref=e461]: "UEFA · FIFA #5"
+            - generic [ref=e462]:
+              - generic [ref=e463]: 26 cầu thủ
+              - generic [ref=e464]: Roberto MARTINEZ
+          - 'link "Cờ Uzbekistan Uzbekistan AFC · FIFA #50 26 cầu thủ Fabio CANNAVARO" [ref=e465] [cursor=pointer]':
+            - /url: /teams/uzbekistan
+            - generic [ref=e466]:
+              - img "Cờ Uzbekistan" [ref=e467]
+              - generic [ref=e468]:
+                - heading "Uzbekistan" [level=3] [ref=e469]
+                - paragraph [ref=e470]: "AFC · FIFA #50"
+            - generic [ref=e471]:
+              - generic [ref=e472]: 26 cầu thủ
+              - generic [ref=e473]: Fabio CANNAVARO
+      - generic [ref=e474]:
+        - generic [ref=e475]:
+          - heading "Bảng L" [level=2] [ref=e476]
+          - generic [ref=e477]: 4 đội
+        - generic [ref=e478]:
+          - 'link "Cờ Croatia Croatia UEFA · FIFA #11 26 cầu thủ Zlatko DALIC" [ref=e479] [cursor=pointer]':
+            - /url: /teams/croatia
+            - generic [ref=e480]:
+              - img "Cờ Croatia" [ref=e481]
+              - generic [ref=e482]:
+                - heading "Croatia" [level=3] [ref=e483]
+                - paragraph [ref=e484]: "UEFA · FIFA #11"
+            - generic [ref=e485]:
+              - generic [ref=e486]: 26 cầu thủ
+              - generic [ref=e487]: Zlatko DALIC
+          - 'link "Cờ England England UEFA · FIFA #4 26 cầu thủ Thomas TUCHEL" [ref=e488] [cursor=pointer]':
+            - /url: /teams/england
+            - generic [ref=e489]:
+              - img "Cờ England" [ref=e490]
+              - generic [ref=e491]:
+                - heading "England" [level=3] [ref=e492]
+                - paragraph [ref=e493]: "UEFA · FIFA #4"
+            - generic [ref=e494]:
+              - generic [ref=e495]: 26 cầu thủ
+              - generic [ref=e496]: Thomas TUCHEL
+          - 'link "Cờ Ghana Ghana CAF · FIFA #74 26 cầu thủ CARLOS QUEIROZ" [ref=e497] [cursor=pointer]':
+            - /url: /teams/ghana
+            - generic [ref=e498]:
+              - img "Cờ Ghana" [ref=e499]
+              - generic [ref=e500]:
+                - heading "Ghana" [level=3] [ref=e501]
+                - paragraph [ref=e502]: "CAF · FIFA #74"
+            - generic [ref=e503]:
+              - generic [ref=e504]: 26 cầu thủ
+              - generic [ref=e505]: CARLOS QUEIROZ
+          - 'link "Cờ Panama Panama CONCACAF · FIFA #33 26 cầu thủ Thomas CHRISTIANSEN" [ref=e506] [cursor=pointer]':
+            - /url: /teams/panama
+            - generic [ref=e507]:
+              - img "Cờ Panama" [ref=e508]
+              - generic [ref=e509]:
+                - heading "Panama" [level=3] [ref=e510]
+                - paragraph [ref=e511]: "CONCACAF · FIFA #33"
+            - generic [ref=e512]:
+              - generic [ref=e513]: 26 cầu thủ
+              - generic [ref=e514]: Thomas CHRISTIANSEN

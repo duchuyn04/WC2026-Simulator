@@ -246,8 +246,15 @@ function ScheduleTableRow({ entry, espnMatches }: { entry: ScheduleEntry, espnMa
         </div>
       </td>
       <td className="px-4 py-3 text-sm text-zinc-400">
-        <div className="bg-zinc-900/80 px-2 py-1 rounded-md inline-block whitespace-nowrap">
-          {entry.stageLabel}
+        <div className="flex flex-col items-start gap-1">
+          <div className="bg-zinc-900/80 px-2 py-1 rounded-md inline-block whitespace-nowrap">
+            {entry.stageLabel}
+          </div>
+          {(entry.stadium || entry.city) && (
+            <div className="text-xs text-zinc-500 whitespace-nowrap" title={`${entry.stadium || ""} ${entry.city ? `- ${entry.city}` : ""}`}>
+              {entry.stadium} {entry.city ? `- ${entry.city}` : ""}
+            </div>
+          )}
         </div>
       </td>
       <td className="px-4 py-3 text-right w-[30%]">

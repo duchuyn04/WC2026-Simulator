@@ -1,0 +1,42 @@
+- generic [ref=e3]:
+  - link "Skip to main content" [ref=e4] [cursor=pointer]:
+    - /url: "#main-content"
+    - generic [ref=e5]: Skip to main content
+  - banner [ref=e8]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - button "Open Hamburger Menu" [ref=e14] [cursor=pointer]:
+          - img [ref=e15]
+        - generic [ref=e18]:
+          - link "FIFA logo, leads to home page":
+            - /url: /
+            - img "FIFA"
+      - generic [ref=e19]:
+        - navigation [ref=e21]:
+          - menu [ref=e23]:
+            - menuitem "FIFA REWARDS" [ref=e24] [cursor=pointer]
+            - menuitem "FIFA+" [ref=e25] [cursor=pointer]
+            - menuitem "FIFA STORE" [ref=e26] [cursor=pointer]
+            - menuitem "FIFA COLLECT" [ref=e27] [cursor=pointer]
+        - generic [ref=e28]: "|"
+        - 'combobox "Selected language: English" [ref=e32] [cursor=pointer]':
+          - img [ref=e33]
+          - generic [ref=e35]: English
+          - img [ref=e36]
+        - generic [ref=e38]: "|"
+        - generic [ref=e39]:
+          - link "Search" [ref=e40] [cursor=pointer]:
+            - /url: /en/tournaments/mens/worldcup/canadamexicousa2026/teams/croatia/squad?searchOverlay=1
+            - img [ref=e41]
+          - button "My Account" [ref=e44] [cursor=pointer]:
+            - img [ref=e45]
+    - generic [ref=e49]:
+      - generic:
+        - link "Tournament logo, leads to the tournament home page":
+          - /url: /en/tournaments/mens/worldcup/canadamexicousa2026
+          - img "FIFA"
+      - link "FIFA World Cup 2026™" [ref=e50] [cursor=pointer]:
+        - /url: /en/tournaments/mens/worldcup/canadamexicousa2026
+        - paragraph [ref=e51]: FIFA World Cup 2026™
+      - navigation [ref=e53]:
+        - menubar [ref=e54]
