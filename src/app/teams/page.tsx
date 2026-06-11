@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { TeamsDirectory } from "@/components/TeamsDirectory";
+import { TeamsHeader } from "@/components/TeamsHeader";
 import teamsData from "../../../data/fifa-teams-squads.json";
 
 export default function TeamsPage() {
@@ -21,26 +21,10 @@ export default function TeamsPage() {
 
   return (
     <main className="min-h-screen bg-[#0c0f14] text-zinc-100">
+      <TeamsHeader />
+
       <section className="border-b border-zinc-800 bg-[radial-gradient(circle_at_top_left,rgba(120,8,40,0.45),transparent_34rem)]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-3 py-5 sm:gap-6 sm:px-4 sm:py-10">
-          <Link 
-            href="/" 
-            className="group flex w-fit items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/50 px-3 py-1.5 text-xs font-semibold text-amber-400 backdrop-blur-md transition-all hover:border-amber-500 hover:bg-amber-500/10 hover:text-amber-300 sm:px-4 sm:py-2 sm:text-sm"
-          >
-            <span className="transition-transform group-hover:-translate-x-1">←</span>
-            Về mô phỏng
-          </Link>
-          <div className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-500">
-              FIFA World Cup 2026
-            </p>
-            <h1 className="mt-2 text-3xl font-black tracking-tight sm:text-5xl">
-              48 đội tuyển tham dự
-            </h1>
-            <p className="mt-3 text-sm text-zinc-400 sm:mt-4 sm:text-lg">
-              Hồ sơ từng đội, bảng đấu, thứ hạng FIFA, số lần tham dự, HLV và danh sách 26 cầu thủ được lấy từ FIFA API.
-            </p>
-          </div>
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-3 py-5 sm:gap-6 sm:px-4 sm:py-6">
           <div className="grid grid-cols-3 gap-2 sm:gap-3">
             <div className="rounded-2xl border border-zinc-800 bg-zinc-950/70 p-3 sm:p-4">
               <p className="text-2xl font-black sm:text-3xl">{teamsData.count}</p>
