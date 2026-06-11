@@ -20,7 +20,7 @@ export default function TeamsPage() {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <main className="min-h-screen bg-[#0c0f14] text-zinc-100" style={{ zoom: 0.8 }}>
+    <main className="min-h-screen bg-[#0c0f14] text-zinc-100">
       <section className="border-b border-zinc-800 bg-[radial-gradient(circle_at_top_left,rgba(120,8,40,0.45),transparent_34rem)]">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:py-10">
           <Link 

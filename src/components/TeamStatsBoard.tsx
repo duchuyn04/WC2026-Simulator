@@ -96,7 +96,7 @@ export function TeamStatsBoard({ espnId }: { espnId: string }) {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-100">Thống kê đội</h2>
         <div className="flex gap-2 p-1 bg-zinc-900/50 rounded-lg w-fit border border-zinc-800/50">
           <button

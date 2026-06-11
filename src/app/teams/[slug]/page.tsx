@@ -79,7 +79,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
   }
 
   return (
-    <main className="min-h-screen bg-[#0c0f14] text-zinc-100" style={{ zoom: 0.8 }}>
+    <main className="min-h-screen bg-[#0c0f14] text-zinc-100">
       <header className="sticky top-0 z-50 border-b border-zinc-800 bg-[#0c0f14]/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3">
           <Link
@@ -205,7 +205,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
                 <h2 className="text-2xl font-black">{translatePosition(position)}</h2>
                 <span className="rounded-full bg-zinc-900 px-3 py-1 text-xs font-semibold text-zinc-400">{players.length} cầu thủ</span>
               </div>
-              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 {players.map((player) => (
                   <article key={player.id} className="rounded-[1.5rem] border border-zinc-800 bg-[#11151d] p-3">
                     <div className="relative overflow-hidden rounded-2xl bg-zinc-800">
@@ -221,24 +221,24 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
                           secondaryColor: team.colors.secondary,
                         }}
                       />
-                      <span className="absolute right-3 top-3 rounded-full bg-amber-500 px-3 py-1 text-base font-black text-zinc-950 shadow-lg shadow-black/30">
+                      <span className="absolute right-2 top-2 sm:right-3 sm:top-3 rounded-full bg-amber-500 px-2 py-0.5 sm:px-3 sm:py-1 text-sm sm:text-base font-black text-zinc-950 shadow-lg shadow-black/30">
                         {player.jerseyNumber ?? "-"}
                       </span>
                     </div>
                     <div className="px-2 pb-1 pt-4 text-center">
-                      <h3 className="text-lg font-black leading-tight">{player.name}</h3>
+                      <h3 className="text-sm sm:text-lg font-black leading-tight truncate">{player.name}</h3>
                       <div className="mx-auto mt-3 h-px w-4/5 bg-zinc-800" />
                       <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-500">
                         {translatePosition(player.realPosition ?? player.position)}
                       </p>
-                      <p className="mt-1 truncate text-sm font-semibold text-amber-300">
+                      <p className="mt-1 truncate text-[11px] sm:text-sm font-semibold text-amber-300">
                         {player.club?.name ?? "Chưa có CLB"}
                       </p>
                     </div>
-                    <div className="mt-3 grid grid-cols-3 gap-2 text-center text-xs text-zinc-500">
-                      <div className="rounded-xl bg-zinc-900/70 p-2"><b className="block text-sm text-zinc-200">{ageOn(player.birthDate) ?? "-"}</b>Tuổi</div>
-                      <div className="rounded-xl bg-zinc-900/70 p-2"><b className="block text-sm text-zinc-200">{player.heightCm ?? "-"}</b>cm</div>
-                      <div className="rounded-xl bg-zinc-900/70 p-2"><b className="block text-sm text-zinc-200">{player.weightKg ?? "-"}</b>kg</div>
+                    <div className="mt-3 grid grid-cols-3 gap-1 sm:gap-2 text-center text-[10px] sm:text-xs text-zinc-500">
+                      <div className="rounded-xl bg-zinc-900/70 p-1 sm:p-2"><b className="block text-xs sm:text-sm text-zinc-200">{ageOn(player.birthDate) ?? "-"}</b>Tuổi</div>
+                      <div className="rounded-xl bg-zinc-900/70 p-1 sm:p-2"><b className="block text-xs sm:text-sm text-zinc-200">{player.heightCm ?? "-"}</b>cm</div>
+                      <div className="rounded-xl bg-zinc-900/70 p-1 sm:p-2"><b className="block text-xs sm:text-sm text-zinc-200">{player.weightKg ?? "-"}</b>kg</div>
                     </div>
                   </article>
                 ))}
