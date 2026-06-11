@@ -43,9 +43,9 @@ export function TeamsDirectory({ teams }: { teams: TeamCard[] }) {
   );
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-8">
-      <div className="mb-6 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        <div className="flex min-w-max gap-2 rounded-2xl border border-zinc-800 bg-zinc-950/70 p-2">
+    <section className="mx-auto max-w-7xl px-3 py-5 sm:px-4 sm:py-8">
+      <div className="mb-4 overflow-x-auto pb-2 [scrollbar-width:none] sm:mb-6 [&::-webkit-scrollbar]:hidden">
+        <div className="flex min-w-max gap-1.5 rounded-2xl border border-zinc-800 bg-zinc-950/70 p-1.5 sm:gap-2 sm:p-2">
           {filters.map((filter) => {
             const count = filter === "All" ? teams.length : teams.filter((team) => team.confederationId === filter).length;
             const isActive = activeFilter === filter;
@@ -56,7 +56,7 @@ export function TeamsDirectory({ teams }: { teams: TeamCard[] }) {
                 type="button"
                 onClick={() => handleFilterChange(filter)}
                 className={[
-                  "rounded-xl px-4 py-2 text-sm font-black uppercase tracking-[0.12em] transition-colors",
+                  "rounded-xl px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] transition-colors sm:px-4 sm:py-2 sm:text-sm",
                   isActive
                     ? "bg-amber-500 text-zinc-950"
                     : "bg-zinc-900 text-zinc-100 hover:bg-zinc-800 hover:text-white",
@@ -71,60 +71,63 @@ export function TeamsDirectory({ teams }: { teams: TeamCard[] }) {
         </div>
       </div>
 
-      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mb-4 flex flex-col gap-1.5 sm:mb-5 sm:flex-row sm:items-end sm:justify-between sm:gap-2">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 sm:text-sm">
             Teams & stats
           </p>
-          <h2 className="text-3xl font-black tracking-tight">
+          <h2 className="text-2xl font-black tracking-tight sm:text-3xl">
             {activeFilter === "All" ? "All teams" : activeFilter}
           </h2>
         </div>
-        <p className="text-sm font-medium text-zinc-300">
+        <p className="text-xs font-medium text-zinc-300 sm:text-sm">
           Hiển thị {filteredTeams.length} / {teams.length} đội
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
         {filteredTeams.map((team) => (
           <Link
             key={team.id}
             href={`/teams/${team.slug}`}
             onClick={() => sessionStorage.setItem("teamsFilter", activeFilter)}
-            className="group overflow-hidden rounded-3xl border border-zinc-800 bg-[#11151d] transition hover:-translate-y-0.5 hover:border-amber-500/60 hover:bg-[#151a24]"
+            className="group overflow-hidden rounded-xl border border-zinc-800 bg-[#11151d] transition hover:-translate-y-0.5 hover:border-amber-500/60 hover:bg-[#151a24] sm:rounded-3xl"
           >
-            <div className="relative border-b border-zinc-800 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_16rem)] p-3 sm:p-5">
-              <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
+            <div className="relative border-b border-zinc-800 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_16rem)] p-2 sm:p-5">
+              <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:gap-4">
                 <img
                   src={flagCdnUrl(team.code, 160)}
                   alt={`Cờ ${team.name}`}
                   loading="lazy"
                   decoding="async"
-                  className="h-10 w-16 sm:h-16 sm:w-24 rounded-lg sm:rounded-2xl object-cover ring-1 ring-white/25"
+                  className="h-8 w-12 rounded-md object-cover ring-1 ring-white/25 sm:h-16 sm:w-24 sm:rounded-2xl"
                   onError={(event) => {
                     event.currentTarget.src = flagUrl(team.code);
                   }}
                 />
-                <div className="flex flex-row sm:flex-col items-center sm:items-end gap-2 text-left sm:text-right w-full sm:w-auto mt-2 sm:mt-0">
-                  <span className="rounded-full bg-zinc-950/80 px-2 py-1 sm:px-3 sm:text-xs font-black text-[10px] text-amber-300">
+                <div className="flex w-full flex-row items-center gap-1 text-left sm:mt-0 sm:w-auto sm:flex-col sm:items-end sm:gap-2 sm:text-right">
+                  <span className="rounded-full bg-zinc-950/80 px-1.5 py-0.5 text-[9px] font-black text-amber-300 sm:px-3 sm:py-1 sm:text-xs">
                     {team.confederationId}
                   </span>
                   {team.hostTeam && (
-                    <span className="rounded-full bg-amber-500 px-2 py-1 sm:px-3 text-[10px] sm:text-xs font-black text-zinc-950">
+                    <span className="rounded-full bg-amber-500 px-1.5 py-0.5 text-[9px] font-black text-zinc-950 sm:px-3 sm:py-1 sm:text-xs">
                       Host
                     </span>
                   )}
                 </div>
               </div>
-              <h3 className="mt-3 sm:mt-5 text-lg sm:text-2xl font-black leading-tight tracking-tight group-hover:text-amber-300">
+              <h3 className="mt-2 truncate text-sm font-black leading-tight tracking-tight group-hover:text-amber-300 sm:mt-5 sm:text-2xl">
                 {team.name}
               </h3>
-              <p className="mt-1 text-[11px] sm:text-sm font-medium text-zinc-300">
+              <p className="mt-1 truncate text-[10px] font-medium text-zinc-300 sm:text-sm">
                 Group {team.group} · FIFA #{team.worldRanking ?? "-"}
+              </p>
+              <p className="mt-1 truncate text-[10px] font-medium text-zinc-400 sm:hidden">
+                {team.squadCount} cầu thủ · {team.appearances ?? "-"} lần
               </p>
             </div>
 
-            <div className="grid grid-cols-3 divide-x divide-zinc-800 text-center text-xs text-zinc-500">
+            <div className="hidden grid-cols-3 divide-x divide-zinc-800 text-center text-xs text-zinc-500 sm:grid">
               <div className="p-2 sm:p-3">
                 <b className="block text-sm sm:text-base text-zinc-100">{team.squadCount}</b>
                 <span className="text-[10px] sm:text-xs text-zinc-300">Cầu thủ</span>

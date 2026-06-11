@@ -80,18 +80,18 @@ export function TeamStatsBoard({ espnId }: { espnId: string }) {
 
   if (loading) {
     return (
-      <div className="flex justify-center py-12">
+      <div className="flex justify-center py-6 sm:py-12">
         <div className="w-8 h-8 border-4 border-[#6a041f] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
 
   if (error) {
-    return <div className="text-center text-rose-500 py-12">Lỗi tải dữ liệu thống kê: {error}</div>;
+    return <div className="py-6 text-center text-rose-500 sm:py-12">Lỗi tải dữ liệu thống kê: {error}</div>;
   }
 
   if (stats.length === 0) {
-    return <div className="text-center text-zinc-500 py-12">Chưa có dữ liệu thống kê cho đội tuyển này.</div>;
+    return <div className="py-6 text-center text-zinc-500 sm:py-12">Chưa có dữ liệu thống kê cho đội tuyển này.</div>;
   }
 
   return (

@@ -33,7 +33,7 @@ export function PortraitPlaceholder({
 
   return (
     <div
-      className="relative flex h-56 w-full flex-col justify-between overflow-hidden p-5 sm:h-64"
+      className="relative flex h-32 w-full flex-col justify-between overflow-hidden p-4 sm:h-64 sm:p-5"
       style={{
         background: `radial-gradient(circle at 28% 18%, ${secondary}55, transparent 28%), linear-gradient(145deg, ${primary}dd, #151923 54%, #090b10)`,
       }}
@@ -45,10 +45,10 @@ export function PortraitPlaceholder({
         <span>No image</span>
       </div>
       <div className="relative text-center">
-        <p className="text-6xl font-black tracking-tight text-white drop-shadow-lg sm:text-7xl">
+        <p className="text-4xl font-black tracking-tight text-white drop-shadow-lg sm:text-7xl">
           {badge}
         </p>
-        <p className="mt-4 text-3xl font-black text-white/85">{initialsFromName(name)}</p>
+        <p className="mt-2 text-2xl font-black text-white/85 sm:mt-4 sm:text-3xl">{initialsFromName(name)}</p>
       </div>
       <p className="relative text-center text-xs font-bold uppercase tracking-[0.2em] text-white/55">
         {label}
@@ -78,7 +78,7 @@ export function PortraitImage({
       alt={alt}
       loading="lazy"
       decoding="async"
-      className="h-56 w-full object-cover object-top sm:h-64"
+      className="h-32 w-full object-cover object-top sm:h-64"
       onError={() => setError(true)}
     />
   );

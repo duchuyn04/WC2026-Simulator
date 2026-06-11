@@ -14,17 +14,17 @@ export function RecentMatches({ recentMatches }: RecentMatchesProps) {
 
   return (
     <>
-      <div className="rounded-3xl border border-zinc-800 bg-zinc-950/60 p-5">
-        <h2 className="text-xl font-black">Phong độ gần đây</h2>
-        <div className="mt-4 flex flex-col gap-3">
+      <div className="min-w-0 rounded-2xl border border-zinc-800 bg-zinc-950/60 p-3 sm:rounded-3xl sm:p-5">
+        <h2 className="text-lg font-black sm:text-xl">Phong độ gần đây</h2>
+        <div className="mt-3 flex min-w-0 gap-2 overflow-x-auto pb-1 [scrollbar-width:none] sm:mt-4 sm:flex-col sm:gap-3 sm:overflow-visible sm:pb-0 [&::-webkit-scrollbar]:hidden">
           {recentMatches.map((match) => (
             <div 
               key={match.id} 
-              className="group flex cursor-pointer items-center gap-3 rounded-xl bg-zinc-900/60 p-3 text-sm transition-colors hover:bg-zinc-800"
+              className="group flex min-w-48 cursor-pointer items-center gap-2 rounded-xl bg-zinc-900/60 p-2 text-sm transition-colors hover:bg-zinc-800 sm:min-w-0 sm:gap-3 sm:p-3"
               onClick={() => setSelectedGameId(match.id)}
             >
               <div
-                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-black text-white shadow-sm ${
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-black text-white shadow-sm sm:h-10 sm:w-10 sm:rounded-xl ${
                   match.result === "W"
                     ? "bg-emerald-500"
                     : match.result === "L"
@@ -43,7 +43,7 @@ export function RecentMatches({ recentMatches }: RecentMatchesProps) {
             </div>
           ))}
         </div>
-        <p className="mt-3 text-xs text-zinc-500">Dữ liệu từ ESPN</p>
+        <p className="mt-2 text-xs text-zinc-500 sm:mt-3">Dữ liệu từ ESPN</p>
       </div>
 
       {selectedGameId && (
