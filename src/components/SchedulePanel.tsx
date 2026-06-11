@@ -17,8 +17,10 @@ import {
 import { isPlayedResult } from "@/lib/fifa/types";
 import type { Team } from "@/lib/fifa/types";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
+import { seed } from "@/lib/data";
 import { EspnStandingsBoard } from "./EspnStandingsBoard";
 import { EspnStatsBoard } from "./EspnStatsBoard";
+
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnId]) => {
   acc[espnId] = localId;
@@ -174,7 +176,7 @@ function ScoreDisplay({ entry, espnMatch }: { entry: ScheduleEntry, espnMatch?: 
     const isLive = espnMatch.status?.includes("IN_PROGRESS") || espnMatch.status?.includes("HALFTIME");
     return (
       <div className="flex flex-col items-center">
-        <span className="font-mono text-sm font-black text-emerald-400 tabular-nums">
+        <span className="font-mono text-sm font-black text-emerald-400 tabular-nums whitespace-nowrap">
           {espnMatch.homeScore} - {espnMatch.awayScore}
         </span>
         {isLive && (
@@ -192,7 +194,7 @@ function ScoreDisplay({ entry, espnMatch }: { entry: ScheduleEntry, espnMatch?: 
       return <span className="font-mono text-sm text-zinc-600">vs</span>;
     }
     return (
-      <span className="font-mono text-sm font-semibold text-amber-300 tabular-nums">
+      <span className="font-mono text-sm font-semibold text-amber-300 tabular-nums whitespace-nowrap">
         {entry.result.home} - {entry.result.away}
       </span>
     );
@@ -209,7 +211,9 @@ function ScoreDisplay({ entry, espnMatch }: { entry: ScheduleEntry, espnMatch?: 
   );
 }
 
-function ScheduleTableRow({ entry, espnMatches }: { entry: ScheduleEntry, espnMatches: any[] }) {
+
+
+function ScheduleTableRow({ entry, espnMatches }: { entry: ScheduleEntry; espnMatches: any[] }) {
   const winnerId = entry.kind === "knockout" ? entry.winner?.id : undefined;
   const toggleFavoriteMatch = useSimulation((s) => s.toggleFavoriteMatch);
   const favoriteMatches = useSimulation((s) => s.favoriteMatches);
@@ -328,6 +332,10 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   const favoriteMatches = useSimulation((s) => s.favoriteMatches);
   const favoriteTeams = useSimulation((s) => s.favoriteTeams);
 
+
+
+
+
   // In "Yêu thích" modes, hide the full "Nhánh Knockout" sub-filter
   // (the entire KO schedule branch with real dates is still available in the main "Tất cả lịch thi đấu" tab).
   const visibleFilters = useMemo(() => {
@@ -423,13 +431,25 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
             </div>
           )}
 
+
         </div>
       </div>
 
       {filter === "espn-stats" ? (
         <EspnStatsBoard />
       ) : filter === "espn-standings" ? (
-        <EspnStandingsBoard />
+        <div className="space-y-8">
+          {/* Real external data */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <div className="text-xs uppercase tracking-[1px] text-emerald-400 font-semibold">Dữ liệu thực tế (ESPN)</div>
+              <div className="h-px flex-1 bg-zinc-800" />
+            </div>
+            <EspnStandingsBoard />
+          </div>
+
+
+        </div>
       ) : dateGroups.length === 0 ? (
         <p className="text-center text-zinc-500 py-12">Không có trận nào trong bộ lọc này.</p>
       ) : (
@@ -437,7 +457,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-zinc-800 text-xs font-semibold text-zinc-500 uppercase tracking-wider bg-zinc-900/50">
-                <th className="px-4 py-3 text-center">ID</th>
+                <th className="px-4 py-3 text-center whitespace-nowrap">TRẬN</th>
                 <th className="px-4 py-3 text-center">GIỜ</th>
                 <th className="px-4 py-3">VÒNG ĐẤU</th>
                 <th className="px-4 py-3 text-right">ĐỘI 1</th>
@@ -457,7 +477,11 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                     </td>
                   </tr>
                   {group.entries.map((entry) => (
-                    <ScheduleTableRow key={entry.id} entry={entry} espnMatches={espnMatches} />
+                    <ScheduleTableRow
+                      key={entry.id}
+                      entry={entry}
+                      espnMatches={espnMatches}
+                    />
                   ))}
                 </React.Fragment>
               ))}
