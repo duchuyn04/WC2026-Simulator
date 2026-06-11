@@ -53,7 +53,7 @@ function useEspnLiveScores() {
           };
         }).filter(Boolean);
 
-        if (mounted && parsedMatches.length > 0) {
+        if (mounted && parsedMatches.length > 0) {``
           setMatches(parsedMatches);
         }
       } catch (err) {}
