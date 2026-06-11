@@ -40,6 +40,7 @@ type SimulationStore = {
   bracketView: BracketView;
   favoriteMatches: string[];
   favoriteTeams: string[];
+  scheduleMockResults: Record<string, MatchResult>;
   setActiveTab: (tab: TabId) => void;
   setScrollPosition: (tab: ScrollableTabId, y: number) => void;
   setBracketView: (view: BracketView) => void;
@@ -50,6 +51,8 @@ type SimulationStore = {
   toggleFavoriteMatch: (matchId: string) => void;
   toggleFavoriteTeam: (teamId: string) => void;
   setScore: (matchId: string, home?: number | null, away?: number | null) => void;
+  setScheduleMockScore: (matchId: string, home?: number | null, away?: number | null) => void;
+  clearScheduleMocks: () => void;
   setManualOrder: (group: string, teamIds: string[]) => void;
   clearManualOrder: (group: string) => void;
   setKnockoutWinner: (matchNumber: number, teamId: string | null) => void;
@@ -113,6 +116,7 @@ export const useSimulation = create<SimulationStore>()(
       knockoutSyncNotice: null,
       favoriteMatches: [],
       favoriteTeams: [],
+      scheduleMockResults: {},
       activeTab: "groups",
       scrollPositions: { groups: 0, schedule: 0, "fav-matches": 0, "fav-teams": 0, third: 0 },
       bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
@@ -212,6 +216,29 @@ export const useSimulation = create<SimulationStore>()(
             : [...s.favoriteTeams, teamId],
         })),
 
+      setScheduleMockScore: (matchId, home, away) =>
+        set((s) => {
+          const prev = s.scheduleMockResults[matchId] ?? {};
+          const next: MatchResult = { ...prev };
+          if (home !== undefined) {
+            if (home === null) delete next.home;
+            else next.home = home;
+          }
+          if (away !== undefined) {
+            if (away === null) delete next.away;
+            else next.away = away;
+          }
+          const scheduleMockResults = { ...s.scheduleMockResults };
+          if (next.home === undefined && next.away === undefined) {
+            delete scheduleMockResults[matchId];
+          } else {
+            scheduleMockResults[matchId] = next;
+          }
+          return { scheduleMockResults };
+        }),
+
+      clearScheduleMocks: () => set({ scheduleMockResults: {} }),
+
       setScore: (matchId, home, away) =>
         set((s) => {
           const groupLetter = seed.groups.find((g) =>
@@ -302,6 +329,7 @@ export const useSimulation = create<SimulationStore>()(
           knockoutSyncNotice: null,
           favoriteMatches: [],
           favoriteTeams: [],
+          scheduleMockResults: {},
           scrollPositions: { groups: 0, schedule: 0, "fav-matches": 0, "fav-teams": 0, third: 0 },
           bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
           activeTab: "groups",

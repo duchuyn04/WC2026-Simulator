@@ -87,6 +87,8 @@ export function useKnockout() {
 
 export function useSchedule() {
   // "Khớp thực tế": base dates/venues/placeholders/stages for all 104 entries come from seed inside buildScheduleEntries.
+  // scheduleMockResults: separate from simulator matchResults so mocking in Lịch thi đấu does not affect Mô phỏng.
+  const scheduleMockResults = useSimulation((s) => s.scheduleMockResults);
   return useMemo(() => {
     const actualKnockout = seed.knockout.map((m) => ({
       ...m,
@@ -94,6 +96,6 @@ export function useSchedule() {
       resolvedAway: m.away ? { team: m.away, label: m.placeholderB } : null,
       winner: null,
     }));
-    return buildScheduleEntries({}, actualKnockout);
-  }, []);
+    return buildScheduleEntries(scheduleMockResults, actualKnockout);
+  }, [scheduleMockResults]);
 }

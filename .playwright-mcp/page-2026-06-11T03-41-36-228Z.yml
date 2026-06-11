@@ -1,0 +1,605 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e4]:
+      - link "← Back" [ref=e5] [cursor=pointer]:
+        - /url: /teams
+      - generic [ref=e6]:
+        - paragraph [ref=e7]: Argentina
+        - paragraph [ref=e8]: Group J · CONMEBOL
+    - generic [ref=e10]:
+      - link "Mô phỏng" [ref=e12] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e14]:
+        - img "Cờ Argentina" [ref=e15]
+        - generic [ref=e16]:
+          - paragraph [ref=e17]: Bảng J · CONMEBOL
+          - heading "Argentina" [level=1] [ref=e18]
+          - paragraph [ref=e19]: "FIFA #3 · 18 lần tham dự · Vượt qua vòng loại"
+    - generic [ref=e20]:
+      - complementary [ref=e21]:
+        - generic [ref=e22]:
+          - heading "Thông tin đội" [level=2] [ref=e23]
+          - generic [ref=e24]:
+            - generic [ref=e25]:
+              - term [ref=e26]: Mã đội
+              - definition [ref=e27]: ARG
+            - generic [ref=e28]:
+              - term [ref=e29]: Bảng
+              - definition [ref=e30]: J
+            - generic [ref=e31]:
+              - term [ref=e32]: Liên đoàn
+              - definition [ref=e33]: CONMEBOL
+            - generic [ref=e34]:
+              - term [ref=e35]: Cầu thủ
+              - definition [ref=e36]: "26"
+        - generic [ref=e37]:
+          - heading "Ban huấn luyện" [level=2] [ref=e38]
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - paragraph [ref=e41]: SAMUEL
+              - paragraph [ref=e42]: Coach · ARG
+            - generic [ref=e43]:
+              - paragraph [ref=e44]: AYALA
+              - paragraph [ref=e45]: Coach · ARG
+            - generic [ref=e46]:
+              - paragraph [ref=e47]: AIMAR
+              - paragraph [ref=e48]: Coach · ARG
+            - generic [ref=e49]:
+              - paragraph [ref=e50]: Lionel SCALONI
+              - paragraph [ref=e51]: Head coach · ARG
+        - generic [ref=e52]:
+          - heading "Phong độ gần đây" [level=2] [ref=e53]
+          - generic [ref=e54]:
+            - generic [ref=e55] [cursor=pointer]:
+              - generic [ref=e56]: W
+              - generic [ref=e57]:
+                - paragraph [ref=e58]: Iceland vs Argentina
+                - paragraph [ref=e59]:
+                  - text: 10/6/2026 ·
+                  - generic [ref=e60]: 3 - 0
+            - generic [ref=e61] [cursor=pointer]:
+              - generic [ref=e62]: W
+              - generic [ref=e63]:
+                - paragraph [ref=e64]: Honduras vs Argentina
+                - paragraph [ref=e65]:
+                  - text: 7/6/2026 ·
+                  - generic [ref=e66]: 2 - 0
+            - generic [ref=e67] [cursor=pointer]:
+              - generic [ref=e68]: W
+              - generic [ref=e69]:
+                - paragraph [ref=e70]: Zambia vs Argentina
+                - paragraph [ref=e71]:
+                  - text: 1/4/2026 ·
+                  - generic [ref=e72]: 5 - 0
+            - generic [ref=e73] [cursor=pointer]:
+              - generic [ref=e74]: W
+              - generic [ref=e75]:
+                - paragraph [ref=e76]: Mauritania vs Argentina
+                - paragraph [ref=e77]:
+                  - text: 28/3/2026 ·
+                  - generic [ref=e78]: 2 - 1
+            - generic [ref=e79] [cursor=pointer]:
+              - generic [ref=e80]: W
+              - generic [ref=e81]:
+                - paragraph [ref=e82]: Argentina vs Angola
+                - paragraph [ref=e83]:
+                  - text: 14/11/2025 ·
+                  - generic [ref=e84]: 0 - 2
+          - paragraph [ref=e85]: Dữ liệu từ ESPN
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - heading "HLV trưởng" [level=2] [ref=e92]
+            - generic [ref=e93]: ARG
+          - article [ref=e94]:
+            - generic [ref=e95]:
+              - generic [ref=e96]:
+                - generic [ref=e99]:
+                  - generic [ref=e100]: ARG
+                  - generic [ref=e101]: No image
+                - generic [ref=e102]:
+                  - paragraph [ref=e103]: HLV
+                  - paragraph [ref=e104]: LS
+                - paragraph [ref=e105]: Head coach
+              - generic [ref=e106]: HLV
+            - generic [ref=e107]:
+              - heading "Lionel SCALONI" [level=3] [ref=e108]
+              - paragraph [ref=e110]: Head coach · 48 tuổi
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - heading "Thủ môn" [level=2] [ref=e113]
+            - generic [ref=e114]: 3 cầu thủ
+          - generic [ref=e115]:
+            - article [ref=e116]:
+              - generic [ref=e117]:
+                - img "Juan MUSSO" [ref=e118]
+                - generic [ref=e119]: "1"
+              - generic [ref=e120]:
+                - heading "Juan MUSSO" [level=3] [ref=e121]
+                - paragraph [ref=e123]: Thủ môn
+                - paragraph [ref=e124]: Atlético Madrid
+              - generic [ref=e125]:
+                - generic [ref=e126]:
+                  - generic [ref=e127]: "32"
+                  - text: Tuổi
+                - generic [ref=e128]:
+                  - generic [ref=e129]: "193"
+                  - text: cm
+                - generic [ref=e130]:
+                  - generic [ref=e131]: "94"
+                  - text: kg
+            - article [ref=e132]:
+              - generic [ref=e133]:
+                - img "Geronimo RULLI" [ref=e134]
+                - generic [ref=e135]: "12"
+              - generic [ref=e136]:
+                - heading "Geronimo RULLI" [level=3] [ref=e137]
+                - paragraph [ref=e139]: Thủ môn
+                - paragraph [ref=e140]: Marseille
+              - generic [ref=e141]:
+                - generic [ref=e142]:
+                  - generic [ref=e143]: "34"
+                  - text: Tuổi
+                - generic [ref=e144]:
+                  - generic [ref=e145]: "189"
+                  - text: cm
+                - generic [ref=e146]:
+                  - generic [ref=e147]: "80"
+                  - text: kg
+            - article [ref=e148]:
+              - generic [ref=e149]:
+                - img "Emiliano MARTINEZ" [ref=e150]
+                - generic [ref=e151]: "23"
+              - generic [ref=e152]:
+                - heading "Emiliano MARTINEZ" [level=3] [ref=e153]
+                - paragraph [ref=e155]: Thủ môn
+                - paragraph [ref=e156]: Aston Villa
+              - generic [ref=e157]:
+                - generic [ref=e158]:
+                  - generic [ref=e159]: "33"
+                  - text: Tuổi
+                - generic [ref=e160]:
+                  - generic [ref=e161]: "195"
+                  - text: cm
+                - generic [ref=e162]:
+                  - generic [ref=e163]: "98"
+                  - text: kg
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - heading "Hậu vệ" [level=2] [ref=e166]
+            - generic [ref=e167]: 8 cầu thủ
+          - generic [ref=e168]:
+            - article [ref=e169]:
+              - generic [ref=e170]:
+                - generic [ref=e171]:
+                  - generic [ref=e174]:
+                    - generic [ref=e175]: ARG
+                    - generic [ref=e176]: No image
+                  - generic [ref=e177]:
+                    - paragraph [ref=e178]: "#2"
+                    - paragraph [ref=e179]: LB
+                  - paragraph [ref=e180]: Hậu vệ
+                - generic [ref=e181]: "2"
+              - generic [ref=e182]:
+                - heading "Leonardo BALERDI" [level=3] [ref=e183]
+                - paragraph [ref=e185]: Hậu vệ
+                - paragraph [ref=e186]: Chưa có CLB
+              - generic [ref=e187]:
+                - generic [ref=e188]:
+                  - generic [ref=e189]: "27"
+                  - text: Tuổi
+                - generic [ref=e190]:
+                  - generic [ref=e191]: "188"
+                  - text: cm
+                - generic [ref=e192]:
+                  - generic [ref=e193]: "85"
+                  - text: kg
+            - article [ref=e194]:
+              - generic [ref=e195]:
+                - img "Nicolas TAGLIAFICO" [ref=e196]
+                - generic [ref=e197]: "3"
+              - generic [ref=e198]:
+                - heading "Nicolas TAGLIAFICO" [level=3] [ref=e199]
+                - paragraph [ref=e201]: Hậu vệ
+                - paragraph [ref=e202]: Lyon
+              - generic [ref=e203]:
+                - generic [ref=e204]:
+                  - generic [ref=e205]: "33"
+                  - text: Tuổi
+                - generic [ref=e206]:
+                  - generic [ref=e207]: "172"
+                  - text: cm
+                - generic [ref=e208]:
+                  - generic [ref=e209]: "65"
+                  - text: kg
+            - article [ref=e210]:
+              - generic [ref=e211]:
+                - img "Gonzalo MONTIEL" [ref=e212]
+                - generic [ref=e213]: "4"
+              - generic [ref=e214]:
+                - heading "Gonzalo MONTIEL" [level=3] [ref=e215]
+                - paragraph [ref=e217]: Hậu vệ
+                - paragraph [ref=e218]: River Plate
+              - generic [ref=e219]:
+                - generic [ref=e220]:
+                  - generic [ref=e221]: "29"
+                  - text: Tuổi
+                - generic [ref=e222]:
+                  - generic [ref=e223]: "175"
+                  - text: cm
+                - generic [ref=e224]:
+                  - generic [ref=e225]: "70"
+                  - text: kg
+            - article [ref=e226]:
+              - generic [ref=e227]:
+                - img "Lisandro MARTINEZ" [ref=e228]
+                - generic [ref=e229]: "6"
+              - generic [ref=e230]:
+                - heading "Lisandro MARTINEZ" [level=3] [ref=e231]
+                - paragraph [ref=e233]: Hậu vệ
+                - paragraph [ref=e234]: Manchester United
+              - generic [ref=e235]:
+                - generic [ref=e236]:
+                  - generic [ref=e237]: "28"
+                  - text: Tuổi
+                - generic [ref=e238]:
+                  - generic [ref=e239]: "175"
+                  - text: cm
+                - generic [ref=e240]:
+                  - generic [ref=e241]: "78"
+                  - text: kg
+            - article [ref=e242]:
+              - generic [ref=e243]:
+                - img "Cristian ROMERO" [ref=e244]
+                - generic [ref=e245]: "13"
+              - generic [ref=e246]:
+                - heading "Cristian ROMERO" [level=3] [ref=e247]
+                - paragraph [ref=e249]: Hậu vệ
+                - paragraph [ref=e250]: Tottenham Hotspur
+              - generic [ref=e251]:
+                - generic [ref=e252]:
+                  - generic [ref=e253]: "28"
+                  - text: Tuổi
+                - generic [ref=e254]:
+                  - generic [ref=e255]: "185"
+                  - text: cm
+                - generic [ref=e256]:
+                  - generic [ref=e257]: "78"
+                  - text: kg
+            - article [ref=e258]:
+              - generic [ref=e259]:
+                - img "Nicolas OTAMENDI" [ref=e260]
+                - generic [ref=e261]: "19"
+              - generic [ref=e262]:
+                - heading "Nicolas OTAMENDI" [level=3] [ref=e263]
+                - paragraph [ref=e265]: Hậu vệ
+                - paragraph [ref=e266]: Benfica
+              - generic [ref=e267]:
+                - generic [ref=e268]:
+                  - generic [ref=e269]: "38"
+                  - text: Tuổi
+                - generic [ref=e270]:
+                  - generic [ref=e271]: "182"
+                  - text: cm
+                - generic [ref=e272]:
+                  - generic [ref=e273]: "84"
+                  - text: kg
+            - article [ref=e274]:
+              - generic [ref=e275]:
+                - img "Facundo MEDINA" [ref=e276]
+                - generic [ref=e277]: "25"
+              - generic [ref=e278]:
+                - heading "Facundo MEDINA" [level=3] [ref=e279]
+                - paragraph [ref=e281]: Hậu vệ
+                - paragraph [ref=e282]: Marseille
+              - generic [ref=e283]:
+                - generic [ref=e284]:
+                  - generic [ref=e285]: "27"
+                  - text: Tuổi
+                - generic [ref=e286]:
+                  - generic [ref=e287]: "184"
+                  - text: cm
+                - generic [ref=e288]:
+                  - generic [ref=e289]: "80"
+                  - text: kg
+            - article [ref=e290]:
+              - generic [ref=e291]:
+                - img "Nahuel MOLINA" [ref=e292]
+                - generic [ref=e293]: "26"
+              - generic [ref=e294]:
+                - heading "Nahuel MOLINA" [level=3] [ref=e295]
+                - paragraph [ref=e297]: Hậu vệ
+                - paragraph [ref=e298]: Atlético Madrid
+              - generic [ref=e299]:
+                - generic [ref=e300]:
+                  - generic [ref=e301]: "28"
+                  - text: Tuổi
+                - generic [ref=e302]:
+                  - generic [ref=e303]: "179"
+                  - text: cm
+                - generic [ref=e304]:
+                  - generic [ref=e305]: "74"
+                  - text: kg
+        - generic [ref=e306]:
+          - generic [ref=e307]:
+            - heading "Tiền vệ" [level=2] [ref=e308]
+            - generic [ref=e309]: 8 cầu thủ
+          - generic [ref=e310]:
+            - article [ref=e311]:
+              - generic [ref=e312]:
+                - img "Leandro PAREDES" [ref=e313]
+                - generic [ref=e314]: "5"
+              - generic [ref=e315]:
+                - heading "Leandro PAREDES" [level=3] [ref=e316]
+                - paragraph [ref=e318]: Tiền vệ
+                - paragraph [ref=e319]: Boca Juniors
+              - generic [ref=e320]:
+                - generic [ref=e321]:
+                  - generic [ref=e322]: "31"
+                  - text: Tuổi
+                - generic [ref=e323]:
+                  - generic [ref=e324]: "182"
+                  - text: cm
+                - generic [ref=e325]:
+                  - generic [ref=e326]: "74"
+                  - text: kg
+            - article [ref=e327]:
+              - generic [ref=e328]:
+                - img "Rodrigo DE PAUL" [ref=e329]
+                - generic [ref=e330]: "7"
+              - generic [ref=e331]:
+                - heading "Rodrigo DE PAUL" [level=3] [ref=e332]
+                - paragraph [ref=e334]: Tiền vệ
+                - paragraph [ref=e335]: Inter Miami CF
+              - generic [ref=e336]:
+                - generic [ref=e337]:
+                  - generic [ref=e338]: "32"
+                  - text: Tuổi
+                - generic [ref=e339]:
+                  - generic [ref=e340]: "178"
+                  - text: cm
+                - generic [ref=e341]:
+                  - generic [ref=e342]: "73"
+                  - text: kg
+            - article [ref=e343]:
+              - generic [ref=e344]:
+                - img "Valentin BARCO" [ref=e345]
+                - generic [ref=e346]: "8"
+              - generic [ref=e347]:
+                - heading "Valentin BARCO" [level=3] [ref=e348]
+                - paragraph [ref=e350]: Tiền vệ
+                - paragraph [ref=e351]: Strasbourg
+              - generic [ref=e352]:
+                - generic [ref=e353]:
+                  - generic [ref=e354]: "21"
+                  - text: Tuổi
+                - generic [ref=e355]:
+                  - generic [ref=e356]: "172"
+                  - text: cm
+                - generic [ref=e357]:
+                  - generic [ref=e358]: "67"
+                  - text: kg
+            - article [ref=e359]:
+              - generic [ref=e360]:
+                - img "Giovani Lo Celso" [ref=e361]
+                - generic [ref=e362]: "11"
+              - generic [ref=e363]:
+                - heading "Giovani Lo Celso" [level=3] [ref=e364]
+                - paragraph [ref=e366]: Tiền vệ
+                - paragraph [ref=e367]: Real Betis
+              - generic [ref=e368]:
+                - generic [ref=e369]:
+                  - generic [ref=e370]: "30"
+                  - text: Tuổi
+                - generic [ref=e371]:
+                  - generic [ref=e372]: "177"
+                  - text: cm
+                - generic [ref=e373]:
+                  - generic [ref=e374]: "75"
+                  - text: kg
+            - article [ref=e375]:
+              - generic [ref=e376]:
+                - img "Exequiel PALACIOS" [ref=e377]
+                - generic [ref=e378]: "14"
+              - generic [ref=e379]:
+                - heading "Exequiel PALACIOS" [level=3] [ref=e380]
+                - paragraph [ref=e382]: Tiền vệ
+                - paragraph [ref=e383]: Bayer Leverkusen
+              - generic [ref=e384]:
+                - generic [ref=e385]:
+                  - generic [ref=e386]: "27"
+                  - text: Tuổi
+                - generic [ref=e387]:
+                  - generic [ref=e388]: "177"
+                  - text: cm
+                - generic [ref=e389]:
+                  - generic [ref=e390]: "72"
+                  - text: kg
+            - article [ref=e391]:
+              - generic [ref=e392]:
+                - img "Nico GONZALEZ" [ref=e393]
+                - generic [ref=e394]: "15"
+              - generic [ref=e395]:
+                - heading "Nico GONZALEZ" [level=3] [ref=e396]
+                - paragraph [ref=e398]: Tiền vệ
+                - paragraph [ref=e399]: Atlético Madrid
+              - generic [ref=e400]:
+                - generic [ref=e401]:
+                  - generic [ref=e402]: "28"
+                  - text: Tuổi
+                - generic [ref=e403]:
+                  - generic [ref=e404]: "180"
+                  - text: cm
+                - generic [ref=e405]:
+                  - generic [ref=e406]: "80"
+                  - text: kg
+            - article [ref=e407]:
+              - generic [ref=e408]:
+                - img "Alexis MAC ALLISTER" [ref=e409]
+                - generic [ref=e410]: "20"
+              - generic [ref=e411]:
+                - heading "Alexis MAC ALLISTER" [level=3] [ref=e412]
+                - paragraph [ref=e414]: Tiền vệ
+                - paragraph [ref=e415]: Liverpool
+              - generic [ref=e416]:
+                - generic [ref=e417]:
+                  - generic [ref=e418]: "27"
+                  - text: Tuổi
+                - generic [ref=e419]:
+                  - generic [ref=e420]: "176"
+                  - text: cm
+                - generic [ref=e421]:
+                  - generic [ref=e422]: "75"
+                  - text: kg
+            - article [ref=e423]:
+              - generic [ref=e424]:
+                - img "Enzo FERNANDEZ" [ref=e425]
+                - generic [ref=e426]: "24"
+              - generic [ref=e427]:
+                - heading "Enzo FERNANDEZ" [level=3] [ref=e428]
+                - paragraph [ref=e430]: Tiền vệ
+                - paragraph [ref=e431]: Chelsea
+              - generic [ref=e432]:
+                - generic [ref=e433]:
+                  - generic [ref=e434]: "25"
+                  - text: Tuổi
+                - generic [ref=e435]:
+                  - generic [ref=e436]: "178"
+                  - text: cm
+                - generic [ref=e437]:
+                  - generic [ref=e438]: "83"
+                  - text: kg
+        - generic [ref=e439]:
+          - generic [ref=e440]:
+            - heading "Tiền đạo" [level=2] [ref=e441]
+            - generic [ref=e442]: 7 cầu thủ
+          - generic [ref=e443]:
+            - article [ref=e444]:
+              - generic [ref=e445]:
+                - img "Julian ALVAREZ" [ref=e446]
+                - generic [ref=e447]: "9"
+              - generic [ref=e448]:
+                - heading "Julian ALVAREZ" [level=3] [ref=e449]
+                - paragraph [ref=e451]: Tiền đạo
+                - paragraph [ref=e452]: Atlético Madrid
+              - generic [ref=e453]:
+                - generic [ref=e454]:
+                  - generic [ref=e455]: "26"
+                  - text: Tuổi
+                - generic [ref=e456]:
+                  - generic [ref=e457]: "170"
+                  - text: cm
+                - generic [ref=e458]:
+                  - generic [ref=e459]: "73"
+                  - text: kg
+            - article [ref=e460]:
+              - generic [ref=e461]:
+                - img "Lionel MESSI" [ref=e462]
+                - generic [ref=e463]: "10"
+              - generic [ref=e464]:
+                - heading "Lionel MESSI" [level=3] [ref=e465]
+                - paragraph [ref=e467]: Tiền đạo
+                - paragraph [ref=e468]: Inter Miami CF
+              - generic [ref=e469]:
+                - generic [ref=e470]:
+                  - generic [ref=e471]: "38"
+                  - text: Tuổi
+                - generic [ref=e472]:
+                  - generic [ref=e473]: "170"
+                  - text: cm
+                - generic [ref=e474]:
+                  - generic [ref=e475]: "68"
+                  - text: kg
+            - article [ref=e476]:
+              - generic [ref=e477]:
+                - img "Thiago ALMADA" [ref=e478]
+                - generic [ref=e479]: "16"
+              - generic [ref=e480]:
+                - heading "Thiago ALMADA" [level=3] [ref=e481]
+                - paragraph [ref=e483]: Tiền đạo
+                - paragraph [ref=e484]: Atlético Madrid
+              - generic [ref=e485]:
+                - generic [ref=e486]:
+                  - generic [ref=e487]: "25"
+                  - text: Tuổi
+                - generic [ref=e488]:
+                  - generic [ref=e489]: "171"
+                  - text: cm
+                - generic [ref=e490]:
+                  - generic [ref=e491]: "63"
+                  - text: kg
+            - article [ref=e492]:
+              - generic [ref=e493]:
+                - img "Giuliano SIMEONE" [ref=e494]
+                - generic [ref=e495]: "17"
+              - generic [ref=e496]:
+                - heading "Giuliano SIMEONE" [level=3] [ref=e497]
+                - paragraph [ref=e499]: Tiền đạo
+                - paragraph [ref=e500]: Atlético Madrid
+              - generic [ref=e501]:
+                - generic [ref=e502]:
+                  - generic [ref=e503]: "23"
+                  - text: Tuổi
+                - generic [ref=e504]:
+                  - generic [ref=e505]: "174"
+                  - text: cm
+                - generic [ref=e506]:
+                  - generic [ref=e507]: "71"
+                  - text: kg
+            - article [ref=e508]:
+              - generic [ref=e509]:
+                - img "Nico PAZ" [ref=e510]
+                - generic [ref=e511]: "18"
+              - generic [ref=e512]:
+                - heading "Nico PAZ" [level=3] [ref=e513]
+                - paragraph [ref=e515]: Tiền đạo
+                - paragraph [ref=e516]: Como
+              - generic [ref=e517]:
+                - generic [ref=e518]:
+                  - generic [ref=e519]: "21"
+                  - text: Tuổi
+                - generic [ref=e520]:
+                  - generic [ref=e521]: "185"
+                  - text: cm
+                - generic [ref=e522]:
+                  - generic [ref=e523]: "79"
+                  - text: kg
+            - article [ref=e524]:
+              - generic [ref=e525]:
+                - img "Jose Manuel LOPEZ" [ref=e526]
+                - generic [ref=e527]: "21"
+              - generic [ref=e528]:
+                - heading "Jose Manuel LOPEZ" [level=3] [ref=e529]
+                - paragraph [ref=e531]: Tiền đạo
+                - paragraph [ref=e532]: Palmeiras
+              - generic [ref=e533]:
+                - generic [ref=e534]:
+                  - generic [ref=e535]: "25"
+                  - text: Tuổi
+                - generic [ref=e536]:
+                  - generic [ref=e537]: "190"
+                  - text: cm
+                - generic [ref=e538]:
+                  - generic [ref=e539]: "77"
+                  - text: kg
+            - article [ref=e540]:
+              - generic [ref=e541]:
+                - img "Lautaro MARTINEZ" [ref=e542]
+                - generic [ref=e543]: "22"
+              - generic [ref=e544]:
+                - heading "Lautaro MARTINEZ" [level=3] [ref=e545]
+                - paragraph [ref=e547]: Tiền đạo
+                - paragraph [ref=e548]: Inter Milan
+              - generic [ref=e549]:
+                - generic [ref=e550]:
+                  - generic [ref=e551]: "28"
+                  - text: Tuổi
+                - generic [ref=e552]:
+                  - generic [ref=e553]: "175"
+                  - text: cm
+                - generic [ref=e554]:
+                  - generic [ref=e555]: "80"
+                  - text: kg
+  - button "Open Next.js Dev Tools" [ref=e561] [cursor=pointer]:
+    - img [ref=e562]
+  - alert [ref=e565]
