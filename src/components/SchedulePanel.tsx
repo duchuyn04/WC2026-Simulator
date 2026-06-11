@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { FlagIcon } from "./FlagIcon";
 import { MatchInfo } from "./MatchInfo";
 import { useSchedule } from "@/lib/hooks";
@@ -117,10 +118,11 @@ function MatchSide({
 
   if (side === "home") {
     return (
-      <div className={`flex items-center justify-end gap-2 min-w-0 ${tone}`} title={team.name}>
+      <Link href={`/teams/${team.name.toLowerCase().replace(/ /g, '-')}`} className={`flex items-center justify-end gap-2 min-w-0 ${tone} hover:underline decoration-zinc-500`} title={team.name}>
         <span className="text-sm font-semibold truncate leading-none">{team.name}</span>
         <button
           onClick={(e) => {
+            e.preventDefault();
             e.stopPropagation();
             toggleFavoriteTeam(team.id);
           }}
@@ -130,17 +132,19 @@ function MatchSide({
           <FlagIcon code={team.code} size="sm" title={team.name} />
           {isFav && <span className="absolute -top-1 -right-1 text-[8px]">⭐</span>}
         </button>
-      </div>
+      </Link>
     );
   }
 
   return (
-    <div
-      className={`flex items-center gap-2 min-w-0 ${tone}`}
+    <Link
+      href={`/teams/${team.name.toLowerCase().replace(/ /g, '-')}`}
+      className={`flex items-center gap-2 min-w-0 ${tone} hover:underline decoration-zinc-500`}
       title={team.name}
     >
       <button
         onClick={(e) => {
+          e.preventDefault();
           e.stopPropagation();
           toggleFavoriteTeam(team.id);
         }}
@@ -151,7 +155,7 @@ function MatchSide({
         {isFav && <span className="absolute -top-1 -right-1 text-[8px]">⭐</span>}
       </button>
       <span className="text-sm font-semibold truncate leading-none">{team.name}</span>
-    </div>
+    </Link>
   );
 }
 

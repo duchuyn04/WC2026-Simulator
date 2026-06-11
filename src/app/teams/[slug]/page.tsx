@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { flagUrl } from "@/lib/data";
 import { PortraitImage } from "@/components/PortraitImage";
 import { RecentMatches } from "@/components/RecentMatches";
+import { TeamStatsBoard } from "@/components/TeamStatsBoard";
 import { fetchTeamMatches } from "@/lib/espn";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import teamsData from "../../../../data/fifa-teams-squads.json";
@@ -153,6 +154,11 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
           </div>
 
           <RecentMatches recentMatches={recentMatches} />
+          {espnId && (
+            <div className="mt-8">
+              <TeamStatsBoard espnId={espnId} />
+            </div>
+          )}
         </aside>
 
         <section className="space-y-6">
