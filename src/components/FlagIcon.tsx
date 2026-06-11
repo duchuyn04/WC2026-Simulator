@@ -24,6 +24,8 @@ export function FlagIcon({ code, size = "sm", title }: Props) {
         src={flagUrl(code)}
         alt=""
         aria-hidden
+        loading="lazy"
+        decoding="async"
         className="w-full h-full object-cover block"
         draggable={false}
       />

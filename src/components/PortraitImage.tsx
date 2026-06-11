@@ -76,6 +76,8 @@ export function PortraitImage({
     <img
       src={src}
       alt={alt}
+      loading="lazy"
+      decoding="async"
       className="h-56 w-full object-cover object-top sm:h-64"
       onError={() => setError(true)}
     />

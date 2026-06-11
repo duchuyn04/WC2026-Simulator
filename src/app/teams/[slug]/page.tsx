@@ -113,6 +113,8 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
               <img
                 src={flagUrl(team.code)}
                 alt={`Cờ ${team.name}`}
+                loading="lazy"
+                decoding="async"
                 className="h-24 w-32 rounded-2xl object-cover ring-1 ring-white/20"
               />
               <div>

@@ -79,6 +79,16 @@ const FILTERS: { id: ScheduleFilter | "espn-standings" | "espn-stats"; label: st
   { id: "espn-stats", label: "Thống kê" },
 ];
 
+function getTeamSlug(name: string) {
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/-and-/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
+
 function MatchSide({
   team,
   placeholder,
@@ -118,7 +128,7 @@ function MatchSide({
 
   if (side === "home") {
     return (
-      <Link href={`/teams/${team.name.toLowerCase().replace(/ /g, '-')}`} className={`flex items-center justify-end gap-2 min-w-0 ${tone} hover:underline decoration-zinc-500`} title={team.name}>
+      <Link href={`/teams/${getTeamSlug(team.name)}`} className={`flex items-center justify-end gap-2 min-w-0 ${tone} hover:underline decoration-zinc-500`} title={team.name}>
         <span className="text-sm font-semibold truncate leading-none">{team.name}</span>
         <button
           onClick={(e) => {
@@ -138,7 +148,7 @@ function MatchSide({
 
   return (
     <Link
-      href={`/teams/${team.name.toLowerCase().replace(/ /g, '-')}`}
+      href={`/teams/${getTeamSlug(team.name)}`}
       className={`flex items-center gap-2 min-w-0 ${tone} hover:underline decoration-zinc-500`}
       title={team.name}
     >

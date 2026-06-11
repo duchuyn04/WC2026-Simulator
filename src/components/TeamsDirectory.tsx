@@ -98,6 +98,8 @@ export function TeamsDirectory({ teams }: { teams: TeamCard[] }) {
                 <img
                   src={flagCdnUrl(team.code, 160)}
                   alt={`Cờ ${team.name}`}
+                  loading="lazy"
+                  decoding="async"
                   className="h-10 w-16 sm:h-16 sm:w-24 rounded-lg sm:rounded-2xl object-cover ring-1 ring-white/25"
                   onError={(event) => {
                     event.currentTarget.src = flagUrl(team.code);
