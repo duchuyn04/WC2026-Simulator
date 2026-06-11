@@ -17,6 +17,7 @@ import { isPlayedResult } from "@/lib/fifa/types";
 import type { Team } from "@/lib/fifa/types";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { EspnStandingsBoard } from "./EspnStandingsBoard";
+import { EspnStatsBoard } from "./EspnStatsBoard";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnId]) => {
   acc[espnId] = localId;
@@ -69,11 +70,12 @@ function useEspnLiveScores() {
   return matches;
 }
 
-const FILTERS: { id: ScheduleFilter | "espn-standings"; label: string }[] = [
+const FILTERS: { id: ScheduleFilter | "espn-standings" | "espn-stats"; label: string }[] = [
   { id: "all", label: "Tất cả trận đấu" },
   { id: "group", label: "Vòng bảng" },
   { id: "knockout", label: "Nhánh Knockout" },
   { id: "espn-standings", label: "BXH Thực tế" },
+  { id: "espn-stats", label: "Thống kê" },
 ];
 
 function MatchSide({
@@ -307,7 +309,7 @@ function ScheduleTableRow({ entry, espnMatches }: { entry: ScheduleEntry, espnMa
 export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fav-matches" | "fav-teams" }) {
   const allEntries = useSchedule();
   const espnMatches = useEspnLiveScores();
-  const [filter, setFilter] = useState<ScheduleFilter | "espn-standings">("all");
+  const [filter, setFilter] = useState<ScheduleFilter | "espn-standings" | "espn-stats">("all");
   const [searchQuery, setSearchQuery] = useState("");
   const favoriteMatches = useSimulation((s) => s.favoriteMatches);
   const favoriteTeams = useSimulation((s) => s.favoriteTeams);
@@ -316,7 +318,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   // (the entire KO schedule branch with real dates is still available in the main "Tất cả lịch thi đấu" tab).
   const visibleFilters = useMemo(() => {
     if (filterMode === "fav-matches" || filterMode === "fav-teams") {
-      return FILTERS.filter((f) => f.id !== "knockout" && f.id !== "espn-standings");
+      return FILTERS.filter((f) => f.id !== "knockout" && f.id !== "espn-standings" && f.id !== "espn-stats");
     }
     return FILTERS;
   }, [filterMode]);
@@ -329,7 +331,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   }, [filterMode, filter]);
 
   const filtered = useMemo(() => {
-    if (filter === "espn-standings") return []; // Not used for standings
+    if (filter === "espn-standings" || filter === "espn-stats") return []; // Not used for standings or stats
     let list = filterScheduleEntries(allEntries, filter as ScheduleFilter);
     
     if (filterMode === "fav-matches") {
@@ -377,7 +379,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                 key={item.id}
                 type="button"
                 data-testid={`schedule-filter-${item.id}`}
-                onClick={() => setFilter(item.id as ScheduleFilter | "espn-standings")}
+                onClick={() => setFilter(item.id as ScheduleFilter | "espn-standings" | "espn-stats")}
                 className={[
                   "pb-4 -mb-[9px] border-b-2 transition-colors",
                   filter === item.id
@@ -392,7 +394,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
         </div>
         
         <div className="flex items-center gap-3">
-          {filter !== "espn-standings" && (
+          {filter !== "espn-standings" && filter !== "espn-stats" && (
             <div className="relative">
               <svg className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -410,7 +412,9 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
         </div>
       </div>
 
-      {filter === "espn-standings" ? (
+      {filter === "espn-stats" ? (
+        <EspnStatsBoard />
+      ) : filter === "espn-standings" ? (
         <EspnStandingsBoard />
       ) : dateGroups.length === 0 ? (
         <p className="text-center text-zinc-500 py-12">Không có trận nào trong bộ lọc này.</p>
