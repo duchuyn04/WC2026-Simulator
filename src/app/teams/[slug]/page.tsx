@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { flagUrl } from "@/lib/data";
-import { PortraitImage } from "@/components/PortraitImage";
+import { PortraitLightbox } from "@/components/PortraitLightbox";
 import { RecentMatches } from "@/components/RecentMatches";
 import { TeamStatsBoard } from "@/components/TeamStatsBoard";
 import { fetchTeamMatches } from "@/lib/espn";
@@ -174,9 +174,11 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
               </div>
               <article className="flex items-center gap-3 rounded-2xl border border-zinc-800 bg-[#11151d] p-2 sm:block sm:max-w-sm sm:rounded-[1.5rem] sm:p-3">
                 <div className="relative h-[86px] w-[72px] shrink-0 overflow-hidden rounded-xl bg-zinc-800 sm:h-auto sm:w-full sm:rounded-2xl [&>div]:h-full [&>img]:h-full sm:[&>div]:h-64 sm:[&>img]:h-64">
-                  <PortraitImage
+                  <PortraitLightbox
                     src={headCoach.pictureUrl}
                     alt={headCoach.name ?? "HLV trưởng"}
+                    title={headCoach.alias ?? headCoach.name ?? "HLV trưởng"}
+                    subtitle={`Head coach${ageOn(headCoach.birthDate) ? ` · ${ageOn(headCoach.birthDate)} tuổi` : ""}`}
                     placeholderProps={{
                       badge: "HLV",
                       label: "Head coach",
@@ -211,9 +213,11 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
                 {players.map((player) => (
                   <article key={player.id} className="flex items-center gap-2 rounded-2xl border border-zinc-800 bg-[#11151d] p-2 sm:block sm:rounded-[1.5rem] sm:p-3">
                     <div className="relative h-[72px] w-[56px] shrink-0 overflow-hidden rounded-xl bg-zinc-800 sm:h-auto sm:w-full sm:rounded-2xl [&>div]:h-full [&>img]:h-full sm:[&>div]:h-64 sm:[&>img]:h-64">
-                      <PortraitImage
+                      <PortraitLightbox
                         src={player.pictureUrl}
                         alt={player.name ?? "Cầu thủ"}
+                        title={player.name ?? "Cầu thủ"}
+                        subtitle={`${translatePosition(player.realPosition ?? player.position)} · ${team.name}`}
                         placeholderProps={{
                           badge: `#${player.jerseyNumber ?? "-"}`,
                           label: translatePosition(player.realPosition ?? player.position),
