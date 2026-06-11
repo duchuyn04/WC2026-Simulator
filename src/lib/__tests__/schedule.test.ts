@@ -16,7 +16,7 @@ describe("stageLabel", () => {
 
   it("maps knockout stages", () => {
     expect(stageLabel("Final")).toBe("Chung kết");
-    expect(stageLabel("Round of 32")).toBe("Vòng 1/16");
+    expect(stageLabel("Round of 32")).toBe("Vòng 32");
   });
 });
 

@@ -24,8 +24,8 @@ export type ScheduleEntry = {
 
 const STAGE_LABELS: Record<string, string> = {
   "First Stage": "Vòng bảng",
-  "Round of 32": "Vòng 1/16",
-  "Round of 16": "Vòng 1/8",
+  "Round of 32": "Vòng 32",
+  "Round of 16": "Vòng 16",
   "Quarter-final": "Tứ kết",
   "Semi-final": "Bán kết",
   "Play-off for third place": "Tranh hạng 3",
@@ -83,6 +83,8 @@ export function buildScheduleEntries(
   matchResults: Record<string, MatchResult>,
   knockoutMatches: ResolvedKnockoutMatch[]
 ): ScheduleEntry[] {
+  // "Thực tế": group matches + dates/venues/stages/placeholders come verbatim from FIFA seed (72 group matches).
+  // "Theo simulator": knockout teams/winners are resolved at runtime from current standings + picks.
   const groupEntries = seed.groups.flatMap((group) =>
     group.matches.map((match) => groupMatchToEntry(match, group.letter, matchResults))
   );
@@ -118,7 +120,18 @@ export function groupScheduleByDate(entries: ScheduleEntry[]): ScheduleDateGroup
   const groups = new Map<string, ScheduleEntry[]>();
 
   for (const entry of entries) {
-    const key = entry.date?.slice(0, 10) ?? "unknown";
+    let key = "unknown";
+    if (entry.date) {
+      const d = new Date(entry.date);
+      if (!Number.isNaN(d.getTime())) {
+        key = new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Asia/Ho_Chi_Minh",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        }).format(d);
+      }
+    }
     const list = groups.get(key) ?? [];
     list.push(entry);
     groups.set(key, list);

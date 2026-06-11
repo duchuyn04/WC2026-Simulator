@@ -17,6 +17,8 @@
     "fetch:rankings": "node scripts/fetch-fifa-rankings.mjs",
     "generate:annex-c": "node scripts/generate-annex-c.mjs",
     "survey:playwright": "node scripts/survey-fifa-playwright.mjs",
+    "fetch:teams-squads": "node scripts/fetch-fifa-teams-squads.mjs",
+    "enrich:wikidata-images": "node scripts/enrich-wikidata-images.mjs",
     "test:e2e:ui": "playwright test --ui",
     "mcp:playwright": "npx @playwright/mcp@latest --port 8931",
     "download:flags": "node scripts/download-flags.mjs"

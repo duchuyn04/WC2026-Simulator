@@ -86,10 +86,14 @@ export function useKnockout() {
 }
 
 export function useSchedule() {
-  const matchResults = useSimulation((s) => s.matchResults);
-  const resolved = useResolvedKnockoutMatches();
-  return useMemo(
-    () => buildScheduleEntries(matchResults, resolved),
-    [matchResults, resolved]
-  );
+  // "Khớp thực tế": base dates/venues/placeholders/stages for all 104 entries come from seed inside buildScheduleEntries.
+  return useMemo(() => {
+    const actualKnockout = seed.knockout.map((m) => ({
+      ...m,
+      resolvedHome: m.home ? { team: m.home, label: m.placeholderA } : null,
+      resolvedAway: m.away ? { team: m.away, label: m.placeholderB } : null,
+      winner: null,
+    }));
+    return buildScheduleEntries({}, actualKnockout);
+  }, []);
 }

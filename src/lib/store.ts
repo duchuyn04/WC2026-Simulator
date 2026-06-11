@@ -38,6 +38,8 @@ type SimulationStore = {
   activeTab: TabId;
   scrollPositions: ScrollPositions;
   bracketView: BracketView;
+  favoriteMatches: string[];
+  favoriteTeams: string[];
   setActiveTab: (tab: TabId) => void;
   setScrollPosition: (tab: ScrollableTabId, y: number) => void;
   setBracketView: (view: BracketView) => void;
@@ -45,6 +47,8 @@ type SimulationStore = {
   setThirdPlaceOrder: (teamIds: string[]) => void;
   clearThirdPlaceOrder: () => void;
   dismissKnockoutSyncNotice: () => void;
+  toggleFavoriteMatch: (matchId: string) => void;
+  toggleFavoriteTeam: (teamId: string) => void;
   setScore: (matchId: string, home?: number | null, away?: number | null) => void;
   setManualOrder: (group: string, teamIds: string[]) => void;
   clearManualOrder: (group: string) => void;
@@ -107,8 +111,10 @@ export const useSimulation = create<SimulationStore>()(
       thirdPlaceOrder: null,
       knockoutWinners: {},
       knockoutSyncNotice: null,
+      favoriteMatches: [],
+      favoriteTeams: [],
       activeTab: "groups",
-      scrollPositions: { groups: 0, schedule: 0, third: 0 },
+      scrollPositions: { groups: 0, schedule: 0, "fav-matches": 0, "fav-teams": 0, third: 0 },
       bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
 
       setActiveTab: (tab) =>
@@ -191,6 +197,20 @@ export const useSimulation = create<SimulationStore>()(
             ? { knockoutSyncNotice: { ...s.knockoutSyncNotice, pending: false } }
             : {}
         ),
+
+      toggleFavoriteMatch: (matchId) =>
+        set((s) => ({
+          favoriteMatches: s.favoriteMatches.includes(matchId)
+            ? s.favoriteMatches.filter((id) => id !== matchId)
+            : [...s.favoriteMatches, matchId],
+        })),
+
+      toggleFavoriteTeam: (teamId) =>
+        set((s) => ({
+          favoriteTeams: s.favoriteTeams.includes(teamId)
+            ? s.favoriteTeams.filter((id) => id !== teamId)
+            : [...s.favoriteTeams, teamId],
+        })),
 
       setScore: (matchId, home, away) =>
         set((s) => {
@@ -280,7 +300,9 @@ export const useSimulation = create<SimulationStore>()(
           thirdPlaceOrder: null,
           knockoutWinners: {},
           knockoutSyncNotice: null,
-          scrollPositions: { groups: 0, schedule: 0, third: 0 },
+          favoriteMatches: [],
+          favoriteTeams: [],
+          scrollPositions: { groups: 0, schedule: 0, "fav-matches": 0, "fav-teams": 0, third: 0 },
           bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
           activeTab: "groups",
         }),
@@ -336,6 +358,8 @@ export const useSimulation = create<SimulationStore>()(
         groupInputMode: state.groupInputMode,
         thirdPlaceOrder: state.thirdPlaceOrder,
         knockoutWinners: state.knockoutWinners,
+        favoriteMatches: state.favoriteMatches,
+        favoriteTeams: state.favoriteTeams,
         activeTab: state.activeTab,
         scrollPositions: state.scrollPositions,
         bracketView: state.bracketView,
