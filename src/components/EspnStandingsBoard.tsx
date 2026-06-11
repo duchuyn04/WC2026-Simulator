@@ -26,11 +26,39 @@ export function EspnStandingsBoard() {
     let mounted = true;
     const fetchStandings = async () => {
       try {
-        const res = await fetch("/api/espn-standings");
+        const url = "https://site.api.espn.com/apis/v2/sports/soccer/fifa.world/standings";
+        const res = await fetch(url);
         if (!res.ok) return;
         const data = await res.json();
-        if (mounted && data.groups) {
-          setGroups(data.groups);
+        
+        const parsedGroups = (data.children || []).map((group: any) => {
+          const entries = group.standings?.entries || [];
+          return {
+            name: group.name,
+            abbreviation: group.abbreviation,
+            teams: entries.map((entry: any) => {
+              const stats = entry.stats || [];
+              const getStat = (name: string) => stats.find((s: any) => s.name === name)?.value ?? 0;
+              
+              return {
+                espnTeamId: entry.team?.id,
+                teamName: entry.team?.displayName || entry.team?.name,
+                rank: entry.note?.rank || getStat("rank"),
+                points: getStat("points"),
+                gamesPlayed: getStat("gamesPlayed"),
+                wins: getStat("wins"),
+                ties: getStat("ties"),
+                losses: getStat("losses"),
+                pointDifferential: getStat("pointDifferential"),
+                pointsFor: getStat("pointsFor"),
+                pointsAgainst: getStat("pointsAgainst")
+              };
+            }).sort((a: any, b: any) => a.rank - b.rank)
+          };
+        });
+
+        if (mounted && parsedGroups.length > 0) {
+          setGroups(parsedGroups);
         }
       } catch (err) {
         console.error(err);

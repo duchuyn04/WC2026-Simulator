@@ -30,11 +30,30 @@ function useEspnLiveScores() {
     let mounted = true;
     const fetchScores = async () => {
       try {
-        const res = await fetch("/api/espn-scoreboard");
+        const url = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=1000";
+        const res = await fetch(url);
         if (!res.ok) return;
-        const json = await res.json();
-        if (mounted && json.matches) {
-          setMatches(json.matches);
+        const data = await res.json();
+        
+        const parsedMatches = (data.events || []).map((e: any) => {
+          const comp = e.competitions?.[0];
+          if (!comp) return null;
+          const home = comp.competitors?.find((c: any) => c.homeAway === "home");
+          const away = comp.competitors?.find((c: any) => c.homeAway === "away");
+          return {
+            id: e.id,
+            date: e.date,
+            status: comp.status?.type?.name,
+            shortDetail: comp.status?.type?.shortDetail,
+            homeId: home?.team?.id,
+            awayId: away?.team?.id,
+            homeScore: home?.score,
+            awayScore: away?.score,
+          };
+        }).filter(Boolean);
+
+        if (mounted && parsedMatches.length > 0) {
+          setMatches(parsedMatches);
         }
       } catch (err) {}
     };

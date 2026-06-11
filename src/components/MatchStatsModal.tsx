@@ -34,7 +34,8 @@ export function MatchStatsModal({ gameId, onClose }: MatchStatsModalProps) {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/match-summary/${gameId}`);
+        const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event=${gameId}`;
+        const res = await fetch(url);
         const json = await res.json();
         if (isMounted) setData(json);
       } catch (err) {
