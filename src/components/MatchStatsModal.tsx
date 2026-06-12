@@ -238,6 +238,8 @@ function PlayerAvatar({ src, fallbackSrc }: { src?: string; fallbackSrc?: string
       src={currentSrc}
       alt=""
       onError={handleError}
+      loading="lazy"
+      decoding="async"
       className="h-6 w-6 rounded-full bg-zinc-800 object-cover border border-zinc-700 shrink-0"
     />
   );
