@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { findEspnMatch, parseEspnScoreboard } from "../espn-match";
+import {
+  findEspnMatch,
+  getEspnLiveClock,
+  hasEspnMatchScore,
+  isEspnMatchLive,
+  parseEspnScoreboard,
+} from "../espn-match";
 import type { ScheduleEntry } from "../schedule";
 
 const entry = {
@@ -21,7 +27,10 @@ describe("parseEspnScoreboard", () => {
         id: "760415",
         date: "2026-06-11T19:00Z",
         competitions: [{
-          status: { type: { name: "STATUS_FULL_TIME", state: "post", shortDetail: "FT" } },
+          status: {
+            displayClock: "90'+8'",
+            type: { name: "STATUS_FULL_TIME", state: "post", shortDetail: "FT" },
+          },
           competitors: [
             { homeAway: "home", score: "2", team: { id: "203" } },
             { homeAway: "away", score: "0", team: { id: "467" } },
@@ -36,11 +45,55 @@ describe("parseEspnScoreboard", () => {
       status: "STATUS_FULL_TIME",
       state: "post",
       shortDetail: "FT",
+      displayClock: "90'+8'",
       homeId: "203",
       awayId: "467",
       homeScore: "2",
       awayScore: "0",
     });
+  });
+});
+
+describe("ESPN match state", () => {
+  it("recognizes any in-progress period and returns the live minute", () => {
+    const [match] = parseEspnScoreboard({
+      events: [{
+        id: "760414",
+        date: "2026-06-12T02:00Z",
+        competitions: [{
+          status: {
+            displayClock: "32'",
+            type: {
+              name: "STATUS_FIRST_HALF",
+              state: "in",
+              shortDetail: "32'",
+            },
+          },
+          competitors: [
+            { homeAway: "home", score: "0", team: { id: "451" } },
+            { homeAway: "away", score: "0", team: { id: "450" } },
+          ],
+        }],
+      }],
+    });
+
+    expect(isEspnMatchLive(match)).toBe(true);
+    expect(hasEspnMatchScore(match)).toBe(true);
+    expect(getEspnLiveClock(match)).toBe("32'");
+  });
+
+  it("does not show a score for scheduled matches", () => {
+    const match = {
+      id: "scheduled",
+      date: "2026-06-13T01:00Z",
+      status: "STATUS_SCHEDULED",
+      state: "pre",
+      shortDetail: "Scheduled",
+      displayClock: "0'",
+    } as const;
+
+    expect(isEspnMatchLive(match)).toBe(false);
+    expect(hasEspnMatchScore(match)).toBe(false);
   });
 });
 
@@ -52,6 +105,7 @@ describe("findEspnMatch", () => {
       status: "STATUS_FULL_TIME",
       state: "post",
       shortDetail: "FT",
+      displayClock: "90'",
     }], {});
 
     expect(match?.id).toBe("760415");
@@ -65,6 +119,7 @@ describe("findEspnMatch", () => {
         status: "STATUS_SCHEDULED",
         state: "pre",
         shortDetail: "Scheduled",
+        displayClock: "0'",
         homeId: "999",
         awayId: "998",
       },
@@ -74,6 +129,7 @@ describe("findEspnMatch", () => {
         status: "STATUS_FULL_TIME",
         state: "post",
         shortDetail: "FT",
+        displayClock: "90'",
         homeId: "203",
         awayId: "467",
       },

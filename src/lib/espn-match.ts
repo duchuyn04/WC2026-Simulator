@@ -6,6 +6,7 @@ export type EspnScoreboardMatch = {
   status: string;
   state: "pre" | "in" | "post";
   shortDetail: string;
+  displayClock: string;
   homeId?: string;
   awayId?: string;
   homeScore?: string;
@@ -18,6 +19,7 @@ type EspnScoreboardResponse = {
     date?: string;
     competitions?: Array<{
       status?: {
+        displayClock?: string;
         type?: {
           name?: string;
           state?: "pre" | "in" | "post";
@@ -47,12 +49,25 @@ export function parseEspnScoreboard(data: EspnScoreboardResponse): EspnScoreboar
       status: competition.status?.type?.name ?? "",
       state: competition.status?.type?.state ?? "pre",
       shortDetail: competition.status?.type?.shortDetail ?? "",
+      displayClock: competition.status?.displayClock ?? "",
       homeId: home?.team?.id,
       awayId: away?.team?.id,
       homeScore: home?.score,
       awayScore: away?.score,
     }];
   });
+}
+
+export function isEspnMatchLive(match: EspnScoreboardMatch) {
+  return match.state === "in";
+}
+
+export function hasEspnMatchScore(match: EspnScoreboardMatch) {
+  return match.state === "in" || match.state === "post";
+}
+
+export function getEspnLiveClock(match: EspnScoreboardMatch) {
+  return match.displayClock || match.shortDetail;
 }
 
 export function findEspnMatch(

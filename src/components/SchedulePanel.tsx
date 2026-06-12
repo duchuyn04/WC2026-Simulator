@@ -19,6 +19,9 @@ import { TournamentStatsBoard } from "./TournamentStatsBoard";
 import { MatchStatsModal } from "./MatchStatsModal";
 import {
   findEspnMatch,
+  getEspnLiveClock,
+  hasEspnMatchScore,
+  isEspnMatchLive,
   parseEspnScoreboard,
   type EspnScoreboardMatch,
 } from "@/lib/espn-match";
@@ -169,15 +172,18 @@ function ScoreDisplay({
   entry: ScheduleEntry;
   espnMatch?: EspnScoreboardMatch;
 }) {
-  if (espnMatch && (espnMatch.status?.includes("IN_PROGRESS") || espnMatch.status?.includes("FINAL") || espnMatch.status?.includes("HALFTIME") || espnMatch.status?.includes("FULL_TIME"))) {
-    const isLive = espnMatch.status?.includes("IN_PROGRESS") || espnMatch.status?.includes("HALFTIME");
+  if (espnMatch && hasEspnMatchScore(espnMatch)) {
+    const isLive = isEspnMatchLive(espnMatch);
+    const liveClock = getEspnLiveClock(espnMatch);
     return (
       <div className="flex flex-col items-center">
         <span className="font-mono text-sm font-black text-emerald-400 tabular-nums whitespace-nowrap">
           {espnMatch.homeScore} - {espnMatch.awayScore}
         </span>
         {isLive && (
-          <span className="text-[9px] font-bold text-rose-500 animate-pulse mt-0.5 whitespace-nowrap">LIVE {espnMatch.shortDetail}</span>
+          <span className="mt-0.5 whitespace-nowrap text-[9px] font-bold text-rose-500 animate-pulse">
+            LIVE {liveClock}
+          </span>
         )}
         {!isLive && espnMatch.shortDetail && (
           <span className="text-[9px] font-bold text-zinc-500 mt-0.5 whitespace-nowrap">{espnMatch.shortDetail}</span>
