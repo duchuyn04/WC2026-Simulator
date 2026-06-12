@@ -1,2 +1,2 @@
-:HL["/WC2026-Simulator/_next/static/chunks/1k-av_9dakg_a.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"pOjUTD3LA2oBvHdXJOlqg"}
+:HL["/WC2026-Simulator/_next/static/chunks/2-1xmi9ifppya.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"lAI6D0vuTViLI_aTpDqRu"}
