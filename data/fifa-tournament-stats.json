@@ -4,11 +4,24 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-12T01:03:10.707Z",
-  "completedMatches": 1,
+  "fetchedAt": "2026-06-12T05:03:19.805Z",
+  "completedMatches": 2,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
+      {
+        "playerId": "395084",
+        "name": "HWANG Inbeom",
+        "shortName": "HWANG Inbeom",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/70be8ce3-bc90-4585-8871-a951dabf811e/HWANG-Inbeom_395084",
+        "team": {
+          "id": "43822",
+          "name": "Korea Republic",
+          "code": "KOR",
+          "flagUrl": "/flags/KOR.png"
+        },
+        "value": 1
+      },
       {
         "playerId": "429157",
         "name": "Julian QUINONES",
@@ -19,6 +32,32 @@
           "name": "Mexico",
           "code": "MEX",
           "flagUrl": "/flags/MEX.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "441170",
+        "name": "Ladislav KREJCI",
+        "shortName": "Ladislav KREJCI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/04ca9e4e-8ab3-458e-a689-2ac49094fb23/KREJCI-Ladislav_441170",
+        "team": {
+          "id": "43995",
+          "name": "Czechia",
+          "code": "CZE",
+          "flagUrl": "/flags/CZE.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "448586",
+        "name": "OH Hyeongyu",
+        "shortName": "H G OH",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/e273b84d-3432-4404-8c33-7ecaaa2bc214/OH-Hyeongyu_448586",
+        "team": {
+          "id": "43822",
+          "name": "Korea Republic",
+          "code": "KOR",
+          "flagUrl": "/flags/KOR.png"
         },
         "value": 1
       },
@@ -38,6 +77,45 @@
     ],
     "assists": [
       {
+        "playerId": "419518",
+        "name": "Erik LIRA",
+        "shortName": "Erik LIRA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/83109586-542d-4950-83eb-f3388757ef90/LIRA-Erik_419518",
+        "team": {
+          "id": "43911",
+          "name": "Mexico",
+          "code": "MEX",
+          "flagUrl": "/flags/MEX.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "395084",
+        "name": "HWANG Inbeom",
+        "shortName": "HWANG Inbeom",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/70be8ce3-bc90-4585-8871-a951dabf811e/HWANG-Inbeom_395084",
+        "team": {
+          "id": "43822",
+          "name": "Korea Republic",
+          "code": "KOR",
+          "flagUrl": "/flags/KOR.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "418490",
+        "name": "LEE Kangin",
+        "shortName": "LEE KANG IN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a54e995b-caa3-43c4-981f-b54ada7f678d/LEE-Kangin_418490",
+        "team": {
+          "id": "43822",
+          "name": "Korea Republic",
+          "code": "KOR",
+          "flagUrl": "/flags/KOR.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "403585",
         "name": "Roberto ALVARADO",
         "shortName": "Roberto ALVARADO",
@@ -47,6 +125,19 @@
           "name": "Mexico",
           "code": "MEX",
           "flagUrl": "/flags/MEX.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "472908",
+        "name": "Vladimir COUFAL",
+        "shortName": "Vladimir COUFAL",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/e013f16f-8ada-4532-b3c4-b674b0e08cc9/COUFAL-Vladimir_472908",
+        "team": {
+          "id": "43995",
+          "name": "Czechia",
+          "code": "CZE",
+          "flagUrl": "/flags/CZE.png"
         },
         "value": 1
       }
@@ -63,6 +154,19 @@
           "name": "Mexico",
           "code": "MEX",
           "flagUrl": "/flags/MEX.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "492315",
+        "name": "LEE Gihyuk",
+        "shortName": "LEE Gihyuk",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/d52ff87a-7e84-497a-bb8e-3feb453ea7c6/LEE-Gihyuk_492315",
+        "team": {
+          "id": "43822",
+          "name": "Korea Republic",
+          "code": "KOR",
+          "flagUrl": "/flags/KOR.png"
         },
         "value": 1
       },

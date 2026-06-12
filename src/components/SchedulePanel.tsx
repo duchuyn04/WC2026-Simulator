@@ -434,7 +434,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
 
       {/* Sub-navigation & Toolbar */}
       <div className="flex min-w-0 flex-col justify-between gap-4 border-b border-zinc-800 py-2 sm:flex-row sm:items-center">
-        <div className="min-w-0 flex-1 overflow-x-auto">
+        <div className="min-w-0 flex-1 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           <nav className="flex w-max min-w-full items-center gap-5 text-sm font-medium sm:gap-6">
             {visibleFilters.map((item) => (
               <button

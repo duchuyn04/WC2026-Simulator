@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import statsData from "../../data/fifa-tournament-stats.json";
+import { useState, useEffect } from "react";
+import defaultStatsData from "../../data/fifa-tournament-stats.json";
 import { FlagIcon } from "./FlagIcon";
 
 type CategoryId =
@@ -41,7 +41,6 @@ const CATEGORIES: Array<{
   { id: "redCards", label: "Thẻ đỏ", heading: "Nhận thẻ đỏ nhiều nhất", valueLabel: "thẻ" },
 ];
 
-const leaderboards = statsData.leaderboards as Record<CategoryId, Leader[]>;
 
 function formatUpdatedAt(value: string) {
   const date = new Date(value);
@@ -84,7 +83,25 @@ function PlayerAvatar({ leader }: { leader: Leader }) {
 
 export function TournamentStatsBoard() {
   const [categoryId, setCategoryId] = useState<CategoryId>("goals");
+  const [statsData, setStatsData] = useState<any>(defaultStatsData);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch("/api/tournament-stats")
+      .then((res) => res.json())
+      .then((data) => {
+        if (mounted && !data.error && data.leaderboards) {
+          setStatsData(data);
+        }
+      })
+      .catch(console.error);
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   const category = CATEGORIES.find((item) => item.id === categoryId) ?? CATEGORIES[0];
+  const leaderboards = statsData.leaderboards as Record<CategoryId, Leader[]>;
   const leaders = leaderboards[category.id] ?? [];
 
   return (
