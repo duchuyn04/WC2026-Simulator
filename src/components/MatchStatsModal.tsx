@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import teamsData from "../../data/fifa-teams-squads.json";
+import { ESPN_TEAM_MAP } from "../lib/espn-mapping";
 
 interface MatchStatsModalProps {
   gameId: string | null;
@@ -36,6 +38,32 @@ type EspnDetail = {
   type?: { text?: string; type?: string };
 };
 
+interface EspnAthlete {
+  id: string;
+  displayName: string;
+  shortName?: string;
+  headshot?: {
+    href: string;
+  };
+}
+
+interface EspnRosterItem {
+  starter: boolean;
+  jersey: string;
+  position: {
+    abbreviation: string;
+  };
+  athlete: EspnAthlete;
+}
+
+interface EspnTeamRoster {
+  homeAway: "home" | "away";
+  team: {
+    id: string;
+  };
+  roster: EspnRosterItem[];
+}
+
 type EspnSummary = {
   header?: {
     season?: { name?: string };
@@ -58,6 +86,7 @@ type EspnSummary = {
   };
   boxscore?: { teams?: EspnBoxscoreTeam[] };
   keyEvents?: EspnDetail[];
+  rosters?: EspnTeamRoster[];
 };
 
 const STAT_KEYS = [
@@ -112,6 +141,90 @@ function isKickoffString(value?: string) {
   if (!value) return false;
   return /\d{1,2}\/\d{1,2}\s*-\s*\d{1,2}:\d{2}/.test(value) &&
     /(AM|PM|EDT|EST|CDT|CST|MDT|MST|PDT|PST|BST|GMT|UTC)/i.test(value);
+}
+
+function findLocalPlayerPicture(localTeam: any, espnPlayerName: string): string | undefined {
+  if (!localTeam || !espnPlayerName) return undefined;
+
+  const normalize = (str: string) =>
+    str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s]/g, "")
+      .trim();
+
+  const normEspn = normalize(espnPlayerName);
+  const espnWords = normEspn.split(/\s+/).filter((w) => w.length >= 3);
+
+  // 1. Exact match on full normalized name
+  const exactMatch = localTeam.squad.find((p: any) => {
+    const normName = normalize(p.name || "");
+    const normShort = normalize(p.shortName || "");
+    const normWiki = normalize(p.wikiName || "");
+    return (
+      normName.replace(/\s+/g, "") === normEspn.replace(/\s+/g, "") ||
+      normShort.replace(/\s+/g, "") === normEspn.replace(/\s+/g, "") ||
+      normWiki.replace(/\s+/g, "") === normEspn.replace(/\s+/g, "")
+    );
+  });
+  if (exactMatch?.pictureUrl) return exactMatch.pictureUrl;
+
+  // 2. Word overlap matching (e.g. sharing last name/distinct parts)
+  for (const p of localTeam.squad) {
+    const normName = normalize(p.name || "");
+    const normShort = normalize(p.shortName || "");
+    const normWiki = normalize(p.wikiName || "");
+
+    const pWords = [
+      ...normName.split(/\s+/),
+      ...normShort.split(/\s+/),
+      ...normWiki.split(/\s+/),
+    ].filter((w) => w.length >= 3);
+
+    const hasOverlap = espnWords.some((ew) => pWords.includes(ew));
+    if (hasOverlap && p.pictureUrl) {
+      return p.pictureUrl;
+    }
+  }
+
+  return undefined;
+}
+
+function PlayerAvatar({ src, fallbackSrc }: { src?: string; fallbackSrc?: string }) {
+  const [currentSrc, setCurrentSrc] = useState(src);
+  const [triedFallback, setTriedFallback] = useState(false);
+
+  useEffect(() => {
+    setCurrentSrc(src);
+    setTriedFallback(false);
+  }, [src]);
+
+  const handleError = () => {
+    if (!triedFallback && fallbackSrc) {
+      setCurrentSrc(fallbackSrc);
+      setTriedFallback(true);
+    } else {
+      setCurrentSrc(undefined);
+    }
+  };
+
+  if (!currentSrc) {
+    return (
+      <div className="h-6 w-6 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-[10px] text-zinc-500 shrink-0">
+        👤
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={currentSrc}
+      alt=""
+      onError={handleError}
+      className="h-6 w-6 rounded-full bg-zinc-800 object-cover border border-zinc-700 shrink-0"
+    />
+  );
 }
 
 export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalProps) {
@@ -233,12 +346,17 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
       teamId: string;
       playerName: string;
       detail: string;
+      playerImage?: string;
+      fallbackImage?: string;
     }> = [];
 
     const seen = new Set<string>();
 
     for (const det of details) {
-      const type = det.type?.type;
+      let type = det.type?.type;
+      if (det.scoringPlay) {
+        type = "goal";
+      }
       if (!type || !allowedTypes.has(type)) continue;
 
       const teamId = det.team?.id;
@@ -264,6 +382,25 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
         detail = p1?.shortName ?? p1?.displayName ?? "";
       }
 
+      let playerImage = "";
+      const mainPlayer = (type === "substitution" && p2) ? p2 : p1;
+      if (mainPlayer?.id) {
+        playerImage = `https://a.espncdn.com/i/headshots/soccer/players/full/${mainPlayer.id}.png`;
+      }
+
+      let fallbackImage = "";
+      const mainPlayerName = mainPlayer?.shortName ?? mainPlayer?.displayName ?? "";
+      if (teamId && mainPlayerName) {
+        const localTeamId = Object.keys(ESPN_TEAM_MAP).find(
+          (key) => ESPN_TEAM_MAP[key] === teamId
+        );
+        const localTeam = teamsData.teams.find((t) => t.id === localTeamId);
+        const localPicture = findLocalPlayerPicture(localTeam, mainPlayerName);
+        if (localPicture) {
+          fallbackImage = localPicture;
+        }
+      }
+
       events.push({
         id: det.id ?? String(events.length),
         minute,
@@ -272,6 +409,8 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
         teamId,
         playerName,
         detail,
+        playerImage,
+        fallbackImage,
       });
     }
 
@@ -512,10 +651,11 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                           <div className={`flex flex-1 items-center justify-end gap-2 ${isHome ? "" : "invisible"}`}>
                             {isHome && (
                               <>
+                                <span className="shrink-0 text-xs text-zinc-500">{event.detail}</span>
                                 <span className="truncate text-right text-xs font-medium text-zinc-200">
                                   {event.playerName}
                                 </span>
-                                <span className="shrink-0 text-xs text-zinc-500">{event.detail}</span>
+                                <PlayerAvatar src={event.playerImage} fallbackSrc={event.fallbackImage} />
                               </>
                             )}
                           </div>
@@ -532,10 +672,11 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                           <div className={`flex flex-1 items-center gap-2 ${!isHome ? "" : "invisible"}`}>
                             {!isHome && (
                               <>
-                                <span className="shrink-0 text-xs text-zinc-500">{event.detail}</span>
+                                <PlayerAvatar src={event.playerImage} fallbackSrc={event.fallbackImage} />
                                 <span className="truncate text-xs font-medium text-zinc-200">
                                   {event.playerName}
                                 </span>
+                                <span className="shrink-0 text-xs text-zinc-500">{event.detail}</span>
                               </>
                             )}
                           </div>
