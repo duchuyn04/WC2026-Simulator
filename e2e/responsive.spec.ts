@@ -8,11 +8,14 @@ import {
 } from "./helpers";
 
 const VIEWPORTS = [
+  { name: "mobile-small", width: 320, height: 568 },
   { name: "iphone-se", width: 375, height: 667 },
-  { name: "iphone-14", width: 390, height: 844 },
   { name: "pixel-7", width: 412, height: 915 },
+  { name: "tablet", width: 768, height: 1024 },
+  { name: "tablet-landscape", width: 1024, height: 768 },
   { name: "desktop", width: 1280, height: 800 },
   { name: "desktop-wide", width: 1536, height: 864 },
+  { name: "full-hd", width: 1920, height: 1080 },
 ] as const;
 
 for (const vp of VIEWPORTS) {
@@ -80,11 +83,33 @@ for (const vp of VIEWPORTS) {
       await assertNoHorizontalOverflow(page);
     });
 
+    test("thống kê FIFA — đủ danh mục, không tràn trang", async ({ page }) => {
+      await goToTab(page, "schedule");
+      await page.getByTestId("schedule-filter-stats").click();
+
+      const stats = page.getByTestId("tournament-stats");
+      await expect(stats).toBeVisible();
+      await expect(stats.getByText("Dữ liệu chính thức từ FIFA")).toBeVisible();
+
+      for (const category of [
+        "goals",
+        "assists",
+        "penalties",
+        "yellowCards",
+        "redCards",
+      ]) {
+        const tab = page.getByTestId(`stats-category-${category}`);
+        await tab.click();
+        await expect(tab).toHaveAttribute("aria-selected", "true");
+        await assertNoHorizontalOverflow(page);
+      }
+    });
+
     test("tab nav — đủ 4 tab, chuyển được", async ({ page }) => {
       const tabs = ["groups", "schedule", "third", "knockout"] as const;
       for (const tab of tabs) {
         await goToTab(page, tab);
-        await expect(page.getByTestId(`tab-${tab}`)).toHaveClass(/bg-amber-500/);
+        await expect(page.getByTestId(`tab-${tab}`)).toHaveClass(/bg-zinc-800/);
       }
       await assertNoHorizontalOverflow(page);
     });

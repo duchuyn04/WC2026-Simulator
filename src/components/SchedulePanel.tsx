@@ -412,7 +412,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   const dateGroups = useMemo(() => groupScheduleByDate(filtered), [filtered]);
 
   return (
-    <div className="space-y-4" data-testid="schedule-panel">
+    <div className="min-w-0 space-y-4" data-testid="schedule-panel">
       {/* Header matching documented behavior and E2E expectations */}
       <div className="flex items-baseline gap-3">
         <h2 className="text-xl font-semibold tracking-tight">Lịch thi đấu</h2>
@@ -420,9 +420,9 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
       </div>
 
       {/* Sub-navigation & Toolbar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-2 border-b border-zinc-800">
-        <div className="flex items-center gap-4">
-          <nav className="flex items-center gap-6 text-sm font-medium">
+      <div className="flex min-w-0 flex-col justify-between gap-4 border-b border-zinc-800 py-2 sm:flex-row sm:items-center">
+        <div className="min-w-0 flex-1 overflow-x-auto">
+          <nav className="flex w-max min-w-full items-center gap-5 text-sm font-medium sm:gap-6">
             {visibleFilters.map((item) => (
               <button
                 key={item.id}
@@ -442,7 +442,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
           </nav>
         </div>
         
-        <div className="flex items-center gap-3">
+        <div className="flex min-w-0 items-center gap-3">
           {filter !== "espn-standings" && filter !== "stats" && (
             <div className="relative">
               <svg className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -480,8 +480,8 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
       ) : dateGroups.length === 0 ? (
         <p className="text-center text-zinc-500 py-12">Không có trận nào trong bộ lọc này.</p>
       ) : (
-        <div className="border border-zinc-800 rounded-lg overflow-hidden bg-zinc-950/50 backdrop-blur-sm">
-          <table className="w-full text-left border-collapse">
+        <div className="max-w-full overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950/50 backdrop-blur-sm">
+          <table className="w-full min-w-[1080px] border-collapse text-left">
             <thead>
               <tr className="border-b border-zinc-800 text-xs font-semibold text-zinc-500 uppercase tracking-wider bg-zinc-900/50">
                 <th className="px-4 py-3 text-center whitespace-nowrap">TRẬN</th>

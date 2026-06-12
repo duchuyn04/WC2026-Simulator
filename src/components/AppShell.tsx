@@ -166,7 +166,7 @@ export function AppShell() {
         className={
           activeTab === "knockout"
             ? "flex min-h-0 flex-1 w-full flex-col overflow-hidden px-2 py-2 sm:px-3"
-            : "max-w-7xl mx-auto px-4 py-6"
+            : "mx-auto w-full min-w-0 max-w-7xl px-4 py-6"
         }
       >
         {activeTab === "groups" && (

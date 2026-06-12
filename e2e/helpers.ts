@@ -16,6 +16,11 @@ export async function goToTab(
   page: Page,
   tab: "groups" | "schedule" | "third" | "knockout"
 ) {
+  if (tab === "schedule") {
+    await page.getByRole("button", { name: "Lịch thi đấu & Yêu thích" }).click();
+  } else {
+    await page.getByRole("button", { name: "Mô phỏng" }).click();
+  }
   await page.getByTestId(`tab-${tab}`).click();
 }
 

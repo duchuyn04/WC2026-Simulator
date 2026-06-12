@@ -88,7 +88,7 @@ export function TournamentStatsBoard() {
   const leaders = leaderboards[category.id] ?? [];
 
   return (
-    <section className="space-y-5" data-testid="tournament-stats">
+    <section className="min-w-0 space-y-5" data-testid="tournament-stats">
       <div className="flex flex-col gap-3 rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400">
@@ -104,7 +104,7 @@ export function TournamentStatsBoard() {
       </div>
 
       <div
-        className="flex gap-2 overflow-x-auto border-b border-zinc-800 pb-px"
+        className="flex max-w-full gap-2 overflow-x-auto border-b border-zinc-800 pb-px"
         role="tablist"
         aria-label="Danh mục thống kê cầu thủ"
       >
@@ -129,8 +129,8 @@ export function TournamentStatsBoard() {
       </div>
 
       <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/50">
-        <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-4 py-3 sm:px-5">
-          <div>
+        <div className="flex min-w-0 items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-900/60 px-4 py-3 sm:px-5">
+          <div className="min-w-0">
             <h3 className="font-bold text-zinc-100">{category.heading}</h3>
             <p className="text-xs text-zinc-500">Top 10 cầu thủ tại World Cup 2026</p>
           </div>
