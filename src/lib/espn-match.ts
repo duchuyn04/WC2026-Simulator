@@ -58,8 +58,38 @@ export function parseEspnScoreboard(data: EspnScoreboardResponse): EspnScoreboar
   });
 }
 
+export function isEspnMatchHalftime(match: EspnScoreboardMatch) {
+  if (match.state !== "in") return false;
+
+  const statusUpper = match.status.toUpperCase();
+  const shortUpper = match.shortDetail.toUpperCase().trim();
+  if (
+    statusUpper.includes("HALFTIME") ||
+    statusUpper.includes("HALF-TIME") ||
+    statusUpper.includes("HALF_TIME") ||
+    shortUpper === "HT" ||
+    shortUpper === "HALF" ||
+    shortUpper === "HALFTIME" ||
+    shortUpper === "HALF-TIME" ||
+    shortUpper.startsWith("HT ")
+  ) {
+    return true;
+  }
+
+  const clock = match.displayClock.trim();
+  // Clock stops at 45:00 / 45:00+ during the halftime intermission before
+  // ESPN transitions to a dedicated halftime status. Treat those as HT too.
+  if (/^45(:00)?(\+0+)?$/.test(clock)) return true;
+  // "45'+3'" style stoppage clock counts as in-play until 45:00 is reached.
+  if (/^45'\+0+$/.test(clock)) return true;
+
+  return false;
+}
+
 export function isEspnMatchLive(match: EspnScoreboardMatch) {
-  return match.state === "in";
+  if (match.state !== "in") return false;
+  if (isEspnMatchHalftime(match)) return false;
+  return true;
 }
 
 export function hasEspnMatchScore(match: EspnScoreboardMatch) {

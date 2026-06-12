@@ -21,6 +21,7 @@ import {
   findEspnMatch,
   getEspnLiveClock,
   hasEspnMatchScore,
+  isEspnMatchHalftime,
   isEspnMatchLive,
   parseEspnScoreboard,
   type EspnScoreboardMatch,
@@ -174,6 +175,7 @@ function ScoreDisplay({
 }) {
   if (espnMatch && hasEspnMatchScore(espnMatch)) {
     const isLive = isEspnMatchLive(espnMatch);
+    const isHalftime = isEspnMatchHalftime(espnMatch);
     const liveClock = getEspnLiveClock(espnMatch);
     return (
       <div className="flex flex-col items-center">
@@ -185,7 +187,12 @@ function ScoreDisplay({
             LIVE {liveClock}
           </span>
         )}
-        {!isLive && espnMatch.shortDetail && (
+        {!isLive && isHalftime && (
+          <span className="mt-0.5 whitespace-nowrap text-[9px] font-bold text-amber-400">
+            HT
+          </span>
+        )}
+        {!isLive && !isHalftime && espnMatch.shortDetail && (
           <span className="text-[9px] font-bold text-zinc-500 mt-0.5 whitespace-nowrap">{espnMatch.shortDetail}</span>
         )}
       </div>
