@@ -166,7 +166,9 @@ describe("buildLeaderboards", () => {
       ]),
     ]);
 
-    expect(result.goals.map((leader) => leader.team.code)).toEqual([
+    expect(
+      result.goals.map((leader: { team: { code: string } }) => leader.team.code),
+    ).toEqual([
       "CAN",
       "MEX",
     ]);
