@@ -3,9 +3,9 @@ import { getH2HStats } from "./h2h-stats";
 
 test("getH2HStats returns correct stats", () => {
   const matches = [
-    { HomeTeam: { IdTeam: "A" }, AwayTeam: { IdTeam: "B" }, HomeTeamScore: 2, AwayTeamScore: 1 },
-    { HomeTeam: { IdTeam: "B" }, AwayTeam: { IdTeam: "A" }, HomeTeamScore: 0, AwayTeamScore: 0 },
-    { HomeTeam: { IdTeam: "C" }, AwayTeam: { IdTeam: "A" }, HomeTeamScore: 1, AwayTeamScore: 3 },
+    { Home: { IdTeam: "A" }, Away: { IdTeam: "B" }, HomeTeamScore: 2, AwayTeamScore: 1 },
+    { Home: { IdTeam: "B" }, Away: { IdTeam: "A" }, HomeTeamScore: 0, AwayTeamScore: 0 },
+    { Home: { IdTeam: "C" }, Away: { IdTeam: "A" }, HomeTeamScore: 1, AwayTeamScore: 3 },
   ];
 
   const result = getH2HStats(matches, "A", "B");
@@ -14,10 +14,10 @@ test("getH2HStats returns correct stats", () => {
 
 test("getH2HStats ignores unplayed matches", () => {
   const matches = [
-    { HomeTeam: { IdTeam: "A" }, AwayTeam: { IdTeam: "B" }, HomeTeamScore: null, AwayTeamScore: null },
-    { HomeTeam: { IdTeam: "B" }, AwayTeam: { IdTeam: "A" } },
-    { HomeTeam: { IdTeam: "A" }, AwayTeam: { IdTeam: "B" }, HomeTeamScore: "", AwayTeamScore: "" },
-    { HomeTeam: { IdTeam: "B" }, AwayTeam: { IdTeam: "A" }, HomeTeamScore: "N/A", AwayTeamScore: "N/A" },
+    { Home: { IdTeam: "A" }, Away: { IdTeam: "B" }, HomeTeamScore: null, AwayTeamScore: null },
+    { Home: { IdTeam: "B" }, Away: { IdTeam: "A" } },
+    { Home: { IdTeam: "A" }, Away: { IdTeam: "B" }, HomeTeamScore: "", AwayTeamScore: "" },
+    { Home: { IdTeam: "B" }, Away: { IdTeam: "A" }, HomeTeamScore: "N/A", AwayTeamScore: "N/A" },
   ];
 
   const result = getH2HStats(matches, "A", "B");

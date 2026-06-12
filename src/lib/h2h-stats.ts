@@ -1,6 +1,6 @@
 export interface Match {
-  HomeTeam?: { IdTeam?: string | number };
-  AwayTeam?: { IdTeam?: string | number };
+  Home?: { IdTeam?: string | number };
+  Away?: { IdTeam?: string | number };
   HomeTeamScore?: number | string | null;
   AwayTeamScore?: number | string | null;
 }
@@ -12,8 +12,8 @@ export function getH2HStats(matches: Match[], teamAId: string, teamBId: string) 
   let winsB = 0;
 
   for (const match of matches) {
-    const isHomeA = String(match.HomeTeam?.IdTeam) === teamAId && String(match.AwayTeam?.IdTeam) === teamBId;
-    const isHomeB = String(match.HomeTeam?.IdTeam) === teamBId && String(match.AwayTeam?.IdTeam) === teamAId;
+    const isHomeA = String(match.Home?.IdTeam) === teamAId && String(match.Away?.IdTeam) === teamBId;
+    const isHomeB = String(match.Home?.IdTeam) === teamBId && String(match.Away?.IdTeam) === teamAId;
 
     if (isHomeA || isHomeB) {
       if (

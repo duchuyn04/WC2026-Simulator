@@ -17,6 +17,7 @@ import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { EspnStandingsBoard } from "./EspnStandingsBoard";
 import { TournamentStatsBoard } from "./TournamentStatsBoard";
 import { MatchStatsModal } from "./MatchStatsModal";
+import { H2HModal } from "./H2HModal";
 import {
   findEspnMatch,
   getEspnLiveClock,
@@ -256,10 +257,12 @@ function ScheduleTableRow({
   entry,
   espnMatches,
   onOpenMatch,
+  onOpenH2H,
 }: {
   entry: ScheduleEntry;
   espnMatches: EspnScoreboardMatch[];
   onOpenMatch: (gameId: string) => void;
+  onOpenH2H: (home: { id: string; name: string; flagUrl: string }, away: { id: string; name: string; flagUrl: string }) => void;
 }) {
   const winnerId = entry.kind === "knockout" ? entry.winner?.id : undefined;
   const toggleFavoriteMatch = useSimulation((s) => s.toggleFavoriteMatch);
@@ -345,7 +348,19 @@ function ScheduleTableRow({
         />
       </td>
       <td className="px-4 py-3 text-center">
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center gap-2">
+          {entry.home && entry.away && (
+            <button
+              onClick={() => onOpenH2H(entry.home!, entry.away!)}
+              className="text-zinc-500 hover:text-emerald-400 transition-colors"
+              title="Lịch sử đối đầu"
+              aria-label={`Lịch sử đối đầu ${entry.home.name} vs ${entry.away.name}`}
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              </svg>
+            </button>
+          )}
           <button
             onClick={() => toggleFavoriteMatch(entry.id)}
             className={`transition-colors ${isFavMatch ? "text-amber-400" : "text-zinc-500 hover:text-zinc-300"}`}
@@ -373,6 +388,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   const [selectedFilter, setFilter] = useState<SchedulePanelFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
+  const [h2hTeams, setH2hTeams] = useState<{ home: { id: string; name: string; flagUrl: string }; away: { id: string; name: string; flagUrl: string } } | null>(null);
   const favoriteMatches = useSimulation((s) => s.favoriteMatches);
   const favoriteTeams = useSimulation((s) => s.favoriteTeams);
   const filter =
@@ -522,6 +538,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                       entry={entry}
                       espnMatches={espnMatches}
                       onOpenMatch={setSelectedGameId}
+                      onOpenH2H={(h, a) => setH2hTeams({ home: h, away: a })}
                     />
                   ))}
                 </React.Fragment>
@@ -531,6 +548,11 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
         </div>
       )}
       <MatchStatsModal gameId={selectedGameId} onClose={() => setSelectedGameId(null)} />
+      <H2HModal
+        teamA={h2hTeams?.home ?? null}
+        teamB={h2hTeams?.away ?? null}
+        onClose={() => setH2hTeams(null)}
+      />
     </div>
   );
 }
