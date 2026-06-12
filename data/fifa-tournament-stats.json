@@ -4,11 +4,24 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-12T05:03:19.805Z",
-  "completedMatches": 2,
+  "fetchedAt": "2026-06-12T22:45:35.242Z",
+  "completedMatches": 3,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
+      {
+        "playerId": "390670",
+        "name": "Cyle LARIN",
+        "shortName": "Cyle LARIN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/21086aea-3ec5-47b2-a81f-f7316489183a/LARIN-Cyle_390670",
+        "team": {
+          "id": "43899",
+          "name": "Canada",
+          "code": "CAN",
+          "flagUrl": "/flags/CAN.png"
+        },
+        "value": 1
+      },
       {
         "playerId": "395084",
         "name": "HWANG Inbeom",
@@ -19,6 +32,19 @@
           "name": "Korea Republic",
           "code": "KOR",
           "flagUrl": "/flags/KOR.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "519954",
+        "name": "Jovo LUKIC",
+        "shortName": "Jovo LUKIC",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/8fc08945-7c3e-4e0f-95b4-0c94a72a718d/LUKIC-Jovo_519954",
+        "team": {
+          "id": "44037",
+          "name": "Bosnia and Herzegovina",
+          "code": "BIH",
+          "flagUrl": "/flags/BIH.png"
         },
         "value": 1
       },
@@ -116,6 +142,19 @@
         "value": 1
       },
       {
+        "playerId": "493970",
+        "name": "Promise DAVID",
+        "shortName": "Promise DAVID",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/5e47f75f-c26f-4a7b-81e5-7957cc1027eb/DAVID-Promise_493970",
+        "team": {
+          "id": "43899",
+          "name": "Canada",
+          "code": "CAN",
+          "flagUrl": "/flags/CAN.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "403585",
         "name": "Roberto ALVARADO",
         "shortName": "Roberto ALVARADO",
@@ -125,6 +164,19 @@
           "name": "Mexico",
           "code": "MEX",
           "flagUrl": "/flags/MEX.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "376230",
+        "name": "Sead KOLASINAC",
+        "shortName": "Sead KOLASINAC",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bed62578-6b40-402e-8c63-94159988fe95/KOLASINAC-Sead_376230",
+        "team": {
+          "id": "44037",
+          "name": "Bosnia and Herzegovina",
+          "code": "BIH",
+          "flagUrl": "/flags/BIH.png"
         },
         "value": 1
       },
@@ -145,6 +197,19 @@
     "penalties": [],
     "yellowCards": [
       {
+        "playerId": "441252",
+        "name": "Alistair JOHNSTON",
+        "shortName": "Alistair JOHNSTON",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bd760593-4ed3-405e-b497-f508dbc8bbdf/JOHNSTON-Alistair_441252",
+        "team": {
+          "id": "43899",
+          "name": "Canada",
+          "code": "CAN",
+          "flagUrl": "/flags/CAN.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "464533",
         "name": "Brian GUTIERREZ",
         "shortName": "Brian GUTIERREZ",
@@ -158,6 +223,32 @@
         "value": 1
       },
       {
+        "playerId": "436743",
+        "name": "Ermedin DEMIROVIC",
+        "shortName": "Ermedin DEMIROVIC",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b9e9f187-0936-4aba-9c70-2a4bcf2281e0/DEMIROVIC-Ermedin_436743",
+        "team": {
+          "id": "44037",
+          "name": "Bosnia and Herzegovina",
+          "code": "BIH",
+          "flagUrl": "/flags/BIH.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "519954",
+        "name": "Jovo LUKIC",
+        "shortName": "Jovo LUKIC",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/8fc08945-7c3e-4e0f-95b4-0c94a72a718d/LUKIC-Jovo_519954",
+        "team": {
+          "id": "44037",
+          "name": "Bosnia and Herzegovina",
+          "code": "BIH",
+          "flagUrl": "/flags/BIH.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "492315",
         "name": "LEE Gihyuk",
         "shortName": "LEE Gihyuk",
@@ -167,6 +258,32 @@
           "name": "Korea Republic",
           "code": "KOR",
           "flagUrl": "/flags/KOR.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "480322",
+        "name": "Luc DE FOUGEROLLES",
+        "shortName": "Luc DE FOUGEROLLES",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/5a74297e-1aa4-41fa-a151-782f1211d1a0/DE-FOUGEROLLES-Luc_480322",
+        "team": {
+          "id": "43899",
+          "name": "Canada",
+          "code": "CAN",
+          "flagUrl": "/flags/CAN.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "489520",
+        "name": "Nikola KATIC",
+        "shortName": "Nikola KATIC",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/71b1a703-25aa-4193-8bd7-daf0108e7009/KATIC-Nikola_489520",
+        "team": {
+          "id": "44037",
+          "name": "Bosnia and Herzegovina",
+          "code": "BIH",
+          "flagUrl": "/flags/BIH.png"
         },
         "value": 1
       },
