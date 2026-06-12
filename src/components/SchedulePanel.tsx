@@ -300,10 +300,10 @@ function ScheduleTableRow({
       data-testid={!mounted || !isMobile ? `schedule-match-${entry.matchNumber}` : undefined}
       className="border-b border-zinc-800 hover:bg-zinc-900/40 transition-colors group"
     >
-      <td className="px-4 py-3 text-sm text-zinc-500 text-center w-12">
+      <td className="hidden lg:table-cell px-2 py-3 text-sm text-zinc-500 text-center w-12">
         {entry.matchNumber}
       </td>
-      <td className="px-4 py-3 text-sm text-zinc-300">
+      <td className="px-2 py-3 text-sm text-zinc-300">
         <div className="flex items-center gap-1.5 justify-center">
           <svg className="w-4 h-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -311,7 +311,7 @@ function ScheduleTableRow({
           <span className="font-mono">{timeStr}</span>
         </div>
       </td>
-      <td className="hidden lg:table-cell px-2 sm:px-4 py-3 text-sm text-zinc-400">
+      <td className="hidden lg:table-cell px-2 py-3 text-sm text-zinc-400">
         <div className="flex flex-col items-start gap-1">
           <div className="bg-zinc-900/80 px-2 py-1 rounded-md inline-block whitespace-nowrap text-xs">
             {entry.stageLabel}
@@ -323,7 +323,7 @@ function ScheduleTableRow({
           )}
         </div>
       </td>
-      <td className="px-2 py-3 text-right w-[28%]">
+      <td className="px-2 py-3 text-right max-w-[140px] lg:max-w-[170px] xl:max-w-none overflow-hidden">
         <MatchSide
           team={entry.home}
           placeholder={entry.homePlaceholder}
@@ -338,7 +338,7 @@ function ScheduleTableRow({
           onOpen={matchedEspn ? () => onOpenMatch(matchedEspn.id, entry.date) : undefined}
         />
       </td>
-      <td className="px-2 py-3 text-left w-[28%]">
+      <td className="px-2 py-3 text-left max-w-[140px] lg:max-w-[170px] xl:max-w-none overflow-hidden">
         <MatchSide
           team={entry.away}
           placeholder={entry.awayPlaceholder}
@@ -346,8 +346,16 @@ function ScheduleTableRow({
           side="away"
         />
       </td>
-      <td className="hidden lg:table-cell px-4 py-3 text-center">
+      <td className="px-3 py-3 text-center">
         <div className="flex items-center justify-center gap-2">
+          {matchedEspn && (
+            <button
+              onClick={() => onOpenMatch(matchedEspn.id, entry.date)}
+              className="text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors bg-emerald-500/10 hover:bg-emerald-500/20 px-2 py-0.5 rounded whitespace-nowrap"
+            >
+              Chi tiết
+            </button>
+          )}
           {entry.home && entry.away && (
             <button
               onClick={() => onOpenH2H(entry.home!, entry.away!)}
@@ -457,10 +465,20 @@ function ScheduleMobileCard({
 
   const scores = getMobileScore();
 
+  const handleCardClick = matchedEspn
+    ? () => onOpenMatch(matchedEspn.id, entry.date)
+    : undefined;
+
   return (
     <div
       data-testid={mounted && isMobile ? `schedule-match-${entry.matchNumber}` : undefined}
-      className="rounded-xl border border-zinc-800/80 bg-zinc-950/40 p-3.5 space-y-3 hover:bg-zinc-900/20 transition-colors"
+      onClick={handleCardClick}
+      className={[
+        "rounded-xl border border-zinc-800/80 bg-zinc-950/40 p-3.5 space-y-3 transition-colors",
+        matchedEspn
+          ? "cursor-pointer hover:bg-zinc-900/60 hover:border-zinc-700/80 active:scale-[0.99] active:bg-zinc-900/80"
+          : "hover:bg-zinc-900/20",
+      ].join(" ")}
     >
       {/* Top row: Match info */}
       <div className="flex items-center justify-between text-[11px] text-zinc-500 font-medium border-b border-zinc-900 pb-2">
@@ -473,8 +491,15 @@ function ScheduleMobileCard({
             <span className="font-mono">{timeStr}</span>
           </span>
         </div>
-        <div className="max-w-[150px] truncate" title={entry.stageLabel}>
-          {entry.stageLabel}
+        <div className="flex items-center gap-2">
+          <div className="max-w-[130px] truncate" title={entry.stageLabel}>
+            {entry.stageLabel}
+          </div>
+          {matchedEspn && (
+            <svg className="w-3.5 h-3.5 text-zinc-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          )}
         </div>
       </div>
 
@@ -519,8 +544,8 @@ function ScheduleMobileCard({
           </div>
         </div>
 
-        {/* Live score indicator / H2H button */}
-        <div className="flex flex-col items-end justify-center min-w-[70px] border-l border-zinc-900 pl-3">
+        {/* Status indicator */}
+        <div className="flex flex-col items-end justify-center min-w-[60px] border-l border-zinc-900 pl-3">
           {scores?.isLive ? (
             <span className="text-[9px] font-bold text-rose-500 animate-pulse whitespace-nowrap">
               LIVE {scores.liveClock}
@@ -540,15 +565,6 @@ function ScheduleMobileCard({
               </span>
             )
           )}
-
-          {matchedEspn && (
-            <button
-              onClick={() => onOpenMatch(matchedEspn.id, entry.date)}
-              className="mt-1 text-[10px] font-bold text-emerald-400 hover:text-emerald-300 transition-colors uppercase bg-emerald-500/10 px-1.5 py-0.5 rounded"
-            >
-              Chi tiết
-            </button>
-          )}
         </div>
       </div>
 
@@ -564,7 +580,7 @@ function ScheduleMobileCard({
         <div className="flex items-center gap-3">
           {entry.home && entry.away && (
             <button
-              onClick={() => onOpenH2H(entry.home!, entry.away!)}
+              onClick={(e) => { e.stopPropagation(); onOpenH2H(entry.home!, entry.away!); }}
               className="text-zinc-500 hover:text-emerald-400 transition-colors"
               title="Lịch sử đối đầu"
               aria-label={`Lịch sử đối đầu ${entry.home.name} vs ${entry.away.name}`}
@@ -575,7 +591,7 @@ function ScheduleMobileCard({
             </button>
           )}
           <button
-            onClick={() => toggleFavoriteMatch(entry.id)}
+            onClick={(e) => { e.stopPropagation(); toggleFavoriteMatch(entry.id); }}
             className={`transition-colors ${isFavMatch ? "text-amber-400" : "text-zinc-500 hover:text-zinc-300"}`}
             title={isFavMatch ? "Bỏ yêu thích" : "Yêu thích trận"}
           >
@@ -766,16 +782,19 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
 
           {/* Desktop view (>= 768px) */}
           <div className="hidden md:block max-w-full overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950/50 backdrop-blur-sm">
-            <table className="w-full min-w-[640px] border-collapse text-left">
+            <table className="w-full min-w-[560px] border-collapse text-left">
               <thead>
                 <tr className="border-b border-zinc-800 text-xs font-semibold text-zinc-500 uppercase tracking-wider bg-zinc-900/50">
-                  <th className="px-4 py-3 text-center whitespace-nowrap">TRẬN</th>
-                  <th className="px-4 py-3 text-center">GIỜ</th>
-                  <th className="hidden lg:table-cell px-2 sm:px-4 py-3">VÒNG ĐẤU</th>
+                  <th className="hidden lg:table-cell px-4 py-3 text-center whitespace-nowrap">TRẬN</th>
+                  <th className="px-3 py-3 text-center">GIỜ</th>
+                  <th className="hidden lg:table-cell px-4 py-3">VÒNG ĐẤU</th>
                   <th className="px-2 py-3 text-right">ĐỘI 1</th>
                   <th className="px-2 py-3 text-center">TỈ SỐ</th>
                   <th className="px-2 py-3">ĐỘI 2</th>
-                  <th className="hidden lg:table-cell px-4 py-3 text-center whitespace-nowrap">THAO TÁC</th>
+                  <th className="w-28 px-2 py-3 text-center whitespace-nowrap">
+                    <span className="hidden lg:inline">THAO TÁC</span>
+                    <svg className="lg:hidden w-4 h-4 inline text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 5v.01M12 12v.01M12 19v.01" /></svg>
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-zinc-800/50">
