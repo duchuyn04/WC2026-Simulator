@@ -869,6 +869,25 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-36 h-14 border-2 border-white/20 border-b-0" />
                       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-5 border-2 border-white/20 border-b-0" />
 
+                      {/* Team Labels */}
+                      <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-bold text-zinc-100 border border-white/10 select-none z-20">
+                        {view.away?.logo ? (
+                          <Image src={view.away.logo} alt="" width={14} height={14} className="h-3.5 w-3.5 object-contain" unoptimized />
+                        ) : (
+                          <span>🛡️</span>
+                        )}
+                        <span>{view.away?.name}</span>
+                      </div>
+
+                      <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-bold text-zinc-100 border border-white/10 select-none z-20">
+                        {view.home?.logo ? (
+                          <Image src={view.home.logo} alt="" width={14} height={14} className="h-3.5 w-3.5 object-contain" unoptimized />
+                        ) : (
+                          <span>🏠</span>
+                        )}
+                        <span>{view.home?.name}</span>
+                      </div>
+
                       {(() => {
                         const renderPlayerNode = (
                           p: {
