@@ -13,7 +13,9 @@ test.describe("WC 2026 Simulator — smoke", () => {
     await expect(page.getByRole("button", { name: "Knockout" })).toBeVisible();
   });
 
-  test("Mexico City Stadium visible on groups", async ({ page }) => {
+  test("Mexico City Stadium visible in group detail", async ({ page }) => {
+    await page.getByTestId("group-detail-btn-A").click();
+    await expect(page.getByTestId("group-detail-modal-A")).toBeVisible();
     await expect(page.getByText(/Mexico City Stadium/).first()).toBeVisible();
   });
 });

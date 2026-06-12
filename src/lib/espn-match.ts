@@ -1,5 +1,8 @@
 import type { ScheduleEntry } from "./schedule";
 
+export const ESPN_SCOREBOARD_URL =
+  "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=1000";
+
 export type EspnScoreboardMatch = {
   id: string;
   date: string;

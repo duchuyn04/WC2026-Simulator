@@ -56,6 +56,7 @@ type SimulationStore = {
   setManualOrder: (group: string, teamIds: string[]) => void;
   clearManualOrder: (group: string) => void;
   setKnockoutWinner: (matchNumber: number, teamId: string | null) => void;
+  applyLiveResults: (updates: Record<string, MatchResult>) => void;
   resetAll: () => void;
   getGroupStandings: () => GroupStanding[];
   getThirdPlace: () => ReturnType<typeof rankThirdPlaceTeams>;
@@ -317,6 +318,38 @@ export const useSimulation = create<SimulationStore>()(
             delete knockoutWinners[dependent];
           }
           return { knockoutWinners };
+        }),
+
+      applyLiveResults: (updates) =>
+        set((s) => {
+          if (Object.keys(updates).length === 0) return {};
+
+          const matchResults = { ...s.matchResults, ...updates };
+          const manualOrder = { ...s.manualOrder };
+
+          for (const matchId of Object.keys(updates)) {
+            const groupLetter = seed.groups.find((group) =>
+              group.matches.some((match) => match.id === matchId)
+            )?.letter;
+            if (groupLetter) manualOrder[groupLetter] = null;
+          }
+
+          const standings = computeStandings(matchResults, manualOrder);
+          const thirdPlaceOrder = seedThirdPlaceOrder(standings);
+
+          return {
+            matchResults,
+            manualOrder,
+            groupInputMode: "scores",
+            thirdPlaceOrder,
+            ...syncKnockoutFromGroups(
+              matchResults,
+              manualOrder,
+              s.knockoutWinners,
+              "scores",
+              thirdPlaceOrder
+            ),
+          };
         }),
 
       resetAll: () =>

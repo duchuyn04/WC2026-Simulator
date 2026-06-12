@@ -12,6 +12,7 @@ import { KnockoutBracket } from "./KnockoutBracket";
 import { SchedulePanel } from "./SchedulePanel";
 import { getFifaRankingsMeta } from "@/lib/fifa/rankings";
 import type { TabId } from "@/lib/tabs";
+import { SyncLiveResultsButton } from "./SyncLiveResultsButton";
 
 export function AppShell() {
   const hydrated = useStoreHydrated();
@@ -82,15 +83,18 @@ export function AppShell() {
             </div>
             <div className="flex flex-col items-start sm:items-end gap-2">
               {isSimulatorMode && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (confirm("Xóa toàn bộ kịch bản?")) resetAll();
-                  }}
-                  className="px-3 py-1.5 text-xs rounded-lg border border-red-900/50 text-red-400 hover:bg-red-950/50 transition-colors"
-                >
-                  Đặt lại
-                </button>
+                <div className="flex flex-wrap items-center gap-2">
+                  <SyncLiveResultsButton />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (confirm("Xóa toàn bộ kịch bản?")) resetAll();
+                    }}
+                    className="px-3 py-1.5 text-xs rounded-lg border border-red-900/50 text-red-400 hover:bg-red-950/50 transition-colors"
+                  >
+                    Đặt lại
+                  </button>
+                </div>
               )}
               <div className="flex flex-wrap bg-zinc-900/80 border border-zinc-800 p-1 rounded-lg">
                 <button

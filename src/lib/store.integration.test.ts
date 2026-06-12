@@ -35,6 +35,35 @@ describe("useSimulation store", () => {
     expect(useSimulation.getState().manualOrder[group.letter]).toBeNull();
   });
 
+  it("applyLiveResults batch-updates finished group scores", () => {
+    const group = seed.groups[0];
+    const match = group.matches.find((m) => m.home && m.away)!;
+
+    useSimulation.getState().applyLiveResults({
+      [match.id]: { home: 2, away: 1 },
+    });
+
+    const state = useSimulation.getState();
+    expect(state.matchResults[match.id]).toEqual({ home: 2, away: 1 });
+    expect(state.groupInputMode).toBe("scores");
+    expect(state.manualOrder[group.letter]).toBeNull();
+  });
+
+  it("applyLiveResults recalculates thirdPlaceOrder instead of clearing it", () => {
+    useSimulation.setState({ thirdPlaceOrder: ["stale-id-1", "stale-id-2"] });
+    const group = seed.groups[0];
+    const match = group.matches.find((m) => m.home && m.away)!;
+
+    useSimulation.getState().applyLiveResults({
+      [match.id]: { home: 1, away: 0 },
+    });
+
+    const state = useSimulation.getState();
+    expect(state.thirdPlaceOrder).not.toBeNull();
+    expect(state.thirdPlaceOrder).toHaveLength(12);
+    expect(state.thirdPlaceOrder).not.toContain("stale-id-1");
+  });
+
   it("setScore sets knockout sync notice instead of wiping all picks", () => {
     const group = seed.groups[0];
     const match = group.matches.find((m) => m.home && m.away)!;

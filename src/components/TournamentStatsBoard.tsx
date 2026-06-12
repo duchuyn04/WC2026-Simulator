@@ -1,9 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import defaultStatsData from "../../data/fifa-tournament-stats.json";
 import { FlagIcon } from "./FlagIcon";
+import {
+  TOURNAMENT_STATS_CLIENT_POLL_MS,
+  TOURNAMENT_STATS_POLL_MS,
+} from "@/lib/tournament-stats-core";
+import { fetchTournamentStatsFromFifa } from "@/lib/tournament-stats-fetch";
+
+type StatsLoadSource = "api" | "client" | "failed";
 
 type CategoryId =
   | "goals"
@@ -85,20 +92,73 @@ export function TournamentStatsBoard() {
   const [categoryId, setCategoryId] = useState<CategoryId>("goals");
   const [statsData, setStatsData] = useState<any>(defaultStatsData);
 
-  useEffect(() => {
-    let mounted = true;
-    fetch("/api/tournament-stats")
-      .then((res) => res.json())
-      .then((data) => {
-        if (mounted && !data.error && data.leaderboards) {
-          setStatsData(data);
+  const loadStats = useCallback(async (mountedRef: { current: boolean }): Promise<StatsLoadSource> => {
+    try {
+      const response = await fetch("/api/tournament-stats");
+      if (response.ok) {
+        const data = await response.json();
+        if (!data.error && data.leaderboards) {
+          if (mountedRef.current) setStatsData(data);
+          return "api";
         }
-      })
-      .catch(console.error);
-    return () => {
-      mounted = false;
-    };
+      }
+    } catch {
+      // Fall back to direct FIFA fetch for static export / GitHub Pages.
+    }
+
+    try {
+      const data = await fetchTournamentStatsFromFifa();
+      if (mountedRef.current) setStatsData(data);
+      return "client";
+    } catch (error) {
+      console.error(error);
+      return "failed";
+    }
   }, []);
+
+  useEffect(() => {
+    const mountedRef = { current: true };
+    let intervalId: number | undefined;
+    let pollSource: StatsLoadSource = "api";
+
+    const schedulePoll = () => {
+      if (intervalId !== undefined) window.clearInterval(intervalId);
+      const pollMs =
+        pollSource === "client" ? TOURNAMENT_STATS_CLIENT_POLL_MS : TOURNAMENT_STATS_POLL_MS;
+      intervalId = window.setInterval(() => {
+        if (document.visibilityState === "visible") {
+          void run();
+        }
+      }, pollMs);
+    };
+
+    const run = async () => {
+      if (!mountedRef.current) return;
+      const source = await loadStats(mountedRef);
+      if (source === "api" || source === "client") {
+        if (pollSource !== source) {
+          pollSource = source;
+          schedulePoll();
+        }
+      }
+    };
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        void run();
+      }
+    };
+
+    void run();
+    schedulePoll();
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      mountedRef.current = false;
+      if (intervalId !== undefined) window.clearInterval(intervalId);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, [loadStats]);
 
   const category = CATEGORIES.find((item) => item.id === categoryId) ?? CATEGORIES[0];
   const leaderboards = statsData.leaderboards as Record<CategoryId, Leader[]>;

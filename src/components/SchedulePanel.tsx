@@ -19,6 +19,7 @@ import { TournamentStatsBoard } from "./TournamentStatsBoard";
 import { MatchStatsModal } from "./MatchStatsModal";
 import { H2HModal } from "./H2HModal";
 import {
+  ESPN_SCOREBOARD_URL,
   findEspnMatch,
   getEspnLiveClock,
   hasEspnMatchScore,
@@ -41,8 +42,7 @@ function useEspnLiveScores() {
     let mounted = true;
     const fetchScores = async () => {
       try {
-        const url = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=1000";
-        const res = await fetch(url);
+        const res = await fetch(ESPN_SCOREBOARD_URL);
         if (!res.ok) return;
         const data = await res.json();
         
