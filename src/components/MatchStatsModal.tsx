@@ -52,6 +52,8 @@ interface EspnRosterItem {
   jersey: string;
   position: {
     abbreviation: string;
+    name?: string;
+    displayName?: string;
   };
   athlete: EspnAthlete;
 }
@@ -143,7 +145,18 @@ function isKickoffString(value?: string) {
     /(AM|PM|EDT|EST|CDT|CST|MDT|MST|PDT|PST|BST|GMT|UTC)/i.test(value);
 }
 
-function findLocalPlayerPicture(localTeam: any, espnPlayerName: string): string | undefined {
+interface LocalPlayer {
+  name?: string;
+  shortName?: string;
+  wikiName?: string;
+  pictureUrl?: string | null;
+}
+
+interface LocalTeam {
+  squad: LocalPlayer[];
+}
+
+function findLocalPlayerPicture(localTeam: LocalTeam | undefined, espnPlayerName: string): string | undefined {
   if (!localTeam || !espnPlayerName) return undefined;
 
   const normalize = (str: string) =>
@@ -158,7 +171,7 @@ function findLocalPlayerPicture(localTeam: any, espnPlayerName: string): string 
   const espnWords = normEspn.split(/\s+/).filter((w) => w.length >= 3);
 
   // 1. Exact match on full normalized name
-  const exactMatch = localTeam.squad.find((p: any) => {
+  const exactMatch = localTeam.squad.find((p: LocalPlayer) => {
     const normName = normalize(p.name || "");
     const normShort = normalize(p.shortName || "");
     const normWiki = normalize(p.wikiName || "");
@@ -192,13 +205,15 @@ function findLocalPlayerPicture(localTeam: any, espnPlayerName: string): string 
 }
 
 function PlayerAvatar({ src, fallbackSrc }: { src?: string; fallbackSrc?: string }) {
+  const [prevSrc, setPrevSrc] = useState(src);
   const [currentSrc, setCurrentSrc] = useState(src);
   const [triedFallback, setTriedFallback] = useState(false);
 
-  useEffect(() => {
+  if (src !== prevSrc) {
+    setPrevSrc(src);
     setCurrentSrc(src);
     setTriedFallback(false);
-  }, [src]);
+  }
 
   const handleError = () => {
     if (!triedFallback && fallbackSrc) {
@@ -217,6 +232,7 @@ function PlayerAvatar({ src, fallbackSrc }: { src?: string; fallbackSrc?: string
     );
   }
 
+  // eslint-disable-next-line @next/next/no-img-element
   return (
     <img
       src={currentSrc}
@@ -228,16 +244,18 @@ function PlayerAvatar({ src, fallbackSrc }: { src?: string; fallbackSrc?: string
 }
 
 export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalProps) {
-  const [activeTab, setActiveTab] = useState<"stats" | "timeline">("stats");
+  const [prevGameId, setPrevGameId] = useState(gameId);
+  const [activeTab, setActiveTab] = useState<"stats" | "timeline" | "lineup">("stats");
   const [response, setResponse] = useState<{
     gameId: string;
     data: EspnSummary | null;
     error: string | null;
   } | null>(null);
 
-  useEffect(() => {
+  if (gameId !== prevGameId) {
+    setPrevGameId(gameId);
     setActiveTab("stats");
-  }, [gameId]);
+  }
 
   useEffect(() => {
     if (!gameId) return;
@@ -304,17 +322,21 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
       };
     };
 
+    const details = [
+      ...(competition?.details ?? []),
+      ...(data?.keyEvents ?? []),
+    ];
+
     return {
       competition,
       home: makeTeam(homeHeader),
       away: makeTeam(awayHeader),
+      rosters: data?.rosters ?? [],
+      details,
     };
   }, [data]);
 
-  const details = [
-    ...(view.competition?.details ?? []),
-    ...(data?.keyEvents ?? []),
-  ];
+  const details = view.details;
 
   const getUniqueEvents = (teamId: string, predicate: (event: EspnDetail) => boolean) => {
     const seen = new Set<string>();
@@ -352,7 +374,7 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
 
     const seen = new Set<string>();
 
-    for (const det of details) {
+    for (const det of view.details) {
       let type = det.type?.type;
       if (det.scoringPlay) {
         type = "goal";
@@ -394,7 +416,7 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
         const localTeamId = Object.keys(ESPN_TEAM_MAP).find(
           (key) => ESPN_TEAM_MAP[key] === teamId
         );
-        const localTeam = teamsData.teams.find((t) => t.id === localTeamId);
+        const localTeam = teamsData.teams.find((t) => t.id === localTeamId) as unknown as LocalTeam | undefined;
         const localPicture = findLocalPlayerPicture(localTeam, mainPlayerName);
         if (localPicture) {
           fallbackImage = localPicture;
@@ -416,7 +438,125 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
 
     events.sort((a, b) => a.minute - b.minute || a.id.localeCompare(b.id));
     return events;
-  }, [details]);
+  }, [view.details]);
+
+  const lineupData = useMemo(() => {
+    if (!view.rosters || view.rosters.length === 0) return null;
+
+    const parseTeamRoster = (homeAway: "home" | "away") => {
+      const teamRoster = view.rosters.find((r) => r.homeAway === homeAway);
+      if (!teamRoster) return null;
+
+      const starters = (teamRoster.roster ?? []).filter((p) => p.starter);
+      
+      const getPositionGroup = (p: EspnRosterItem) => {
+        const name = p.position?.name?.toLowerCase() || "";
+        const abbr = p.position?.abbreviation?.toLowerCase() || "";
+
+        if (name.includes("goalkeeper") || abbr === "g" || abbr === "gk") {
+          return "GK";
+        }
+        if (name.includes("defender") || name.includes("back") || abbr === "d" || abbr === "cb" || abbr === "lb" || abbr === "rb" || abbr === "df") {
+          return "DF";
+        }
+        if (name.includes("midfielder") || name.includes("midfield") || abbr === "m" || abbr === "dm" || abbr === "am" || abbr === "cm" || abbr === "lm" || abbr === "rm" || abbr === "mf") {
+          return "MF";
+        }
+        if (name.includes("forward") || name.includes("striker") || name.includes("winger") || abbr === "f" || abbr === "fw" || abbr === "cf" || abbr === "st") {
+          return "FW";
+        }
+        
+        // Fallback checks on abbreviations
+        if (abbr.includes("d")) return "DF";
+        if (abbr.includes("m")) return "MF";
+        if (abbr.includes("f")) return "FW";
+        if (abbr.includes("g")) return "GK";
+
+        return "MF"; // Default fallback
+      };
+
+      const gk = starters.filter((p) => getPositionGroup(p) === "GK");
+      const df = starters.filter((p) => getPositionGroup(p) === "DF");
+      const mf = starters.filter((p) => getPositionGroup(p) === "MF");
+      const fw = starters.filter((p) => getPositionGroup(p) === "FW");
+
+      const mapPlayer = (p: EspnRosterItem) => {
+        const teamId = teamRoster.team?.id;
+        const mainPlayerName = p.athlete?.shortName ?? p.athlete?.displayName ?? "";
+        let fallbackImage = "";
+        
+        if (teamId && mainPlayerName) {
+          const localTeamId = Object.keys(ESPN_TEAM_MAP).find(
+            (key) => ESPN_TEAM_MAP[key] === teamId
+          );
+          const localTeam = teamsData.teams.find((t) => t.id === localTeamId) as unknown as LocalTeam | undefined;
+          const localPicture = findLocalPlayerPicture(localTeam, mainPlayerName);
+          if (localPicture) {
+            fallbackImage = localPicture;
+          }
+        }
+
+        const playerId = p.athlete?.id;
+        let goalsCount = 0;
+        let yellowCardsCount = 0;
+        let redCardsCount = 0;
+
+        if (playerId || mainPlayerName) {
+          const seenEvents = new Set<string>();
+          for (const det of view.details) {
+            const athlete = det.participants?.[0]?.athlete;
+            const athleteId = athlete?.id;
+            const athleteName = athlete?.shortName || athlete?.displayName || "";
+
+            const matches = playerId 
+              ? (athleteId === playerId)
+              : (athleteName && mainPlayerName && (athleteName.toLowerCase() === mainPlayerName.toLowerCase()));
+
+            if (!matches) continue;
+
+            const clock = det.clock?.displayValue || "";
+            const eventType = det.type?.type || "";
+            const isGoal = Boolean(det.scoringPlay);
+
+            const eventKey = `${isGoal ? "goal" : eventType}-${clock}`;
+            if (seenEvents.has(eventKey)) continue;
+            seenEvents.add(eventKey);
+
+            if (isGoal) {
+              goalsCount++;
+            } else if (eventType === "yellow-card") {
+              yellowCardsCount++;
+            } else if (eventType === "red-card") {
+              redCardsCount++;
+            }
+          }
+        }
+
+        return {
+          id: p.athlete?.id,
+          name: p.athlete?.shortName ?? p.athlete?.displayName ?? "",
+          jersey: p.jersey,
+          playerImage: p.athlete?.headshot?.href ?? "",
+          fallbackImage,
+          goals: goalsCount,
+          yellowCards: yellowCardsCount,
+          redCards: redCardsCount,
+        };
+      };
+
+      return {
+        gk: gk.map(mapPlayer),
+        df: df.map(mapPlayer),
+        mf: mf.map(mapPlayer),
+        fw: fw.map(mapPlayer),
+      };
+    };
+
+    return {
+      home: parseTeamRoster("home"),
+      away: parseTeamRoster("away"),
+    };
+  }, [view.rosters, view.details]);
 
   if (!gameId) return null;
 
@@ -564,9 +704,20 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                 >
                   Timeline
                 </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("lineup")}
+                  className={`flex-1 rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                    activeTab === "lineup"
+                      ? "bg-emerald-500/20 text-emerald-400"
+                      : "text-zinc-500 hover:text-zinc-300"
+                  }`}
+                >
+                  Đội hình
+                </button>
               </div>
 
-              {activeTab === "stats" ? (
+              {activeTab === "stats" && (
                 hasStats ? (
                   <div>
                     <div className="space-y-4">
@@ -620,7 +771,10 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                     </p>
                   </div>
                 )
-              ) : timelineEvents.length === 0 ? (
+              )}
+
+              {activeTab === "timeline" && (
+                timelineEvents.length === 0 ? (
                 <div className="flex h-32 items-center justify-center text-sm text-zinc-500">
                   Chưa có sự kiện nào cho trận đấu này.
                 </div>
@@ -692,6 +846,119 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                     <div className="flex-1 border-t border-zinc-700/50" />
                   </div>
                 </div>
+              )
+            )}
+
+              {activeTab === "lineup" && (
+                !lineupData || !lineupData.home || !lineupData.away ? (
+                  <div className="flex h-64 items-center justify-center text-sm text-zinc-500">
+                    Chưa có dữ liệu đội hình cho trận đấu này.
+                  </div>
+                ) : (
+                  <div className="relative mx-auto max-w-md p-2">
+                    {/* 2D Pitch Container */}
+                    <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border-2 border-white/20 bg-emerald-950 p-6 flex flex-col justify-between shadow-inner">
+                      {/* Pitch lines */}
+                      <div className="absolute top-1/2 left-0 right-0 border-t-2 border-white/20 -translate-y-1/2" />
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border-2 border-white/20 rounded-full" />
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white/30 rounded-full" />
+                      
+                      {/* Penalty boxes */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-36 h-14 border-2 border-white/20 border-t-0" />
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-5 border-2 border-white/20 border-t-0" />
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-36 h-14 border-2 border-white/20 border-b-0" />
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-5 border-2 border-white/20 border-b-0" />
+
+                      {(() => {
+                        const renderPlayerNode = (
+                          p: {
+                            id?: string;
+                            name: string;
+                            jersey: string;
+                            playerImage?: string;
+                            fallbackImage?: string;
+                            goals: number;
+                            yellowCards: number;
+                            redCards: number;
+                          },
+                          isHome: boolean
+                        ) => (
+                          <div key={p.id} className="flex flex-col items-center text-center w-14 z-10">
+                            <div className="relative">
+                              <PlayerAvatar src={p.playerImage} fallbackSrc={p.fallbackImage} />
+                              {!p.playerImage && (
+                                <div className={`absolute inset-0 rounded-full flex items-center justify-center text-[10px] font-bold text-white border border-white/50 ${isHome ? 'bg-blue-600' : 'bg-rose-600'}`}>
+                                  {p.jersey}
+                                </div>
+                              )}
+
+                              {/* Cards Overlay (Top-Right) */}
+                              {(p.yellowCards > 0 || p.redCards > 0) && (
+                                <div className="absolute -top-1 -right-1 flex items-center justify-center bg-black/80 rounded-full w-3.5 h-3.5 text-[8px] border border-white/30" title={p.redCards > 0 ? "Thẻ đỏ" : "Thẻ vàng"}>
+                                  {p.redCards > 0 ? "🟥" : "🟨"}
+                                </div>
+                              )}
+
+                              {/* Goals Overlay (Bottom-Right) */}
+                              {p.goals > 0 && (
+                                <div className="absolute -bottom-1 -right-1 flex items-center justify-center bg-black/80 rounded-full px-0.5 min-w-[14px] h-3.5 text-[8px] text-white font-bold border border-white/30" title={`${p.goals} bàn thắng`}>
+                                  ⚽{p.goals > 1 && <span className="ml-[1px] text-[7px]">{p.goals}</span>}
+                                </div>
+                              )}
+                            </div>
+                            <span className="mt-1 text-[9px] font-bold text-white truncate w-full drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.8)]">
+                              {p.name}
+                            </span>
+                          </div>
+                        );
+
+                        return (
+                          <>
+                            {/* AWAY TEAM (Top Half) */}
+                            <div className="flex flex-col justify-between h-[45%]">
+                              {/* GK */}
+                              <div className="flex justify-center">
+                                {lineupData.away.gk.map((p) => renderPlayerNode(p, false))}
+                              </div>
+                              {/* DF */}
+                              <div className="flex justify-around">
+                                {lineupData.away.df.map((p) => renderPlayerNode(p, false))}
+                              </div>
+                              {/* MF */}
+                              <div className="flex justify-around px-2">
+                                {lineupData.away.mf.map((p) => renderPlayerNode(p, false))}
+                              </div>
+                              {/* FW */}
+                              <div className="flex justify-around px-4">
+                                {lineupData.away.fw.map((p) => renderPlayerNode(p, false))}
+                              </div>
+                            </div>
+
+                            {/* HOME TEAM (Bottom Half) */}
+                            <div className="flex flex-col-reverse justify-between h-[45%]">
+                              {/* GK */}
+                              <div className="flex justify-center">
+                                {lineupData.home.gk.map((p) => renderPlayerNode(p, true))}
+                              </div>
+                              {/* DF */}
+                              <div className="flex justify-around">
+                                {lineupData.home.df.map((p) => renderPlayerNode(p, true))}
+                              </div>
+                              {/* MF */}
+                              <div className="flex justify-around px-2">
+                                {lineupData.home.mf.map((p) => renderPlayerNode(p, true))}
+                              </div>
+                              {/* FW */}
+                              <div className="flex justify-around px-4">
+                                {lineupData.home.fw.map((p) => renderPlayerNode(p, true))}
+                              </div>
+                            </div>
+                          </>
+                        );
+                      })()}
+                    </div>
+                  </div>
+                )
               )}
             </div>
           )}
