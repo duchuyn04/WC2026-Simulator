@@ -16,6 +16,8 @@ test("getH2HStats ignores unplayed matches", () => {
   const matches = [
     { HomeTeam: { IdTeam: "A" }, AwayTeam: { IdTeam: "B" }, HomeTeamScore: null, AwayTeamScore: null },
     { HomeTeam: { IdTeam: "B" }, AwayTeam: { IdTeam: "A" } },
+    { HomeTeam: { IdTeam: "A" }, AwayTeam: { IdTeam: "B" }, HomeTeamScore: "", AwayTeamScore: "" },
+    { HomeTeam: { IdTeam: "B" }, AwayTeam: { IdTeam: "A" }, HomeTeamScore: "N/A", AwayTeamScore: "N/A" },
   ];
 
   const result = getH2HStats(matches, "A", "B");

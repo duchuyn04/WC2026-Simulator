@@ -16,11 +16,19 @@ export function getH2HStats(matches: Match[], teamAId: string, teamBId: string) 
     const isHomeB = String(match.HomeTeam?.IdTeam) === teamBId && String(match.AwayTeam?.IdTeam) === teamAId;
 
     if (isHomeA || isHomeB) {
-      if (match.HomeTeamScore == null || match.AwayTeamScore == null) continue;
+      if (
+        match.HomeTeamScore == null ||
+        match.AwayTeamScore == null ||
+        match.HomeTeamScore === "" ||
+        match.AwayTeamScore === ""
+      ) continue;
 
-      total++;
       const scoreHome = Number(match.HomeTeamScore);
       const scoreAway = Number(match.AwayTeamScore);
+
+      if (Number.isNaN(scoreHome) || Number.isNaN(scoreAway)) continue;
+
+      total++;
 
       if (scoreHome === scoreAway) {
         draws++;
