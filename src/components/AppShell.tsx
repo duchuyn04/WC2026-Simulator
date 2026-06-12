@@ -81,6 +81,17 @@ export function AppShell() {
               )}
             </div>
             <div className="flex flex-col items-start sm:items-end gap-2">
+              {isSimulatorMode && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (confirm("Xóa toàn bộ kịch bản?")) resetAll();
+                  }}
+                  className="px-3 py-1.5 text-xs rounded-lg border border-red-900/50 text-red-400 hover:bg-red-950/50 transition-colors"
+                >
+                  Đặt lại
+                </button>
+              )}
               <div className="flex flex-wrap bg-zinc-900/80 border border-zinc-800 p-1 rounded-lg">
                 <button
                   type="button"
@@ -111,15 +122,6 @@ export function AppShell() {
                   Đội tuyển
                 </Link>
               </div>
-              <button
-                type="button"
-                onClick={() => {
-                  if (confirm("Xóa toàn bộ kịch bản?")) resetAll();
-                }}
-                className="px-3 py-1.5 text-xs rounded-lg border border-red-900/50 text-red-400 hover:bg-red-950/50 transition-colors"
-              >
-                Đặt lại
-              </button>
             </div>
           </div>
 

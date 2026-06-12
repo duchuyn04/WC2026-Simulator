@@ -105,12 +105,7 @@ function MatchSide({
 
   if (!team) {
     return (
-      <span
-        className={[
-          "text-sm font-medium text-zinc-500",
-          side === "away" ? "text-right block" : "",
-        ].join(" ")}
-      >
+      <span className="text-sm font-medium text-zinc-500">
         {placeholder}
       </span>
     );
@@ -450,7 +445,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
 
       {/* Sub-navigation & Toolbar */}
       <div className="flex min-w-0 flex-col justify-between gap-4 border-b border-zinc-800 py-2 sm:flex-row sm:items-center">
-        <div className="min-w-0 flex-1 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div className="min-w-0 flex-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           <nav className="flex w-max min-w-full items-center gap-5 text-sm font-medium sm:gap-6">
             {visibleFilters.map((item) => (
               <button
@@ -459,10 +454,10 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                 data-testid={`schedule-filter-${item.id}`}
                 onClick={() => setFilter(item.id)}
                 className={[
-                  "pb-4 -mb-[9px] border-b-2 transition-colors",
+                  "pb-4 transition-colors",
                   filter === item.id
-                    ? "border-[#6a041f] text-zinc-100"
-                    : "border-transparent text-zinc-500 hover:text-zinc-300",
+                    ? "underline decoration-[#ff4d6d] decoration-2 underline-offset-8 font-semibold text-zinc-100"
+                    : "text-zinc-500 hover:text-zinc-300",
                 ].join(" ")}
               >
                 {item.label}

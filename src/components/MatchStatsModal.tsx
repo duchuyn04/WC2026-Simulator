@@ -91,11 +91,16 @@ function formatKickoff(value?: string) {
 }
 
 export function MatchStatsModal({ gameId, onClose }: MatchStatsModalProps) {
+  const [activeTab, setActiveTab] = useState<"stats" | "timeline">("stats");
   const [response, setResponse] = useState<{
     gameId: string;
     data: EspnSummary | null;
     error: string | null;
   } | null>(null);
+
+  useEffect(() => {
+    setActiveTab("stats");
+  }, [gameId]);
 
   useEffect(() => {
     if (!gameId) return;
@@ -195,6 +200,65 @@ export function MatchStatsModal({ gameId, onClose }: MatchStatsModalProps) {
     getUniqueEvents(teamId, (event) => event.type?.type === type).length;
 
   const hasStats = Boolean(view.home?.statistics.length || view.away?.statistics.length);
+
+  const timelineEvents = useMemo(() => {
+    const allowedTypes = new Set(["goal", "yellow-card", "red-card", "substitution"]);
+    const events: Array<{
+      id: string;
+      minute: number;
+      displayMinute: string;
+      type: "goal" | "yellow-card" | "red-card" | "substitution";
+      teamId: string;
+      playerName: string;
+      detail: string;
+    }> = [];
+
+    const seen = new Set<string>();
+
+    for (const det of details) {
+      const type = det.type?.type;
+      if (!type || !allowedTypes.has(type)) continue;
+
+      const teamId = det.team?.id;
+      if (!teamId) continue;
+
+      const clock = det.clock?.displayValue || "";
+      const minute = parseInt(clock) || 0;
+
+      const p1 = det.participants?.[0]?.athlete;
+      const p2 = det.participants?.[1]?.athlete;
+      const key = `${type}-${p1?.id ?? p1?.displayName ?? ""}-${clock}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      let playerName = p1?.shortName ?? p1?.displayName ?? "";
+      let detail = "";
+
+      if (type === "goal") {
+        if (det.ownGoal) detail = "OG";
+        else if (det.penaltyKick) detail = "P";
+      } else if (type === "substitution") {
+        playerName = p2?.shortName ?? p2?.displayName ?? playerName;
+        detail = p1?.shortName ?? p1?.displayName ?? "";
+      }
+
+      events.push({
+        id: det.id ?? String(events.length),
+        minute,
+        displayMinute: clock,
+        type: type as "goal" | "yellow-card" | "red-card" | "substitution",
+        teamId,
+        playerName,
+        detail,
+      });
+    }
+
+    events.sort((a, b) => a.minute - b.minute || a.id.localeCompare(b.id));
+    return events;
+  }, [details]);
+
+  const firstHalfEnd = timelineEvents.findIndex((e) => e.minute > 45);
+  const halfTimeIndex = firstHalfEnd > 0 ? firstHalfEnd : -1;
 
   return (
     <div
@@ -312,60 +376,154 @@ export function MatchStatsModal({ gameId, onClose }: MatchStatsModalProps) {
                 </div>
               </div>
 
-              {hasStats ? (
-                <div>
-                  <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-zinc-400">
-                    Thống kê trận đấu
-                  </h3>
-                  <div className="space-y-4">
-                    {[
-                      ...STAT_KEYS.map((stat) => ({
-                        ...stat,
-                        home: getStat(view.home, stat.key),
-                        away: getStat(view.away, stat.key),
-                      })),
-                      {
-                        key: "yellowCards",
-                        label: "Thẻ vàng",
-                        home: String(getCards(view.home.id, "yellow-card")),
-                        away: String(getCards(view.away.id, "yellow-card")),
-                      },
-                      {
-                        key: "redCards",
-                        label: "Thẻ đỏ",
-                        home: String(getCards(view.home.id, "red-card")),
-                        away: String(getCards(view.away.id, "red-card")),
-                      },
-                    ].map((stat) => {
-                      const homeValue = parseStat(stat.home);
-                      const awayValue = parseStat(stat.away);
-                      const total = homeValue + awayValue;
-                      const homeWidth = total > 0 ? (homeValue / total) * 100 : 50;
+              <div className="flex gap-1 rounded-xl border border-zinc-800 bg-zinc-900/60 p-1">
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("stats")}
+                  className={`flex-1 rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                    activeTab === "stats"
+                      ? "bg-emerald-500/20 text-emerald-400"
+                      : "text-zinc-500 hover:text-zinc-300"
+                  }`}
+                >
+                  Thống kê
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("timeline")}
+                  className={`flex-1 rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                    activeTab === "timeline"
+                      ? "bg-emerald-500/20 text-emerald-400"
+                      : "text-zinc-500 hover:text-zinc-300"
+                  }`}
+                >
+                  Timeline
+                </button>
+              </div>
 
-                      return (
-                        <div key={stat.key}>
-                          <div className="mb-1.5 grid grid-cols-[3rem_1fr_3rem] items-center text-sm font-bold">
-                            <span className="text-center text-zinc-200">{stat.home}</span>
-                            <span className="text-center text-xs font-medium uppercase tracking-wide text-zinc-500">
-                              {stat.label}
-                            </span>
-                            <span className="text-center text-zinc-200">{stat.away}</span>
+              {activeTab === "stats" ? (
+                hasStats ? (
+                  <div>
+                    <div className="space-y-4">
+                      {[
+                        ...STAT_KEYS.map((stat) => ({
+                          ...stat,
+                          home: getStat(view.home, stat.key),
+                          away: getStat(view.away, stat.key),
+                        })),
+                        {
+                          key: "yellowCards",
+                          label: "Thẻ vàng",
+                          home: String(getCards(view.home.id, "yellow-card")),
+                          away: String(getCards(view.away.id, "yellow-card")),
+                        },
+                        {
+                          key: "redCards",
+                          label: "Thẻ đỏ",
+                          home: String(getCards(view.home.id, "red-card")),
+                          away: String(getCards(view.away.id, "red-card")),
+                        },
+                      ].map((stat) => {
+                        const homeValue = parseStat(stat.home);
+                        const awayValue = parseStat(stat.away);
+                        const total = homeValue + awayValue;
+                        const homeWidth = total > 0 ? (homeValue / total) * 100 : 50;
+
+                        return (
+                          <div key={stat.key}>
+                            <div className="mb-1.5 grid grid-cols-[3rem_1fr_3rem] items-center text-sm font-bold">
+                              <span className="text-center text-zinc-200">{stat.home}</span>
+                              <span className="text-center text-xs font-medium uppercase tracking-wide text-zinc-500">
+                                {stat.label}
+                              </span>
+                              <span className="text-center text-zinc-200">{stat.away}</span>
+                            </div>
+                            <div className="flex h-2 overflow-hidden rounded-full bg-zinc-800">
+                              <div className="bg-emerald-500" style={{ width: `${homeWidth}%` }} />
+                              <div className="flex-1 bg-rose-500" />
+                            </div>
                           </div>
-                          <div className="flex h-2 overflow-hidden rounded-full bg-zinc-800">
-                            <div className="bg-emerald-500" style={{ width: `${homeWidth}%` }} />
-                            <div className="flex-1 bg-rose-500" />
-                          </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
+                ) : (
+                  <div className="rounded-2xl border border-dashed border-zinc-800 px-4 py-8 text-center">
+                    <p className="font-semibold text-zinc-300">Thống kê sẽ có khi trận đấu bắt đầu</p>
+                    <p className="mt-1 text-sm text-zinc-500">
+                      Bạn vẫn có thể xem giờ thi đấu, sân vận động và trạng thái trận ở phía trên.
+                    </p>
+                  </div>
+                )
+              ) : timelineEvents.length === 0 ? (
+                <div className="flex h-32 items-center justify-center text-sm text-zinc-500">
+                  Chưa có sự kiện nào cho trận đấu này.
                 </div>
               ) : (
-                <div className="rounded-2xl border border-dashed border-zinc-800 px-4 py-8 text-center">
-                  <p className="font-semibold text-zinc-300">Thống kê sẽ có khi trận đấu bắt đầu</p>
-                  <p className="mt-1 text-sm text-zinc-500">
-                    Bạn vẫn có thể xem giờ thi đấu, sân vận động và trạng thái trận ở phía trên.
-                  </p>
+                <div className="relative">
+                  {timelineEvents.map((event, i) => {
+                    const isHome = event.teamId === view.home?.id;
+                    const isHalfTime = halfTimeIndex === i;
+
+                    const icon =
+                      event.type === "goal" ? "⚽" :
+                      event.type === "substitution" ? "↔" :
+                      event.type === "yellow-card" ? "🟨" :
+                      event.type === "red-card" ? "🟥" : "";
+
+                    return (
+                      <div key={event.id}>
+                        {isHalfTime && (
+                          <div className="flex items-center gap-3 py-3">
+                            <div className="flex-1 border-t border-zinc-700/50" />
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">
+                              HIỆP 1
+                            </span>
+                            <div className="flex-1 border-t border-zinc-700/50" />
+                          </div>
+                        )}
+                        <div className="relative flex items-start gap-3 py-1.5">
+                          <div className={`flex flex-1 items-center justify-end gap-2 ${isHome ? "" : "invisible"}`}>
+                            {isHome && (
+                              <>
+                                <span className="truncate text-right text-xs font-medium text-zinc-200">
+                                  {event.playerName}
+                                </span>
+                                <span className="shrink-0 text-xs text-zinc-500">{event.detail}</span>
+                              </>
+                            )}
+                          </div>
+
+                          <div className="flex shrink-0 flex-col items-center">
+                            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-800 text-[11px] leading-none">
+                              {icon}
+                            </div>
+                            <div className="mt-0.5 text-[10px] font-bold tabular-nums text-zinc-500">
+                              {event.displayMinute}
+                            </div>
+                          </div>
+
+                          <div className={`flex flex-1 items-center gap-2 ${!isHome ? "" : "invisible"}`}>
+                            {!isHome && (
+                              <>
+                                <span className="shrink-0 text-xs text-zinc-500">{event.detail}</span>
+                                <span className="truncate text-xs font-medium text-zinc-200">
+                                  {event.playerName}
+                                </span>
+                              </>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                  <div className="flex items-center gap-3 py-3">
+                    <div className="flex-1 border-t border-zinc-700/50" />
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">
+                      KẾT THÚC
+                    </span>
+                    <div className="flex-1 border-t border-zinc-700/50" />
+                  </div>
                 </div>
               )}
             </div>

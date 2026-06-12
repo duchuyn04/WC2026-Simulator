@@ -5,7 +5,6 @@ import { useSimulation } from "@/lib/store";
 
 export function TeamsHeader() {
   const setActiveTab = useSimulation((state) => state.setActiveTab);
-  const resetAll = useSimulation((state) => state.resetAll);
 
   return (
     <header className="sticky top-0 z-50 shrink-0 border-b border-zinc-800 bg-[#0c0f14]/95 backdrop-blur">
@@ -46,15 +45,6 @@ export function TeamsHeader() {
                 Đội tuyển
               </Link>
             </div>
-            <button
-              type="button"
-              onClick={() => {
-                if (confirm("Xóa toàn bộ kịch bản?")) resetAll();
-              }}
-              className="rounded-lg border border-red-900/50 px-3 py-1.5 text-xs text-red-400 transition-colors hover:bg-red-950/50"
-            >
-              Đặt lại
-            </button>
           </div>
         </div>
       </div>
