@@ -61,46 +61,46 @@ export function AppShell() {
     >
       <header className="sticky top-0 z-50 shrink-0 border-b border-zinc-800 bg-[#0c0f14]/95 backdrop-blur">
         <div
-          className={`max-w-7xl mx-auto px-4 ${activeTab === "knockout" ? "py-2" : "py-4"}`}
+          className={`max-w-7xl mx-auto px-4 ${activeTab === "knockout" ? "py-2" : "py-3 sm:py-4"}`}
         >
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-amber-500 font-semibold">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+            <div className="min-w-0">
+              <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-amber-500 font-semibold">
                 FIFA World Cup
               </p>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight">
+              <h1 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
                 WC 2026 Simulator
               </h1>
               {activeTab !== "knockout" && (
-                <p className="text-base text-zinc-500 mt-0.5">
+                <p className="hidden sm:block text-sm text-zinc-500 mt-0.5">
                   {activeTab === "groups" && groupInputMode === "ranks"
                     ? "Kéo thả thứ hạng · Xếp hạng 3 · Knockout"
-                    : isSimulatorMode 
+                    : isSimulatorMode
                       ? "Nhập tỉ số · Kéo thả thứ hạng · Dự đoán knockout"
                       : "Xem lịch thi đấu · Lọc trận đấu và đội bóng yêu thích"}
                 </p>
               )}
             </div>
-            <div className="flex flex-col items-start sm:items-end gap-2">
+            <div className="flex flex-row items-center gap-1.5 sm:flex-col sm:items-end sm:gap-1.5">
               {isSimulatorMode && (
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                   <SyncLiveResultsButton />
                   <button
                     type="button"
                     onClick={() => {
                       if (confirm("Xóa toàn bộ kịch bản?")) resetAll();
                     }}
-                    className="px-3 py-1.5 text-xs rounded-lg border border-red-900/50 text-red-400 hover:bg-red-950/50 transition-colors"
+                    className="px-2 sm:px-3 py-1.5 text-xs rounded-lg border border-red-900/50 text-red-400 hover:bg-red-950/50 transition-colors"
                   >
                     Đặt lại
                   </button>
                 </div>
               )}
-              <div className="flex flex-wrap bg-zinc-900/80 border border-zinc-800 p-1 rounded-lg">
+              <div className="flex bg-zinc-900/80 border border-zinc-800 p-0.5 sm:p-1 rounded-lg text-xs sm:text-sm shrink-0">
                 <button
                   type="button"
                   onClick={() => setActiveTab("groups")}
-                  className={`px-3 sm:px-4 py-1.5 text-sm font-medium rounded-md transition-colors ${
+                  className={`px-2 sm:px-3 py-1 sm:py-1.5 font-medium rounded-md transition-colors ${
                     isSimulatorMode
                       ? "bg-[#6a041f] text-white"
                       : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800"
@@ -111,17 +111,18 @@ export function AppShell() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("schedule")}
-                  className={`px-3 sm:px-4 py-1.5 text-sm font-medium rounded-md transition-colors ${
+                  className={`px-2 sm:px-3 py-1 sm:py-1.5 font-medium rounded-md transition-colors ${
                     !isSimulatorMode
                       ? "bg-[#6a041f] text-white"
                       : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800"
                   }`}
                 >
-                  Lịch thi đấu & Yêu thích
+                  <span className="hidden sm:inline">Lịch thi đấu &amp; Yêu thích</span>
+                  <span className="sm:hidden">Lịch &amp; YT</span>
                 </button>
                 <Link
                   href="/teams"
-                  className="px-3 sm:px-4 py-1.5 text-sm font-medium rounded-md text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 transition-colors"
+                  className="px-2 sm:px-3 py-1 sm:py-1.5 font-medium rounded-md text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 transition-colors"
                 >
                   Đội tuyển
                 </Link>
@@ -130,8 +131,8 @@ export function AppShell() {
           </div>
 
           <nav
-            className={`grid grid-cols-2 sm:flex sm:flex-wrap gap-1 p-1 rounded-lg bg-zinc-900/80 border border-zinc-800 ${
-              activeTab === "knockout" ? "mt-2" : "mt-4"
+            className={`grid grid-cols-3 sm:flex sm:flex-wrap gap-1 p-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs sm:text-sm ${
+              activeTab === "knockout" ? "mt-2" : "mt-2 sm:mt-4"
             }`}
           >
             {currentTabs.map((tab) => {
@@ -147,7 +148,7 @@ export function AppShell() {
                   data-testid={`tab-${tab.id}`}
                   onClick={() => setActiveTab(tab.id)}
                   className={[
-                    "relative w-full sm:w-auto px-3 py-2 text-sm font-medium rounded-md transition-colors whitespace-nowrap",
+                    "relative w-full sm:w-auto px-2 sm:px-3 py-2 font-medium rounded-md transition-colors whitespace-nowrap",
                     activeTab === tab.id
                       ? "bg-zinc-800 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800",

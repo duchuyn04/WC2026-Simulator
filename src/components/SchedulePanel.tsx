@@ -311,19 +311,19 @@ function ScheduleTableRow({
           <span className="font-mono">{timeStr}</span>
         </div>
       </td>
-      <td className="px-4 py-3 text-sm text-zinc-400">
+      <td className="hidden lg:table-cell px-2 sm:px-4 py-3 text-sm text-zinc-400">
         <div className="flex flex-col items-start gap-1">
-          <div className="bg-zinc-900/80 px-2 py-1 rounded-md inline-block whitespace-nowrap">
+          <div className="bg-zinc-900/80 px-2 py-1 rounded-md inline-block whitespace-nowrap text-xs">
             {entry.stageLabel}
           </div>
           {(entry.stadium || entry.city) && (
-            <div className="text-xs text-zinc-500 whitespace-nowrap" title={`${entry.stadium || ""} ${entry.city ? `- ${entry.city}` : ""}`}>
+            <div className="text-xs text-zinc-500 truncate max-w-[140px] lg:max-w-[200px]" title={`${entry.stadium || ""} ${entry.city ? `- ${entry.city}` : ""}`}>
               {entry.stadium} {entry.city ? `- ${entry.city}` : ""}
             </div>
           )}
         </div>
       </td>
-      <td className="px-4 py-3 text-right w-[30%]">
+      <td className="px-2 py-3 text-right w-[28%]">
         <MatchSide
           team={entry.home}
           placeholder={entry.homePlaceholder}
@@ -338,7 +338,7 @@ function ScheduleTableRow({
           onOpen={matchedEspn ? () => onOpenMatch(matchedEspn.id, entry.date) : undefined}
         />
       </td>
-      <td className="px-4 py-3 text-left w-[30%]">
+      <td className="px-2 py-3 text-left w-[28%]">
         <MatchSide
           team={entry.away}
           placeholder={entry.awayPlaceholder}
@@ -346,7 +346,7 @@ function ScheduleTableRow({
           side="away"
         />
       </td>
-      <td className="px-4 py-3 text-center">
+      <td className="hidden lg:table-cell px-4 py-3 text-center">
         <div className="flex items-center justify-center gap-2">
           {entry.home && entry.away && (
             <button
@@ -612,10 +612,10 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   useEffect(() => {
     const timer = setTimeout(() => {
       setMounted(true);
-      setIsMobile(window.innerWidth < 1024);
+      setIsMobile(window.innerWidth < 768);
     }, 0);
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
+      setIsMobile(window.innerWidth < 768);
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -676,46 +676,44 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
       </div>
 
       {/* Sub-navigation & Toolbar */}
-      <div className="flex min-w-0 flex-col justify-between gap-4 border-b border-zinc-800 py-2 sm:flex-row sm:items-center">
-        <div className="min-w-0 flex-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          <nav className="flex w-max min-w-full items-center gap-5 text-sm font-medium sm:gap-6">
-            {visibleFilters.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                data-testid={`schedule-filter-${item.id}`}
-                onClick={() => setFilter(item.id)}
-                className={[
-                  "pb-4 transition-colors",
-                  filter === item.id
-                    ? "underline decoration-[#ff4d6d] decoration-2 underline-offset-8 font-semibold text-zinc-100"
-                    : "text-zinc-500 hover:text-zinc-300",
-                ].join(" ")}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
+      <div className="flex min-w-0 flex-col gap-2 border-b border-zinc-800 py-2">
+        <div className="flex min-w-0 items-center justify-between gap-3">
+          <div className="min-w-0 flex-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            <nav className="flex w-max min-w-full items-center gap-4 sm:gap-5 text-sm font-medium">
+              {visibleFilters.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  data-testid={`schedule-filter-${item.id}`}
+                  onClick={() => setFilter(item.id)}
+                  className={[
+                    "pb-3 transition-colors whitespace-nowrap text-xs sm:text-sm",
+                    filter === item.id
+                      ? "underline decoration-[#ff4d6d] decoration-2 underline-offset-8 font-semibold text-zinc-100"
+                      : "text-zinc-500 hover:text-zinc-300",
+                  ].join(" ")}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+          </div>
         </div>
-        
-        <div className="flex min-w-0 items-center gap-3">
-          {filter !== "espn-standings" && filter !== "stats" && (
-            <div className="relative">
-              <svg className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              <input
-                type="text"
-                placeholder="Tìm kiếm quốc gia, SVĐ..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full sm:w-64 bg-zinc-900 border border-zinc-800 rounded-md pl-9 pr-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
-              />
-            </div>
-          )}
 
-
-        </div>
+        {filter !== "espn-standings" && filter !== "stats" && (
+          <div className="relative">
+            <svg className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Tìm kiếm quốc gia, SVĐ..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full md:w-64 bg-zinc-900 border border-zinc-800 rounded-md pl-9 pr-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
+            />
+          </div>
+        )}
       </div>
 
       {filter === "stats" ? (
@@ -737,8 +735,8 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
         <p className="text-center text-zinc-500 py-12">Không có trận nào trong bộ lọc này.</p>
       ) : (
         <div className="space-y-6">
-          {/* Mobile view (< 1024px) */}
-          <div className="block lg:hidden space-y-6">
+          {/* Mobile view (< 768px) */}
+          <div className="block md:hidden space-y-6">
             {dateGroups.map((group) => (
               <div key={group.dateKey} className="space-y-3">
                 {/* Date Header */}
@@ -766,18 +764,18 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
             ))}
           </div>
 
-          {/* Desktop view (>= 1024px) */}
-          <div className="hidden lg:block max-w-full overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950/50 backdrop-blur-sm">
-            <table className="w-full min-w-[992px] border-collapse text-left">
+          {/* Desktop view (>= 768px) */}
+          <div className="hidden md:block max-w-full overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950/50 backdrop-blur-sm">
+            <table className="w-full min-w-[640px] border-collapse text-left">
               <thead>
                 <tr className="border-b border-zinc-800 text-xs font-semibold text-zinc-500 uppercase tracking-wider bg-zinc-900/50">
                   <th className="px-4 py-3 text-center whitespace-nowrap">TRẬN</th>
                   <th className="px-4 py-3 text-center">GIỜ</th>
-                  <th className="px-4 py-3">VÒNG ĐẤU</th>
-                  <th className="px-4 py-3 text-right">ĐỘI 1</th>
+                  <th className="hidden lg:table-cell px-2 sm:px-4 py-3">VÒNG ĐẤU</th>
+                  <th className="px-2 py-3 text-right">ĐỘI 1</th>
                   <th className="px-2 py-3 text-center">TỈ SỐ</th>
-                  <th className="px-4 py-3">ĐỘI 2</th>
-                  <th className="px-4 py-3 text-center">THAO TÁC</th>
+                  <th className="px-2 py-3">ĐỘI 2</th>
+                  <th className="hidden lg:table-cell px-4 py-3 text-center whitespace-nowrap">THAO TÁC</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-zinc-800/50">
