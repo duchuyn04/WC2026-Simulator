@@ -3,12 +3,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { FlagIcon } from "./FlagIcon";
-import { MatchInfo } from "./MatchInfo";
 import { useSchedule } from "@/lib/hooks";
 import { useSimulation } from "@/lib/store";
 import {
-  countPickedKnockoutMatches,
-  countPlayedGroupMatches,
   filterScheduleEntries,
   groupScheduleByDate,
   type ScheduleEntry,
@@ -17,9 +14,14 @@ import {
 import { isPlayedResult } from "@/lib/fifa/types";
 import type { Team } from "@/lib/fifa/types";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
-import { seed } from "@/lib/data";
 import { EspnStandingsBoard } from "./EspnStandingsBoard";
-import { EspnStatsBoard } from "./EspnStatsBoard";
+import { TournamentStatsBoard } from "./TournamentStatsBoard";
+import { MatchStatsModal } from "./MatchStatsModal";
+import {
+  findEspnMatch,
+  parseEspnScoreboard,
+  type EspnScoreboardMatch,
+} from "@/lib/espn-match";
 
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnId]) => {
@@ -28,7 +30,7 @@ const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnI
 }, {} as Record<string, string>);
 
 function useEspnLiveScores() {
-  const [matches, setMatches] = useState<any[]>([]);
+  const [matches, setMatches] = useState<EspnScoreboardMatch[]>([]);
 
   useEffect(() => {
     let mounted = true;
@@ -39,27 +41,14 @@ function useEspnLiveScores() {
         if (!res.ok) return;
         const data = await res.json();
         
-        const parsedMatches = (data.events || []).map((e: any) => {
-          const comp = e.competitions?.[0];
-          if (!comp) return null;
-          const home = comp.competitors?.find((c: any) => c.homeAway === "home");
-          const away = comp.competitors?.find((c: any) => c.homeAway === "away");
-          return {
-            id: e.id,
-            date: e.date,
-            status: comp.status?.type?.name,
-            shortDetail: comp.status?.type?.shortDetail,
-            homeId: home?.team?.id,
-            awayId: away?.team?.id,
-            homeScore: home?.score,
-            awayScore: away?.score,
-          };
-        }).filter(Boolean);
+        const parsedMatches = parseEspnScoreboard(data);
 
-        if (mounted && parsedMatches.length > 0) {``
+        if (mounted && parsedMatches.length > 0) {
           setMatches(parsedMatches);
         }
-      } catch (err) {}
+      } catch {
+        // Keep the local schedule usable when ESPN is temporarily unavailable.
+      }
     };
 
     fetchScores();
@@ -73,12 +62,14 @@ function useEspnLiveScores() {
   return matches;
 }
 
-const FILTERS: { id: ScheduleFilter | "espn-standings" | "espn-stats"; label: string }[] = [
+type SchedulePanelFilter = ScheduleFilter | "espn-standings" | "stats";
+
+const FILTERS: { id: SchedulePanelFilter; label: string }[] = [
   { id: "all", label: "Tất cả trận đấu" },
   { id: "group", label: "Vòng bảng" },
   { id: "knockout", label: "Nhánh Knockout" },
   { id: "espn-standings", label: "BXH Thực tế" },
-  { id: "espn-stats", label: "Thống kê" },
+  { id: "stats", label: "Thống kê" },
 ];
 
 function getTeamSlug(name: string) {
@@ -171,7 +162,13 @@ function MatchSide({
   );
 }
 
-function ScoreDisplay({ entry, espnMatch }: { entry: ScheduleEntry, espnMatch?: any }) {
+function ScoreDisplay({
+  entry,
+  espnMatch,
+}: {
+  entry: ScheduleEntry;
+  espnMatch?: EspnScoreboardMatch;
+}) {
   if (espnMatch && (espnMatch.status?.includes("IN_PROGRESS") || espnMatch.status?.includes("FINAL") || espnMatch.status?.includes("HALFTIME") || espnMatch.status?.includes("FULL_TIME"))) {
     const isLive = espnMatch.status?.includes("IN_PROGRESS") || espnMatch.status?.includes("HALFTIME");
     return (
@@ -211,9 +208,46 @@ function ScoreDisplay({ entry, espnMatch }: { entry: ScheduleEntry, espnMatch?: 
   );
 }
 
+function MatchScoreButton({
+  entry,
+  espnMatch,
+  onOpen,
+}: {
+  entry: ScheduleEntry;
+  espnMatch?: EspnScoreboardMatch;
+  onOpen?: () => void;
+}) {
+  const score = <ScoreDisplay entry={entry} espnMatch={espnMatch} />;
+
+  if (!onOpen) return score;
+
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      className="group/score min-w-14 rounded-lg px-2 py-1.5 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+      title="Xem chi tiết và thống kê trận đấu"
+      aria-label={`Xem chi tiết trận ${entry.matchNumber}`}
+    >
+      {score}
+      <span className="mt-0.5 block text-[8px] font-semibold uppercase tracking-wide text-zinc-700 opacity-0 transition-opacity group-hover/score:opacity-100">
+        Chi tiết
+      </span>
+    </button>
+  );
+}
 
 
-function ScheduleTableRow({ entry, espnMatches }: { entry: ScheduleEntry; espnMatches: any[] }) {
+
+function ScheduleTableRow({
+  entry,
+  espnMatches,
+  onOpenMatch,
+}: {
+  entry: ScheduleEntry;
+  espnMatches: EspnScoreboardMatch[];
+  onOpenMatch: (gameId: string) => void;
+}) {
   const winnerId = entry.kind === "knockout" ? entry.winner?.id : undefined;
   const toggleFavoriteMatch = useSimulation((s) => s.toggleFavoriteMatch);
   const favoriteMatches = useSimulation((s) => s.favoriteMatches);
@@ -231,22 +265,19 @@ function ScheduleTableRow({ entry, espnMatches }: { entry: ScheduleEntry; espnMa
     }
   }
 
-  let espnMatch = null;
-  if (entry.home?.id && entry.away?.id) {
-    const homeId = entry.home.id;
-    const awayId = entry.away.id;
-    const m = espnMatches.find((x: any) => 
-      (ESPN_TO_LOCAL[x.homeId] === homeId && ESPN_TO_LOCAL[x.awayId] === awayId) ||
-      (ESPN_TO_LOCAL[x.homeId] === awayId && ESPN_TO_LOCAL[x.awayId] === homeId)
-    );
-    if (m) {
-      espnMatch = { ...m };
-      if (ESPN_TO_LOCAL[m.homeId] === awayId) {
-        // Swap scores to match local home/away orientation
-        espnMatch.homeScore = m.awayScore;
-        espnMatch.awayScore = m.homeScore;
-      }
-    }
+  const matchedEspn = findEspnMatch(entry, espnMatches, ESPN_TO_LOCAL);
+  let espnMatch = matchedEspn;
+  if (
+    matchedEspn &&
+    entry.away?.id &&
+    matchedEspn.homeId &&
+    ESPN_TO_LOCAL[matchedEspn.homeId] === entry.away.id
+  ) {
+    espnMatch = {
+      ...matchedEspn,
+      homeScore: matchedEspn.awayScore,
+      awayScore: matchedEspn.homeScore,
+    };
   }
 
   return (
@@ -286,7 +317,11 @@ function ScheduleTableRow({ entry, espnMatches }: { entry: ScheduleEntry; espnMa
         />
       </td>
       <td className="px-2 py-3 text-center w-20">
-        <ScoreDisplay entry={entry} espnMatch={espnMatch} />
+        <MatchScoreButton
+          entry={entry}
+          espnMatch={espnMatch}
+          onOpen={matchedEspn ? () => onOpenMatch(matchedEspn.id) : undefined}
+        />
       </td>
       <td className="px-4 py-3 text-left w-[30%]">
         <MatchSide
@@ -322,10 +357,16 @@ function ScheduleTableRow({ entry, espnMatches }: { entry: ScheduleEntry; espnMa
 export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fav-matches" | "fav-teams" }) {
   const allEntries = useSchedule();
   const espnMatches = useEspnLiveScores();
-  const [filter, setFilter] = useState<ScheduleFilter | "espn-standings" | "espn-stats">("all");
+  const [selectedFilter, setFilter] = useState<SchedulePanelFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
   const favoriteMatches = useSimulation((s) => s.favoriteMatches);
   const favoriteTeams = useSimulation((s) => s.favoriteTeams);
+  const filter =
+    (filterMode === "fav-matches" || filterMode === "fav-teams") &&
+    selectedFilter === "knockout"
+      ? "all"
+      : selectedFilter;
 
 
 
@@ -335,20 +376,13 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   // (the entire KO schedule branch with real dates is still available in the main "Tất cả lịch thi đấu" tab).
   const visibleFilters = useMemo(() => {
     if (filterMode === "fav-matches" || filterMode === "fav-teams") {
-      return FILTERS.filter((f) => f.id !== "knockout" && f.id !== "espn-standings" && f.id !== "espn-stats");
+      return FILTERS.filter((f) => f.id !== "knockout" && f.id !== "espn-standings" && f.id !== "stats");
     }
     return FILTERS;
   }, [filterMode]);
 
-  // Reset internal stage filter if it becomes invalid when switching to fav modes
-  useEffect(() => {
-    if ((filterMode === "fav-matches" || filterMode === "fav-teams") && filter === "knockout") {
-      setFilter("all");
-    }
-  }, [filterMode, filter]);
-
   const filtered = useMemo(() => {
-    if (filter === "espn-standings" || filter === "espn-stats") return []; // Not used for standings or stats
+    if (filter === "espn-standings" || filter === "stats") return []; // Not used for standings or stats
     let list = filterScheduleEntries(allEntries, filter as ScheduleFilter);
     
     if (filterMode === "fav-matches") {
@@ -377,8 +411,6 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
 
   const dateGroups = useMemo(() => groupScheduleByDate(filtered), [filtered]);
 
-  const totalMatches = allEntries.length;
-
   return (
     <div className="space-y-4" data-testid="schedule-panel">
       {/* Header matching documented behavior and E2E expectations */}
@@ -396,7 +428,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                 key={item.id}
                 type="button"
                 data-testid={`schedule-filter-${item.id}`}
-                onClick={() => setFilter(item.id as ScheduleFilter | "espn-standings" | "espn-stats")}
+                onClick={() => setFilter(item.id)}
                 className={[
                   "pb-4 -mb-[9px] border-b-2 transition-colors",
                   filter === item.id
@@ -411,7 +443,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
         </div>
         
         <div className="flex items-center gap-3">
-          {filter !== "espn-standings" && filter !== "espn-stats" && (
+          {filter !== "espn-standings" && filter !== "stats" && (
             <div className="relative">
               <svg className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -430,8 +462,8 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
         </div>
       </div>
 
-      {filter === "espn-stats" ? (
-        <EspnStatsBoard />
+      {filter === "stats" ? (
+        <TournamentStatsBoard />
       ) : filter === "espn-standings" ? (
         <div className="space-y-8">
           {/* Real external data */}
@@ -476,6 +508,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                       key={entry.id}
                       entry={entry}
                       espnMatches={espnMatches}
+                      onOpenMatch={setSelectedGameId}
                     />
                   ))}
                 </React.Fragment>
@@ -484,6 +517,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
           </table>
         </div>
       )}
+      <MatchStatsModal gameId={selectedGameId} onClose={() => setSelectedGameId(null)} />
     </div>
   );
 }

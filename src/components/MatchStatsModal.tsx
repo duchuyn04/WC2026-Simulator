@@ -1,203 +1,377 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 
 interface MatchStatsModalProps {
   gameId: string | null;
   onClose: () => void;
 }
 
+type EspnTeam = {
+  id: string;
+  displayName: string;
+  logo?: string;
+};
+
+type EspnBoxscoreTeam = {
+  team: EspnTeam;
+  statistics?: Array<{
+    name: string;
+    displayValue: string;
+  }>;
+};
+
+type EspnDetail = {
+  id?: string;
+  clock?: { displayValue?: string };
+  scoringPlay?: boolean;
+  ownGoal?: boolean;
+  penaltyKick?: boolean;
+  team?: { id?: string };
+  participants?: Array<{
+    athlete?: { id?: string; displayName?: string; shortName?: string };
+  }>;
+  type?: { text?: string; type?: string };
+};
+
+type EspnSummary = {
+  header?: {
+    season?: { name?: string };
+    competitions?: Array<{
+      date?: string;
+      venue?: { fullName?: string; address?: { city?: string } };
+      status?: { type?: { shortDetail?: string; description?: string } };
+      competitors?: Array<{
+        id?: string;
+        homeAway?: "home" | "away";
+        score?: string;
+        team?: {
+          id?: string;
+          displayName?: string;
+          logos?: Array<{ href?: string }>;
+        };
+      }>;
+      details?: EspnDetail[];
+    }>;
+  };
+  boxscore?: { teams?: EspnBoxscoreTeam[] };
+  keyEvents?: EspnDetail[];
+};
+
 const STAT_KEYS = [
-  { key: "possessionPct", label: "Kiểm soát bóng (%)" },
+  { key: "possessionPct", label: "Kiểm soát bóng" },
   { key: "totalShots", label: "Số cú sút" },
   { key: "shotsOnTarget", label: "Sút trúng đích" },
   { key: "wonCorners", label: "Phạt góc" },
   { key: "foulsCommitted", label: "Phạm lỗi" },
-  { key: "yellowCards", label: "Thẻ vàng" },
-  { key: "redCards", label: "Thẻ đỏ" },
   { key: "offsides", label: "Việt vị" },
-  { key: "saves", label: "Cứu thua" }
-];
+  { key: "saves", label: "Cứu thua" },
+] as const;
+
+function parseStat(value: string) {
+  const parsed = Number.parseFloat(value.replace("%", ""));
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
+function formatKickoff(value?: string) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+
+  return new Intl.DateTimeFormat("vi-VN", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    weekday: "short",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(date);
+}
 
 export function MatchStatsModal({ gameId, onClose }: MatchStatsModalProps) {
-  const [data, setData] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState<{
+    gameId: string;
+    data: EspnSummary | null;
+    error: string | null;
+  } | null>(null);
 
   useEffect(() => {
-    if (!gameId) {
-      setData(null);
-      return;
-    }
+    if (!gameId) return;
 
-    let isMounted = true;
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event=${gameId}`;
-        const res = await fetch(url);
-        const json = await res.json();
-        if (isMounted) setData(json);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        if (isMounted) setLoading(false);
-      }
+    const controller = new AbortController();
+
+    fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event=${gameId}`, {
+      signal: controller.signal,
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error(`ESPN trả về lỗi ${response.status}`);
+        return response.json() as Promise<EspnSummary>;
+      })
+      .then((data) => setResponse({ gameId, data, error: null }))
+      .catch((reason: unknown) => {
+        if (reason instanceof DOMException && reason.name === "AbortError") return;
+        setResponse({
+          gameId,
+          data: null,
+          error: reason instanceof Error ? reason.message : "Không thể tải dữ liệu trận đấu",
+        });
+      });
+
+    return () => controller.abort();
+  }, [gameId]);
+
+  useEffect(() => {
+    if (!gameId) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
     };
 
-    fetchData();
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
 
     return () => {
-      isMounted = false;
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
     };
-  }, [gameId]);
+  }, [gameId, onClose]);
+
+  const loading = response?.gameId !== gameId;
+  const data = response?.gameId === gameId ? response.data : null;
+  const error = response?.gameId === gameId ? response.error : null;
+
+  const view = useMemo(() => {
+    const competition = data?.header?.competitions?.[0];
+    const competitors = competition?.competitors ?? [];
+    const homeHeader = competitors.find((team) => team.homeAway === "home") ?? competitors[0];
+    const awayHeader = competitors.find((team) => team.homeAway === "away") ?? competitors[1];
+    const boxscoreTeams = data?.boxscore?.teams ?? [];
+
+    const makeTeam = (header: typeof homeHeader) => {
+      if (!header?.id) return null;
+      const boxscore = boxscoreTeams.find((team) => team.team.id === header.id);
+      return {
+        id: header.id,
+        name: header.team?.displayName ?? boxscore?.team.displayName ?? "TBD",
+        logo: header.team?.logos?.[0]?.href ?? boxscore?.team.logo,
+        score: header.score ?? "-",
+        statistics: boxscore?.statistics ?? [],
+      };
+    };
+
+    return {
+      competition,
+      home: makeTeam(homeHeader),
+      away: makeTeam(awayHeader),
+    };
+  }, [data]);
 
   if (!gameId) return null;
 
-  // Render Modal Structure
-  const team1 = data?.boxscore?.teams?.[0];
-  const team2 = data?.boxscore?.teams?.[1];
+  const details = [
+    ...(view.competition?.details ?? []),
+    ...(data?.keyEvents ?? []),
+  ];
 
-  const getStat = (teamData: any, statKey: string) => {
-    const stat = teamData?.statistics?.find((s: any) => s.name === statKey);
-    return stat ? stat.displayValue : "0";
+  const getUniqueEvents = (teamId: string, predicate: (event: EspnDetail) => boolean) => {
+    const seen = new Set<string>();
+    return details.filter((event) => {
+      if (event.team?.id !== teamId || !predicate(event)) return false;
+      const athlete = event.participants?.[0]?.athlete;
+      const key = `${athlete?.id ?? athlete?.displayName ?? "team"}-${event.clock?.displayValue}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   };
 
-  const getStatNum = (val: string) => {
-    const parsed = parseFloat(val);
-    return isNaN(parsed) ? 0 : parsed;
-  };
+  const getStat = (team: typeof view.home, key: string) =>
+    team?.statistics.find((stat) => stat.name === key)?.displayValue ?? "0";
 
-  const getUniqueGoals = (teamId: string) => {
-    const goals = data?.header?.competitions?.[0]?.details?.filter((d: any) => d.team?.id === teamId && d.scoringPlay) || [];
-    const unique: any[] = [];
-    const seen = new Set();
-    for (const g of goals) {
-      const key = `${g.participants?.[0]?.athlete?.id}-${g.clock?.displayValue}`;
-      if (!seen.has(key)) {
-        seen.add(key);
-        unique.push(g);
-      }
-    }
-    return unique;
-  };
+  const getCards = (teamId: string, type: "yellow-card" | "red-card") =>
+    getUniqueEvents(teamId, (event) => event.type?.type === type).length;
 
-  const getUniqueRedCards = (teamId: string) => {
-    const rcs = data?.keyEvents?.filter((d: any) => d.team?.id === teamId && d.type?.text?.includes("Red Card")) || [];
-    const unique: any[] = [];
-    const seen = new Set();
-    for (const rc of rcs) {
-      const key = `${rc.participants?.[0]?.athlete?.id}-${rc.clock?.displayValue}`;
-      if (!seen.has(key)) {
-        seen.add(key);
-        unique.push(rc);
-      }
-    }
-    return unique;
-  };
+  const hasStats = Boolean(view.home?.statistics.length || view.away?.statistics.length);
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm" onClick={onClose}>
-      <div 
-        className="relative w-full max-w-xl flex flex-col max-h-[90vh] overflow-hidden rounded-3xl border border-zinc-800 bg-[#0c0f14] shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-3 backdrop-blur-sm sm:p-6"
+      onClick={onClose}
+      role="presentation"
+    >
+      <section
+        aria-labelledby="match-stats-title"
+        aria-modal="true"
+        role="dialog"
+        className="relative flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-[#0c0f14] shadow-2xl sm:rounded-3xl"
+        onClick={(event) => event.stopPropagation()}
       >
-        {/* Header */}
-        <div className="flex shrink-0 items-center justify-between border-b border-zinc-800 bg-zinc-900/50 px-4 py-3">
-          <h2 className="text-lg font-black text-white">Thống kê trận đấu</h2>
-          <button 
+        <header className="flex shrink-0 items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-4 py-3 sm:px-6">
+          <div>
+            <h2 id="match-stats-title" className="text-base font-black text-white sm:text-lg">
+              Chi tiết trận đấu
+            </h2>
+            <p className="text-xs text-zinc-500">Dữ liệu trực tiếp từ ESPN</p>
+          </div>
+          <button
+            type="button"
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800 text-zinc-400 hover:bg-zinc-700 hover:text-white"
+            aria-label="Đóng chi tiết trận đấu"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-zinc-800 text-xl text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-white"
           >
-            ✕
+            ×
           </button>
-        </div>
+        </header>
 
-        {/* Content */}
-        <div className="p-5 md:p-6 overflow-y-auto">
+        <div className="overflow-y-auto p-4 sm:p-6">
           {loading ? (
-            <div className="flex h-48 items-center justify-center">
-              <div className="h-8 w-8 animate-spin rounded-full border-4 border-zinc-800 border-t-emerald-500"></div>
+            <div className="flex h-64 flex-col items-center justify-center gap-3 text-sm text-zinc-500">
+              <div className="h-9 w-9 animate-spin rounded-full border-4 border-zinc-800 border-t-emerald-500" />
+              Đang tải thống kê...
             </div>
-          ) : !data || !team1 || !team2 ? (
-            <div className="flex h-48 items-center justify-center text-zinc-500">
-              Không có dữ liệu thống kê
+          ) : error ? (
+            <div className="flex h-64 flex-col items-center justify-center gap-2 text-center">
+              <p className="font-semibold text-rose-400">Không thể tải chi tiết trận đấu</p>
+              <p className="text-sm text-zinc-500">{error}</p>
+            </div>
+          ) : !view.home || !view.away ? (
+            <div className="flex h-64 items-center justify-center text-zinc-500">
+              ESPN chưa có dữ liệu cho trận đấu này.
             </div>
           ) : (
-            <div className="space-y-5">
-              {/* Teams & Score */}
-              <div className="flex items-start justify-between">
-                <div className="flex flex-col items-center gap-2 text-center w-[30%]">
-                  <Image src={team1.team.logo} alt={team1.team.name} width={56} height={56} className="h-14 w-14 object-contain drop-shadow-md" unoptimized />
-                  <span className="font-bold text-white text-sm">{team1.team.name}</span>
-                  <div className="flex flex-col items-center mt-1 space-y-0.5">
-                    {getUniqueGoals(team1.team.id).map((g: any, i: number) => (
-                      <span key={`g-${i}`} className="text-xs text-zinc-400">
-                        {g.participants?.[0]?.athlete?.shortName} {g.clock?.displayValue}{g.ownGoal ? " (OG)" : ""}{g.penaltyKick ? " (P)" : ""}
-                      </span>
-                    ))}
-                    {getUniqueRedCards(team1.team.id).map((rc: any, i: number) => (
-                      <span key={`rc-${i}`} className="text-xs text-rose-500 font-medium">
-                        {rc.participants?.[0]?.athlete?.displayName} {rc.clock?.displayValue} 🟥
-                      </span>
-                    ))}
-                  </div>
+            <div className="space-y-6">
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-5">
+                <div className="mb-5 text-center">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                    {data?.header?.season?.name}
+                  </p>
+                  <p className="mt-1 text-xs text-zinc-500">
+                    {formatKickoff(view.competition?.date)}
+                    {view.competition?.venue?.fullName ? ` · ${view.competition.venue.fullName}` : ""}
+                  </p>
                 </div>
-                <div className="flex flex-col items-center justify-start pt-2 w-[40%]">
-                  <div className="text-4xl font-black text-amber-400 leading-none">
-                    {data.header?.competitions?.[0]?.competitors?.find((c:any) => c.id === team1.team.id)?.score ?? "?"} - {data.header?.competitions?.[0]?.competitors?.find((c:any) => c.id === team2.team.id)?.score ?? "?"}
-                  </div>
-                  <div className="text-[11px] text-zinc-500 mt-1 uppercase tracking-wider">{data.header?.competitions?.[0]?.status?.type?.shortDetail || "Kết thúc"}</div>
-                </div>
-                <div className="flex flex-col items-center gap-2 text-center w-[30%]">
-                  <Image src={team2.team.logo} alt={team2.team.name} width={56} height={56} className="h-14 w-14 object-contain drop-shadow-md" unoptimized />
-                  <span className="font-bold text-white text-sm">{team2.team.name}</span>
-                  <div className="flex flex-col items-center mt-1 space-y-0.5">
-                    {getUniqueGoals(team2.team.id).map((g: any, i: number) => (
-                      <span key={`g-${i}`} className="text-xs text-zinc-400">
-                        {g.participants?.[0]?.athlete?.shortName} {g.clock?.displayValue}{g.ownGoal ? " (OG)" : ""}{g.penaltyKick ? " (P)" : ""}
-                      </span>
-                    ))}
-                    {getUniqueRedCards(team2.team.id).map((rc: any, i: number) => (
-                      <span key={`rc-${i}`} className="text-xs text-rose-500 font-medium">
-                        {rc.participants?.[0]?.athlete?.displayName} {rc.clock?.displayValue} 🟥
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
 
-              {/* Stats List */}
-              <div className="mt-6 space-y-3.5">
-                {STAT_KEYS.map(({ key, label }) => {
-                  const val1 = getStat(team1, key);
-                  const val2 = getStat(team2, key);
-                  
-                  const num1 = getStatNum(val1);
-                  const num2 = getStatNum(val2);
-                  const total = num1 + num2;
-                  const pct1 = total > 0 ? (num1 / total) * 100 : 50;
-                  const pct2 = total > 0 ? (num2 / total) * 100 : 50;
+                <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-3">
+                  {[view.home, view.away].map((team, index) => {
+                    const goals = getUniqueEvents(team.id, (event) => Boolean(event.scoringPlay));
+                    const redCards = getUniqueEvents(team.id, (event) => event.type?.type === "red-card");
 
-                  return (
-                    <div key={key} className="space-y-1.5">
-                      <div className="flex justify-between text-sm font-bold">
-                        <span className="text-zinc-300 w-10 text-center">{val1}</span>
-                        <span className="text-zinc-500 text-[11px] uppercase tracking-wide">{label}</span>
-                        <span className="text-zinc-300 w-10 text-center">{val2}</span>
+                    return (
+                      <div
+                        key={team.id}
+                        className={`flex min-w-0 flex-col items-center text-center ${index === 1 ? "col-start-3" : ""}`}
+                      >
+                        {team.logo ? (
+                          <Image
+                            src={team.logo}
+                            alt=""
+                            width={64}
+                            height={64}
+                            className="h-12 w-12 object-contain sm:h-16 sm:w-16"
+                            unoptimized
+                          />
+                        ) : (
+                          <div className="h-12 w-12 rounded-full bg-zinc-800 sm:h-16 sm:w-16" />
+                        )}
+                        <span className="mt-2 text-sm font-bold text-white sm:text-base">{team.name}</span>
+                        <div className="mt-2 space-y-1">
+                          {goals.map((goal, goalIndex) => (
+                            <p key={goal.id ?? goalIndex} className="text-[11px] text-zinc-400 sm:text-xs">
+                              {goal.participants?.[0]?.athlete?.shortName ??
+                                goal.participants?.[0]?.athlete?.displayName ??
+                                "Bàn thắng"}{" "}
+                              {goal.clock?.displayValue}
+                              {goal.ownGoal ? " (OG)" : ""}
+                              {goal.penaltyKick ? " (P)" : ""}
+                            </p>
+                          ))}
+                          {redCards.map((card, cardIndex) => (
+                            <p key={card.id ?? cardIndex} className="text-[11px] font-medium text-rose-400 sm:text-xs">
+                              {card.participants?.[0]?.athlete?.displayName ?? "Thẻ đỏ"}{" "}
+                              {card.clock?.displayValue} ■
+                            </p>
+                          ))}
+                        </div>
                       </div>
-                      <div className="flex h-1.5 w-full overflow-hidden rounded-full bg-zinc-800">
-                        <div className="bg-emerald-500" style={{ width: `${pct1}%` }}></div>
-                        <div className="bg-rose-500" style={{ width: `${pct2}%` }}></div>
-                      </div>
+                    );
+                  })}
+
+                  <div className="col-start-2 row-start-1 flex min-w-24 flex-col items-center pt-1">
+                    <div className="font-mono text-3xl font-black leading-none text-emerald-400 sm:text-4xl">
+                      {view.home.score} - {view.away.score}
                     </div>
-                  );
-                })}
+                    <div className="mt-2 rounded-full bg-zinc-800 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+                      {view.competition?.status?.type?.shortDetail ??
+                        view.competition?.status?.type?.description ??
+                        "Scheduled"}
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              {hasStats ? (
+                <div>
+                  <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-zinc-400">
+                    Thống kê trận đấu
+                  </h3>
+                  <div className="space-y-4">
+                    {[
+                      ...STAT_KEYS.map((stat) => ({
+                        ...stat,
+                        home: getStat(view.home, stat.key),
+                        away: getStat(view.away, stat.key),
+                      })),
+                      {
+                        key: "yellowCards",
+                        label: "Thẻ vàng",
+                        home: String(getCards(view.home.id, "yellow-card")),
+                        away: String(getCards(view.away.id, "yellow-card")),
+                      },
+                      {
+                        key: "redCards",
+                        label: "Thẻ đỏ",
+                        home: String(getCards(view.home.id, "red-card")),
+                        away: String(getCards(view.away.id, "red-card")),
+                      },
+                    ].map((stat) => {
+                      const homeValue = parseStat(stat.home);
+                      const awayValue = parseStat(stat.away);
+                      const total = homeValue + awayValue;
+                      const homeWidth = total > 0 ? (homeValue / total) * 100 : 50;
+
+                      return (
+                        <div key={stat.key}>
+                          <div className="mb-1.5 grid grid-cols-[3rem_1fr_3rem] items-center text-sm font-bold">
+                            <span className="text-center text-zinc-200">{stat.home}</span>
+                            <span className="text-center text-xs font-medium uppercase tracking-wide text-zinc-500">
+                              {stat.label}
+                            </span>
+                            <span className="text-center text-zinc-200">{stat.away}</span>
+                          </div>
+                          <div className="flex h-2 overflow-hidden rounded-full bg-zinc-800">
+                            <div className="bg-emerald-500" style={{ width: `${homeWidth}%` }} />
+                            <div className="flex-1 bg-rose-500" />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : (
+                <div className="rounded-2xl border border-dashed border-zinc-800 px-4 py-8 text-center">
+                  <p className="font-semibold text-zinc-300">Thống kê sẽ có khi trận đấu bắt đầu</p>
+                  <p className="mt-1 text-sm text-zinc-500">
+                    Bạn vẫn có thể xem giờ thi đấu, sân vận động và trạng thái trận ở phía trên.
+                  </p>
+                </div>
+              )}
             </div>
           )}
         </div>
-      </div>
+      </section>
     </div>
   );
 }
