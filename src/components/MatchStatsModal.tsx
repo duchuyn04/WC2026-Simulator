@@ -174,8 +174,6 @@ export function MatchStatsModal({ gameId, onClose }: MatchStatsModalProps) {
     };
   }, [data]);
 
-  if (!gameId) return null;
-
   const details = [
     ...(view.competition?.details ?? []),
     ...(data?.keyEvents ?? []),
@@ -256,6 +254,8 @@ export function MatchStatsModal({ gameId, onClose }: MatchStatsModalProps) {
     events.sort((a, b) => a.minute - b.minute || a.id.localeCompare(b.id));
     return events;
   }, [details]);
+
+  if (!gameId) return null;
 
   const firstHalfEnd = timelineEvents.findIndex((e) => e.minute > 45);
   const halfTimeIndex = firstHalfEnd > 0 ? firstHalfEnd : -1;
