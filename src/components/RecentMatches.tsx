@@ -9,6 +9,7 @@ interface RecentMatchesProps {
 
 export function RecentMatches({ recentMatches }: RecentMatchesProps) {
   const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
+  const [selectedMatchDate, setSelectedMatchDate] = useState<string | null>(null);
 
   if (!recentMatches || recentMatches.length === 0) return null;
 
@@ -21,7 +22,7 @@ export function RecentMatches({ recentMatches }: RecentMatchesProps) {
             <div 
               key={match.id} 
               className="group flex min-w-48 cursor-pointer items-center gap-2 rounded-xl bg-zinc-900/60 p-2 text-sm transition-colors hover:bg-zinc-800 sm:min-w-0 sm:gap-3 sm:p-3"
-              onClick={() => setSelectedGameId(match.id)}
+              onClick={() => { setSelectedGameId(match.id); setSelectedMatchDate(match.date ?? null); }}
             >
               <div
                 className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-black text-white shadow-sm sm:h-10 sm:w-10 sm:rounded-xl ${
@@ -47,7 +48,7 @@ export function RecentMatches({ recentMatches }: RecentMatchesProps) {
       </div>
 
       {selectedGameId && (
-        <MatchStatsModal gameId={selectedGameId} onClose={() => setSelectedGameId(null)} />
+        <MatchStatsModal gameId={selectedGameId} matchDate={selectedMatchDate} onClose={() => { setSelectedGameId(null); setSelectedMatchDate(null); }} />
       )}
     </>
   );

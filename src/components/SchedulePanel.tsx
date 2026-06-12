@@ -256,7 +256,7 @@ function ScheduleTableRow({
 }: {
   entry: ScheduleEntry;
   espnMatches: EspnScoreboardMatch[];
-  onOpenMatch: (gameId: string) => void;
+  onOpenMatch: (gameId: string, matchDate?: string) => void;
   onOpenH2H: (home: { id: string; name: string; flagUrl: string }, away: { id: string; name: string; flagUrl: string }) => void;
 }) {
   const winnerId = entry.kind === "knockout" ? entry.winner?.id : undefined;
@@ -331,7 +331,7 @@ function ScheduleTableRow({
         <MatchScoreButton
           entry={entry}
           espnMatch={espnMatch}
-          onOpen={matchedEspn ? () => onOpenMatch(matchedEspn.id) : undefined}
+          onOpen={matchedEspn ? () => onOpenMatch(matchedEspn.id, entry.date) : undefined}
         />
       </td>
       <td className="px-4 py-3 text-left w-[30%]">
@@ -383,6 +383,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   const [selectedFilter, setFilter] = useState<SchedulePanelFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
+  const [selectedMatchDate, setSelectedMatchDate] = useState<string | null>(null);
   const [h2hTeams, setH2hTeams] = useState<{ home: { id: string; name: string; flagUrl: string }; away: { id: string; name: string; flagUrl: string } } | null>(null);
   const favoriteMatches = useSimulation((s) => s.favoriteMatches);
   const favoriteTeams = useSimulation((s) => s.favoriteTeams);
@@ -532,7 +533,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                       key={entry.id}
                       entry={entry}
                       espnMatches={espnMatches}
-                      onOpenMatch={setSelectedGameId}
+                      onOpenMatch={(gameId, matchDate) => { setSelectedGameId(gameId); setSelectedMatchDate(matchDate ?? null); }}
                       onOpenH2H={(h, a) => setH2hTeams({ home: h, away: a })}
                     />
                   ))}
@@ -542,7 +543,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
           </table>
         </div>
       )}
-      <MatchStatsModal gameId={selectedGameId} onClose={() => setSelectedGameId(null)} />
+      <MatchStatsModal gameId={selectedGameId} matchDate={selectedMatchDate} onClose={() => { setSelectedGameId(null); setSelectedMatchDate(null); }} />
       <H2HModal
         teamA={h2hTeams?.home ?? null}
         teamB={h2hTeams?.away ?? null}

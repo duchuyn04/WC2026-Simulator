@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 
 interface MatchStatsModalProps {
   gameId: string | null;
+  matchDate?: string | null;
   onClose: () => void;
 }
 
@@ -90,7 +91,7 @@ function formatKickoff(value?: string) {
   }).format(date);
 }
 
-export function MatchStatsModal({ gameId, onClose }: MatchStatsModalProps) {
+export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalProps) {
   const [activeTab, setActiveTab] = useState<"stats" | "timeline">("stats");
   const [response, setResponse] = useState<{
     gameId: string;
@@ -313,7 +314,7 @@ export function MatchStatsModal({ gameId, onClose }: MatchStatsModalProps) {
                     {data?.header?.season?.name}
                   </p>
                   <p className="mt-1 text-xs text-zinc-500">
-                    {formatKickoff(view.competition?.date)}
+                    {formatKickoff(matchDate ?? view.competition?.date)}
                     {view.competition?.venue?.fullName ? ` · ${view.competition.venue.fullName}` : ""}
                   </p>
                 </div>
