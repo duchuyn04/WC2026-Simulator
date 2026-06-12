@@ -91,6 +91,29 @@ function formatKickoff(value?: string) {
   }).format(date);
 }
 
+function formatKickoffShort(value?: string) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+
+  return new Intl.DateTimeFormat("vi-VN", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    day: "2-digit",
+    month: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(date);
+}
+
+// ESPN shortDetail for scheduled games looks like "6/14 - 1:00 PM EDT".
+// Live/final statuses ("78' - 2nd Half", "Final", "Halftime") must pass through.
+function isKickoffString(value?: string) {
+  if (!value) return false;
+  return /\d{1,2}\/\d{1,2}\s*-\s*\d{1,2}:\d{2}/.test(value) &&
+    /(AM|PM|EDT|EST|CDT|CST|MDT|MST|PDT|PST|BST|GMT|UTC)/i.test(value);
+}
+
 export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalProps) {
   const [activeTab, setActiveTab] = useState<"stats" | "timeline">("stats");
   const [response, setResponse] = useState<{
@@ -369,9 +392,11 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                       {view.home.score} - {view.away.score}
                     </div>
                     <div className="mt-2 rounded-full bg-zinc-800 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
-                      {view.competition?.status?.type?.shortDetail ??
-                        view.competition?.status?.type?.description ??
-                        "Scheduled"}
+                      {isKickoffString(view.competition?.status?.type?.shortDetail)
+                        ? formatKickoffShort(matchDate ?? view.competition?.date)
+                        : (view.competition?.status?.type?.shortDetail ??
+                           view.competition?.status?.type?.description ??
+                           "Scheduled")}
                     </div>
                   </div>
                 </div>

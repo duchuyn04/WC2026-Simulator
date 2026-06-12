@@ -1,0 +1,681 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - link "Quay lại danh sách":
+      - /url: /teams
+      - text: ←
+  - main [ref=e2]:
+    - generic [ref=e4]:
+      - link "← Đội tuyển" [ref=e6] [cursor=pointer]:
+        - /url: /teams
+        - generic [ref=e7]: ←
+        - text: Đội tuyển
+      - generic [ref=e9]:
+        - img "Cờ England" [ref=e10]
+        - generic [ref=e11]:
+          - paragraph [ref=e12]: Bảng L · UEFA
+          - heading "England" [level=1] [ref=e13]
+          - paragraph [ref=e14]: "FIFA #4 · 16 lần tham dự · Vượt qua vòng loại"
+    - generic [ref=e15]:
+      - complementary [ref=e16]:
+        - generic [ref=e17]:
+          - heading "Thông tin đội" [level=2] [ref=e18]
+          - generic [ref=e19]:
+            - generic [ref=e20]:
+              - term [ref=e21]: Mã đội
+              - definition [ref=e22]: ENG
+            - generic [ref=e23]:
+              - term [ref=e24]: Bảng
+              - definition [ref=e25]: L
+            - generic [ref=e26]:
+              - term [ref=e27]: Liên đoàn
+              - definition [ref=e28]: UEFA
+            - generic [ref=e29]:
+              - term [ref=e30]: Cầu thủ
+              - definition [ref=e31]: "26"
+        - generic [ref=e32]:
+          - heading "Ban huấn luyện" [level=2] [ref=e33]
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - paragraph [ref=e36]: Justin COCHRANE
+              - paragraph [ref=e37]: Coach · ATG
+            - generic [ref=e38]:
+              - paragraph [ref=e39]: Anthony BARRY
+              - paragraph [ref=e40]: Coach · ENG
+            - generic [ref=e41]:
+              - paragraph [ref=e42]: Thomas TUCHEL
+              - paragraph [ref=e43]: Head coach · GER
+        - generic [ref=e44]:
+          - heading "Phong độ gần đây" [level=2] [ref=e45]
+          - generic [ref=e46]:
+            - generic [ref=e47] [cursor=pointer]:
+              - generic [ref=e48]: W
+              - generic [ref=e49]:
+                - paragraph [ref=e50]: Costa Rica vs England
+                - paragraph [ref=e51]:
+                  - text: 11/6/2026 ·
+                  - generic [ref=e52]: 3 - 0
+            - generic [ref=e53] [cursor=pointer]:
+              - generic [ref=e54]: W
+              - generic [ref=e55]:
+                - paragraph [ref=e56]: New Zealand vs England
+                - paragraph [ref=e57]:
+                  - text: 7/6/2026 ·
+                  - generic [ref=e58]: 1 - 0
+            - generic [ref=e59] [cursor=pointer]:
+              - generic [ref=e60]: L
+              - generic [ref=e61]:
+                - paragraph [ref=e62]: Japan vs England
+                - paragraph [ref=e63]:
+                  - text: 1/4/2026 ·
+                  - generic [ref=e64]: 0 - 1
+            - generic [ref=e65] [cursor=pointer]:
+              - generic [ref=e66]: D
+              - generic [ref=e67]:
+                - paragraph [ref=e68]: Uruguay vs England
+                - paragraph [ref=e69]:
+                  - text: 28/3/2026 ·
+                  - generic [ref=e70]: 1 - 1
+            - generic [ref=e71] [cursor=pointer]:
+              - generic [ref=e72]: W
+              - generic [ref=e73]:
+                - paragraph [ref=e74]: England vs Albania
+                - paragraph [ref=e75]:
+                  - text: 17/11/2025 ·
+                  - generic [ref=e76]: 0 - 2
+          - paragraph [ref=e77]: Dữ liệu từ ESPN
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - generic [ref=e84]:
+              - paragraph [ref=e85]: Đội hình
+              - heading "Lọc theo vị trí" [level=2] [ref=e86]
+            - paragraph [ref=e87]: 26 cầu thủ
+          - generic [ref=e89]:
+            - button "Tất cả27" [pressed] [ref=e90]
+            - button "HLV1" [ref=e91]
+            - button "Thủ môn3" [ref=e92]
+            - button "Hậu vệ9" [ref=e93]
+            - button "Tiền vệ7" [ref=e94]
+            - button "Tiền đạo7" [ref=e95]
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - heading "HLV trưởng" [level=2] [ref=e98]
+            - generic [ref=e99]: GER
+          - article [ref=e100]:
+            - generic [ref=e101]:
+              - button "Xem ảnh lớn của Thomas TUCHEL" [ref=e102]:
+                - img "Thomas Tuchel" [ref=e104]
+                - generic:
+                  - generic: Xem ảnh
+              - generic [ref=e105]: HLV
+            - generic [ref=e106]:
+              - heading "Thomas TUCHEL" [level=3] [ref=e107]
+              - paragraph [ref=e109]: Head coach · 52 tuổi
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - heading "Thủ môn" [level=2] [ref=e112]
+            - generic [ref=e113]: 3 cầu thủ
+          - generic [ref=e114]:
+            - article [ref=e115]:
+              - generic [ref=e116]:
+                - button "Xem ảnh lớn của Jordan PICKFORD" [ref=e117]:
+                  - img "Jordan PICKFORD" [ref=e119]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e120]: "1"
+              - generic [ref=e121]:
+                - heading "Jordan PICKFORD" [level=3] [ref=e123]
+                - paragraph [ref=e125]: Thủ môn
+                - paragraph [ref=e126]: Everton
+              - generic [ref=e127]:
+                - generic [ref=e128]:
+                  - generic [ref=e129]: "32"
+                  - text: Tuổi
+                - generic [ref=e130]:
+                  - generic [ref=e131]: "185"
+                  - text: cm
+                - generic [ref=e132]:
+                  - generic [ref=e133]: "77"
+                  - text: kg
+            - article [ref=e134]:
+              - generic [ref=e135]:
+                - button "Xem ảnh lớn của Dean Henderson" [ref=e136]:
+                  - img "Dean Henderson" [ref=e138]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e139]: "13"
+              - generic [ref=e140]:
+                - heading "Dean Henderson" [level=3] [ref=e142]
+                - paragraph [ref=e144]: Thủ môn
+                - paragraph [ref=e145]: Crystal Palace
+              - generic [ref=e146]:
+                - generic [ref=e147]:
+                  - generic [ref=e148]: "29"
+                  - text: Tuổi
+                - generic [ref=e149]:
+                  - generic [ref=e150]: "188"
+                  - text: cm
+                - generic [ref=e151]:
+                  - generic [ref=e152]: "85"
+                  - text: kg
+            - article [ref=e153]:
+              - generic [ref=e154]:
+                - button "Xem ảnh lớn của James TRAFFORD" [ref=e155]:
+                  - img "James TRAFFORD" [ref=e157]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e158]: "23"
+              - generic [ref=e159]:
+                - heading "James TRAFFORD" [level=3] [ref=e161]
+                - paragraph [ref=e163]: Thủ môn
+                - paragraph [ref=e164]: Manchester City
+              - generic [ref=e165]:
+                - generic [ref=e166]:
+                  - generic [ref=e167]: "23"
+                  - text: Tuổi
+                - generic [ref=e168]:
+                  - generic [ref=e169]: "197"
+                  - text: cm
+                - generic [ref=e170]:
+                  - generic [ref=e171]: "83"
+                  - text: kg
+        - generic [ref=e172]:
+          - generic [ref=e173]:
+            - heading "Hậu vệ" [level=2] [ref=e174]
+            - generic [ref=e175]: 9 cầu thủ
+          - generic [ref=e176]:
+            - article [ref=e177]:
+              - generic [ref=e178]:
+                - button "Xem ảnh lớn của Ezri KONSA" [ref=e179]:
+                  - img "Ezri KONSA" [ref=e181]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e182]: "2"
+              - generic [ref=e183]:
+                - heading "Ezri KONSA" [level=3] [ref=e185]
+                - paragraph [ref=e187]: Hậu vệ
+                - paragraph [ref=e188]: Aston Villa
+              - generic [ref=e189]:
+                - generic [ref=e190]:
+                  - generic [ref=e191]: "28"
+                  - text: Tuổi
+                - generic [ref=e192]:
+                  - generic [ref=e193]: "180"
+                  - text: cm
+                - generic [ref=e194]:
+                  - generic [ref=e195]: "76"
+                  - text: kg
+            - article [ref=e196]:
+              - generic [ref=e197]:
+                - button "Xem ảnh lớn của Nico OREILLY" [ref=e198]:
+                  - img "Nico OREILLY" [ref=e200]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e201]: "3"
+              - generic [ref=e202]:
+                - heading "Nico OREILLY" [level=3] [ref=e204]
+                - paragraph [ref=e206]: Hậu vệ
+                - paragraph [ref=e207]: Manchester City
+              - generic [ref=e208]:
+                - generic [ref=e209]:
+                  - generic [ref=e210]: "21"
+                  - text: Tuổi
+                - generic [ref=e211]:
+                  - generic [ref=e212]: "177"
+                  - text: cm
+                - generic [ref=e213]:
+                  - generic [ref=e214]: "74"
+                  - text: kg
+            - article [ref=e215]:
+              - generic [ref=e216]:
+                - button "Xem ảnh lớn của John STONES" [ref=e217]:
+                  - img "John STONES" [ref=e219]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e220]: "5"
+              - generic [ref=e221]:
+                - heading "John STONES" [level=3] [ref=e223]
+                - paragraph [ref=e225]: Hậu vệ
+                - paragraph [ref=e226]: Manchester City
+              - generic [ref=e227]:
+                - generic [ref=e228]:
+                  - generic [ref=e229]: "32"
+                  - text: Tuổi
+                - generic [ref=e230]:
+                  - generic [ref=e231]: "188"
+                  - text: cm
+                - generic [ref=e232]:
+                  - generic [ref=e233]: "82"
+                  - text: kg
+            - article [ref=e234]:
+              - generic [ref=e235]:
+                - button "Xem ảnh lớn của Marc GUEHI" [ref=e236]:
+                  - img "Marc GUEHI" [ref=e238]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e239]: "6"
+              - generic [ref=e240]:
+                - heading "Marc GUEHI" [level=3] [ref=e242]
+                - paragraph [ref=e244]: Hậu vệ
+                - paragraph [ref=e245]: Manchester City
+              - generic [ref=e246]:
+                - generic [ref=e247]:
+                  - generic [ref=e248]: "25"
+                  - text: Tuổi
+                - generic [ref=e249]:
+                  - generic [ref=e250]: "183"
+                  - text: cm
+                - generic [ref=e251]:
+                  - generic [ref=e252]: "82"
+                  - text: kg
+            - article [ref=e253]:
+              - generic [ref=e254]:
+                - button "Xem ảnh lớn của Tino LIVRAMENTO" [ref=e255]:
+                  - img "Tino LIVRAMENTO" [ref=e257]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e258]: "12"
+              - generic [ref=e259]:
+                - heading "Tino LIVRAMENTO" [level=3] [ref=e261]
+                - paragraph [ref=e263]: Hậu vệ
+                - paragraph [ref=e264]: Newcastle United
+              - generic [ref=e265]:
+                - generic [ref=e266]:
+                  - generic [ref=e267]: "23"
+                  - text: Tuổi
+                - generic [ref=e268]:
+                  - generic [ref=e269]: "182"
+                  - text: cm
+                - generic [ref=e270]:
+                  - generic [ref=e271]: "71"
+                  - text: kg
+            - article [ref=e272]:
+              - generic [ref=e273]:
+                - button "Xem ảnh lớn của Dan BURN" [ref=e274]:
+                  - img "Dan BURN" [ref=e276]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e277]: "15"
+              - generic [ref=e278]:
+                - heading "Dan BURN" [level=3] [ref=e280]
+                - paragraph [ref=e282]: Hậu vệ
+                - paragraph [ref=e283]: Newcastle United
+              - generic [ref=e284]:
+                - generic [ref=e285]:
+                  - generic [ref=e286]: "34"
+                  - text: Tuổi
+                - generic [ref=e287]:
+                  - generic [ref=e288]: "201"
+                  - text: cm
+                - generic [ref=e289]:
+                  - generic [ref=e290]: "87"
+                  - text: kg
+            - article [ref=e291]:
+              - generic [ref=e292]:
+                - button "Xem ảnh lớn của Reece JAMES" [ref=e293]:
+                  - img "Reece JAMES" [ref=e295]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e296]: "24"
+              - generic [ref=e297]:
+                - heading "Reece JAMES" [level=3] [ref=e299]
+                - paragraph [ref=e301]: Hậu vệ
+                - paragraph [ref=e302]: Chelsea
+              - generic [ref=e303]:
+                - generic [ref=e304]:
+                  - generic [ref=e305]: "26"
+                  - text: Tuổi
+                - generic [ref=e306]:
+                  - generic [ref=e307]: "180"
+                  - text: cm
+                - generic [ref=e308]:
+                  - generic [ref=e309]: "92"
+                  - text: kg
+            - article [ref=e310]:
+              - generic [ref=e311]:
+                - button "Xem ảnh lớn của Djed SPENCE" [ref=e312]:
+                  - img "Djed SPENCE" [ref=e314]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e315]: "25"
+              - generic [ref=e316]:
+                - heading "Djed SPENCE" [level=3] [ref=e318]
+                - paragraph [ref=e320]: Hậu vệ
+                - paragraph [ref=e321]: Tottenham Hotspur
+              - generic [ref=e322]:
+                - generic [ref=e323]:
+                  - generic [ref=e324]: "25"
+                  - text: Tuổi
+                - generic [ref=e325]:
+                  - generic [ref=e326]: "184"
+                  - text: cm
+                - generic [ref=e327]:
+                  - generic [ref=e328]: "71"
+                  - text: kg
+            - article [ref=e329]:
+              - generic [ref=e330]:
+                - button "Xem ảnh lớn của Jarell QUANSAH" [ref=e331]:
+                  - img "Jarell QUANSAH" [ref=e333]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e334]: "26"
+              - generic [ref=e335]:
+                - heading "Jarell QUANSAH" [level=3] [ref=e337]
+                - paragraph [ref=e339]: Hậu vệ
+                - paragraph [ref=e340]: Bayer Leverkusen
+              - generic [ref=e341]:
+                - generic [ref=e342]:
+                  - generic [ref=e343]: "23"
+                  - text: Tuổi
+                - generic [ref=e344]:
+                  - generic [ref=e345]: "190"
+                  - text: cm
+                - generic [ref=e346]:
+                  - generic [ref=e347]: "79"
+                  - text: kg
+        - generic [ref=e348]:
+          - generic [ref=e349]:
+            - heading "Tiền vệ" [level=2] [ref=e350]
+            - generic [ref=e351]: 7 cầu thủ
+          - generic [ref=e352]:
+            - article [ref=e353]:
+              - generic [ref=e354]:
+                - button "Xem ảnh lớn của Declan RICE" [ref=e355]:
+                  - img "Declan RICE" [ref=e357]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e358]: "4"
+              - generic [ref=e359]:
+                - heading "Declan RICE" [level=3] [ref=e361]
+                - paragraph [ref=e363]: Tiền vệ
+                - paragraph [ref=e364]: Arsenal
+              - generic [ref=e365]:
+                - generic [ref=e366]:
+                  - generic [ref=e367]: "27"
+                  - text: Tuổi
+                - generic [ref=e368]:
+                  - generic [ref=e369]: "185"
+                  - text: cm
+                - generic [ref=e370]:
+                  - generic [ref=e371]: "76"
+                  - text: kg
+            - article [ref=e372]:
+              - generic [ref=e373]:
+                - button "Xem ảnh lớn của Elliot ANDERSON" [ref=e374]:
+                  - img "Elliot ANDERSON" [ref=e376]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e377]: "8"
+              - generic [ref=e378]:
+                - heading "Elliot ANDERSON" [level=3] [ref=e380]
+                - paragraph [ref=e382]: Tiền vệ
+                - paragraph [ref=e383]: Nottingham Forest
+              - generic [ref=e384]:
+                - generic [ref=e385]:
+                  - generic [ref=e386]: "23"
+                  - text: Tuổi
+                - generic [ref=e387]:
+                  - generic [ref=e388]: "179"
+                  - text: cm
+                - generic [ref=e389]:
+                  - generic [ref=e390]: "69"
+                  - text: kg
+            - article [ref=e391]:
+              - generic [ref=e392]:
+                - button "Xem ảnh lớn của Jude BELLINGHAM" [ref=e393]:
+                  - img "Jude BELLINGHAM" [ref=e395]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e396]: "10"
+              - generic [ref=e397]:
+                - heading "Jude BELLINGHAM" [level=3] [ref=e399]
+                - paragraph [ref=e401]: Tiền vệ
+                - paragraph [ref=e402]: Real Madrid
+              - generic [ref=e403]:
+                - generic [ref=e404]:
+                  - generic [ref=e405]: "22"
+                  - text: Tuổi
+                - generic [ref=e406]:
+                  - generic [ref=e407]: "183"
+                  - text: cm
+                - generic [ref=e408]:
+                  - generic [ref=e409]: "75"
+                  - text: kg
+            - article [ref=e410]:
+              - generic [ref=e411]:
+                - button "Xem ảnh lớn của Jordan HENDERSON" [ref=e412]:
+                  - img "Jordan HENDERSON" [ref=e414]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e415]: "14"
+              - generic [ref=e416]:
+                - heading "Jordan HENDERSON" [level=3] [ref=e418]
+                - paragraph [ref=e420]: Tiền vệ
+                - paragraph [ref=e421]: Brentford
+              - generic [ref=e422]:
+                - generic [ref=e423]:
+                  - generic [ref=e424]: "35"
+                  - text: Tuổi
+                - generic [ref=e425]:
+                  - generic [ref=e426]: "183"
+                  - text: cm
+                - generic [ref=e427]:
+                  - generic [ref=e428]: "82"
+                  - text: kg
+            - article [ref=e429]:
+              - generic [ref=e430]:
+                - button "Xem ảnh lớn của Kobbie MAINOO" [ref=e431]:
+                  - img "Kobbie MAINOO" [ref=e433]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e434]: "16"
+              - generic [ref=e435]:
+                - heading "Kobbie MAINOO" [level=3] [ref=e437]
+                - paragraph [ref=e439]: Tiền vệ
+                - paragraph [ref=e440]: Manchester United
+              - generic [ref=e441]:
+                - generic [ref=e442]:
+                  - generic [ref=e443]: "21"
+                  - text: Tuổi
+                - generic [ref=e444]:
+                  - generic [ref=e445]: "183"
+                  - text: cm
+                - generic [ref=e446]:
+                  - generic [ref=e447]: "71"
+                  - text: kg
+            - article [ref=e448]:
+              - generic [ref=e449]:
+                - button "Xem ảnh lớn của Morgan ROGERS" [ref=e450]:
+                  - img "Morgan ROGERS" [ref=e452]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e453]: "17"
+              - generic [ref=e454]:
+                - heading "Morgan ROGERS" [level=3] [ref=e456]
+                - paragraph [ref=e458]: Tiền vệ
+                - paragraph [ref=e459]: Aston Villa
+              - generic [ref=e460]:
+                - generic [ref=e461]:
+                  - generic [ref=e462]: "23"
+                  - text: Tuổi
+                - generic [ref=e463]:
+                  - generic [ref=e464]: "187"
+                  - text: cm
+                - generic [ref=e465]:
+                  - generic [ref=e466]: "80"
+                  - text: kg
+            - article [ref=e467]:
+              - generic [ref=e468]:
+                - button "Xem ảnh lớn của Eberechi EZE" [ref=e469]:
+                  - img "Eberechi EZE" [ref=e471]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e472]: "21"
+              - generic [ref=e473]:
+                - heading "Eberechi EZE" [level=3] [ref=e475]
+                - paragraph [ref=e477]: Tiền vệ
+                - paragraph [ref=e478]: Arsenal
+              - generic [ref=e479]:
+                - generic [ref=e480]:
+                  - generic [ref=e481]: "27"
+                  - text: Tuổi
+                - generic [ref=e482]:
+                  - generic [ref=e483]: "178"
+                  - text: cm
+                - generic [ref=e484]:
+                  - generic [ref=e485]: "73"
+                  - text: kg
+        - generic [ref=e486]:
+          - generic [ref=e487]:
+            - heading "Tiền đạo" [level=2] [ref=e488]
+            - generic [ref=e489]: 7 cầu thủ
+          - generic [ref=e490]:
+            - article [ref=e491]:
+              - generic [ref=e492]:
+                - button "Xem ảnh lớn của Bukayo SAKA" [ref=e493]:
+                  - img "Bukayo SAKA" [ref=e495]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e496]: "7"
+              - generic [ref=e497]:
+                - heading "Bukayo SAKA" [level=3] [ref=e499]
+                - paragraph [ref=e501]: Tiền đạo
+                - paragraph [ref=e502]: Arsenal
+              - generic [ref=e503]:
+                - generic [ref=e504]:
+                  - generic [ref=e505]: "24"
+                  - text: Tuổi
+                - generic [ref=e506]:
+                  - generic [ref=e507]: "178"
+                  - text: cm
+                - generic [ref=e508]:
+                  - generic [ref=e509]: "65"
+                  - text: kg
+            - article [ref=e510]:
+              - generic [ref=e511]:
+                - button "Xem ảnh lớn của Harry KANE" [ref=e512]:
+                  - img "Harry KANE" [ref=e514]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e515]: "9"
+              - generic [ref=e516]:
+                - heading "Harry KANE" [level=3] [ref=e518]
+                - paragraph [ref=e520]: Tiền đạo
+                - paragraph [ref=e521]: Bayern Munich
+              - generic [ref=e522]:
+                - generic [ref=e523]:
+                  - generic [ref=e524]: "32"
+                  - text: Tuổi
+                - generic [ref=e525]:
+                  - generic [ref=e526]: "190"
+                  - text: cm
+                - generic [ref=e527]:
+                  - generic [ref=e528]: "91"
+                  - text: kg
+            - article [ref=e529]:
+              - generic [ref=e530]:
+                - button "Xem ảnh lớn của Marcus RASHFORD" [ref=e531]:
+                  - img "Marcus RASHFORD" [ref=e533]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e534]: "11"
+              - generic [ref=e535]:
+                - heading "Marcus RASHFORD" [level=3] [ref=e537]
+                - paragraph [ref=e539]: Tiền đạo
+                - paragraph [ref=e540]: Barcelona
+              - generic [ref=e541]:
+                - generic [ref=e542]:
+                  - generic [ref=e543]: "28"
+                  - text: Tuổi
+                - generic [ref=e544]:
+                  - generic [ref=e545]: "180"
+                  - text: cm
+                - generic [ref=e546]:
+                  - generic [ref=e547]: "78"
+                  - text: kg
+            - article [ref=e548]:
+              - generic [ref=e549]:
+                - button "Xem ảnh lớn của Anthony GORDON" [ref=e550]:
+                  - img "Anthony GORDON" [ref=e552]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e553]: "18"
+              - generic [ref=e554]:
+                - heading "Anthony GORDON" [level=3] [ref=e556]
+                - paragraph [ref=e558]: Tiền đạo
+                - paragraph [ref=e559]: Newcastle United
+              - generic [ref=e560]:
+                - generic [ref=e561]:
+                  - generic [ref=e562]: "25"
+                  - text: Tuổi
+                - generic [ref=e563]:
+                  - generic [ref=e564]: "182"
+                  - text: cm
+                - generic [ref=e565]:
+                  - generic [ref=e566]: "68"
+                  - text: kg
+            - article [ref=e567]:
+              - generic [ref=e568]:
+                - button "Xem ảnh lớn của Ollie WATKINS" [ref=e569]:
+                  - img "Ollie WATKINS" [ref=e571]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e572]: "19"
+              - generic [ref=e573]:
+                - heading "Ollie WATKINS" [level=3] [ref=e575]
+                - paragraph [ref=e577]: Tiền đạo
+                - paragraph [ref=e578]: Aston Villa
+              - generic [ref=e579]:
+                - generic [ref=e580]:
+                  - generic [ref=e581]: "30"
+                  - text: Tuổi
+                - generic [ref=e582]:
+                  - generic [ref=e583]: "180"
+                  - text: cm
+                - generic [ref=e584]:
+                  - generic [ref=e585]: "70"
+                  - text: kg
+            - article [ref=e586]:
+              - generic [ref=e587]:
+                - button "Xem ảnh lớn của Noni MADUEKE" [ref=e588]:
+                  - img "Noni MADUEKE" [ref=e590]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e591]: "20"
+              - generic [ref=e592]:
+                - heading "Noni MADUEKE" [level=3] [ref=e594]
+                - paragraph [ref=e596]: Tiền đạo
+                - paragraph [ref=e597]: Arsenal
+              - generic [ref=e598]:
+                - generic [ref=e599]:
+                  - generic [ref=e600]: "24"
+                  - text: Tuổi
+                - generic [ref=e601]:
+                  - generic [ref=e602]: "182"
+                  - text: cm
+                - generic [ref=e603]:
+                  - generic [ref=e604]: "83"
+                  - text: kg
+            - article [ref=e605]:
+              - generic [ref=e606]:
+                - button "Xem ảnh lớn của Ivan TONEY" [ref=e607]:
+                  - img "Ivan TONEY" [ref=e609]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e610]: "22"
+              - generic [ref=e611]:
+                - heading "Ivan TONEY" [level=3] [ref=e613]
+                - paragraph [ref=e615]: Tiền đạo
+                - paragraph [ref=e616]: Al-Ahli
+              - generic [ref=e617]:
+                - generic [ref=e618]:
+                  - generic [ref=e619]: "30"
+                  - text: Tuổi
+                - generic [ref=e620]:
+                  - generic [ref=e621]: "185"
+                  - text: cm
+                - generic [ref=e622]:
+                  - generic [ref=e623]: "85"
+                  - text: kg
+  - button "Open Next.js Dev Tools" [ref=e629] [cursor=pointer]:
+    - img [ref=e630]
