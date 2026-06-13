@@ -100,7 +100,7 @@ async function main() {
   const data = JSON.parse(readFileSync(DATA_FILE, "utf8"));
   const missingPlayers = data.teams.flatMap((team) =>
     team.squad
-      .filter((player) => !player.pictureUrl && player.wikiTitle)
+      .filter((player) => !player.pictureUrl && !player.wikiPictureUrl && player.wikiTitle)
       .map((player) => ({ team, player })),
   );
   const titles = [...new Set(missingPlayers.map(({ player }) => player.wikiTitle))];
@@ -111,7 +111,7 @@ async function main() {
   for (const { player } of missingPlayers) {
     const pageData = wikipediaPages.get(player.wikiTitle);
     if (!pageData?.thumbnail) continue;
-    player.pictureUrl = pageData.thumbnail;
+    player.wikiPictureUrl = pageData.thumbnail;
     player.pictureSource = "wikipedia-pageimage";
     wikipediaImages += 1;
   }
@@ -128,11 +128,11 @@ async function main() {
   let commonsImages = 0;
 
   for (const { player } of missingPlayers) {
-    if (player.pictureUrl) continue;
+    if (player.wikiPictureUrl) continue;
     const wikidataId = wikipediaPages.get(player.wikiTitle)?.wikidataId;
     const imageUrl = wikidataImages.get(wikidataId);
     if (!imageUrl) continue;
-    player.pictureUrl = imageUrl;
+    player.wikiPictureUrl = imageUrl;
     player.pictureSource = "wikidata-commons";
     commonsImages += 1;
   }
