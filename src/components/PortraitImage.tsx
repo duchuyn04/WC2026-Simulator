@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function initialsFromName(name?: string | null) {
   if (!name) return "?";
@@ -59,27 +59,44 @@ export function PortraitPlaceholder({
 
 export function PortraitImage({
   src,
+  fallbackSrc,
   alt,
   placeholderProps,
 }: {
   src?: string | null;
+  fallbackSrc?: string | null;
   alt: string;
   placeholderProps: Parameters<typeof PortraitPlaceholder>[0];
 }) {
-  const [error, setError] = useState(false);
+  const [currentSrc, setCurrentSrc] = useState<string | null>(src || fallbackSrc || null);
+  const [hasFailedFallback, setHasFailedFallback] = useState(false);
 
-  if (!src || error) {
+  useEffect(() => {
+    setCurrentSrc(src || fallbackSrc || null);
+    setHasFailedFallback(false);
+  }, [src, fallbackSrc]);
+
+  const handleError = () => {
+    if (currentSrc === src && fallbackSrc && !hasFailedFallback) {
+      setCurrentSrc(fallbackSrc);
+    } else {
+      setHasFailedFallback(true);
+      setCurrentSrc(null);
+    }
+  };
+
+  if (!currentSrc) {
     return <PortraitPlaceholder {...placeholderProps} />;
   }
 
   return (
     <img
-      src={src}
+      src={currentSrc}
       alt={alt}
       loading="lazy"
       decoding="async"
       className="h-32 w-full object-cover object-top sm:h-64"
-      onError={() => setError(true)}
+      onError={handleError}
     />
   );
 }
