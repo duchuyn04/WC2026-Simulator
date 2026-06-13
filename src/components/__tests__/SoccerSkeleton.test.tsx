@@ -4,25 +4,27 @@ import ReactDOMServer from "react-dom/server";
 import SoccerSkeleton from "../SoccerSkeleton";
 
 describe("SoccerSkeleton", () => {
-  it("renders standings variant with grid columns", () => {
+  it("renders standings variant with soccer ball SVG", () => {
     const html = ReactDOMServer.renderToString(
       React.createElement(SoccerSkeleton, { variant: "standings" })
     );
     expect(html).toContain("svg");
-    expect(html).toContain("grid");
+    expect(html).toContain("animate-soccer-bounce");
   });
 
-  it("renders stats variant", () => {
+  it("renders stats variant with soccer ball SVG", () => {
     const html = ReactDOMServer.renderToString(
       React.createElement(SoccerSkeleton, { variant: "stats" })
     );
-    expect(html).toContain("animate-pulse");
+    expect(html).toContain("svg");
+    expect(html).toContain("animate-soccer-shadow");
   });
 
-  it("renders match-detail variant", () => {
+  it("renders match-detail variant with soccer ball SVG", () => {
     const html = ReactDOMServer.renderToString(
       React.createElement(SoccerSkeleton, { variant: "match-detail" })
     );
-    expect(html).toContain("rounded-2xl");
+    expect(html).toContain("svg");
+    expect(html).toContain("animate-soccer-bounce");
   });
 });
