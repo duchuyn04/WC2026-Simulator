@@ -1,0 +1,808 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=e6]:
+      - heading "Navigation Menu" [level=2] [ref=e7]
+      - generic [ref=e8]:
+        - link "Homepage" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img [ref=e11]
+        - generic [ref=e13]:
+          - navigation "Global" [ref=e16]:
+            - list [ref=e17]:
+              - listitem [ref=e18]:
+                - button "Platform" [ref=e20] [cursor=pointer]:
+                  - text: Platform
+                  - img [ref=e21]
+              - listitem [ref=e23]:
+                - button "Solutions" [ref=e25] [cursor=pointer]:
+                  - text: Solutions
+                  - img [ref=e26]
+              - listitem [ref=e28]:
+                - button "Resources" [ref=e30] [cursor=pointer]:
+                  - text: Resources
+                  - img [ref=e31]
+              - listitem [ref=e33]:
+                - button "Open Source" [ref=e35] [cursor=pointer]:
+                  - text: Open Source
+                  - img [ref=e36]
+              - listitem [ref=e38]:
+                - button "Enterprise" [ref=e40] [cursor=pointer]:
+                  - text: Enterprise
+                  - img [ref=e41]
+              - listitem [ref=e43]:
+                - link "Pricing" [ref=e44] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+                  - generic [ref=e45]: Pricing
+          - generic [ref=e46]:
+            - button "Search or jump to…" [ref=e49] [cursor=pointer]:
+              - img [ref=e51]
+              - generic [ref=e53]: Search or jump to...
+              - img [ref=e55]
+            - link "Sign in" [ref=e59] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fduchuyn04%2FWC2026-Simulator%2Factions
+            - link "Sign up" [ref=e60] [cursor=pointer]:
+              - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Factions%2Findex&source=header-repo&source_repo=duchuyn04%2FWC2026-Simulator
+            - button "Appearance settings" [disabled] [ref=e63]:
+              - img
+  - main [ref=e67]:
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e71]:
+          - img [ref=e72]
+          - link "duchuyn04" [ref=e75] [cursor=pointer]:
+            - /url: /duchuyn04
+          - generic [ref=e76]: /
+          - strong [ref=e77]:
+            - link "WC2026-Simulator" [ref=e78] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator
+          - generic [ref=e79]: Public
+        - generic [ref=e80]:
+          - list:
+            - listitem [ref=e81]:
+              - link "You must be signed in to change notification settings" [ref=e82] [cursor=pointer]:
+                - /url: /login?return_to=%2Fduchuyn04%2FWC2026-Simulator
+                - img [ref=e83]
+                - text: Notifications
+            - listitem [ref=e85]:
+              - link "Fork 0" [ref=e86] [cursor=pointer]:
+                - /url: /login?return_to=%2Fduchuyn04%2FWC2026-Simulator
+                - img [ref=e87]
+                - text: Fork
+                - generic "0" [ref=e89]
+            - listitem [ref=e90]:
+              - link "You must be signed in to star a repository" [ref=e92] [cursor=pointer]:
+                - /url: /login?return_to=%2Fduchuyn04%2FWC2026-Simulator
+                - img [ref=e93]
+                - text: Star
+                - generic "1 user starred this repository" [ref=e95]: "1"
+      - navigation "Repository" [ref=e96]:
+        - list [ref=e97]:
+          - listitem [ref=e98]:
+            - link "Code" [ref=e99] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator
+              - img [ref=e100]
+              - generic [ref=e102]: Code
+          - listitem [ref=e103]:
+            - link "Issues" [ref=e104] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator/issues
+              - img [ref=e105]
+              - generic [ref=e108]: Issues
+          - listitem [ref=e109]:
+            - link "Pull requests" [ref=e110] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator/pulls
+              - img [ref=e111]
+              - generic [ref=e113]: Pull requests
+          - listitem [ref=e114]:
+            - link "Actions" [ref=e115] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator/actions
+              - img [ref=e116]
+              - generic [ref=e118]: Actions
+          - listitem [ref=e119]:
+            - link "Projects" [ref=e120] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator/projects
+              - img [ref=e121]
+              - generic [ref=e123]: Projects
+          - listitem [ref=e124]:
+            - link "Security and quality" [ref=e125] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator/security
+              - img [ref=e126]
+              - generic [ref=e128]: Security and quality
+          - listitem [ref=e129]:
+            - link "Insights" [ref=e130] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator/pulse
+              - img [ref=e131]
+              - generic [ref=e133]: Insights
+    - generic [ref=e135]:
+      - 'heading "Actions: duchuyn04/WC2026-Simulator" [level=1] [ref=e136]'
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - heading "Actions" [level=2] [ref=e142]
+          - navigation "Actions Workflows" [ref=e146]:
+            - list [ref=e148]:
+              - listitem [ref=e149]:
+                - link "All workflows" [ref=e150] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/actions
+                  - generic [ref=e151]: All workflows
+              - listitem [ref=e152]
+              - listitem [ref=e153]:
+                - list "Workflows" [ref=e157]:
+                  - listitem [ref=e158]:
+                    - link "Deploy GitHub Pages" [ref=e159] [cursor=pointer]:
+                      - /url: /duchuyn04/WC2026-Simulator/actions/workflows/deploy.yml
+                      - generic [ref=e160]: Deploy GitHub Pages
+                  - listitem [ref=e161]:
+                    - link "pages-build-deployment" [ref=e162] [cursor=pointer]:
+                      - /url: /duchuyn04/WC2026-Simulator/actions/workflows/pages/pages-build-deployment
+                      - generic [ref=e163]: pages-build-deployment
+                  - listitem [ref=e164]:
+                    - link "Update Tournament Stats" [ref=e165] [cursor=pointer]:
+                      - /url: /duchuyn04/WC2026-Simulator/actions/workflows/update-tournament-stats.yml
+                      - generic [ref=e166]: Update Tournament Stats
+              - listitem [ref=e167]
+              - listitem [ref=e168]:
+                - generic [ref=e171]:
+                  - heading "Management" [level=3] [ref=e173]
+                  - list "Management" [ref=e174]:
+                    - listitem [ref=e175]:
+                      - link "Caches" [ref=e176] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/actions/caches
+                        - generic:
+                          - img
+                        - generic [ref=e177]: Caches
+                    - listitem [ref=e178]:
+                      - link "Deployments" [ref=e179] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/deployments
+                        - generic:
+                          - img
+                        - generic [ref=e180]: Deployments
+                        - generic:
+                          - img
+        - generic [ref=e183]:
+          - generic [ref=e184]:
+            - generic [ref=e185]:
+              - heading "All workflows" [level=2] [ref=e187]:
+                - generic [ref=e189]: All workflows
+              - search [ref=e193]:
+                - combobox "Filter workflow runs" [ref=e194]
+                - img
+            - generic [ref=e195]: Showing runs from all workflows
+          - generic [ref=e196]:
+            - generic [ref=e197]:
+              - strong [ref=e200]: 94 workflow runs
+              - generic [ref=e201]:
+                - button "Workflow" [ref=e205] [cursor=pointer]:
+                  - generic [ref=e207]: Workflow
+                  - generic:
+                    - img
+                - button "Event" [ref=e211] [cursor=pointer]:
+                  - generic [ref=e213]: Event
+                  - generic:
+                    - img
+                - button "Status" [ref=e217] [cursor=pointer]:
+                  - generic [ref=e219]: Status
+                  - generic:
+                    - img
+                - button "Branch" [ref=e223] [cursor=pointer]:
+                  - generic [ref=e225]: Branch
+                  - generic:
+                    - img
+                - button "Actor" [ref=e229] [cursor=pointer]:
+                  - generic [ref=e231]: Actor
+                  - generic:
+                    - img
+            - generic [ref=e232]:
+              - generic [ref=e234]:
+                - generic [ref=e235]:
+                  - 'link "queued: Run 45 of Deploy GitHub Pages. fix(api): force-static for tournament-stats route" [ref=e236] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27465082386
+                    - img "queued:" [ref=e238]
+                    - generic [ref=e240]: "fix(api): force-static for tournament-stats route"
+                  - generic [ref=e241]:
+                    - text: "Deploy GitHub Pages #45:"
+                    - generic [ref=e242]:
+                      - text: Commit
+                      - link "bb30959" [ref=e243] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/commit/bb30959fc2b3525fe09330356e4cfcc09ff9f42a
+                      - text: pushed by
+                      - link "duchuyn04" [ref=e244] [cursor=pointer]:
+                        - /url: /duchuyn04
+                - link "main" [ref=e246] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e248]:
+                  - generic [ref=e249]:
+                    - generic [ref=e250]:
+                      - img [ref=e252]
+                      - generic "Jun 13, 2026, 6:10 PM GMT+7" [ref=e254]: now
+                    - generic [ref=e255]:
+                      - img [ref=e256]
+                      - text: Queued
+                  - group [ref=e259]:
+                    - generic "Show options" [ref=e260] [cursor=pointer]:
+                      - img "Show options" [ref=e261]
+              - generic [ref=e264]:
+                - generic [ref=e265]:
+                  - 'link "failed: Run 44 of Deploy GitHub Pages. feat: add own goals statistics leaderboard and tab" [ref=e266] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27464907607
+                    - img "failed:" [ref=e268]
+                    - generic [ref=e270]: "feat: add own goals statistics leaderboard and tab"
+                  - generic [ref=e271]:
+                    - text: "Deploy GitHub Pages #44:"
+                    - generic [ref=e272]:
+                      - text: Commit
+                      - link "4a61164" [ref=e273] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/commit/4a611647d7634f49eb9d22c1831247bfde00ac27
+                      - text: pushed by
+                      - link "duchuyn04" [ref=e274] [cursor=pointer]:
+                        - /url: /duchuyn04
+                - link "main" [ref=e276] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e278]:
+                  - generic [ref=e279]:
+                    - generic [ref=e280]:
+                      - img [ref=e282]
+                      - generic "Jun 13, 2026, 6:02 PM GMT+7" [ref=e284]: 8 minutes ago
+                    - generic [ref=e285]:
+                      - img "Run duration" [ref=e286]
+                      - text: 33s
+                  - group [ref=e289]:
+                    - generic "Show options" [ref=e290] [cursor=pointer]:
+                      - img "Show options" [ref=e291]
+              - generic [ref=e294]:
+                - generic [ref=e295]:
+                  - 'link "completed successfully: Run 9 of Update Tournament Stats." [ref=e296] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27463737023
+                    - img "completed successfully:" [ref=e298]
+                    - generic [ref=e300]: Update Tournament Stats
+                  - generic [ref=e301]: "Update Tournament Stats #9: Scheduled"
+                - link "main" [ref=e303] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e305]:
+                  - generic [ref=e306]:
+                    - generic [ref=e307]:
+                      - img [ref=e309]
+                      - generic "Jun 13, 2026, 5:07 PM GMT+7" [ref=e311]: Today at 5:07 PM
+                    - generic [ref=e312]:
+                      - img "Run duration" [ref=e313]
+                      - text: 28s
+                  - group [ref=e316]:
+                    - generic "Show options" [ref=e317] [cursor=pointer]:
+                      - img "Show options" [ref=e318]
+              - generic [ref=e321]:
+                - generic [ref=e322]:
+                  - 'link "failed: Run 43 of Deploy GitHub Pages." [ref=e323] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27459153467
+                    - img "failed:" [ref=e325]
+                    - generic [ref=e327]: Deploy GitHub Pages
+                  - generic [ref=e328]:
+                    - text: "Deploy GitHub Pages #43:"
+                    - generic [ref=e329]:
+                      - text: Manually run by
+                      - link "github-actions" [ref=e330] [cursor=pointer]:
+                        - /url: /apps/github-actions
+                      - generic [ref=e331]: Bot
+                - link "main" [ref=e333] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e335]:
+                  - generic [ref=e336]:
+                    - generic [ref=e337]:
+                      - img [ref=e339]
+                      - generic "Jun 13, 2026, 1:31 PM GMT+7" [ref=e341]: Today at 1:31 PM
+                    - generic [ref=e342]:
+                      - img "Run duration" [ref=e343]
+                      - text: 35s
+                  - group [ref=e346]:
+                    - generic "Show options" [ref=e347] [cursor=pointer]:
+                      - img "Show options" [ref=e348]
+              - generic [ref=e351]:
+                - generic [ref=e352]:
+                  - 'link "completed successfully: Run 8 of Update Tournament Stats." [ref=e353] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27459144042
+                    - img "completed successfully:" [ref=e355]
+                    - generic [ref=e357]: Update Tournament Stats
+                  - generic [ref=e358]: "Update Tournament Stats #8: Scheduled"
+                - link "main" [ref=e360] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e362]:
+                  - generic [ref=e363]:
+                    - generic [ref=e364]:
+                      - img [ref=e366]
+                      - generic "Jun 13, 2026, 1:31 PM GMT+7" [ref=e368]: Today at 1:31 PM
+                    - generic [ref=e369]:
+                      - img "Run duration" [ref=e370]
+                      - text: 30s
+                  - group [ref=e373]:
+                    - generic "Show options" [ref=e374] [cursor=pointer]:
+                      - img "Show options" [ref=e375]
+              - generic [ref=e378]:
+                - generic [ref=e379]:
+                  - 'link "failed: Run 42 of Deploy GitHub Pages. feat(stats): add offline fallback and espn merge" [ref=e380] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27458721030
+                    - img "failed:" [ref=e382]
+                    - generic [ref=e384]: "feat(stats): add offline fallback and espn merge"
+                  - generic [ref=e385]:
+                    - text: "Deploy GitHub Pages #42:"
+                    - generic [ref=e386]:
+                      - text: Commit
+                      - link "2edc8e9" [ref=e387] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/commit/2edc8e917c337b9635b902b735346f4de51e0980
+                      - text: pushed by
+                      - link "duchuyn04" [ref=e388] [cursor=pointer]:
+                        - /url: /duchuyn04
+                - link "main" [ref=e390] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e392]:
+                  - generic [ref=e393]:
+                    - generic [ref=e394]:
+                      - img [ref=e396]
+                      - generic "Jun 13, 2026, 1:10 PM GMT+7" [ref=e398]: Today at 1:10 PM
+                    - generic [ref=e399]:
+                      - img "Run duration" [ref=e400]
+                      - text: 36s
+                  - group [ref=e403]:
+                    - generic "Show options" [ref=e404] [cursor=pointer]:
+                      - img "Show options" [ref=e405]
+              - generic [ref=e408]:
+                - generic [ref=e409]:
+                  - 'link "completed successfully: Run 7 of Update Tournament Stats." [ref=e410] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27452613916
+                    - img "completed successfully:" [ref=e412]
+                    - generic [ref=e414]: Update Tournament Stats
+                  - generic [ref=e415]: "Update Tournament Stats #7: Scheduled"
+                - link "main" [ref=e417] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e419]:
+                  - generic [ref=e420]:
+                    - generic [ref=e421]:
+                      - img [ref=e423]
+                      - generic "Jun 13, 2026, 8:33 AM GMT+7" [ref=e425]: Today at 8:33 AM
+                    - generic [ref=e426]:
+                      - img "Run duration" [ref=e427]
+                      - text: 31s
+                  - group [ref=e430]:
+                    - generic "Show options" [ref=e431] [cursor=pointer]:
+                      - img "Show options" [ref=e432]
+              - generic [ref=e435]:
+                - generic [ref=e436]:
+                  - 'link "completed successfully: Run 40 of pages-build-deployment. pages build and deployment" [ref=e437] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27448637667
+                    - img "completed successfully:" [ref=e439]
+                    - generic [ref=e441]: pages build and deployment
+                  - generic [ref=e442]:
+                    - text: "pages-build-deployment #40:"
+                    - generic [ref=e443]:
+                      - text: by
+                      - link "github-pages" [ref=e444] [cursor=pointer]:
+                        - /url: /apps/github-pages
+                      - generic [ref=e445]: Bot
+                - link "gh-pages" [ref=e447] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/gh-pages
+                - generic [ref=e450]:
+                  - generic [ref=e451]:
+                    - img [ref=e453]
+                    - generic "Jun 13, 2026, 6:19 AM GMT+7" [ref=e455]: Jun 13, 6:19 AM GMT+7
+                  - generic [ref=e456]:
+                    - img "Run duration" [ref=e457]
+                    - text: 38s
+              - generic [ref=e460]:
+                - generic [ref=e461]:
+                  - 'link "completed successfully: Run 41 of Deploy GitHub Pages. feat(schedule): add Chi tiết button and fix desktop table overflow" [ref=e462] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27448618108
+                    - img "completed successfully:" [ref=e464]
+                    - generic [ref=e466]: "feat(schedule): add Chi tiết button and fix desktop table overflow"
+                  - generic [ref=e467]:
+                    - text: "Deploy GitHub Pages #41:"
+                    - generic [ref=e468]:
+                      - text: Commit
+                      - link "5a56835" [ref=e469] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/commit/5a56835211aa34e6fa40cd76228ad1547d0bbbcd
+                      - text: pushed by
+                      - link "duchuyn04" [ref=e470] [cursor=pointer]:
+                        - /url: /duchuyn04
+                - link "main" [ref=e472] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e474]:
+                  - generic [ref=e475]:
+                    - generic [ref=e476]:
+                      - img [ref=e478]
+                      - generic "Jun 13, 2026, 6:18 AM GMT+7" [ref=e480]: Jun 13, 6:18 AM GMT+7
+                    - generic [ref=e481]:
+                      - img "Run duration" [ref=e482]
+                      - text: 41s
+                  - group [ref=e485]:
+                    - generic "Show options" [ref=e486] [cursor=pointer]:
+                      - img "Show options" [ref=e487]
+              - generic [ref=e490]:
+                - generic [ref=e491]:
+                  - 'link "completed successfully: Run 39 of pages-build-deployment. pages build and deployment" [ref=e492] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27447425358
+                    - img "completed successfully:" [ref=e494]
+                    - generic [ref=e496]: pages build and deployment
+                  - generic [ref=e497]:
+                    - text: "pages-build-deployment #39:"
+                    - generic [ref=e498]:
+                      - text: by
+                      - link "github-pages" [ref=e499] [cursor=pointer]:
+                        - /url: /apps/github-pages
+                      - generic [ref=e500]: Bot
+                - link "gh-pages" [ref=e502] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/gh-pages
+                - generic [ref=e505]:
+                  - generic [ref=e506]:
+                    - img [ref=e508]
+                    - generic "Jun 13, 2026, 5:46 AM GMT+7" [ref=e510]: Jun 13, 5:46 AM GMT+7
+                  - generic [ref=e511]:
+                    - img "Run duration" [ref=e512]
+                    - text: 36s
+              - generic [ref=e515]:
+                - generic [ref=e516]:
+                  - 'link "completed successfully: Run 40 of Deploy GitHub Pages." [ref=e517] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27447399413
+                    - img "completed successfully:" [ref=e519]
+                    - generic [ref=e521]: Deploy GitHub Pages
+                  - generic [ref=e522]:
+                    - text: "Deploy GitHub Pages #40:"
+                    - generic [ref=e523]:
+                      - text: Manually run by
+                      - link "github-actions" [ref=e524] [cursor=pointer]:
+                        - /url: /apps/github-actions
+                      - generic [ref=e525]: Bot
+                - link "main" [ref=e527] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e529]:
+                  - generic [ref=e530]:
+                    - generic [ref=e531]:
+                      - img [ref=e533]
+                      - generic "Jun 13, 2026, 5:45 AM GMT+7" [ref=e535]: Jun 13, 5:45 AM GMT+7
+                    - generic [ref=e536]:
+                      - img "Run duration" [ref=e537]
+                      - text: 43s
+                  - group [ref=e540]:
+                    - generic "Show options" [ref=e541] [cursor=pointer]:
+                      - img "Show options" [ref=e542]
+              - generic [ref=e545]:
+                - generic [ref=e546]:
+                  - 'link "completed successfully: Run 6 of Update Tournament Stats." [ref=e547] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27447382310
+                    - img "completed successfully:" [ref=e549]
+                    - generic [ref=e551]: Update Tournament Stats
+                  - generic [ref=e552]: "Update Tournament Stats #6: Scheduled"
+                - link "main" [ref=e554] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e556]:
+                  - generic [ref=e557]:
+                    - generic [ref=e558]:
+                      - img [ref=e560]
+                      - generic "Jun 13, 2026, 5:45 AM GMT+7" [ref=e562]: Jun 13, 5:45 AM GMT+7
+                    - generic [ref=e563]:
+                      - img "Run duration" [ref=e564]
+                      - text: 28s
+                  - group [ref=e567]:
+                    - generic "Show options" [ref=e568] [cursor=pointer]:
+                      - img "Show options" [ref=e569]
+              - generic [ref=e572]:
+                - generic [ref=e573]:
+                  - 'link "completed successfully: Run 5 of Update Tournament Stats." [ref=e574] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27440948766
+                    - img "completed successfully:" [ref=e576]
+                    - generic [ref=e578]: Update Tournament Stats
+                  - generic [ref=e579]: "Update Tournament Stats #5: Scheduled"
+                - link "main" [ref=e581] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e583]:
+                  - generic [ref=e584]:
+                    - generic [ref=e585]:
+                      - img [ref=e587]
+                      - generic "Jun 13, 2026, 3:23 AM GMT+7" [ref=e589]: Jun 13, 3:23 AM GMT+7
+                    - generic [ref=e590]:
+                      - img "Run duration" [ref=e591]
+                      - text: 29s
+                  - group [ref=e594]:
+                    - generic "Show options" [ref=e595] [cursor=pointer]:
+                      - img "Show options" [ref=e596]
+              - generic [ref=e599]:
+                - generic [ref=e600]:
+                  - 'link "completed successfully: Run 4 of Update Tournament Stats." [ref=e601] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27432645152
+                    - img "completed successfully:" [ref=e603]
+                    - generic [ref=e605]: Update Tournament Stats
+                  - generic [ref=e606]: "Update Tournament Stats #4: Scheduled"
+                - link "main" [ref=e608] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e610]:
+                  - generic [ref=e611]:
+                    - generic [ref=e612]:
+                      - img [ref=e614]
+                      - generic "Jun 13, 2026, 12:41 AM GMT+7" [ref=e616]: Jun 13, 12:41 AM GMT+7
+                    - generic [ref=e617]:
+                      - img "Run duration" [ref=e618]
+                      - text: 20s
+                  - group [ref=e621]:
+                    - generic "Show options" [ref=e622] [cursor=pointer]:
+                      - img "Show options" [ref=e623]
+              - generic [ref=e626]:
+                - generic [ref=e627]:
+                  - 'link "completed successfully: Run 38 of pages-build-deployment. pages build and deployment" [ref=e628] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27429589853
+                    - img "completed successfully:" [ref=e630]
+                    - generic [ref=e632]: pages build and deployment
+                  - generic [ref=e633]:
+                    - text: "pages-build-deployment #38:"
+                    - generic [ref=e634]:
+                      - text: by
+                      - link "github-pages" [ref=e635] [cursor=pointer]:
+                        - /url: /apps/github-pages
+                      - generic [ref=e636]: Bot
+                - link "gh-pages" [ref=e638] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/gh-pages
+                - generic [ref=e641]:
+                  - generic [ref=e642]:
+                    - img [ref=e644]
+                    - generic "Jun 12, 2026, 11:43 PM GMT+7" [ref=e646]: Jun 12, 11:43 PM GMT+7
+                  - generic [ref=e647]:
+                    - img "Run duration" [ref=e648]
+                    - text: 39s
+              - generic [ref=e651]:
+                - generic [ref=e652]:
+                  - 'link "completed successfully: Run 39 of Deploy GitHub Pages. feat: implement Playwright and Chrome DevTools MCP tools for browser …" [ref=e653] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27429551970
+                    - img "completed successfully:" [ref=e655]
+                    - generic [ref=e657]: "feat: implement Playwright and Chrome DevTools MCP tools for browser …"
+                  - generic [ref=e658]:
+                    - text: "Deploy GitHub Pages #39:"
+                    - generic [ref=e659]:
+                      - text: Commit
+                      - link "6df4263" [ref=e660] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/commit/6df426387e0270f595263be7db1c07c01b865090
+                      - text: pushed by
+                      - link "duchuyn04" [ref=e661] [cursor=pointer]:
+                        - /url: /duchuyn04
+                - link "main" [ref=e663] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e665]:
+                  - generic [ref=e666]:
+                    - generic [ref=e667]:
+                      - img [ref=e669]
+                      - generic "Jun 12, 2026, 11:42 PM GMT+7" [ref=e671]: Jun 12, 11:42 PM GMT+7
+                    - generic [ref=e672]:
+                      - img "Run duration" [ref=e673]
+                      - text: 45s
+                  - group [ref=e676]:
+                    - generic "Show options" [ref=e677] [cursor=pointer]:
+                      - img "Show options" [ref=e678]
+              - generic [ref=e681]:
+                - generic [ref=e682]:
+                  - 'link "completed successfully: Run 37 of pages-build-deployment. pages build and deployment" [ref=e683] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27426089251
+                    - img "completed successfully:" [ref=e685]
+                    - generic [ref=e687]: pages build and deployment
+                  - generic [ref=e688]:
+                    - text: "pages-build-deployment #37:"
+                    - generic [ref=e689]:
+                      - text: by
+                      - link "github-pages" [ref=e690] [cursor=pointer]:
+                        - /url: /apps/github-pages
+                      - generic [ref=e691]: Bot
+                - link "gh-pages" [ref=e693] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/gh-pages
+                - generic [ref=e696]:
+                  - generic [ref=e697]:
+                    - img [ref=e699]
+                    - generic "Jun 12, 2026, 10:38 PM GMT+7" [ref=e701]: Jun 12, 10:38 PM GMT+7
+                  - generic [ref=e702]:
+                    - img "Run duration" [ref=e703]
+                    - text: 1m 6s
+              - generic [ref=e706]:
+                - generic [ref=e707]:
+                  - 'link "completed successfully: Run 38 of Deploy GitHub Pages. perf(lineups): optimize PlayerAvatar scroll performance with lazy loa…" [ref=e708] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27426053778
+                    - img "completed successfully:" [ref=e710]
+                    - generic [ref=e712]: "perf(lineups): optimize PlayerAvatar scroll performance with lazy loa…"
+                  - generic [ref=e713]:
+                    - text: "Deploy GitHub Pages #38:"
+                    - generic [ref=e714]:
+                      - text: Commit
+                      - link "b6cd26c" [ref=e715] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/commit/b6cd26cae66095b1c5beef018d4181f6be51ec95
+                      - text: pushed by
+                      - link "duchuyn04" [ref=e716] [cursor=pointer]:
+                        - /url: /duchuyn04
+                - link "main" [ref=e718] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e720]:
+                  - generic [ref=e721]:
+                    - generic [ref=e722]:
+                      - img [ref=e724]
+                      - generic "Jun 12, 2026, 10:37 PM GMT+7" [ref=e726]: Jun 12, 10:37 PM GMT+7
+                    - generic [ref=e727]:
+                      - img "Run duration" [ref=e728]
+                      - text: 41s
+                  - group [ref=e731]:
+                    - generic "Show options" [ref=e732] [cursor=pointer]:
+                      - img "Show options" [ref=e733]
+              - generic [ref=e736]:
+                - generic [ref=e737]:
+                  - 'link "completed successfully: Run 36 of pages-build-deployment. pages build and deployment" [ref=e738] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27425559433
+                    - img "completed successfully:" [ref=e740]
+                    - generic [ref=e742]: pages build and deployment
+                  - generic [ref=e743]:
+                    - text: "pages-build-deployment #36:"
+                    - generic [ref=e744]:
+                      - text: by
+                      - link "github-pages" [ref=e745] [cursor=pointer]:
+                        - /url: /apps/github-pages
+                      - generic [ref=e746]: Bot
+                - link "gh-pages" [ref=e748] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/gh-pages
+                - generic [ref=e751]:
+                  - generic [ref=e752]:
+                    - img [ref=e754]
+                    - generic "Jun 12, 2026, 10:29 PM GMT+7" [ref=e756]: Jun 12, 10:29 PM GMT+7
+                  - generic [ref=e757]:
+                    - img "Run duration" [ref=e758]
+                    - text: 35s
+              - generic [ref=e761]:
+                - generic [ref=e762]:
+                  - 'link "completed successfully: Run 37 of Deploy GitHub Pages. style(lineups): display team name badges without home/away suffixes" [ref=e763] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27425527062
+                    - img "completed successfully:" [ref=e765]
+                    - generic [ref=e767]: "style(lineups): display team name badges without home/away suffixes"
+                  - generic [ref=e768]:
+                    - text: "Deploy GitHub Pages #37:"
+                    - generic [ref=e769]:
+                      - text: Commit
+                      - link "eae8cdf" [ref=e770] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/commit/eae8cdf830acc4ba357dccdb33d490d5674a915b
+                      - text: pushed by
+                      - link "duchuyn04" [ref=e771] [cursor=pointer]:
+                        - /url: /duchuyn04
+                - link "main" [ref=e773] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e775]:
+                  - generic [ref=e776]:
+                    - generic [ref=e777]:
+                      - img [ref=e779]
+                      - generic "Jun 12, 2026, 10:28 PM GMT+7" [ref=e781]: Jun 12, 10:28 PM GMT+7
+                    - generic [ref=e782]:
+                      - img "Run duration" [ref=e783]
+                      - text: 35s
+                  - group [ref=e786]:
+                    - generic "Show options" [ref=e787] [cursor=pointer]:
+                      - img "Show options" [ref=e788]
+              - generic [ref=e791]:
+                - generic [ref=e792]:
+                  - 'link "completed successfully: Run 35 of pages-build-deployment. pages build and deployment" [ref=e793] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27425265306
+                    - img "completed successfully:" [ref=e795]
+                    - generic [ref=e797]: pages build and deployment
+                  - generic [ref=e798]:
+                    - text: "pages-build-deployment #35:"
+                    - generic [ref=e799]:
+                      - text: by
+                      - link "github-pages" [ref=e800] [cursor=pointer]:
+                        - /url: /apps/github-pages
+                      - generic [ref=e801]: Bot
+                - link "gh-pages" [ref=e803] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/gh-pages
+                - generic [ref=e806]:
+                  - generic [ref=e807]:
+                    - img [ref=e809]
+                    - generic "Jun 12, 2026, 10:23 PM GMT+7" [ref=e811]: Jun 12, 10:23 PM GMT+7
+                  - generic [ref=e812]:
+                    - img "Run duration" [ref=e813]
+                    - text: 42s
+              - generic [ref=e816]:
+                - generic [ref=e817]:
+                  - 'link "completed successfully: Run 36 of Deploy GitHub Pages. feat(lineups): add starting lineups tab to match details modal" [ref=e818] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27425233049
+                    - img "completed successfully:" [ref=e820]
+                    - generic [ref=e822]: "feat(lineups): add starting lineups tab to match details modal"
+                  - generic [ref=e823]:
+                    - text: "Deploy GitHub Pages #36:"
+                    - generic [ref=e824]:
+                      - text: Commit
+                      - link "635dfb4" [ref=e825] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/commit/635dfb410d50e003bdb4a2a295b2371937000152
+                      - text: pushed by
+                      - link "duchuyn04" [ref=e826] [cursor=pointer]:
+                        - /url: /duchuyn04
+                - link "main" [ref=e828] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e830]:
+                  - generic [ref=e831]:
+                    - generic [ref=e832]:
+                      - img [ref=e834]
+                      - generic "Jun 12, 2026, 10:23 PM GMT+7" [ref=e836]: Jun 12, 10:23 PM GMT+7
+                    - generic [ref=e837]:
+                      - img "Run duration" [ref=e838]
+                      - text: 37s
+                  - group [ref=e841]:
+                    - generic "Show options" [ref=e842] [cursor=pointer]:
+                      - img "Show options" [ref=e843]
+              - generic [ref=e846]:
+                - generic [ref=e847]:
+                  - 'link "completed successfully: Run 3 of Update Tournament Stats." [ref=e848] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27421330202
+                    - img "completed successfully:" [ref=e850]
+                    - generic [ref=e852]: Update Tournament Stats
+                  - generic [ref=e853]: "Update Tournament Stats #3: Scheduled"
+                - link "main" [ref=e855] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e857]:
+                  - generic [ref=e858]:
+                    - generic [ref=e859]:
+                      - img [ref=e861]
+                      - generic "Jun 12, 2026, 9:15 PM GMT+7" [ref=e863]: Jun 12, 9:15 PM GMT+7
+                    - generic [ref=e864]:
+                      - img "Run duration" [ref=e865]
+                      - text: 23s
+                  - group [ref=e868]:
+                    - generic "Show options" [ref=e869] [cursor=pointer]:
+                      - img "Show options" [ref=e870]
+              - generic [ref=e873]:
+                - generic [ref=e874]:
+                  - 'link "completed successfully: Run 34 of pages-build-deployment. pages build and deployment" [ref=e875] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27418133038
+                    - img "completed successfully:" [ref=e877]
+                    - generic [ref=e879]: pages build and deployment
+                  - generic [ref=e880]:
+                    - text: "pages-build-deployment #34:"
+                    - generic [ref=e881]:
+                      - text: by
+                      - link "github-pages" [ref=e882] [cursor=pointer]:
+                        - /url: /apps/github-pages
+                      - generic [ref=e883]: Bot
+                - link "gh-pages" [ref=e885] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/gh-pages
+                - generic [ref=e888]:
+                  - generic [ref=e889]:
+                    - img [ref=e891]
+                    - generic "Jun 12, 2026, 8:17 PM GMT+7" [ref=e893]: Jun 12, 8:17 PM GMT+7
+                  - generic [ref=e894]:
+                    - img "Run duration" [ref=e895]
+                    - text: 24s
+              - generic [ref=e898]:
+                - generic [ref=e899]:
+                  - 'link "completed successfully: Run 35 of Deploy GitHub Pages. feat(live-season): sync ESPN scores and stats" [ref=e900] [cursor=pointer]':
+                    - /url: /duchuyn04/WC2026-Simulator/actions/runs/27418098131
+                    - img "completed successfully:" [ref=e902]
+                    - generic [ref=e904]: "feat(live-season): sync ESPN scores and stats"
+                  - generic [ref=e905]:
+                    - text: "Deploy GitHub Pages #35:"
+                    - generic [ref=e906]:
+                      - text: Commit
+                      - link "9e0edbb" [ref=e907] [cursor=pointer]:
+                        - /url: /duchuyn04/WC2026-Simulator/commit/9e0edbb1d49d71b7d975508feb98c375693e30ec
+                      - text: pushed by
+                      - link "duchuyn04" [ref=e908] [cursor=pointer]:
+                        - /url: /duchuyn04
+                - link "main" [ref=e910] [cursor=pointer]:
+                  - /url: /duchuyn04/WC2026-Simulator/tree/refs/heads/main
+                - generic [ref=e912]:
+                  - generic [ref=e913]:
+                    - generic [ref=e914]:
+                      - img [ref=e916]
+                      - generic "Jun 12, 2026, 8:16 PM GMT+7" [ref=e918]: Jun 12, 8:16 PM GMT+7
+                    - generic [ref=e919]:
+                      - img "Run duration" [ref=e920]
+                      - text: 42s
+                  - group [ref=e923]:
+                    - generic "Show options" [ref=e924] [cursor=pointer]:
+                      - img "Show options" [ref=e925]
+          - navigation "Pagination" [ref=e929]:
+            - generic "Previous page" [ref=e930]: Previous
+            - emphasis [ref=e931] [cursor=pointer]: "1"
+            - link "Page 2" [ref=e932] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator/actions?page=2
+              - text: "2"
+            - link "Page 3" [ref=e933] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator/actions?page=3
+              - text: "3"
+            - link "Page 4" [ref=e934] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator/actions?page=4
+              - text: "4"
+            - link "Next page" [ref=e935] [cursor=pointer]:
+              - /url: /duchuyn04/WC2026-Simulator/actions?page=2
+              - text: Next

@@ -628,6 +628,32 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                     const goals = getUniqueEvents(team.id, (event) => Boolean(event.scoringPlay));
                     const redCards = getUniqueEvents(team.id, (event) => event.type?.type === "red-card");
 
+                    const groupedScorers = (() => {
+                      const groups = new Map<
+                        string,
+                        {
+                          name: string;
+                          minutes: Array<{ display: string; flag: string }>;
+                          firstMinute: number;
+                        }
+                      >();
+                      for (const goal of goals) {
+                        const athlete = goal.participants?.[0]?.athlete;
+                        const key = athlete?.id ?? athlete?.displayName ?? "team";
+                        const name = athlete?.shortName ?? athlete?.displayName ?? "Bàn thắng";
+                        const minuteRaw = goal.clock?.displayValue ?? "";
+                        const flag = goal.ownGoal ? " (OG)" : goal.penaltyKick ? " (P)" : "";
+                        const minuteNum = parseInt(minuteRaw) || 0;
+                        const existing = groups.get(key);
+                        if (existing) {
+                          existing.minutes.push({ display: minuteRaw, flag });
+                        } else {
+                          groups.set(key, { name, minutes: [{ display: minuteRaw, flag }], firstMinute: minuteNum });
+                        }
+                      }
+                      return Array.from(groups.values()).sort((a, b) => a.firstMinute - b.firstMinute);
+                    })();
+
                     return (
                       <div
                         key={team.id}
@@ -647,14 +673,13 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                         )}
                         <span className="mt-2 text-sm font-bold text-white sm:text-base">{team.name}</span>
                         <div className="mt-2 space-y-1">
-                          {goals.map((goal, goalIndex) => (
-                            <p key={goal.id ?? goalIndex} className="text-[11px] text-zinc-400 sm:text-xs">
-                              {goal.participants?.[0]?.athlete?.shortName ??
-                                goal.participants?.[0]?.athlete?.displayName ??
-                                "Bàn thắng"}{" "}
-                              {goal.clock?.displayValue}
-                              {goal.ownGoal ? " (OG)" : ""}
-                              {goal.penaltyKick ? " (P)" : ""}
+                          {groupedScorers.map((scorer, scorerIndex) => (
+                            <p
+                              key={`${scorer.name}-${scorerIndex}`}
+                              className="text-[11px] text-zinc-400 sm:text-xs"
+                            >
+                              {scorer.name}{" "}
+                              {scorer.minutes.map((m) => `${m.display}${m.flag}`).join(", ")}
                             </p>
                           ))}
                           {redCards.map((card, cardIndex) => (
