@@ -95,6 +95,7 @@ for (const vp of VIEWPORTS) {
         "goals",
         "assists",
         "penalties",
+        "ownGoals",
         "yellowCards",
         "redCards",
       ]) {

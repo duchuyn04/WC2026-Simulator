@@ -360,12 +360,7 @@ export const useSimulation = create<SimulationStore>()(
           thirdPlaceOrder: null,
           knockoutWinners: {},
           knockoutSyncNotice: null,
-          favoriteMatches: [],
-          favoriteTeams: [],
           scheduleMockResults: {},
-          scrollPositions: { groups: 0, schedule: 0, "fav-matches": 0, "fav-teams": 0, third: 0 },
-          bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
-          activeTab: "groups",
         }),
 
       getGroupStandings: () => computeStandings(get().matchResults, get().manualOrder),

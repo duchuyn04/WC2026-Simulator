@@ -4,7 +4,7 @@ test("shows FIFA tournament leaderboards across all statistic tabs", async ({
   page,
 }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Lịch thi đấu & Yêu thích" }).click();
+  await page.getByRole("button", { name: /Lịch/ }).click();
   await page.getByTestId("schedule-filter-stats").click();
 
   const stats = page.getByTestId("tournament-stats");
@@ -15,6 +15,7 @@ test("shows FIFA tournament leaderboards across all statistic tabs", async ({
     ["goals", "Vua phá lưới"],
     ["assists", "Kiến tạo nhiều nhất"],
     ["penalties", "Sút penalty nhiều nhất"],
+    ["ownGoals", "Phản lưới nhà nhiều nhất"],
     ["yellowCards", "Nhận thẻ vàng nhiều nhất"],
     ["redCards", "Nhận thẻ đỏ nhiều nhất"],
   ] as const;

@@ -38,6 +38,25 @@ export function isCompletedMatch(match: {
   );
 }
 
+export function detailsOwnGoals(rawDetails: any[]) {
+  if (!Array.isArray(rawDetails)) return 0;
+  const seenEvents = new Set<string>();
+  let count = 0;
+  for (const event of rawDetails) {
+    const athleteName = event.participants?.[0]?.athlete?.displayName ?? event.participants?.[0]?.athlete?.shortName ?? "";
+    const isOwnGoal = event.ownGoal === true || event.type?.type === "own-goal";
+    const rawClock = String(event.clock?.value ?? event.clock?.displayValue ?? "");
+    const clock = event.clock?.value ? String(Math.floor(Number(event.clock.value) / 60)) : rawClock.replace(/[^0-9]/g, "");
+    const type = isOwnGoal ? "ownGoal" : "goal";
+    const key = `${clock}-${athleteName}-${type}`;
+    if (event.scoringPlay && isOwnGoal && !seenEvents.has(key)) {
+      seenEvents.add(key);
+      count++;
+    }
+  }
+  return count;
+}
+
 export function getDataHubId(
   calendarMatch: { Properties?: { IdIFES?: string | number } },
   liveMatch: { Properties?: { IdIFES?: string | number } },
@@ -290,12 +309,30 @@ export function patchMatchPlayerStats(
   fifaTeamId: string,
   espnTeamId: string
 ) {
-  const details = [
+  const rawDetails = [
     ...(espnSummary?.header?.competitions?.[0]?.details ?? []),
     ...(espnSummary?.keyEvents ?? [])
   ];
 
-  const goalEvents = details.filter((event: any) => event.scoringPlay && !event.ownGoal && String(event.team?.id) === espnTeamId);
+  const seenEvents = new Set<string>();
+  const details = [];
+  for (const event of rawDetails) {
+    const athleteName = event.participants?.[0]?.athlete?.displayName ?? event.participants?.[0]?.athlete?.shortName ?? "";
+    const isOwnGoal = event.ownGoal === true || event.type?.type === "own-goal";
+    const rawClock = String(event.clock?.value ?? event.clock?.displayValue ?? "");
+    const clock = event.clock?.value ? String(Math.floor(Number(event.clock.value) / 60)) : rawClock.replace(/[^0-9]/g, "");
+    const type = isOwnGoal ? "ownGoal" : "goal";
+    const key = `${clock}-${athleteName}-${type}`;
+    if (!seenEvents.has(key)) {
+      seenEvents.add(key);
+      details.push(event);
+    }
+  }
+
+  const goalEvents = details.filter((event: any) => {
+    const isOwnGoal = event.ownGoal === true || event.type?.type === "own-goal";
+    return event.scoringPlay && !isOwnGoal && event.team?.id && String(event.team.id) === espnTeamId;
+  });
 
   // Group ESPN goals by athlete name
   const espnGoalsByName: Record<string, number> = {};
@@ -338,6 +375,49 @@ export function patchMatchPlayerStats(
       const currentGoals = Number(statsRows[goalsRowIndex][1]) || 0;
       if (currentGoals < goalCount) {
         statsRows[goalsRowIndex][1] = goalCount;
+      }
+    }
+  }
+
+  // Filter own goal events from ESPN details/keyEvents
+  const ownGoalEvents = details.filter((event: any) => {
+    const isOwnGoal = event.ownGoal === true || event.type?.type === "own-goal";
+    return event.scoringPlay && isOwnGoal && event.team?.id && String(event.team.id) !== espnTeamId;
+  });
+  
+  // Group own goals count by athlete name
+  const espnOwnGoalsByName: Record<string, number> = {};
+  for (const event of ownGoalEvents) {
+    const athleteName = event.participants?.[0]?.athlete?.displayName ?? event.participants?.[0]?.athlete?.shortName ?? "";
+    if (athleteName) {
+      espnOwnGoalsByName[athleteName] = (espnOwnGoalsByName[athleteName] ?? 0) + 1;
+    }
+  }
+
+  // Match and patch player stats with own goals
+  for (const [espnName, ogCount] of Object.entries(espnOwnGoalsByName)) {
+    const matchedPlayer = teamPlayers.find((p: any) => {
+      const pName = p.PlayerName?.[0]?.Description ?? p.ShortName?.[0]?.Description ?? "";
+      return matchesPlayerName(espnName, pName);
+    });
+
+    if (matchedPlayer) {
+      const playerId = String(matchedPlayer.IdPlayer);
+      let statsRows = playerStats[playerId] as [string, number, boolean][];
+      if (!statsRows) {
+        statsRows = [["OwnGoals", 0, false]];
+        playerStats[playerId] = statsRows;
+      }
+
+      let ogRowIndex = statsRows.findIndex((row) => row[0] === "OwnGoals");
+      if (ogRowIndex === -1) {
+        statsRows.push(["OwnGoals", 0, false]);
+        ogRowIndex = statsRows.length - 1;
+      }
+
+      const currentOgs = Number(statsRows[ogRowIndex][1]) || 0;
+      if (currentOgs < ogCount) {
+        statsRows[ogRowIndex][1] = ogCount;
       }
     }
   }

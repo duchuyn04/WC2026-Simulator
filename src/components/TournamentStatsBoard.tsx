@@ -16,6 +16,7 @@ type CategoryId =
   | "goals"
   | "assists"
   | "penalties"
+  | "ownGoals"
   | "yellowCards"
   | "redCards";
 
@@ -44,6 +45,7 @@ const CATEGORIES: Array<{
   { id: "goals", label: "Bàn thắng", heading: "Vua phá lưới", valueLabel: "bàn" },
   { id: "assists", label: "Kiến tạo", heading: "Kiến tạo nhiều nhất", valueLabel: "kiến tạo" },
   { id: "penalties", label: "Penalty", heading: "Sút penalty nhiều nhất", valueLabel: "lần sút" },
+  { id: "ownGoals", label: "Phản lưới", heading: "Phản lưới nhà nhiều nhất", valueLabel: "bàn" },
   { id: "yellowCards", label: "Thẻ vàng", heading: "Nhận thẻ vàng nhiều nhất", valueLabel: "thẻ" },
   { id: "redCards", label: "Thẻ đỏ", heading: "Nhận thẻ đỏ nhiều nhất", valueLabel: "thẻ" },
 ];

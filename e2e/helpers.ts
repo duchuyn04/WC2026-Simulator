@@ -17,7 +17,7 @@ export async function goToTab(
   tab: "groups" | "schedule" | "third" | "knockout"
 ) {
   if (tab === "schedule") {
-    await page.getByRole("button", { name: "Lịch thi đấu & Yêu thích" }).click();
+    await page.getByRole("button", { name: /Lịch/ }).click();
   } else {
     await page.getByRole("button", { name: "Mô phỏng" }).click();
   }

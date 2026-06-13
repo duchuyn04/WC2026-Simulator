@@ -6,6 +6,7 @@ import {
   isCompletedMatch,
   matchesPlayerName,
   patchMatchPlayerStats,
+  detailsOwnGoals,
 } from "../../../scripts/lib/tournament-stats.mjs";
 
 function rows(values: Record<string, number>) {
@@ -65,6 +66,32 @@ describe("isCompletedMatch", () => {
         AwayTeamScore: null,
       }),
     ).toBe(false);
+  });
+});
+
+describe("detailsOwnGoals", () => {
+  it("correctly identifies and deduplicates own goal events", () => {
+    const rawDetails = [
+      {
+        clock: { value: 12 },
+        scoringPlay: true,
+        ownGoal: true,
+        participants: [{ athlete: { displayName: "John Doe" } }]
+      },
+      {
+        clock: { value: 12 },
+        scoringPlay: true,
+        type: { type: "own-goal" },
+        participants: [{ athlete: { displayName: "John Doe" } }]
+      },
+      {
+        clock: { value: 45 },
+        scoringPlay: true,
+        ownGoal: false,
+        participants: [{ athlete: { displayName: "Jane Doe" } }]
+      }
+    ];
+    expect(detailsOwnGoals(rawDetails)).toBe(1);
   });
 });
 
@@ -247,6 +274,121 @@ describe("patchMatchPlayerStats", () => {
 
     const reynaGoals = playerStats["419068"]?.find((row: any) => row[0] === "Goals")?.[1];
     expect(reynaGoals).toBe(1);
+  });
+
+  it("should patch missing own goals from ESPN data", () => {
+    const liveMatch = {
+      HomeTeam: {
+        IdTeam: "1",
+        Abbreviation: "MEX",
+        TeamName: [{ Locale: "en-GB", Description: "Mexico" }],
+        Players: [
+          {
+            IdPlayer: "10",
+            PlayerName: [{ Locale: "en-GB", Description: "Alex Player" }],
+            ShortName: [{ Locale: "en-GB", Description: "Alex Player" }],
+          }
+        ]
+      },
+      AwayTeam: {
+        IdTeam: "2",
+        Abbreviation: "USA",
+        TeamName: [{ Locale: "en-GB", Description: "USA" }],
+        Players: []
+      }
+    };
+
+    const playerStats = {};
+    const espnSummary = {
+      header: {
+        competitions: [
+          {
+            details: [
+              {
+                scoringPlay: true,
+                ownGoal: true,
+                team: { id: "2" }, // Conceded by USA's opponent (Mexico), so team: "2" got the goal.
+                participants: [
+                  {
+                    athlete: { displayName: "Alex Player" }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    // Patch Mexico's stats (fifaTeamId = "1", espnTeamId = "1")
+    patchMatchPlayerStats(liveMatch, playerStats, espnSummary, "1", "1");
+
+    expect(playerStats["10"]).toBeDefined();
+    expect(playerStats["10"].find((r: any) => r[0] === "OwnGoals")[1]).toBe(1);
+  });
+
+  it("should deduplicate events to avoid double counting", () => {
+    const liveMatch = {
+      HomeTeam: {
+        IdTeam: "1",
+        Abbreviation: "MEX",
+        TeamName: [{ Locale: "en-GB", Description: "Mexico" }],
+        Players: [
+          {
+            IdPlayer: "10",
+            PlayerName: [{ Locale: "en-GB", Description: "Alex Player" }],
+            ShortName: [{ Locale: "en-GB", Description: "Alex Player" }],
+          }
+        ]
+      },
+      AwayTeam: {
+        IdTeam: "2",
+        Abbreviation: "USA",
+        TeamName: [{ Locale: "en-GB", Description: "USA" }],
+        Players: []
+      }
+    };
+
+    const playerStats = {};
+    const espnSummary = {
+      header: {
+        competitions: [
+          {
+            details: [
+              {
+                clock: { value: 45, displayValue: "45'" },
+                scoringPlay: true,
+                ownGoal: true,
+                team: { id: "2" },
+                participants: [
+                  {
+                    athlete: { displayName: "Alex Player" }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      keyEvents: [
+        {
+          clock: { value: 45, displayValue: "45'" },
+          scoringPlay: true,
+          type: { type: "own-goal" },
+          team: { id: "2" },
+          participants: [
+            {
+              athlete: { displayName: "Alex Player" }
+            }
+          ]
+        }
+      ]
+    };
+
+    patchMatchPlayerStats(liveMatch, playerStats, espnSummary, "1", "1");
+
+    expect(playerStats["10"]).toBeDefined();
+    expect(playerStats["10"].find((r: any) => r[0] === "OwnGoals")[1]).toBe(1); // Should only count as 1 due to deduplication
   });
 });
 

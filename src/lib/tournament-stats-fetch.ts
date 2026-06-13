@@ -5,6 +5,7 @@ import {
   getDataHubId,
   isCompletedMatch,
   patchMatchPlayerStats,
+  detailsOwnGoals,
 } from "./tournament-stats-core";
 import { ESPN_TEAM_MAP } from "./espn-mapping";
 import defaultStatsData from "../../data/fifa-tournament-stats.json";
@@ -20,10 +21,7 @@ function getOfflineFallback(): TournamentStatsSnapshot {
   return data;
 }
 
-function detailsOwnGoals(details: any[]) {
-  if (!Array.isArray(details)) return 0;
-  return details.filter(event => event.scoringPlay && event.ownGoal).length;
-}
+
 
 export async function fetchTournamentStatsFromFifa(): Promise<TournamentStatsSnapshot> {
   let calendar;
@@ -51,15 +49,11 @@ export async function fetchTournamentStatsFromFifa(): Promise<TournamentStatsSna
       const completedMatch = await fetchCompletedMatch(match);
       
       try {
-        const homeLocalId = Object.keys(ESPN_TEAM_MAP).find(
-          k => ESPN_TEAM_MAP[k] === String(match.Home?.IdTeam) || ESPN_TEAM_MAP[k] === String(match.HomeTeam?.IdTeam)
-        );
-        const awayLocalId = Object.keys(ESPN_TEAM_MAP).find(
-          k => ESPN_TEAM_MAP[k] === String(match.Away?.IdTeam) || ESPN_TEAM_MAP[k] === String(match.AwayTeam?.IdTeam)
-        );
-        
-        const espnHomeId = homeLocalId ? ESPN_TEAM_MAP[homeLocalId] : undefined;
-        const espnAwayId = awayLocalId ? ESPN_TEAM_MAP[awayLocalId] : undefined;
+        const fifaHomeId = String(match.Home?.IdTeam ?? match.HomeTeam?.IdTeam);
+        const fifaAwayId = String(match.Away?.IdTeam ?? match.AwayTeam?.IdTeam);
+
+        const espnHomeId = fifaHomeId ? ESPN_TEAM_MAP[fifaHomeId] : undefined;
+        const espnAwayId = fifaAwayId ? ESPN_TEAM_MAP[fifaAwayId] : undefined;
 
         const espnMatch = espnMatches.find((event: any) => {
           const comp = event.competitions?.[0];
@@ -82,6 +76,13 @@ export async function fetchTournamentStatsFromFifa(): Promise<TournamentStatsSna
             fifaGoalsTotal += goals;
           }
 
+          // Compute own goals from FIFA playerStats
+          let fifaOwnGoalsTotal = 0;
+          for (const [_, playerRows] of Object.entries(completedMatch.playerStats ?? {})) {
+            const ogs = (playerRows as any).find((r: any) => r[0] === "OwnGoals")?.[1] ?? 0;
+            fifaOwnGoalsTotal += ogs;
+          }
+
           const summary = await fetchJson<any>(`https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event=${espnMatch.id}`);
           const details = [
             ...(summary.header?.competitions?.[0]?.details ?? []),
@@ -91,22 +92,22 @@ export async function fetchTournamentStatsFromFifa(): Promise<TournamentStatsSna
           const ownGoals = detailsOwnGoals(details);
           const totalEspnGoals = homeScore + awayScore - ownGoals;
 
-          if (fifaGoalsTotal < totalEspnGoals) {
-            if (homeLocalId && espnHomeId) {
+          if (fifaGoalsTotal < totalEspnGoals || fifaOwnGoalsTotal < ownGoals) {
+            if (fifaHomeId && espnHomeId) {
               patchMatchPlayerStats(
                 completedMatch.liveMatch,
                 completedMatch.playerStats,
                 summary,
-                String(match.Home?.IdTeam ?? match.HomeTeam?.IdTeam),
+                fifaHomeId,
                 espnHomeId
               );
             }
-            if (awayLocalId && espnAwayId) {
+            if (fifaAwayId && espnAwayId) {
               patchMatchPlayerStats(
                 completedMatch.liveMatch,
                 completedMatch.playerStats,
                 summary,
-                String(match.Away?.IdTeam ?? match.AwayTeam?.IdTeam),
+                fifaAwayId,
                 espnAwayId
               );
             }
@@ -118,6 +119,11 @@ export async function fetchTournamentStatsFromFifa(): Promise<TournamentStatsSna
 
       return completedMatch;
     });
+
+    if (matchData.length === 0 && completedMatches.length > 0) {
+      console.warn("Fetched 0 matches details but calendar has completed matches. Serving browser fallback stats.");
+      return getOfflineFallback();
+    }
 
     return {
       source: {

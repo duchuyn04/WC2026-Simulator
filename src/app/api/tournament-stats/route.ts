@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import {
   buildLeaderboards,
   getDataHubId,
   isCompletedMatch,
   patchMatchPlayerStats,
-} from "../../../../scripts/lib/tournament-stats.mjs";
+  detailsOwnGoals,
+} from "../../../lib/tournament-stats-core";
 import { ESPN_TEAM_MAP } from "../../../lib/espn-mapping";
+import defaultStatsData from "../../../../data/fifa-tournament-stats.json";
 
 const SEASON_ID = "285023";
 const CALENDAR_URL = `https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=${SEASON_ID}`;
@@ -15,17 +15,11 @@ const ESPN_SCOREBOARD_URL =
   "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=1000";
 
 function getOfflineFallback() {
-  try {
-    const path = join(process.cwd(), "data/fifa-tournament-stats.json");
-    const content = readFileSync(path, "utf8");
-    const data = JSON.parse(content);
-    if (data && data.source) {
-      data.source.provider = "FIFA (Offline Fallback)";
-    }
-    return data;
-  } catch (error) {
-    return { error: "Failed to fetch stats and offline fallback is unavailable." };
+  const data = JSON.parse(JSON.stringify(defaultStatsData));
+  if (data && data.source) {
+    data.source.provider = "FIFA (Offline Fallback)";
   }
+  return data;
 }
 
 async function fetchJson(url: string) {
@@ -82,10 +76,7 @@ async function mapWithConcurrency<T, R>(
   return results.filter((r) => r !== null) as R[];
 }
 
-function detailsOwnGoals(details: any[]) {
-  if (!Array.isArray(details)) return 0;
-  return details.filter(event => event.scoringPlay && event.ownGoal).length;
-}
+
 
 export async function GET() {
   let calendar;
@@ -115,15 +106,11 @@ export async function GET() {
         const completedMatch = await fetchCompletedMatch(match);
         // Patch with ESPN if needed
         try {
-          const homeLocalId = Object.keys(ESPN_TEAM_MAP).find(
-            k => ESPN_TEAM_MAP[k] === String(match.Home?.IdTeam) || ESPN_TEAM_MAP[k] === String(match.HomeTeam?.IdTeam)
-          );
-          const awayLocalId = Object.keys(ESPN_TEAM_MAP).find(
-            k => ESPN_TEAM_MAP[k] === String(match.Away?.IdTeam) || ESPN_TEAM_MAP[k] === String(match.AwayTeam?.IdTeam)
-          );
-          
-          const espnHomeId = homeLocalId ? ESPN_TEAM_MAP[homeLocalId] : undefined;
-          const espnAwayId = awayLocalId ? ESPN_TEAM_MAP[awayLocalId] : undefined;
+          const fifaHomeId = String(match.Home?.IdTeam ?? match.HomeTeam?.IdTeam);
+          const fifaAwayId = String(match.Away?.IdTeam ?? match.AwayTeam?.IdTeam);
+
+          const espnHomeId = fifaHomeId ? ESPN_TEAM_MAP[fifaHomeId] : undefined;
+          const espnAwayId = fifaAwayId ? ESPN_TEAM_MAP[fifaAwayId] : undefined;
 
           // Find match in ESPN
           const espnMatch = espnMatches.find((event: any) => {
@@ -148,6 +135,13 @@ export async function GET() {
               fifaGoalsTotal += goals;
             }
 
+            // Compute own goals from FIFA playerStats
+            let fifaOwnGoalsTotal = 0;
+            for (const [_, playerRows] of Object.entries(completedMatch.playerStats ?? {})) {
+              const ogs = (playerRows as any).find((r: any) => r[0] === "OwnGoals")?.[1] ?? 0;
+              fifaOwnGoalsTotal += ogs;
+            }
+
             // Fetch summary to see if there are own goals
             const summary = await fetchJson(`https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event=${espnMatch.id}`);
             const details = [
@@ -158,24 +152,24 @@ export async function GET() {
             const ownGoals = detailsOwnGoals(details);
             const totalEspnGoals = homeScore + awayScore - ownGoals;
 
-            if (fifaGoalsTotal < totalEspnGoals) {
+            if (fifaGoalsTotal < totalEspnGoals || fifaOwnGoalsTotal < ownGoals) {
               // Patch home team stats
-              if (homeLocalId && espnHomeId) {
+              if (fifaHomeId && espnHomeId) {
                 patchMatchPlayerStats(
                   completedMatch.liveMatch,
                   completedMatch.playerStats,
                   summary,
-                  String(match.Home?.IdTeam ?? match.HomeTeam?.IdTeam),
+                  fifaHomeId,
                   espnHomeId
                 );
               }
               // Patch away team stats
-              if (awayLocalId && espnAwayId) {
+              if (fifaAwayId && espnAwayId) {
                 patchMatchPlayerStats(
                   completedMatch.liveMatch,
                   completedMatch.playerStats,
                   summary,
-                  String(match.Away?.IdTeam ?? match.AwayTeam?.IdTeam),
+                  fifaAwayId,
                   espnAwayId
                 );
               }
@@ -188,6 +182,11 @@ export async function GET() {
         return completedMatch;
       }
     );
+
+    if (matchData.length === 0 && completedMatches.length > 0) {
+      console.warn("Fetched 0 matches details but calendar has completed matches. Serving fallback stats.");
+      return NextResponse.json(getOfflineFallback());
+    }
 
     const snapshot = {
       completedMatches: matchData.length,
