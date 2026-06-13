@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export function initialsFromName(name?: string | null) {
   if (!name) return "?";
@@ -68,13 +68,17 @@ export function PortraitImage({
   alt: string;
   placeholderProps: Parameters<typeof PortraitPlaceholder>[0];
 }) {
+  const [prevSrc, setPrevSrc] = useState<string | null | undefined>(src);
+  const [prevFallbackSrc, setPrevFallbackSrc] = useState<string | null | undefined>(fallbackSrc);
   const [currentSrc, setCurrentSrc] = useState<string | null>(src || fallbackSrc || null);
   const [hasFailedFallback, setHasFailedFallback] = useState(false);
 
-  useEffect(() => {
+  if (src !== prevSrc || fallbackSrc !== prevFallbackSrc) {
+    setPrevSrc(src);
+    setPrevFallbackSrc(fallbackSrc);
     setCurrentSrc(src || fallbackSrc || null);
     setHasFailedFallback(false);
-  }, [src, fallbackSrc]);
+  }
 
   const handleError = () => {
     if (currentSrc === src && fallbackSrc && !hasFailedFallback) {
