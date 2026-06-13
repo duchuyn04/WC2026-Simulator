@@ -13,6 +13,7 @@ import { SchedulePanel } from "./SchedulePanel";
 import { getFifaRankingsMeta } from "@/lib/fifa/rankings";
 import type { TabId } from "@/lib/tabs";
 import { SyncLiveResultsButton } from "./SyncLiveResultsButton";
+import SoccerSkeleton from "./SoccerSkeleton";
 
 export function AppShell() {
   const hydrated = useStoreHydrated();
@@ -46,8 +47,20 @@ export function AppShell() {
 
   if (!hydrated) {
     return (
-      <div className="min-h-screen bg-[#0c0f14] flex items-center justify-center text-zinc-500 text-base">
-        Đang tải...
+      <div className="min-h-screen bg-[#0c0f14] text-zinc-100 flex flex-col">
+        <header className="sticky top-0 z-50 shrink-0 border-b border-zinc-800 bg-[#0c0f14]/95 backdrop-blur py-4">
+          <div className="max-w-7xl mx-auto px-4">
+            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-amber-500 font-semibold">
+              FIFA World Cup
+            </p>
+            <h1 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
+              WC 2026 Simulator
+            </h1>
+          </div>
+        </header>
+        <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8">
+          <SoccerSkeleton variant="standings" />
+        </main>
       </div>
     );
   }
