@@ -4,7 +4,7 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-13T06:31:35.409Z",
+  "fetchedAt": "2026-06-13T12:02:40.275Z",
   "completedMatches": 4,
   "skippedMatches": 0,
   "leaderboards": {
@@ -273,7 +273,6 @@
       }
     ],
     "penalties": [],
-    "ownGoals": [],
     "yellowCards": [
       {
         "playerId": "485802",
@@ -443,6 +442,21 @@
           "name": "South Africa",
           "code": "RSA",
           "flagUrl": "/flags/RSA.png"
+        },
+        "value": 1
+      }
+    ],
+    "ownGoals": [
+      {
+        "playerId": "476348",
+        "name": "Damian BOBADILLA",
+        "shortName": "Damian BOBADILLA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/720524b9-bfc5-4139-a873-cba0a35bfa95/BOBADILLA-Damian_476348",
+        "team": {
+          "id": "43928",
+          "name": "Paraguay",
+          "code": "PAR",
+          "flagUrl": "/flags/PAR.png"
         },
         "value": 1
       }
