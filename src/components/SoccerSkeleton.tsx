@@ -11,7 +11,7 @@ function LoadingSoccerBall() {
       <div className="relative flex flex-col items-center">
         {/* Soccer ball SVG */}
         <svg
-          className="w-12 h-12 text-zinc-100 animate-soccer-bounce filter drop-shadow-md"
+          className="w-12 h-12 animate-soccer-bounce filter drop-shadow-md"
           viewBox="0 0 512 512"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
