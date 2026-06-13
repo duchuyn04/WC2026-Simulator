@@ -9,6 +9,8 @@ import {
 import { ESPN_TEAM_MAP } from "../../../lib/espn-mapping";
 import defaultStatsData from "../../../../data/fifa-tournament-stats.json";
 
+export const dynamic = "force-static";
+
 const SEASON_ID = "285023";
 const CALENDAR_URL = `https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=${SEASON_ID}`;
 const ESPN_SCOREBOARD_URL =
