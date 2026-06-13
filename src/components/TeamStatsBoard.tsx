@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import SoccerSkeleton from "./SoccerSkeleton";
 
 type Leader = {
   displayValue: string;
@@ -79,11 +80,7 @@ export function TeamStatsBoard({ espnId }: { espnId: string }) {
   if (!espnId) return null;
 
   if (loading) {
-    return (
-      <div className="flex justify-center py-6 sm:py-12">
-        <div className="w-8 h-8 border-4 border-[#6a041f] border-t-transparent rounded-full animate-spin"></div>
-      </div>
-    );
+    return <SoccerSkeleton variant="stats" />;
   }
 
   if (error) {
