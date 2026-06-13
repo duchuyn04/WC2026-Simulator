@@ -4,6 +4,7 @@ import {
   buildLeaderboards,
   getDataHubId,
   isCompletedMatch,
+  matchesPlayerName,
 } from "../../../scripts/lib/tournament-stats.mjs";
 
 function rows(values: Record<string, number>) {
@@ -185,3 +186,14 @@ describe("buildLeaderboards", () => {
     expect(result.goals).toEqual([]);
   });
 });
+
+describe("matchesPlayerName", () => {
+  it("should match names with initials and full names", () => {
+    expect(matchesPlayerName("G. Reyna", "Giovanni REYNA")).toBe(true);
+    expect(matchesPlayerName("Giovanni Reyna", "G. Reyna")).toBe(true);
+    expect(matchesPlayerName("F. Balogun", "Folarin BALOGUN")).toBe(true);
+    expect(matchesPlayerName("Maurício", "MAURICIO")).toBe(true);
+    expect(matchesPlayerName("Alex Player", "Bob Player")).toBe(false);
+  });
+});
+

@@ -228,3 +228,52 @@ export const TOURNAMENT_STATS_CALENDAR_URL = `https://api.fifa.com/api/v3/calend
 export const TOURNAMENT_STATS_POLL_MS = 5 * 60 * 1000;
 /** Slower poll when fetching directly from FIFA in the browser (GitHub Pages). */
 export const TOURNAMENT_STATS_CLIENT_POLL_MS = 30 * 60 * 1000;
+
+export function matchesPlayerName(nameA: string, nameB: string): boolean {
+  if (!nameA || !nameB) return false;
+
+  const normalize = (str: string) =>
+    str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s]/g, "")
+      .trim();
+
+  const normA = normalize(nameA);
+  const normB = normalize(nameB);
+
+  if (normA === normB) return true;
+
+  const wordsA = normA.split(/\s+/).filter(w => w.length > 0);
+  const wordsB = normB.split(/\s+/).filter(w => w.length > 0);
+
+  if (wordsA.length === 0 || wordsB.length === 0) return false;
+
+  if (wordsA.length === 1) {
+    return wordsB.includes(wordsA[0]);
+  }
+  if (wordsB.length === 1) {
+    return wordsA.includes(wordsB[0]);
+  }
+
+  if (wordsA.length === 2 && wordsA[0].length === 1) {
+    return wordsB.length >= 2 && wordsB[0].startsWith(wordsA[0]) && wordsB[wordsB.length - 1] === wordsA[1];
+  }
+  if (wordsB.length === 2 && wordsB[0].length === 1) {
+    return wordsA.length >= 2 && wordsA[0].startsWith(wordsB[0]) && wordsA[wordsA.length - 1] === wordsB[1];
+  }
+
+  const lastA = wordsA[wordsA.length - 1];
+  const lastB = wordsB[wordsB.length - 1];
+  if (lastA === lastB) {
+    const firstA = wordsA[0];
+    const firstB = wordsB[0];
+    if (firstA === firstB) return true;
+    if (firstA.length === 1 && firstB.startsWith(firstA)) return true;
+    if (firstB.length === 1 && firstA.startsWith(firstB)) return true;
+    return false;
+  }
+
+  return false;
+}
