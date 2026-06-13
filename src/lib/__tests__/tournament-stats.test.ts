@@ -5,6 +5,7 @@ import {
   getDataHubId,
   isCompletedMatch,
   matchesPlayerName,
+  patchMatchPlayerStats,
 } from "../../../scripts/lib/tournament-stats.mjs";
 
 function rows(values: Record<string, number>) {
@@ -196,4 +197,50 @@ describe("matchesPlayerName", () => {
     expect(matchesPlayerName("Alex Player", "Bob Player")).toBe(false);
   });
 });
+
+describe("patchMatchPlayerStats", () => {
+  it("should patch missing goals from ESPN data", () => {
+    const liveMatch = {
+      HomeTeam: {
+        IdTeam: "43921",
+        Abbreviation: "USA",
+        TeamName: [{ Locale: "en", Description: "USA" }],
+        Players: [
+          { IdPlayer: "419068", PlayerName: [{ Locale: "en", Description: "Giovanni REYNA" }] }
+        ]
+      },
+      AwayTeam: { Players: [] }
+    };
+    const playerStats = {
+      "419068": [["Goals", 0, false]]
+    };
+
+    const espnSummary = {
+      header: {
+        competitions: [{
+          details: [
+            {
+              scoringPlay: true,
+              ownGoal: false,
+              team: { id: "660" },
+              participants: [{ athlete: { displayName: "G. Reyna" } }]
+            }
+          ]
+        }]
+      }
+    };
+
+    patchMatchPlayerStats(
+      liveMatch,
+      playerStats,
+      espnSummary,
+      "43921",
+      "660"
+    );
+
+    const reynaGoals = playerStats["419068"]?.find((row: any) => row[0] === "Goals")?.[1];
+    expect(reynaGoals).toBe(1);
+  });
+});
+
 

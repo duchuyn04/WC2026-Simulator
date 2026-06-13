@@ -277,3 +277,63 @@ export function matchesPlayerName(nameA: string, nameB: string): boolean {
 
   return false;
 }
+
+export function patchMatchPlayerStats(
+  liveMatch: any,
+  playerStats: Record<string, any>,
+  espnSummary: any,
+  fifaTeamId: string,
+  espnTeamId: string
+) {
+  const details = [
+    ...(espnSummary?.header?.competitions?.[0]?.details ?? []),
+    ...(espnSummary?.keyEvents ?? [])
+  ];
+
+  const goalEvents = details.filter((event: any) => event.scoringPlay && !event.ownGoal && String(event.team?.id) === espnTeamId);
+
+  // Group ESPN goals by athlete name
+  const espnGoalsByName: Record<string, number> = {};
+  for (const event of goalEvents) {
+    const athleteName = event.participants?.[0]?.athlete?.displayName ?? event.participants?.[0]?.athlete?.shortName ?? "";
+    if (athleteName) {
+      espnGoalsByName[athleteName] = (espnGoalsByName[athleteName] ?? 0) + 1;
+    }
+  }
+
+  // Retrieve players of this team in liveMatch
+  const teamPlayers =
+    String(liveMatch?.HomeTeam?.IdTeam) === fifaTeamId
+      ? (liveMatch?.HomeTeam?.Players ?? [])
+      : String(liveMatch?.AwayTeam?.IdTeam) === fifaTeamId
+      ? (liveMatch?.AwayTeam?.Players ?? [])
+      : [];
+
+  for (const [espnName, goalCount] of Object.entries(espnGoalsByName)) {
+    // Match player
+    const matchedPlayer = teamPlayers.find((p: any) => {
+      const pName = p.PlayerName?.[0]?.Description ?? p.ShortName?.[0]?.Description ?? "";
+      return matchesPlayerName(espnName, pName);
+    });
+
+    if (matchedPlayer) {
+      const playerId = String(matchedPlayer.IdPlayer);
+      let statsRows = playerStats[playerId] as [string, number, boolean][];
+      if (!statsRows) {
+        statsRows = [["Goals", 0, false]];
+        playerStats[playerId] = statsRows;
+      }
+
+      let goalsRowIndex = statsRows.findIndex((row) => row[0] === "Goals");
+      if (goalsRowIndex === -1) {
+        statsRows.push(["Goals", 0, false]);
+        goalsRowIndex = statsRows.length - 1;
+      }
+
+      const currentGoals = Number(statsRows[goalsRowIndex][1]) || 0;
+      if (currentGoals < goalCount) {
+        statsRows[goalsRowIndex][1] = goalCount;
+      }
+    }
+  }
+}
