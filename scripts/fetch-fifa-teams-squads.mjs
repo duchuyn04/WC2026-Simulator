@@ -311,7 +311,7 @@ async function main() {
         const wikiPlayer =
           wikipediaPlayers.get(normalizedPlayer.jerseyNumber) ??
           wikipediaPlayersByName.get(normalizeLookupName(normalizedPlayer.name ?? ""));
-        if (wikiPlayer?.wikiTitle && !normalizedPlayer.pictureUrl) {
+        if (wikiPlayer?.wikiTitle) {
           wikipediaImageTitles.push(wikiPlayer.wikiTitle);
         }
 
@@ -356,10 +356,11 @@ async function main() {
 
   for (const team of enrichedTeams) {
     for (const player of team.squad) {
-      if (player.pictureUrl || !player.wikiTitle) continue;
+      player.wikiPictureUrl = null;
+      if (!player.wikiTitle) continue;
       const imageUrl = wikipediaImages.get(player.wikiTitle);
       if (!imageUrl) continue;
-      player.pictureUrl = imageUrl;
+      player.wikiPictureUrl = imageUrl;
       player.pictureSource = "wikipedia";
       wikipediaImageCount += 1;
     }
