@@ -1,9 +1,31 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT = join(__dirname, "../data/fifa-teams-squads.json");
+
+let rankings = {};
+try {
+  const rankingsPath = join(__dirname, "../data/fifa-rankings.json");
+  const rankingsData = JSON.parse(readFileSync(rankingsPath, "utf8"));
+  rankings = rankingsData.rankings ?? {};
+} catch (err) {
+  console.warn("Could not load live rankings, using fallback", err);
+}
+
+function getRankingFromRankingsFile(code) {
+  return rankings[code] ?? null;
+}
+
+const TEAM_APPEARANCES = {
+  "CAN": 2, "MEX": 17, "USA": 11, "ALG": 4, "ARG": 18, "AUS": 6, "AUT": 7, "BEL": 13,
+  "BIH": 1, "BRA": 22, "CPV": 0, "COL": 6, "COD": 1, "CIV": 3, "CRO": 6, "CUW": 0,
+  "CZE": 9, "ECU": 4, "EGY": 3, "ENG": 16, "FRA": 16, "GER": 20, "GHA": 4, "HAI": 1,
+  "IRN": 6, "IRQ": 1, "JPN": 7, "JOR": 0, "KOR": 10, "MAR": 6, "NED": 10, "NZL": 2,
+  "NOR": 3, "PAN": 1, "PAR": 8, "POR": 8, "QAT": 1, "KSA": 6, "SCO": 7, "SEN": 3,
+  "RSA": 3, "ESP": 16, "SWE": 12, "SUI": 12, "TUN": 6, "TUR": 2, "URU": 14, "UZB": 0
+};
 
 const SEASON_ID = "285023";
 const COMPETITION_ID = "17";
@@ -325,9 +347,10 @@ async function main() {
         };
       });
 
+      const code = codeFromFlagUrl(team.teamFlag);
       return {
         id: team.teamId,
-        code: codeFromFlagUrl(team.teamFlag),
+        code,
         name: team.teamName,
         slug,
         pageUrl: team.teamPageUrl,
@@ -335,8 +358,8 @@ async function main() {
         confederationId: team.confederationId,
         group: groupFromStage(team.stage),
         stage: team.stage,
-        worldRanking: team.worldRanking,
-        appearances: team.appearances,
+        worldRanking: team.worldRanking ?? getRankingFromRankingsFile(code),
+        appearances: team.appearances ?? TEAM_APPEARANCES[code] ?? 0,
         hostTeam: team.hostTeam,
         colors: {
           primary: team.teamEnrichmentData?.primaryColor ?? null,
