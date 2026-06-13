@@ -97,6 +97,7 @@ describe("aggregatePlayerStats", () => {
             PenaltiesScored: 1,
             YellowCards: 1,
             DirectRedCards: 1,
+            OwnGoals: 1,
           },
         },
       ]),
@@ -111,6 +112,7 @@ describe("aggregatePlayerStats", () => {
             PenaltiesScored: 1,
             YellowCards: 2,
             IndirectRedCards: 1,
+            OwnGoals: 2,
           },
         },
       ]),
@@ -125,6 +127,7 @@ describe("aggregatePlayerStats", () => {
         penaltiesScored: 2,
         yellowCards: 3,
         redCards: 2,
+        ownGoals: 3,
       },
     ]);
   });
@@ -139,6 +142,7 @@ describe("buildLeaderboards", () => {
         Goals: index === 1 ? 5 : 1,
         Penalties: index === 0 ? 2 : 1,
         PenaltiesScored: index === 0 ? 1 : 0,
+        OwnGoals: index === 2 ? 3 : 1,
       },
     }));
 
@@ -156,6 +160,9 @@ describe("buildLeaderboards", () => {
       scored: 1,
       successRate: 50,
     });
+    expect(result.ownGoals).toHaveLength(10);
+    expect(result.ownGoals[0]?.playerId).toBe("2");
+    expect(result.ownGoals[0]?.value).toBe(3);
   });
 
   it("keeps players from different teams separate", () => {

@@ -6,6 +6,7 @@ const METRIC_KEYS = {
   yellowCards: "YellowCards",
   directRedCards: "DirectRedCards",
   indirectRedCards: "IndirectRedCards",
+  ownGoals: "OwnGoals",
 };
 
 export function pickLocalizedName(values, fallback = "") {
@@ -81,6 +82,7 @@ function createPlayerTotal(player) {
     penaltiesScored: 0,
     yellowCards: 0,
     redCards: 0,
+    ownGoals: 0,
   };
 }
 
@@ -103,6 +105,7 @@ export function aggregatePlayerStats(matches) {
       total.redCards +=
         statValue(rows, METRIC_KEYS.directRedCards) +
         statValue(rows, METRIC_KEYS.indirectRedCards);
+      total.ownGoals += statValue(rows, METRIC_KEYS.ownGoals);
       totals.set(player.playerId, total);
     }
   }
@@ -165,6 +168,7 @@ export function buildLeaderboards(matches, limit = 10) {
     penalties,
     yellowCards: leaderboard(players, "yellowCards", limit),
     redCards: leaderboard(players, "redCards", limit),
+    ownGoals: leaderboard(players, "ownGoals", limit),
   };
 }
 

@@ -6,6 +6,7 @@ const METRIC_KEYS = {
   yellowCards: "YellowCards",
   directRedCards: "DirectRedCards",
   indirectRedCards: "IndirectRedCards",
+  ownGoals: "OwnGoals",
 } as const;
 
 type LocalizedText = { Locale?: string; Description?: string };
@@ -80,13 +81,14 @@ type PlayerTotal = {
   penaltiesScored: number;
   yellowCards: number;
   redCards: number;
+  ownGoals: number;
 };
 
 function buildPlayerDirectory(liveMatch: {
   HomeTeam?: { Players?: Array<Record<string, unknown>> } & Record<string, unknown>;
   AwayTeam?: { Players?: Array<Record<string, unknown>> } & Record<string, unknown>;
 }) {
-  const directory = new Map<string, Omit<PlayerTotal, "goals" | "assists" | "penalties" | "penaltiesScored" | "yellowCards" | "redCards">>();
+  const directory = new Map<string, Omit<PlayerTotal, "goals" | "assists" | "penalties" | "penaltiesScored" | "yellowCards" | "redCards" | "ownGoals">>();
 
   for (const team of [liveMatch?.HomeTeam, liveMatch?.AwayTeam]) {
     const teamInfo = mapTeam(team as Parameters<typeof mapTeam>[0]);
@@ -110,7 +112,7 @@ function buildPlayerDirectory(liveMatch: {
 }
 
 function createPlayerTotal(
-  player: Omit<PlayerTotal, "goals" | "assists" | "penalties" | "penaltiesScored" | "yellowCards" | "redCards">,
+  player: Omit<PlayerTotal, "goals" | "assists" | "penalties" | "penaltiesScored" | "yellowCards" | "redCards" | "ownGoals">,
 ): PlayerTotal {
   return {
     ...player,
@@ -120,6 +122,7 @@ function createPlayerTotal(
     penaltiesScored: 0,
     yellowCards: 0,
     redCards: 0,
+    ownGoals: 0,
   };
 }
 
@@ -147,6 +150,7 @@ export function aggregatePlayerStats(
       total.redCards +=
         statValue(rows, METRIC_KEYS.directRedCards) +
         statValue(rows, METRIC_KEYS.indirectRedCards);
+      total.ownGoals += statValue(rows, METRIC_KEYS.ownGoals);
       totals.set(player.playerId, total);
     }
   }
@@ -220,6 +224,7 @@ export function buildLeaderboards(
     penalties,
     yellowCards: leaderboard(players, "yellowCards", limit),
     redCards: leaderboard(players, "redCards", limit),
+    ownGoals: leaderboard(players, "ownGoals", limit),
   };
 }
 
