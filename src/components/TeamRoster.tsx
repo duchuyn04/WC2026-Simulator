@@ -26,6 +26,7 @@ type Player = {
   id: string;
   name?: string | null;
   pictureUrl?: string | null;
+  wikiPictureUrl?: string | null;
   jerseyNumber?: number | null;
   position?: string | null;
   realPosition?: string | null;
@@ -188,6 +189,7 @@ export function TeamRoster({ team, headCoach, groupedPlayers }: Props) {
                 <div className="relative h-[72px] w-[56px] shrink-0 overflow-hidden rounded-xl bg-zinc-800 sm:h-64 sm:w-full sm:rounded-2xl [&>div]:h-full [&>img]:h-full sm:[&>div]:h-64 sm:[&>img]:h-64">
                   <PortraitLightbox
                     src={player.pictureUrl}
+                    fallbackSrc={player.wikiPictureUrl}
                     alt={player.name ?? "Cầu thủ"}
                     title={player.name ?? "Cầu thủ"}
                     subtitle={`${translatePosition(player.realPosition ?? player.position)} · ${team.name}`}
