@@ -4,7 +4,7 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-13T05:49:06.887Z",
+  "fetchedAt": "2026-06-13T06:31:35.409Z",
   "completedMatches": 4,
   "skippedMatches": 0,
   "leaderboards": {
@@ -32,6 +32,19 @@
           "name": "Canada",
           "code": "CAN",
           "flagUrl": "/flags/CAN.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "419068",
+        "name": "Giovanni REYNA",
+        "shortName": "REYNA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b30d701d-d9eb-4b2d-8db4-6841fc9ed1a9/REYNA-Giovanni_419068",
+        "team": {
+          "id": "43921",
+          "name": "USA",
+          "code": "USA",
+          "flagUrl": "/flags/USA.png"
         },
         "value": 1
       },
@@ -128,6 +141,19 @@
       }
     ],
     "assists": [
+      {
+        "playerId": "464542",
+        "name": "Alex FREEMAN",
+        "shortName": "Alex FREEMAN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/554008b5-0520-4b67-8cab-c72ba087471f/FREEMAN-Alex_464542",
+        "team": {
+          "id": "43921",
+          "name": "USA",
+          "code": "USA",
+          "flagUrl": "/flags/USA.png"
+        },
+        "value": 1
+      },
       {
         "playerId": "390267",
         "name": "Christian PULISIC",
@@ -242,19 +268,6 @@
           "name": "Bosnia and Herzegovina",
           "code": "BIH",
           "flagUrl": "/flags/BIH.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "472908",
-        "name": "Vladimir COUFAL",
-        "shortName": "Vladimir COUFAL",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/e013f16f-8ada-4532-b3c4-b674b0e08cc9/COUFAL-Vladimir_472908",
-        "team": {
-          "id": "43995",
-          "name": "Czechia",
-          "code": "CZE",
-          "flagUrl": "/flags/CZE.png"
         },
         "value": 1
       }
