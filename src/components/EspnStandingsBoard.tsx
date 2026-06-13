@@ -11,6 +11,7 @@ import {
   type EspnStandingGroup,
 } from "@/lib/espn-standings";
 import type { Team } from "@/lib/fifa/types";
+import SoccerSkeleton from "./SoccerSkeleton";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnId]) => {
   acc[espnId] = localId;
@@ -67,11 +68,7 @@ export function EspnStandingsBoard() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="py-20 flex justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-zinc-800 border-t-emerald-500"></div>
-      </div>
-    );
+    return <SoccerSkeleton variant="standings" />;
   }
 
   if (!groups || groups.length === 0) {
