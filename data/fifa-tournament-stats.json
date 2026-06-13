@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-13T12:02:40.275Z",
-  "completedMatches": 4,
+  "fetchedAt": "2026-06-13T22:17:43.627Z",
+  "completedMatches": 5,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -21,6 +21,19 @@
           "flagUrl": "/flags/USA.png"
         },
         "value": 2
+      },
+      {
+        "playerId": "393480",
+        "name": "Breel EMBOLO",
+        "shortName": "EMBOLO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b2483096-041c-489b-a1c5-6d930f380909/EMBOLO-Breel_393480",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1
       },
       {
         "playerId": "390670",
@@ -45,6 +58,19 @@
           "name": "USA",
           "code": "USA",
           "flagUrl": "/flags/USA.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "419441",
+        "name": "HOMAM AHMED",
+        "shortName": "HOMAM AHMED",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/5a182a95-d4c3-4618-838e-d374bbc576ba/HOMAM-AHMED_419441",
+        "team": {
+          "id": "43834",
+          "name": "Qatar",
+          "code": "QAT",
+          "flagUrl": "/flags/QAT.png"
         },
         "value": 1
       },
@@ -110,32 +136,6 @@
           "name": "Paraguay",
           "code": "PAR",
           "flagUrl": "/flags/PAR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "448586",
-        "name": "OH Hyeongyu",
-        "shortName": "H G OH",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/e273b84d-3432-4404-8c33-7ecaaa2bc214/OH-Hyeongyu_448586",
-        "team": {
-          "id": "43822",
-          "name": "Korea Republic",
-          "code": "KOR",
-          "flagUrl": "/flags/KOR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "356731",
-        "name": "Raul JIMENEZ",
-        "shortName": "RAÚL",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/ec48d7a7-0cf7-4fc8-b999-e3c15fee5e98/JIMENEZ-Raul_356731",
-        "team": {
-          "id": "43911",
-          "name": "Mexico",
-          "code": "MEX",
-          "flagUrl": "/flags/MEX.png"
         },
         "value": 1
       }
@@ -272,7 +272,23 @@
         "value": 1
       }
     ],
-    "penalties": [],
+    "penalties": [
+      {
+        "playerId": "393480",
+        "name": "Breel EMBOLO",
+        "shortName": "EMBOLO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b2483096-041c-489b-a1c5-6d930f380909/EMBOLO-Breel_393480",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      }
+    ],
     "yellowCards": [
       {
         "playerId": "485802",
@@ -314,6 +330,19 @@
         "value": 1
       },
       {
+        "playerId": "401448",
+        "name": "Denis ZAKARIA",
+        "shortName": "ZAKARIA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/e47d229b-d092-4759-82e0-0e5f88b2c894/ZAKARIA-Denis_401448",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "463128",
         "name": "Diego GOMEZ",
         "shortName": "Diego GOMEZ",
@@ -336,6 +365,19 @@
           "name": "Bosnia and Herzegovina",
           "code": "BIH",
           "flagUrl": "/flags/BIH.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "419473",
+        "name": "JASSEM GABER",
+        "shortName": "JASSEM GABER",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/14edcf5c-c52c-4a12-8078-40032f99dbd0/JASSEM-GABER_419473",
+        "team": {
+          "id": "43834",
+          "name": "Qatar",
+          "code": "QAT",
+          "flagUrl": "/flags/QAT.png"
         },
         "value": 1
       },
@@ -375,32 +417,6 @@
           "name": "Paraguay",
           "code": "PAR",
           "flagUrl": "/flags/PAR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "492315",
-        "name": "LEE Gihyuk",
-        "shortName": "LEE Gihyuk",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/d52ff87a-7e84-497a-bb8e-3feb453ea7c6/LEE-Gihyuk_492315",
-        "team": {
-          "id": "43822",
-          "name": "Korea Republic",
-          "code": "KOR",
-          "flagUrl": "/flags/KOR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "480322",
-        "name": "Luc DE FOUGEROLLES",
-        "shortName": "Luc DE FOUGEROLLES",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/5a74297e-1aa4-41fa-a151-782f1211d1a0/DE-FOUGEROLLES-Luc_480322",
-        "team": {
-          "id": "43899",
-          "name": "Canada",
-          "code": "CAN",
-          "flagUrl": "/flags/CAN.png"
         },
         "value": 1
       }
