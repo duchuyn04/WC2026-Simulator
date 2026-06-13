@@ -11,7 +11,7 @@ type Props = PortraitImageProps & {
   subtitle?: string;
 };
 
-export function PortraitLightbox({ src, alt, placeholderProps, title, subtitle }: Props) {
+export function PortraitLightbox({ src, fallbackSrc, alt, placeholderProps, title, subtitle }: Props) {
   const [open, setOpen] = useState(false);
 
   const modal = open ? (
@@ -43,7 +43,7 @@ export function PortraitLightbox({ src, alt, placeholderProps, title, subtitle }
 
         <div className="min-h-0 flex-1 bg-zinc-950 p-3">
           <div className="h-full overflow-hidden rounded-2xl bg-zinc-900 [&>div]:h-full [&>img]:h-full [&>img]:object-contain [&>img]:object-center">
-            <PortraitImage src={src} alt={alt} placeholderProps={placeholderProps} />
+            <PortraitImage src={src} fallbackSrc={fallbackSrc} alt={alt} placeholderProps={placeholderProps} />
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@ export function PortraitLightbox({ src, alt, placeholderProps, title, subtitle }
         aria-label={`Xem ảnh lớn của ${title}`}
       >
         <span className="block h-full w-full [&>div]:h-full [&>img]:h-full">
-          <PortraitImage src={src} alt={alt} placeholderProps={placeholderProps} />
+          <PortraitImage src={src} fallbackSrc={fallbackSrc} alt={alt} placeholderProps={placeholderProps} />
         </span>
         <span className="pointer-events-none absolute bottom-1.5 right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/70 text-xs font-black text-white shadow-lg shadow-black/30 transition-opacity sm:h-auto sm:w-auto sm:px-2 sm:py-1 sm:text-[10px] sm:opacity-0 sm:group-hover:opacity-100">
           <span className="sm:hidden">+</span>
