@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import SoccerSkeleton from "./SoccerSkeleton";
 import { useEffect, useMemo, useState } from "react";
 import teamsData from "../../data/fifa-teams-squads.json";
 import { ESPN_TEAM_MAP } from "../lib/espn-mapping";
@@ -597,10 +598,7 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
 
         <div className="overflow-y-auto p-4 sm:p-6">
           {loading ? (
-            <div className="flex h-64 flex-col items-center justify-center gap-3 text-sm text-zinc-500">
-              <div className="h-9 w-9 animate-spin rounded-full border-4 border-zinc-800 border-t-emerald-500" />
-              Đang tải thống kê...
-            </div>
+            <SoccerSkeleton variant="match-detail" />
           ) : error ? (
             <div className="flex h-64 flex-col items-center justify-center gap-2 text-center">
               <p className="font-semibold text-rose-400">Không thể tải chi tiết trận đấu</p>
