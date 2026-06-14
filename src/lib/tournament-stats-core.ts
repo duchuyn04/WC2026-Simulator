@@ -318,7 +318,6 @@ export function matchesPlayerName(nameA: string, nameB: string): boolean {
   return false;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function patchMatchPlayerStats(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   liveMatch: any,
