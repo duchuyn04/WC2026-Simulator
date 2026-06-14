@@ -20,6 +20,7 @@ export type ScheduleEntry = {
   awayPlaceholder: string;
   result?: MatchResult;
   winner?: Team | null;
+  matchday?: number;
 };
 
 const STAGE_LABELS: Record<string, string> = {
@@ -41,7 +42,8 @@ export function stageLabel(stage: string, groupLetter?: string): string {
 export function groupMatchToEntry(
   match: GroupMatch,
   groupLetter: string,
-  matchResults: Record<string, MatchResult>
+  matchResults: Record<string, MatchResult>,
+  matchIndex: number
 ): ScheduleEntry {
   return {
     id: match.id,
@@ -58,6 +60,7 @@ export function groupMatchToEntry(
     homePlaceholder: match.placeholderA,
     awayPlaceholder: match.placeholderB,
     result: matchResults[match.id],
+    matchday: Math.floor(matchIndex / 2) + 1,
   };
 }
 
@@ -86,7 +89,7 @@ export function buildScheduleEntries(
   // "Thực tế": group matches + dates/venues/stages/placeholders come verbatim from FIFA seed (72 group matches).
   // "Theo simulator": knockout teams/winners are resolved at runtime from current standings + picks.
   const groupEntries = seed.groups.flatMap((group) =>
-    group.matches.map((match) => groupMatchToEntry(match, group.letter, matchResults))
+    group.matches.map((match, idx) => groupMatchToEntry(match, group.letter, matchResults, idx))
   );
   const knockoutEntries = knockoutMatches.map(knockoutMatchToEntry);
   return sortScheduleEntries([...groupEntries, ...knockoutEntries]);
