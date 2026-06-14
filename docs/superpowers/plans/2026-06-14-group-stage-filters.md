@@ -220,7 +220,7 @@
 **Files:**
 - Modify: `e2e/responsive.spec.ts`
 
-- [ ] **Step 1: Viết test kiểm thử các dropdown và tương tác lọc**
+- [x] **Step 1: Viết test kiểm thử các dropdown và tương tác lọc**
   Cập nhật test `lịch thi đấu — danh sách và lọc` trong `e2e/responsive.spec.ts` ở vị trí dòng 77-84:
   ```typescript
     test("lịch thi đấu — danh sách và lọc kèm bộ lọc phụ", async ({ page }) => {
@@ -261,7 +261,7 @@
     });
   ```
 
-- [ ] **Step 2: Viết test kiểm tra kích thước responsive từng pixel nhỏ**
+- [x] **Step 2: Viết test kiểm tra kích thước responsive từng pixel nhỏ**
   Thêm ca kiểm thử mới trong file `e2e/responsive.spec.ts` để khẳng định bố cục responsive thẳng hàng / cột dọc dựa theo độ rộng màn hình (viewports):
   ```typescript
     test("lịch thi đấu — bố cục responsive pixel-perfect cho bộ lọc", async ({ page }) => {
@@ -305,11 +305,11 @@
     });
   ```
 
-- [ ] **Step 3: Chạy toàn bộ các ca kiểm thử E2E**
+- [x] **Step 3: Chạy toàn bộ các ca kiểm thử E2E**
   Run: `npx playwright test e2e/responsive.spec.ts`
   Expected: PASS
 
-- [ ] **Step 4: Thực hiện commit**
+- [x] **Step 4: Thực hiện commit**
   ```bash
   git add e2e/responsive.spec.ts
   git commit -m "test: add responsive and filter interaction e2e tests in schedule view"
