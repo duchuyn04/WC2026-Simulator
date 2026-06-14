@@ -6,7 +6,8 @@ import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { ESPN_SCOREBOARD_URL, parseEspnScoreboard } from "@/lib/espn-match";
 import { groupMatchToEntry } from "@/lib/schedule";
 import { buildLiveGroupResults } from "@/lib/sync-live-results";
-import { useSimulation } from "@/lib/store";
+import { useSimulation } from "../lib/store";
+import { fetchTournamentStatsFromFifa } from "../lib/tournament-stats-fetch";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce<Record<string, string>>(
   (acc, [localId, espnId]) => {
@@ -18,46 +19,58 @@ const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce<Record<string, string
 
 export function SyncLiveResultsButton() {
   const applyLiveResults = useSimulation((s) => s.applyLiveResults);
+  const setTournamentStats = useSimulation((s) => s.setTournamentStats);
   const [loading, setLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSync = async () => {
     setLoading(true);
     try {
-      const response = await fetch(ESPN_SCOREBOARD_URL);
-      if (!response.ok) throw new Error("ESPN unavailable");
-
-      const data = await response.json();
-      const espnMatches = parseEspnScoreboard(data);
-      const groupEntries = seed.groups.flatMap((group) =>
-        group.matches.map((match, idx) => groupMatchToEntry(match, group.letter, {}, idx)),
-      );
-      const { updates, finishedCount, liveCount } = buildLiveGroupResults(
-        groupEntries,
-        espnMatches,
-        ESPN_TO_LOCAL,
-      );
-
-      const totalCount = finishedCount + liveCount;
-      if (totalCount === 0) {
-        window.alert("Chưa có trận vòng bảng nào kết thúc hoặc đang diễn ra trên ESPN.");
-        return;
+      // 1. Fetch and apply ESPN Scoreboard
+      try {
+        const response = await fetch(ESPN_SCOREBOARD_URL);
+        if (response.ok) {
+          const data = await response.json();
+          const espnMatches = parseEspnScoreboard(data);
+          const groupEntries = seed.groups.flatMap((group) =>
+            group.matches.map((match, idx) => groupMatchToEntry(match, group.letter, {}, idx)),
+          );
+          const { updates } = buildLiveGroupResults(
+            groupEntries,
+            espnMatches,
+            ESPN_TO_LOCAL,
+          );
+          applyLiveResults(updates);
+        }
+      } catch (error) {
+        console.warn("ESPN live sync failed:", error);
       }
 
-      let message = "";
-      if (finishedCount > 0 && liveCount > 0) {
-        message = `Áp dụng ${totalCount} kết quả thật (${finishedCount} trận đã kết thúc, ${liveCount} trận đang diễn ra) vào mô phỏng? Tỉ số hiện tại của các trận này sẽ bị ghi đè.`;
-      } else if (finishedCount > 0) {
-        message = `Áp dụng ${finishedCount} kết quả thật (trận đã kết thúc) vào mô phỏng? Tỉ số hiện tại của các trận này sẽ bị ghi đè.`;
-      } else {
-        message = `Áp dụng ${liveCount} kết quả thật (trận đang diễn ra) vào mô phỏng? Tỉ số hiện tại của các trận này sẽ bị ghi đè.`;
+      // 2. Fetch tournament stats
+      try {
+        const statsResponse = await fetch("/api/tournament-stats");
+        if (statsResponse.ok) {
+          const statsData = await statsResponse.json();
+          setTournamentStats(statsData);
+        } else {
+          // Fallback
+          const fallbackStats = await fetchTournamentStatsFromFifa();
+          setTournamentStats(fallbackStats);
+        }
+      } catch (statsError) {
+        console.warn("Failed to fetch tournament stats, trying fallback:", statsError);
+        try {
+          const fallbackStats = await fetchTournamentStatsFromFifa();
+          setTournamentStats(fallbackStats);
+        } catch (fallbackError) {
+          console.error("Failed to fetch fallback tournament stats:", fallbackError);
+        }
       }
 
-      const confirmed = window.confirm(message);
-      if (!confirmed) return;
-
-      applyLiveResults(updates);
-    } catch {
-      window.alert("Không thể tải kết quả từ ESPN. Thử lại sau.");
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 2000);
     } finally {
       setLoading(false);
     }
@@ -67,11 +80,11 @@ export function SyncLiveResultsButton() {
     <button
       type="button"
       data-testid="sync-live-results"
-      disabled={loading}
+      disabled={loading || isSuccess}
       onClick={handleSync}
       className="px-3 py-1.5 text-xs rounded-lg border border-emerald-900/50 text-emerald-400 hover:bg-emerald-950/50 transition-colors disabled:opacity-50"
     >
-      {loading ? "Đang tải..." : "Đồng bộ kết quả thật"}
+      {loading ? "Đang đồng bộ..." : isSuccess ? "Đã đồng bộ! ✓" : "Đồng bộ kết quả thật"}
     </button>
   );
 }

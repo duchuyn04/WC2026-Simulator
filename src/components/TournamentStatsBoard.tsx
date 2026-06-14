@@ -1,14 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import defaultStatsData from "../../data/fifa-tournament-stats.json";
 import { FlagIcon } from "./FlagIcon";
-import {
-  TOURNAMENT_STATS_CLIENT_POLL_MS,
-  TOURNAMENT_STATS_POLL_MS,
-} from "@/lib/tournament-stats-core";
 import { fetchTournamentStatsFromFifa } from "@/lib/tournament-stats-fetch";
+import { useSimulation } from "../lib/store";
 
 type StatsLoadSource = "api" | "client" | "failed";
 
@@ -92,75 +89,42 @@ function PlayerAvatar({ leader }: { leader: Leader }) {
 
 export function TournamentStatsBoard() {
   const [categoryId, setCategoryId] = useState<CategoryId>("goals");
-  const [statsData, setStatsData] = useState<any>(defaultStatsData);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const loadStats = useCallback(async (mountedRef: { current: boolean }): Promise<StatsLoadSource> => {
+  const tournamentStats = useSimulation((s) => s.tournamentStats);
+  const statsFetchedAt = useSimulation((s) => s.statsFetchedAt);
+  const setTournamentStats = useSimulation((s) => s.setTournamentStats);
+
+  const statsData = {
+    completedMatches: defaultStatsData.completedMatches,
+    fetchedAt: statsFetchedAt || defaultStatsData.fetchedAt,
+    leaderboards: tournamentStats || defaultStatsData.leaderboards,
+  };
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
     try {
       const response = await fetch("/api/tournament-stats");
       if (response.ok) {
         const data = await response.json();
         if (!data.error && data.leaderboards) {
-          if (mountedRef.current) setStatsData(data);
-          return "api";
+          setTournamentStats(data);
+          return;
         }
       }
-    } catch {
-      // Fall back to direct FIFA fetch for static export / GitHub Pages.
+    } catch (error) {
+      console.warn("Failed to fetch api stats during manual refresh:", error);
     }
 
     try {
-      const data = await fetchTournamentStatsFromFifa();
-      if (mountedRef.current) setStatsData(data);
-      return "client";
-    } catch (error) {
-      console.error(error);
-      return "failed";
+      const fallbackStats = await fetchTournamentStatsFromFifa();
+      setTournamentStats(fallbackStats);
+    } catch (fallbackError) {
+      console.error("Failed to fetch fallback stats during manual refresh:", fallbackError);
+    } finally {
+      setIsRefreshing(false);
     }
-  }, []);
-
-  useEffect(() => {
-    const mountedRef = { current: true };
-    let intervalId: number | undefined;
-    let pollSource: StatsLoadSource = "api";
-
-    const schedulePoll = () => {
-      if (intervalId !== undefined) window.clearInterval(intervalId);
-      const pollMs =
-        pollSource === "client" ? TOURNAMENT_STATS_CLIENT_POLL_MS : TOURNAMENT_STATS_POLL_MS;
-      intervalId = window.setInterval(() => {
-        if (document.visibilityState === "visible") {
-          void run();
-        }
-      }, pollMs);
-    };
-
-    const run = async () => {
-      if (!mountedRef.current) return;
-      const source = await loadStats(mountedRef);
-      if (source === "api" || source === "client") {
-        if (pollSource !== source) {
-          pollSource = source;
-          schedulePoll();
-        }
-      }
-    };
-
-    const onVisibilityChange = () => {
-      if (document.visibilityState === "visible") {
-        void run();
-      }
-    };
-
-    void run();
-    schedulePoll();
-    document.addEventListener("visibilitychange", onVisibilityChange);
-
-    return () => {
-      mountedRef.current = false;
-      if (intervalId !== undefined) window.clearInterval(intervalId);
-      document.removeEventListener("visibilitychange", onVisibilityChange);
-    };
-  }, [loadStats]);
+  };
 
   const category = CATEGORIES.find((item) => item.id === categoryId) ?? CATEGORIES[0];
   const leaderboards = statsData.leaderboards as Record<CategoryId, Leader[]>;
@@ -170,9 +134,19 @@ export function TournamentStatsBoard() {
     <section className="min-w-0 space-y-5" data-testid="tournament-stats">
       <div className="flex flex-col gap-3 rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400">
-            Dữ liệu chính thức từ FIFA
-          </p>
+          <div className="flex items-center gap-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400">
+              Dữ liệu chính thức từ FIFA
+            </p>
+            <button
+              type="button"
+              disabled={isRefreshing}
+              onClick={handleRefresh}
+              className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors disabled:opacity-50"
+            >
+              {isRefreshing ? "Đang tải..." : "Làm mới"}
+            </button>
+          </div>
           <p className="mt-1 text-sm text-zinc-400">
             Đã tổng hợp {statsData.completedMatches} trận hoàn tất
           </p>

@@ -14,9 +14,11 @@ import { getFifaRankingsMeta } from "@/lib/fifa/rankings";
 import type { TabId } from "@/lib/tabs";
 import { SyncLiveResultsButton } from "./SyncLiveResultsButton";
 import SoccerSkeleton from "./SoccerSkeleton";
+import { useLiveSync } from "../lib/use-live-sync";
 
 export function AppShell() {
   const hydrated = useStoreHydrated();
+  const { isSyncing } = useLiveSync();
   const activeTab = useSimulation((s) => s.activeTab);
   usePersistedScroll(activeTab);
   const setActiveTab = useSimulation((s) => s.setActiveTab);
@@ -81,9 +83,20 @@ export function AppShell() {
               <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-amber-500 font-semibold">
                 FIFA World Cup
               </p>
-              <h1 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-                WC 2026 Simulator
-              </h1>
+              <div className="flex items-baseline gap-2 flex-wrap">
+                <h1 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
+                  WC 2026 Simulator
+                </h1>
+                {isSyncing && (
+                  <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-emerald-400 font-medium bg-emerald-950/30 border border-emerald-500/20 px-2 py-0.5 rounded-full ml-1 align-middle self-center animate-pulse">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span>Đang cập nhật...</span>
+                  </div>
+                )}
+              </div>
               {activeTab !== "knockout" && (
                 <p className="hidden sm:block text-sm text-zinc-500 mt-0.5">
                   {activeTab === "groups" && groupInputMode === "ranks"
