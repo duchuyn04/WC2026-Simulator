@@ -298,7 +298,7 @@ describe("patchMatchPlayerStats", () => {
       }
     };
 
-    const playerStats: Record<string, any> = {};
+    const playerStats: Record<string, [string, number, boolean][]> = {};
     const espnSummary = {
       header: {
         competitions: [
@@ -324,7 +324,7 @@ describe("patchMatchPlayerStats", () => {
     patchMatchPlayerStats(liveMatch, playerStats, espnSummary, "1", "1");
 
     expect(playerStats["10"]).toBeDefined();
-    expect(playerStats["10"].find((r: any) => r[0] === "OwnGoals")[1]).toBe(1);
+    expect(playerStats["10"].find((r) => r[0] === "OwnGoals")?.[1]).toBe(1);
   });
 
   it("should deduplicate events to avoid double counting", () => {
@@ -349,7 +349,7 @@ describe("patchMatchPlayerStats", () => {
       }
     };
 
-    const playerStats: Record<string, any> = {};
+    const playerStats: Record<string, [string, number, boolean][]> = {};
     const espnSummary = {
       header: {
         competitions: [
@@ -388,7 +388,7 @@ describe("patchMatchPlayerStats", () => {
     patchMatchPlayerStats(liveMatch, playerStats, espnSummary, "1", "1");
 
     expect(playerStats["10"]).toBeDefined();
-    expect(playerStats["10"].find((r: any) => r[0] === "OwnGoals")[1]).toBe(1); // Should only count as 1 due to deduplication
+    expect(playerStats["10"].find((r) => r[0] === "OwnGoals")?.[1]).toBe(1); // Should only count as 1 due to deduplication
   });
 });
 
