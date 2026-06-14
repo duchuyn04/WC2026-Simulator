@@ -44,6 +44,9 @@ export function isLiveOrCompletedMatch(match: {
   AwayTeamScore?: number | string | null;
 }) {
   const status = Number(match?.OfficialityStatus);
+  if (status === 2) {
+    return true;
+  }
   const hasScores =
     match?.HomeTeamScore !== null &&
     match?.HomeTeamScore !== undefined &&
@@ -51,9 +54,10 @@ export function isLiveOrCompletedMatch(match: {
     match?.AwayTeamScore !== undefined &&
     Number.isFinite(Number(match?.HomeTeamScore)) &&
     Number.isFinite(Number(match?.AwayTeamScore));
-  return (status === 1 || status === 2) && hasScores;
+  return status === 1 && hasScores;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function detailsOwnGoals(rawDetails: any[]) {
   if (!Array.isArray(rawDetails)) return 0;
   const seenEvents = new Set<string>();
@@ -372,6 +376,8 @@ export function patchMatchPlayerStats(
       ? (liveMatch?.AwayTeam?.Players ?? [])
       : [];
 
+  const goalMinutesByPlayer = new Map<string, Set<string>>();
+
   const countsByName: Record<string, {
     Goals: number;
     Assists: number;
@@ -417,7 +423,19 @@ export function patchMatchPlayerStats(
         // Regular goal
         if (isOurTeam) {
           const counts = getOrCreateCountObj(athleteName);
-          counts.Goals++;
+          const rawClock = String(event.clock?.value ?? event.clock?.displayValue ?? "");
+          const clock = event.clock?.value ? String(Math.floor(Number(event.clock.value) / 60)) : rawClock.replace(/[^0-9]/g, "");
+          
+          let minutesSet = goalMinutesByPlayer.get(athleteName);
+          if (!minutesSet) {
+            minutesSet = new Set<string>();
+            goalMinutesByPlayer.set(athleteName, minutesSet);
+          }
+          
+          if (!minutesSet.has(clock)) {
+            counts.Goals++;
+            minutesSet.add(clock);
+          }
         }
       }
     }

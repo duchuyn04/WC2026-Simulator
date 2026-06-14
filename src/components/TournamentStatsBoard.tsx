@@ -7,7 +7,6 @@ import { FlagIcon } from "./FlagIcon";
 import { fetchTournamentStatsFromFifa } from "@/lib/tournament-stats-fetch";
 import { useSimulation } from "../lib/store";
 
-type StatsLoadSource = "api" | "client" | "failed";
 
 type CategoryId =
   | "goals"

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { describe, expect, it } from "vitest";
 import {
   aggregatePlayerStats,
@@ -424,14 +425,14 @@ describe("isLiveOrCompletedMatch", () => {
     ).toBe(false);
   });
 
-  it("should return false if scores are missing or null", () => {
+  it("should return true if scores are missing or null for live matches", () => {
     expect(
       isLiveOrCompletedMatch({
         OfficialityStatus: 2,
         HomeTeamScore: null,
         AwayTeamScore: null,
       })
-    ).toBe(false);
+    ).toBe(true);
   });
 });
 
@@ -513,5 +514,48 @@ describe("patchMatchPlayerStats - full event parsing", () => {
     expect(mckennieOwnGoals).toBe(1);
   });
 });
+
+describe("patchMatchPlayerStats - penalty goal deduplication", () => {
+  it("should not double count a goal when both penalty-kick and goal events occur at the same minute", () => {
+    const liveMatch = {
+      HomeTeam: {
+        IdTeam: "43971",
+        Abbreviation: "SUI",
+        Players: [
+          { IdPlayer: "393480", PlayerName: [{ Locale: "en", Description: "Breel EMBOLO" }] }
+        ]
+      },
+      AwayTeam: { Players: [] }
+    };
+    const playerStats: Record<string, any> = {};
+    const espnSummary = {
+      header: { competitions: [] },
+      keyEvents: [
+        {
+          clock: { value: 2700, displayValue: "45'" },
+          scoringPlay: true,
+          type: { type: "penalty-kick" },
+          team: { id: "660" },
+          participants: [{ athlete: { displayName: "Breel Embolo" } }]
+        },
+        {
+          clock: { value: 2700, displayValue: "45'" },
+          scoringPlay: true,
+          type: { type: "goal" },
+          team: { id: "660" },
+          participants: [{ athlete: { displayName: "Breel Embolo" } }]
+        }
+      ]
+    };
+    patchMatchPlayerStats(liveMatch, playerStats, espnSummary, "43971", "660");
+    
+    const emboloGoals = playerStats["393480"]?.find((row: any) => row[0] === "Goals")?.[1];
+    expect(emboloGoals).toBe(1); // Should be exactly 1, not 2
+    
+    const emboloPenalties = playerStats["393480"]?.find((row: any) => row[0] === "Penalties")?.[1];
+    expect(emboloPenalties).toBe(1);
+  });
+});
+
 
 
