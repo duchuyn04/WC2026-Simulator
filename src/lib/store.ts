@@ -44,6 +44,7 @@ type SimulationStore = {
   scheduleMockResults: Record<string, MatchResult>;
   tournamentStats: TournamentStatsSnapshot["leaderboards"] | null;
   statsFetchedAt: string | null;
+  completedMatches: number | null;
   setActiveTab: (tab: TabId) => void;
   setTournamentStats: (stats: TournamentStatsSnapshot | null) => void;
   setScrollPosition: (tab: ScrollableTabId, y: number) => void;
@@ -127,6 +128,7 @@ export const useSimulation = create<SimulationStore>()(
       bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
       tournamentStats: null,
       statsFetchedAt: null,
+      completedMatches: null,
 
       setActiveTab: (tab) =>
         set((s) => {
@@ -367,12 +369,14 @@ export const useSimulation = create<SimulationStore>()(
           knockoutWinners: {},
           knockoutSyncNotice: null,
           scheduleMockResults: {},
+          completedMatches: null,
         }),
 
       setTournamentStats: (stats) =>
         set({
           tournamentStats: stats?.leaderboards || null,
           statsFetchedAt: stats?.fetchedAt || null,
+          completedMatches: stats?.completedMatches || null,
         }),
 
       getGroupStandings: () => computeStandings(get().matchResults, get().manualOrder),
@@ -433,6 +437,7 @@ export const useSimulation = create<SimulationStore>()(
         bracketView: state.bracketView,
         tournamentStats: state.tournamentStats,
         statsFetchedAt: state.statsFetchedAt,
+        completedMatches: state.completedMatches,
       }),
     }
   )

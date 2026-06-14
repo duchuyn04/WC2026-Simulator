@@ -25,6 +25,7 @@ export function SyncLiveResultsButton() {
 
   const handleSync = async () => {
     setLoading(true);
+    let succeeded = false;
     try {
       // 1. Fetch and apply ESPN Scoreboard
       try {
@@ -41,6 +42,7 @@ export function SyncLiveResultsButton() {
             ESPN_TO_LOCAL,
           );
           applyLiveResults(updates);
+          succeeded = true;
         }
       } catch (error) {
         console.warn("ESPN live sync failed:", error);
@@ -52,25 +54,30 @@ export function SyncLiveResultsButton() {
         if (statsResponse.ok) {
           const statsData = await statsResponse.json();
           setTournamentStats(statsData);
+          succeeded = true;
         } else {
           // Fallback
           const fallbackStats = await fetchTournamentStatsFromFifa();
           setTournamentStats(fallbackStats);
+          succeeded = true;
         }
       } catch (statsError) {
         console.warn("Failed to fetch tournament stats, trying fallback:", statsError);
         try {
           const fallbackStats = await fetchTournamentStatsFromFifa();
           setTournamentStats(fallbackStats);
+          succeeded = true;
         } catch (fallbackError) {
           console.error("Failed to fetch fallback tournament stats:", fallbackError);
         }
       }
 
-      setIsSuccess(true);
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 2000);
+      if (succeeded) {
+        setIsSuccess(true);
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 2000);
+      }
     } finally {
       setLoading(false);
     }

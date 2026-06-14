@@ -16,6 +16,7 @@ function resetStore() {
     activeTab: "groups",
     tournamentStats: null,
     statsFetchedAt: null,
+    completedMatches: null,
   });
 }
 
@@ -103,18 +104,21 @@ describe("useSimulation store", () => {
     expect(s.knockoutWinners).toEqual({});
     expect(s.knockoutSyncNotice).toBeNull();
     expect(s.groupInputMode).toBe("scores");
+    expect(s.completedMatches).toBeNull();
   });
 
-  it("setTournamentStats sets tournamentStats and statsFetchedAt", () => {
+  it("setTournamentStats sets tournamentStats, statsFetchedAt and completedMatches", () => {
     const mockStats = {
       leaderboards: { goals: [{ player: "Messi", goals: 5 }] },
       fetchedAt: "2026-06-15T02:00:00Z",
+      completedMatches: 10,
     };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     useSimulation.getState().setTournamentStats(mockStats as any);
     const state = useSimulation.getState();
     expect(state.tournamentStats).toEqual(mockStats.leaderboards);
     expect(state.statsFetchedAt).toBe(mockStats.fetchedAt);
+    expect(state.completedMatches).toBe(mockStats.completedMatches);
   });
 
   it("setTournamentStats handles null/undefined input gracefully", () => {
@@ -122,6 +126,7 @@ describe("useSimulation store", () => {
     const state = useSimulation.getState();
     expect(state.tournamentStats).toBeNull();
     expect(state.statsFetchedAt).toBeNull();
+    expect(state.completedMatches).toBeNull();
   });
 
   it("đặt lại → thứ hạng → tỉ số không khôi phục BXH từ manualOrder", () => {

@@ -93,10 +93,11 @@ export function TournamentStatsBoard() {
 
   const tournamentStats = useSimulation((s) => s.tournamentStats);
   const statsFetchedAt = useSimulation((s) => s.statsFetchedAt);
+  const completedMatches = useSimulation((s) => s.completedMatches);
   const setTournamentStats = useSimulation((s) => s.setTournamentStats);
 
   const statsData = {
-    completedMatches: defaultStatsData.completedMatches,
+    completedMatches: completedMatches !== null ? completedMatches : defaultStatsData.completedMatches,
     fetchedAt: statsFetchedAt || defaultStatsData.fetchedAt,
     leaderboards: tournamentStats || defaultStatsData.leaderboards,
   };
@@ -104,21 +105,25 @@ export function TournamentStatsBoard() {
   const handleRefresh = async () => {
     setIsRefreshing(true);
     try {
-      const response = await fetch("/api/tournament-stats");
-      if (response.ok) {
-        const data = await response.json();
-        if (!data.error && data.leaderboards) {
-          setTournamentStats(data);
-          return;
+      let statsDataReceived = null;
+      try {
+        const response = await fetch("/api/tournament-stats");
+        if (response.ok) {
+          const data = await response.json();
+          if (!data.error && data.leaderboards) {
+            statsDataReceived = data;
+          }
         }
+      } catch (error) {
+        console.warn("Failed to fetch api stats during manual refresh:", error);
       }
-    } catch (error) {
-      console.warn("Failed to fetch api stats during manual refresh:", error);
-    }
 
-    try {
-      const fallbackStats = await fetchTournamentStatsFromFifa();
-      setTournamentStats(fallbackStats);
+      if (statsDataReceived) {
+        setTournamentStats(statsDataReceived);
+      } else {
+        const fallbackStats = await fetchTournamentStatsFromFifa();
+        setTournamentStats(fallbackStats);
+      }
     } catch (fallbackError) {
       console.error("Failed to fetch fallback stats during manual refresh:", fallbackError);
     } finally {
