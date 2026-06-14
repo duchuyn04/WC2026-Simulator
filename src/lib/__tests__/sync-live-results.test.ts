@@ -139,4 +139,49 @@ describe("buildLiveGroupResults", () => {
     expect(liveCount).toBe(0);
     expect(updates).toEqual({});
   });
+
+  it("skips matches with missing or invalid scores", () => {
+    const espnMatches1: EspnScoreboardMatch[] = [{
+      id: "missing-score",
+      date: "2026-06-11T19:00Z",
+      status: "STATUS_FIRST_HALF",
+      state: "in",
+      shortDetail: "32'",
+      displayClock: "32'",
+      homeId: "203",
+      awayId: "467",
+      // homeScore & awayScore are undefined
+    }];
+
+    const res1 = buildLiveGroupResults(
+      [groupEntry],
+      espnMatches1,
+      espnToLocal,
+    );
+    expect(res1.finishedCount).toBe(0);
+    expect(res1.liveCount).toBe(0);
+    expect(res1.updates).toEqual({});
+
+    const espnMatches2: EspnScoreboardMatch[] = [{
+      id: "invalid-score",
+      date: "2026-06-11T19:00Z",
+      status: "STATUS_FULL_TIME",
+      state: "post",
+      shortDetail: "FT",
+      displayClock: "90'",
+      homeId: "203",
+      awayId: "467",
+      homeScore: "abc",
+      awayScore: "1",
+    }];
+
+    const res2 = buildLiveGroupResults(
+      [groupEntry],
+      espnMatches2,
+      espnToLocal,
+    );
+    expect(res2.finishedCount).toBe(0);
+    expect(res2.liveCount).toBe(0);
+    expect(res2.updates).toEqual({});
+  });
 });

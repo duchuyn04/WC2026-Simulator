@@ -31,20 +31,28 @@ export function SyncLiveResultsButton() {
       const groupEntries = seed.groups.flatMap((group) =>
         group.matches.map((match) => groupMatchToEntry(match, group.letter, {})),
       );
-      const { updates, finishedCount } = buildLiveGroupResults(
+      const { updates, finishedCount, liveCount } = buildLiveGroupResults(
         groupEntries,
         espnMatches,
         ESPN_TO_LOCAL,
       );
 
-      if (finishedCount === 0) {
-        window.alert("Chưa có trận vòng bảng nào kết thúc trên ESPN.");
+      const totalCount = finishedCount + liveCount;
+      if (totalCount === 0) {
+        window.alert("Chưa có trận vòng bảng nào kết thúc hoặc đang diễn ra trên ESPN.");
         return;
       }
 
-      const confirmed = window.confirm(
-        `Áp dụng ${finishedCount} kết quả thật vào mô phỏng? Tỉ số hiện tại của các trận này sẽ bị ghi đè.`,
-      );
+      let message = "";
+      if (finishedCount > 0 && liveCount > 0) {
+        message = `Áp dụng ${totalCount} kết quả thật (${finishedCount} trận đã kết thúc, ${liveCount} trận đang diễn ra) vào mô phỏng? Tỉ số hiện tại của các trận này sẽ bị ghi đè.`;
+      } else if (finishedCount > 0) {
+        message = `Áp dụng ${finishedCount} kết quả thật (trận đã kết thúc) vào mô phỏng? Tỉ số hiện tại của các trận này sẽ bị ghi đè.`;
+      } else {
+        message = `Áp dụng ${liveCount} kết quả thật (trận đang diễn ra) vào mô phỏng? Tỉ số hiện tại của các trận này sẽ bị ghi đè.`;
+      }
+
+      const confirmed = window.confirm(message);
       if (!confirmed) return;
 
       applyLiveResults(updates);

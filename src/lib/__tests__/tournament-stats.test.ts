@@ -298,7 +298,7 @@ describe("patchMatchPlayerStats", () => {
       }
     };
 
-    const playerStats = {};
+    const playerStats: Record<string, any> = {};
     const espnSummary = {
       header: {
         competitions: [
@@ -349,7 +349,7 @@ describe("patchMatchPlayerStats", () => {
       }
     };
 
-    const playerStats = {};
+    const playerStats: Record<string, any> = {};
     const espnSummary = {
       header: {
         competitions: [
