@@ -71,14 +71,14 @@ export async function fetchTournamentStatsFromFifa(): Promise<TournamentStatsSna
           const awayScore = Number(comp?.competitors?.find((t: any) => t.homeAway === "away")?.score) || 0;
 
           let fifaGoalsTotal = 0;
-          for (const [_, playerRows] of Object.entries(completedMatch.playerStats ?? {})) {
+          for (const playerRows of Object.values(completedMatch.playerStats ?? {})) {
             const goals = (playerRows as any).find((r: any) => r[0] === "Goals")?.[1] ?? 0;
             fifaGoalsTotal += goals;
           }
 
           // Compute own goals from FIFA playerStats
           let fifaOwnGoalsTotal = 0;
-          for (const [_, playerRows] of Object.entries(completedMatch.playerStats ?? {})) {
+          for (const playerRows of Object.values(completedMatch.playerStats ?? {})) {
             const ogs = (playerRows as any).find((r: any) => r[0] === "OwnGoals")?.[1] ?? 0;
             fifaOwnGoalsTotal += ogs;
           }

@@ -75,6 +75,16 @@ export function useLiveSync() {
       }
     };
 
+    const handleVisibilityChange = () => {
+      if (typeof document !== "undefined" && document.visibilityState === "visible") {
+        performSync();
+      }
+    };
+
+    if (typeof document !== "undefined" && typeof document.addEventListener === "function") {
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+    }
+
     // Run on mount
     performSync();
 
@@ -82,6 +92,9 @@ export function useLiveSync() {
     return () => {
       active = false;
       clearInterval(interval);
+      if (typeof document !== "undefined" && typeof document.removeEventListener === "function") {
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+      }
     };
   }, [applyLiveResults, setTournamentStats]);
 
