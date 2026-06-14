@@ -74,12 +74,82 @@ for (const vp of VIEWPORTS) {
       await assertNoHorizontalOverflow(page);
     });
 
-    test("lịch thi đấu — danh sách và lọc", async ({ page }) => {
+    test("lịch thi đấu — danh sách và lọc kèm bộ lọc phụ", async ({ page }) => {
       await goToTab(page, "schedule");
       await expect(page.getByTestId("schedule-panel")).toBeVisible();
       await expect(page.getByTestId("schedule-match-1")).toBeVisible();
-      await page.getByTestId("schedule-filter-knockout").click();
+
+      // Kiểm tra sự xuất hiện của các bộ lọc phụ
+      const groupFilter = page.getByTestId("schedule-group-filter");
+      const matchdayFilter = page.getByTestId("schedule-matchday-filter");
+      await expect(groupFilter).toBeVisible();
+      await expect(matchdayFilter).toBeVisible();
+
+      // Chọn lọc Bảng A
+      await groupFilter.selectOption("A");
+      // Trận 1 (Bảng A) phải hiển thị, Trận 3 (Bảng B) phải ẩn đi
+      await expect(page.getByTestId("schedule-match-1")).toBeVisible();
+      await expect(page.getByTestId("schedule-match-3")).toBeHidden();
+
+      // Chọn tiếp Lượt trận 2
+      await matchdayFilter.selectOption("2");
+      // Trận 1 (Lượt trận 1) phải biến mất
       await expect(page.getByTestId("schedule-match-1")).toBeHidden();
+
+      // Reset lọc về Tất cả
+      await groupFilter.selectOption("all");
+      await matchdayFilter.selectOption("all");
+      await expect(page.getByTestId("schedule-match-1")).toBeVisible();
+
+      // Chuyển sang tab knockout -> bộ lọc phải biến mất
+      await page.getByTestId("schedule-filter-knockout").click();
+      await expect(groupFilter).toBeHidden();
+      await expect(matchdayFilter).toBeHidden();
+      
+      await assertNoHorizontalOverflow(page);
+    });
+
+    test("lịch thi đấu — bố cục responsive pixel-perfect cho bộ lọc", async ({ page }) => {
+      await goToTab(page, "schedule");
+      
+      const searchBox = page.locator("input[placeholder='Tìm kiếm quốc gia, SVĐ...']");
+      const groupFilter = page.getByTestId("schedule-group-filter");
+      const matchdayFilter = page.getByTestId("schedule-matchday-filter");
+      
+      await expect(searchBox).toBeVisible();
+      await expect(groupFilter).toBeVisible();
+      await expect(matchdayFilter).toBeVisible();
+      
+      const searchBoxBox = await searchBox.boundingBox();
+      const groupFilterBox = await groupFilter.boundingBox();
+      const matchdayFilterBox = await matchdayFilter.boundingBox();
+      
+      expect(searchBoxBox).not.toBeNull();
+      expect(groupFilterBox).not.toBeNull();
+      expect(matchdayFilterBox).not.toBeNull();
+      
+      if (searchBoxBox && groupFilterBox && matchdayFilterBox) {
+        if (vp.width < 768) {
+          // Trên mobile và tablet nhỏ (dưới md breakpoint 768px): xếp dọc
+          expect(groupFilterBox.y).toBeGreaterThan(searchBoxBox.y);
+          // Hai select vẫn cạnh nhau trên hàng ngang nhỏ
+          expect(matchdayFilterBox.y).toBe(groupFilterBox.y);
+          
+          // Kiểm tra chiều cao tối thiểu click target
+          expect(searchBoxBox.height).toBeGreaterThanOrEqual(36);
+          expect(groupFilterBox.height).toBeGreaterThanOrEqual(36);
+        } else {
+          // Trên desktop và tablet lớn (từ md breakpoint 768px trở lên): nằm cùng hàng ngang
+          const yDiffGroup = Math.abs(groupFilterBox.y - searchBoxBox.y);
+          const yDiffMatchday = Math.abs(matchdayFilterBox.y - searchBoxBox.y);
+          
+          expect(yDiffGroup).toBeLessThanOrEqual(2); // Thẳng hàng ngang
+          expect(yDiffMatchday).toBeLessThanOrEqual(2);
+          
+          // Lượt trận nằm bên phải bảng đấu
+          expect(matchdayFilterBox.x).toBeGreaterThan(groupFilterBox.x + groupFilterBox.width - 2);
+        }
+      }
       await assertNoHorizontalOverflow(page);
     });
 

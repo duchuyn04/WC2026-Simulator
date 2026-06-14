@@ -94,7 +94,7 @@ export function AppShell() {
                 </p>
               )}
             </div>
-            <div className="flex flex-row items-center gap-1.5 sm:flex-col sm:items-end sm:gap-1.5">
+            <div className="flex flex-wrap items-center justify-end gap-1.5 sm:flex-col sm:items-end sm:gap-1.5">
               {isSimulatorMode && (
                 <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                   <SyncLiveResultsButton />

@@ -504,11 +504,11 @@ function ScheduleMobileCard({
       </div>
 
       {/* Middle: Teams and Score */}
-      <div className="grid grid-cols-[1fr_auto] gap-4 items-center">
+      <div className="grid grid-cols-[1fr_auto] gap-4 items-center min-w-0">
         {/* Teams vertical stack */}
-        <div className="space-y-2">
+        <div className="space-y-2 min-w-0">
           {/* Home team */}
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between gap-2 min-w-0">
             <div className="flex items-center gap-2 min-w-0">
               {entry.home ? (
                 <>
@@ -526,7 +526,7 @@ function ScheduleMobileCard({
           </div>
 
           {/* Away team */}
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between gap-2 min-w-0">
             <div className="flex items-center gap-2 min-w-0">
               {entry.away ? (
                 <>
@@ -744,12 +744,12 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
             </div>
             
             {(filter === "all" || filter === "group") && (
-              <div className="flex gap-2">
+              <div className="flex gap-2 w-full md:w-auto">
                 <select
                   data-testid="schedule-group-filter"
                   value={selectedGroup}
                   onChange={(e) => setSelectedGroup(e.target.value)}
-                  className="bg-zinc-900 border border-zinc-800 rounded-md px-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
+                  className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 sm:px-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
                 >
                   <option value="all">Tất cả bảng</option>
                   {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"].map((letter) => (
@@ -761,7 +761,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                   data-testid="schedule-matchday-filter"
                   value={selectedMatchday}
                   onChange={(e) => setSelectedMatchday(e.target.value)}
-                  className="bg-zinc-900 border border-zinc-800 rounded-md px-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
+                  className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 sm:px-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
                 >
                   <option value="all">Tất cả lượt</option>
                   <option value="1">Lượt trận 1</option>

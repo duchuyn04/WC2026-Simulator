@@ -51,7 +51,7 @@ export function TeamBadge({
   }
 
   const cls = [
-    "inline-flex items-center gap-1.5 max-w-full",
+    "inline-flex items-center gap-1.5 max-w-full min-w-0",
     align === "right" ? "flex-row-reverse" : "",
     text,
     clickable ? "cursor-pointer hover:bg-white/10 rounded-lg px-1.5 py-1 -mx-1.5" : "",
