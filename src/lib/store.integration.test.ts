@@ -110,7 +110,8 @@ describe("useSimulation store", () => {
       leaderboards: { goals: [{ player: "Messi", goals: 5 }] },
       fetchedAt: "2026-06-15T02:00:00Z",
     };
-    useSimulation.getState().setTournamentStats(mockStats);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    useSimulation.getState().setTournamentStats(mockStats as any);
     const state = useSimulation.getState();
     expect(state.tournamentStats).toEqual(mockStats.leaderboards);
     expect(state.statsFetchedAt).toBe(mockStats.fetchedAt);
