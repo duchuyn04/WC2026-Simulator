@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-14T20:39:42.637Z",
-  "completedMatches": 9,
+  "fetchedAt": "2026-06-14T22:21:03.785Z",
+  "completedMatches": 10,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -62,6 +62,19 @@
         "value": 1
       },
       {
+        "playerId": "489518",
+        "name": "Crysencio SUMMERVILLE",
+        "shortName": "Crysencio SUMMERVILLE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/86e9f724-fc5f-4969-92e3-ac658dafacdd/SUMMERVILLE-Crysencio_489518",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "390670",
         "name": "Cyle LARIN",
         "shortName": "Cyle LARIN",
@@ -71,6 +84,19 @@
           "name": "Canada",
           "code": "CAN",
           "flagUrl": "/flags/CAN.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "448557",
+        "name": "Daichi KAMADA",
+        "shortName": "KAMADA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/40432f8c-1b4a-444e-b3a4-709164e708d6/KAMADA-Daichi_448557",
+        "team": {
+          "id": "43819",
+          "name": "Japan",
+          "code": "JPN",
+          "flagUrl": "/flags/JPN.png"
         },
         "value": 1
       },
@@ -112,32 +138,6 @@
           "flagUrl": "/flags/USA.png"
         },
         "value": 1
-      },
-      {
-        "playerId": "419441",
-        "name": "HOMAM AHMED",
-        "shortName": "HOMAM AHMED",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/5a182a95-d4c3-4618-838e-d374bbc576ba/HOMAM-AHMED_419441",
-        "team": {
-          "id": "43834",
-          "name": "Qatar",
-          "code": "QAT",
-          "flagUrl": "/flags/QAT.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "395084",
-        "name": "HWANG Inbeom",
-        "shortName": "HWANG Inbeom",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/70be8ce3-bc90-4585-8871-a951dabf811e/HWANG-Inbeom_395084",
-        "team": {
-          "id": "43822",
-          "name": "Korea Republic",
-          "code": "KOR",
-          "flagUrl": "/flags/KOR.png"
-        },
-        "value": 1
       }
     ],
     "assists": [
@@ -164,6 +164,19 @@
           "name": "Germany",
           "code": "GER",
           "flagUrl": "/flags/GER.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "430176",
+        "name": "Ryan GRAVENBERCH",
+        "shortName": "Ryan GRAVENBERCH",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ad5fe14f-b29c-4c20-8477-b00bf14c413f/GRAVENBERCH-Ryan_430176",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
         },
         "value": 2
       },
@@ -255,19 +268,6 @@
           "name": "Korea Republic",
           "code": "KOR",
           "flagUrl": "/flags/KOR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "441234",
-        "name": "Julio ENCISO",
-        "shortName": "Julio ENCISO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/aa8ef158-6636-46a9-a6fb-185a2f92ad95/ENCISO-Julio_441234",
-        "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
         },
         "value": 1
       }
@@ -371,6 +371,19 @@
         "value": 1
       },
       {
+        "playerId": "489518",
+        "name": "Crysencio SUMMERVILLE",
+        "shortName": "Crysencio SUMMERVILLE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/86e9f724-fc5f-4969-92e3-ac658dafacdd/SUMMERVILLE-Crysencio_489518",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "401448",
         "name": "Denis ZAKARIA",
         "shortName": "ZAKARIA",
@@ -419,19 +432,6 @@
           "name": "Scotland",
           "code": "SCO",
           "flagUrl": "/flags/SCO.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "419473",
-        "name": "JASSEM GABER",
-        "shortName": "JASSEM GABER",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/14edcf5c-c52c-4a12-8078-40032f99dbd0/JASSEM-GABER_419473",
-        "team": {
-          "id": "43834",
-          "name": "Qatar",
-          "code": "QAT",
-          "flagUrl": "/flags/QAT.png"
         },
         "value": 1
       }
@@ -488,6 +488,19 @@
           "name": "Paraguay",
           "code": "PAR",
           "flagUrl": "/flags/PAR.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "493221",
+        "name": "Miro MUHEIM",
+        "shortName": "Miro MUHEIM",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/d3efd73b-690b-417d-a645-0a45b5c00bc8/MUHEIM-Miro_493221",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
         },
         "value": 1
       }
