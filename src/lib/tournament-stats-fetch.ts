@@ -3,7 +3,7 @@ import {
   TOURNAMENT_STATS_SEASON_ID,
   buildLeaderboards,
   getDataHubId,
-  isCompletedMatch,
+  isLiveOrCompletedMatch,
   patchMatchPlayerStats,
   detailsOwnGoals,
 } from "./tournament-stats-core";
@@ -35,7 +35,7 @@ export async function fetchTournamentStatsFromFifa(): Promise<TournamentStatsSna
   }
 
   try {
-    const completedMatches = (calendar.Results ?? []).filter(isCompletedMatch);
+    const completedMatches = (calendar.Results ?? []).filter(isLiveOrCompletedMatch);
 
     let espnMatches: any[] = [];
     try {
@@ -162,9 +162,14 @@ async function fetchCompletedMatch(match: { IdMatch?: string | number }) {
     throw new Error(`Match ${match.IdMatch} has no FIFA Data Hub ID`);
   }
 
-  const playerStats = await fetchJson<Record<string, unknown>>(
-    `https://fdh-api.fifa.com/v1/stats/match/${dataHubId}/players.json`,
-  );
+  let playerStats: Record<string, unknown> = {};
+  try {
+    playerStats = await fetchJson<Record<string, unknown>>(
+      `https://fdh-api.fifa.com/v1/stats/match/${dataHubId}/players.json`,
+    );
+  } catch (error) {
+    console.warn(`Failed to fetch player stats for match ${match.IdMatch} (using empty stats):`, error);
+  }
 
   return {
     matchId: String(match.IdMatch),

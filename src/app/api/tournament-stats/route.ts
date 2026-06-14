@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import {
   buildLeaderboards,
   getDataHubId,
-  isCompletedMatch,
+  isLiveOrCompletedMatch,
   patchMatchPlayerStats,
   detailsOwnGoals,
 } from "../../../lib/tournament-stats-core";
@@ -44,9 +44,14 @@ async function fetchCompletedMatch(match: any) {
     throw new Error(`Match ${match.IdMatch} has no FIFA Data Hub ID`);
   }
 
-  const playerStats = await fetchJson(
-    `https://fdh-api.fifa.com/v1/stats/match/${dataHubId}/players.json`
-  );
+  let playerStats = {};
+  try {
+    playerStats = await fetchJson(
+      `https://fdh-api.fifa.com/v1/stats/match/${dataHubId}/players.json`
+    );
+  } catch (error) {
+    console.warn(`Failed to fetch player stats for match ${match.IdMatch} (using empty stats):`, error);
+  }
 
   return { matchId: String(match.IdMatch), liveMatch, playerStats };
 }
@@ -90,7 +95,7 @@ export async function GET() {
   }
 
   try {
-    const completedMatches = (calendar.Results ?? []).filter(isCompletedMatch);
+    const completedMatches = (calendar.Results ?? []).filter(isLiveOrCompletedMatch);
     
     // Fetch ESPN scoreboard in parallel to compare scores
     let espnMatches: any[] = [];
