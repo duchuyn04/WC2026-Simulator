@@ -41,7 +41,10 @@ type SimulationStore = {
   favoriteMatches: string[];
   favoriteTeams: string[];
   scheduleMockResults: Record<string, MatchResult>;
+  tournamentStats: any | null;
+  statsFetchedAt: string | null;
   setActiveTab: (tab: TabId) => void;
+  setTournamentStats: (stats: any) => void;
   setScrollPosition: (tab: ScrollableTabId, y: number) => void;
   setBracketView: (view: BracketView) => void;
   setGroupInputMode: (mode: GroupInputMode) => void;
@@ -121,6 +124,8 @@ export const useSimulation = create<SimulationStore>()(
       activeTab: "groups",
       scrollPositions: { groups: 0, schedule: 0, "fav-matches": 0, "fav-teams": 0, third: 0 },
       bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
+      tournamentStats: null,
+      statsFetchedAt: null,
 
       setActiveTab: (tab) =>
         set((s) => {
@@ -363,6 +368,12 @@ export const useSimulation = create<SimulationStore>()(
           scheduleMockResults: {},
         }),
 
+      setTournamentStats: (stats) =>
+        set({
+          tournamentStats: stats?.leaderboards || null,
+          statsFetchedAt: stats?.fetchedAt || null,
+        }),
+
       getGroupStandings: () => computeStandings(get().matchResults, get().manualOrder),
 
       getThirdPlace: () => {
@@ -419,6 +430,8 @@ export const useSimulation = create<SimulationStore>()(
         activeTab: state.activeTab,
         scrollPositions: state.scrollPositions,
         bracketView: state.bracketView,
+        tournamentStats: state.tournamentStats,
+        statsFetchedAt: state.statsFetchedAt,
       }),
     }
   )
