@@ -13,6 +13,7 @@ import {
 import { seed } from "./data";
 import type { ScrollableTabId, TabId } from "./tabs";
 import type { GroupStanding, MatchResult, Team } from "./fifa/types";
+import type { TournamentStatsSnapshot } from "./tournament-stats-fetch";
 
 export type KnockoutSyncNotice = {
   pending: boolean;
@@ -41,10 +42,10 @@ type SimulationStore = {
   favoriteMatches: string[];
   favoriteTeams: string[];
   scheduleMockResults: Record<string, MatchResult>;
-  tournamentStats: any | null;
+  tournamentStats: TournamentStatsSnapshot["leaderboards"] | null;
   statsFetchedAt: string | null;
   setActiveTab: (tab: TabId) => void;
-  setTournamentStats: (stats: any) => void;
+  setTournamentStats: (stats: TournamentStatsSnapshot | null) => void;
   setScrollPosition: (tab: ScrollableTabId, y: number) => void;
   setBracketView: (view: BracketView) => void;
   setGroupInputMode: (mode: GroupInputMode) => void;
