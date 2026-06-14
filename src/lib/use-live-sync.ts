@@ -1,23 +1,10 @@
 import { useEffect, useState } from "react";
-import { seed } from "./data";
-import { ESPN_TEAM_MAP } from "./espn-mapping";
-import { ESPN_SCOREBOARD_URL, parseEspnScoreboard } from "./espn-match";
-import { groupMatchToEntry } from "./schedule";
-import { buildLiveGroupResults } from "./sync-live-results";
 import { useSimulation } from "./store";
 import { fetchTournamentStatsFromFifa } from "./tournament-stats-fetch";
 
-const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce<Record<string, string>>(
-  (acc, [localId, espnId]) => {
-    acc[espnId] = localId;
-    return acc;
-  },
-  {},
-);
 
 export function useLiveSync() {
   const [isSyncing, setIsSyncing] = useState(false);
-  const applyLiveResults = useSimulation((s) => s.applyLiveResults);
   const setTournamentStats = useSimulation((s) => s.setTournamentStats);
 
   useEffect(() => {
@@ -28,29 +15,8 @@ export function useLiveSync() {
 
       if (active) setIsSyncing(true);
       try {
-        // 1. Fetch and apply ESPN Scoreboard
-        try {
-          const response = await fetch(ESPN_SCOREBOARD_URL);
-          if (response.ok) {
-            const data = await response.json();
-            const espnMatches = parseEspnScoreboard(data);
-            const groupEntries = seed.groups.flatMap((group) =>
-              group.matches.map((match, idx) =>
-                groupMatchToEntry(match, group.letter, {}, idx)
-              )
-            );
-            const { updates } = buildLiveGroupResults(
-              groupEntries,
-              espnMatches,
-              ESPN_TO_LOCAL
-            );
-            if (active) applyLiveResults(updates);
-          }
-        } catch (error) {
-          console.warn("Background sync: Failed to fetch ESPN scoreboard", error);
-        }
-
-        // 2. Fetch tournament stats
+        // Chỉ tự động cập nhật thống kê cầu thủ (vua phá lưới, kiến tạo...).
+        // BXH mô phỏng chỉ được cập nhật khi người dùng bấm nút "Đồng bộ kết quả thật".
         try {
           const statsResponse = await fetch("/api/tournament-stats");
           if (statsResponse.ok) {
@@ -96,7 +62,7 @@ export function useLiveSync() {
         document.removeEventListener("visibilitychange", handleVisibilityChange);
       }
     };
-  }, [applyLiveResults, setTournamentStats]);
+  }, [setTournamentStats]);
 
   return { isSyncing };
 }
