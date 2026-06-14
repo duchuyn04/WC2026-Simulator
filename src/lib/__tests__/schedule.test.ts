@@ -75,3 +75,19 @@ describe("groupScheduleByDate", () => {
     expect(groups[0]?.dateLabel).toBeTruthy();
   });
 });
+
+describe("matchday calculation", () => {
+  it("maps group matches to correct matchday", () => {
+    const entries = buildScheduleEntries({}, []);
+    const groupAEntries = entries.filter((e) => e.kind === "group" && e.groupLetter === "A");
+    
+    const sortedA = [...groupAEntries].sort((a, b) => a.matchNumber - b.matchNumber);
+    
+    expect(sortedA[0]?.matchday).toBe(1);
+    expect(sortedA[1]?.matchday).toBe(1);
+    expect(sortedA[2]?.matchday).toBe(2);
+    expect(sortedA[3]?.matchday).toBe(2);
+    expect(sortedA[4]?.matchday).toBe(3);
+    expect(sortedA[5]?.matchday).toBe(3);
+  });
+});
