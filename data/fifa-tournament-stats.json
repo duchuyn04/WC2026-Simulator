@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-14T06:04:43.411Z",
-  "completedMatches": 7,
+  "fetchedAt": "2026-06-14T09:55:07.525Z",
+  "completedMatches": 8,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -32,6 +32,19 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "430452",
+        "name": "Connor METCALFE",
+        "shortName": "Connor METCALFE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a539f793-3d95-46b8-805e-67156152ac8b/METCALFE-Connor_430452",
+        "team": {
+          "id": "43976",
+          "name": "Australia",
+          "code": "AUS",
+          "flagUrl": "/flags/AUS.png"
         },
         "value": 1
       },
@@ -123,19 +136,6 @@
           "name": "Bosnia and Herzegovina",
           "code": "BIH",
           "flagUrl": "/flags/BIH.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "429157",
-        "name": "Julian QUINONES",
-        "shortName": "Julian QUINONES",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/ea06becb-97b2-4f89-8464-5e0854cb7f81/QUINONES-Julian_429157",
-        "team": {
-          "id": "43911",
-          "name": "Mexico",
-          "code": "MEX",
-          "flagUrl": "/flags/MEX.png"
         },
         "value": 1
       }
@@ -259,15 +259,15 @@
         "value": 1
       },
       {
-        "playerId": "493970",
-        "name": "Promise DAVID",
-        "shortName": "Promise DAVID",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/5e47f75f-c26f-4a7b-81e5-7957cc1027eb/DAVID-Promise_493970",
+        "playerId": "498421",
+        "name": "Paul OKON-ENGSTLER",
+        "shortName": "Paul OKON-ENGSTLER",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/c010f6a9-53af-4d79-b16d-f25b96670225/OKON-ENGSTLER-Paul_498421",
         "team": {
-          "id": "43899",
-          "name": "Canada",
-          "code": "CAN",
-          "flagUrl": "/flags/CAN.png"
+          "id": "43976",
+          "name": "Australia",
+          "code": "AUS",
+          "flagUrl": "/flags/AUS.png"
         },
         "value": 1
       }
