@@ -120,3 +120,21 @@ Thanh điều khiển mới sẽ kết hợp Tìm kiếm và Dropdowns:
 ### 3.2 E2E Test (Playwright)
 - Kiểm tra tính tương thích hiển thị của dropdowns khi chuyển đổi giữa các tab.
 - Mô phỏng hành động click chọn bảng đấu và lượt trận cụ thể, kiểm tra xem số lượng trận đấu hiển thị trên màn hình có thay đổi tương ứng không.
+
+### 3.3 Kiểm thử Responsive & Độ phân giải (Playwright E2E Responsive Testing)
+Thiết lập các ca kiểm thử E2E sử dụng Playwright để kiểm tra giao diện hiển thị chính xác ở các mốc màn hình (Viewports) cụ thể, đảm bảo các phần tử không bị xô lệch, chồng lấn hay vỡ giao diện:
+
+- **Desktop (1280px x 800px trở lên)**:
+  - Đảm bảo ô Tìm kiếm và 2 Dropdown (Bảng đấu, Lượt trận) hiển thị trên cùng **1 hàng ngang** (`flex-row`).
+  - Kiểm tra bounding box của 2 Dropdown nằm thẳng hàng ngang với ô Tìm kiếm (cùng tọa độ Y ± 2px).
+- **Tablet (768px x 1024px)**:
+  - Kiểm tra xem giao diện có hiển thị thẳng hàng hay tự động chuyển sang hàng mới tùy thuộc vào không gian chiều ngang.
+  - Đảm bảo các dropdown không bị che khuất hoặc tràn viền màn hình.
+- **Mobile (375px x 667px và 390px x 844px)**:
+  - Đảm bảo ô Tìm kiếm và 2 Dropdown tự động chuyển thành **cột dọc** (`flex-col`), mỗi phần tử chiếm full-width màn hình hoặc căn đều cân đối.
+  - Kiểm tra khoảng cách đứng (gap) giữa các phần tử để đảm bảo không dính liền nhau (sử dụng Tailwind gap class, chiều cao và khoảng cách có thể đo bằng cách kiểm tra bounding box của Playwright).
+- **Kiểm thử chi tiết vị trí (Pixel-level Assertion)**:
+  - Sử dụng API `boundingBox()` của Playwright để khẳng định vị trí tương đối giữa các phần tử ở mỗi viewport:
+    - Bảng đấu và Lượt trận không được chồng chéo (tọa độ X của Lượt trận > tọa độ X + chiều rộng của Bảng đấu trên desktop).
+    - Các ô chọn phải bấm được (click target >= 44px trên mobile để đảm bảo tính khả dụng cao).
+
