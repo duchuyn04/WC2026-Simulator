@@ -504,11 +504,11 @@ function ScheduleMobileCard({
       </div>
 
       {/* Middle: Teams and Score */}
-      <div className="grid grid-cols-[1fr_auto] gap-4 items-center">
+      <div className="grid grid-cols-[1fr_auto] gap-4 items-center min-w-0">
         {/* Teams vertical stack */}
-        <div className="space-y-2">
+        <div className="space-y-2 min-w-0">
           {/* Home team */}
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between gap-2 min-w-0">
             <div className="flex items-center gap-2 min-w-0">
               {entry.home ? (
                 <>
@@ -526,7 +526,7 @@ function ScheduleMobileCard({
           </div>
 
           {/* Away team */}
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between gap-2 min-w-0">
             <div className="flex items-center gap-2 min-w-0">
               {entry.away ? (
                 <>
@@ -616,6 +616,8 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   const espnMatches = useEspnLiveScores();
   const [selectedFilter, setFilter] = useState<SchedulePanelFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedGroup, setSelectedGroup] = useState<string>("all");
+  const [selectedMatchday, setSelectedMatchday] = useState<string>("all");
   const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
   const [selectedMatchDate, setSelectedMatchDate] = useState<string | null>(null);
   const [h2hTeams, setH2hTeams] = useState<{ home: { id: string; name: string; flagUrl: string }; away: { id: string; name: string; flagUrl: string } } | null>(null);
@@ -667,6 +669,16 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
       );
     }
 
+    // Bộ lọc Bảng đấu (chỉ lọc cho các trận vòng bảng khi ở tab phù hợp)
+    if (selectedGroup !== "all" && (filter === "all" || filter === "group")) {
+      list = list.filter((e) => e.kind === "group" && e.groupLetter === selectedGroup);
+    }
+
+    // Bộ lọc Lượt trận (chỉ lọc cho các trận vòng bảng khi ở tab phù hợp)
+    if (selectedMatchday !== "all" && (filter === "all" || filter === "group")) {
+      list = list.filter((e) => e.kind === "group" && e.matchday === Number(selectedMatchday));
+    }
+
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       list = list.filter(
@@ -679,7 +691,7 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
     }
     
     return list;
-  }, [allEntries, filter, filterMode, favoriteMatches, favoriteTeams, searchQuery]);
+  }, [allEntries, filter, filterMode, favoriteMatches, favoriteTeams, searchQuery, selectedGroup, selectedMatchday]);
 
   const dateGroups = useMemo(() => groupScheduleByDate(filtered), [filtered]);
 
@@ -717,17 +729,47 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
         </div>
 
         {filter !== "espn-standings" && filter !== "stats" && (
-          <div className="relative">
-            <svg className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Tìm kiếm quốc gia, SVĐ..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full md:w-64 bg-zinc-900 border border-zinc-800 rounded-md pl-9 pr-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
-            />
+          <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center">
+            <div className="relative flex-1">
+              <svg className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Tìm kiếm quốc gia, SVĐ..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-9 pr-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
+              />
+            </div>
+            
+            {(filter === "all" || filter === "group") && (
+              <div className="flex gap-2 w-full md:w-auto">
+                <select
+                  data-testid="schedule-group-filter"
+                  value={selectedGroup}
+                  onChange={(e) => setSelectedGroup(e.target.value)}
+                  className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 sm:px-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
+                >
+                  <option value="all">Tất cả bảng</option>
+                  {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"].map((letter) => (
+                    <option key={letter} value={letter}>Bảng {letter}</option>
+                  ))}
+                </select>
+
+                <select
+                  data-testid="schedule-matchday-filter"
+                  value={selectedMatchday}
+                  onChange={(e) => setSelectedMatchday(e.target.value)}
+                  className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 sm:px-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
+                >
+                  <option value="all">Tất cả lượt</option>
+                  <option value="1">Lượt trận 1</option>
+                  <option value="2">Lượt trận 2</option>
+                  <option value="3">Lượt trận 3</option>
+                </select>
+              </div>
+            )}
           </div>
         )}
       </div>

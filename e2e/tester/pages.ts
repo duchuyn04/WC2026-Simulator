@@ -20,8 +20,11 @@ export class TrangVongBang {
   }
 
   async moChiTiet(bang: string) {
-    await this.page.getByTestId(`group-detail-btn-${bang}`).click();
-    await this.page.getByTestId(`group-detail-modal-${bang}`).waitFor();
+    const modal = this.page.getByTestId(`group-detail-modal-${bang}`);
+    if (await modal.isHidden()) {
+      await this.page.getByTestId(`group-detail-btn-${bang}`).click();
+      await modal.waitFor();
+    }
   }
 
   async nhapTiSo(bang: string, tran: number, nha: number, khach: number) {

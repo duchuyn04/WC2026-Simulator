@@ -29,7 +29,7 @@ export function SyncLiveResultsButton() {
       const data = await response.json();
       const espnMatches = parseEspnScoreboard(data);
       const groupEntries = seed.groups.flatMap((group) =>
-        group.matches.map((match) => groupMatchToEntry(match, group.letter, {})),
+        group.matches.map((match, idx) => groupMatchToEntry(match, group.letter, {}, idx)),
       );
       const { updates, finishedCount, liveCount } = buildLiveGroupResults(
         groupEntries,
