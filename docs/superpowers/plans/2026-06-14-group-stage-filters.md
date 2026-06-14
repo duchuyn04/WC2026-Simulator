@@ -95,7 +95,7 @@
 **Files:**
 - Modify: `src/components/SchedulePanel.tsx`
 
-- [ ] **Step 1: Khai báo state lưu trữ tùy chọn lọc mới**
+- [x] **Step 1: Khai báo state lưu trữ tùy chọn lọc mới**
   Tại file `src/components/SchedulePanel.tsx`, thêm 2 state vào component `SchedulePanel`:
   ```typescript
   const [selectedGroup, setSelectedGroup] = useState<string>("all");
@@ -103,7 +103,7 @@
   ```
   *(Đảm bảo thêm `useState` vào khối React import ở đầu file nếu chưa có)*
 
-- [ ] **Step 2: Thêm các phần tử dropdown vào cấu trúc JSX**
+- [x] **Step 2: Thêm các phần tử dropdown vào cấu trúc JSX**
   Chèn các dropdown bên cạnh ô Tìm kiếm. Tìm đoạn code input tìm kiếm:
   ```tsx
   {filter !== "espn-standings" && filter !== "stats" && (
@@ -161,7 +161,7 @@
   )}
   ```
 
-- [ ] **Step 3: Cập nhật logic lọc trận đấu trong useMemo**
+- [x] **Step 3: Cập nhật logic lọc trận đấu trong useMemo**
   Cập nhật logic `filtered` memo ở trong component `SchedulePanel`:
   ```typescript
   const filtered = useMemo(() => {
@@ -203,11 +203,11 @@
   }, [allEntries, filter, filterMode, favoriteMatches, favoriteTeams, searchQuery, selectedGroup, selectedMatchday]);
   ```
 
-- [ ] **Step 4: Chạy test unit hiện tại để đảm bảo không lỗi**
+- [x] **Step 4: Chạy test unit hiện tại để đảm bảo không lỗi**
   Run: `npx vitest run`
   Expected: PASS
 
-- [ ] **Step 5: Thực hiện commit**
+- [x] **Step 5: Thực hiện commit**
   ```bash
   git add src/components/SchedulePanel.tsx
   git commit -m "feat: implement group and matchday filter selects in SchedulePanel UI"
