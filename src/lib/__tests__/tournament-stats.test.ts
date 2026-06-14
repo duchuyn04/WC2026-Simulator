@@ -541,7 +541,7 @@ describe("patchMatchPlayerStats - penalty goal deduplication", () => {
         {
           clock: { value: 2700, displayValue: "45'" },
           scoringPlay: true,
-          type: { type: "goal" },
+          type: { type: "goal", text: "Penalty" },
           team: { id: "660" },
           participants: [{ athlete: { displayName: "Breel Embolo" } }]
         }

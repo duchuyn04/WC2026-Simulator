@@ -353,7 +353,7 @@ export function patchMatchPlayerStats(
       eventType = "redCard";
     } else if (event.type?.type === "assist") {
       eventType = "assist";
-    } else if (event.penaltyKick === true || event.type?.type === "penalty-kick" || event.type?.type === "penalty-goal") {
+    } else if (event.penaltyKick === true || event.type?.type === "penalty-kick" || event.type?.type === "penalty-goal" || event.type?.text?.toLowerCase().includes("penalty")) {
       eventType = "penalty";
     } else if (event.scoringPlay === true) {
       eventType = isOwnGoal ? "ownGoal" : "goal";
@@ -377,6 +377,7 @@ export function patchMatchPlayerStats(
       : [];
 
   const goalMinutesByPlayer = new Map<string, Set<string>>();
+  const penaltyMinutesByPlayer = new Map<string, Set<string>>();
 
   const countsByName: Record<string, {
     Goals: number;
@@ -465,9 +466,21 @@ export function patchMatchPlayerStats(
     const isPenalty = event.penaltyKick === true || event.type?.type === "penalty-kick" || event.type?.type === "penalty-goal" || event.type?.text?.toLowerCase().includes("penalty");
     if (isPenalty && isOurTeam) {
       const counts = getOrCreateCountObj(athleteName);
-      counts.Penalties++;
-      if (event.scoringPlay && !isOwnGoal) {
-        counts.PenaltiesScored++;
+      const rawClock = String(event.clock?.value ?? event.clock?.displayValue ?? "");
+      const clock = event.clock?.value ? String(Math.floor(Number(event.clock.value) / 60)) : rawClock.replace(/[^0-9]/g, "");
+      
+      let minutesSet = penaltyMinutesByPlayer.get(athleteName);
+      if (!minutesSet) {
+        minutesSet = new Set<string>();
+        penaltyMinutesByPlayer.set(athleteName, minutesSet);
+      }
+      
+      if (!minutesSet.has(clock)) {
+        counts.Penalties++;
+        if (event.scoringPlay && !isOwnGoal) {
+          counts.PenaltiesScored++;
+        }
+        minutesSet.add(clock);
       }
     }
   }
