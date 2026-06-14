@@ -11,17 +11,16 @@ vi.mock("react", () => {
 // Import React hooks and target modules
 import { useState, useEffect } from "react";
 import { useLiveSync } from "../use-live-sync";
-import { useSimulation } from "../store";
-import { fetchTournamentStatsFromFifa } from "../tournament-stats-fetch";
+import { fetchTournamentStatsFromFifa, type TournamentStatsSnapshot } from "../tournament-stats-fetch";
 
 if (typeof globalThis.document === "undefined") {
-  (globalThis as any).document = {
+  (globalThis as unknown as Record<string, unknown>).document = {
     visibilityState: "visible",
   };
 }
 
 const mockFetch = vi.fn();
-(globalThis as any).fetch = mockFetch;
+(globalThis as unknown as Record<string, unknown>).fetch = mockFetch;
 
 const mockApplyLiveResults = vi.fn();
 const mockSetTournamentStats = vi.fn();
@@ -41,19 +40,23 @@ vi.mock("../tournament-stats-fetch", () => ({
 }));
 
 describe("useLiveSync", () => {
-  let mockSetState: any;
-  let effectCallback: (() => any) | null = null;
+  let mockSetState: ReturnType<typeof vi.fn>;
+  let effectCallback: (() => void | (() => void)) | null = null;
 
   beforeEach(() => {
     vi.clearAllMocks();
-    (globalThis as any).document.visibilityState = "visible";
+    (globalThis as unknown as Record<string, unknown>).document = {
+      visibilityState: "visible",
+    };
 
     mockSetState = vi.fn();
-    vi.mocked(useState as any).mockImplementation((init: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    vi.mocked(useState as any).mockImplementation((init: unknown) => {
       return [init, mockSetState];
     });
 
     effectCallback = null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     vi.mocked(useEffect).mockImplementation((cb: any) => {
       effectCallback = cb;
     });
@@ -74,7 +77,7 @@ describe("useLiveSync", () => {
       json: () => Promise.resolve({ events: [] }),
     });
 
-    const spySetInterval = vi.spyOn(globalThis, "setInterval").mockImplementation(() => 123 as any);
+    const spySetInterval = vi.spyOn(globalThis, "setInterval").mockImplementation(() => 123 as unknown as NodeJS.Timeout);
     const spyClearInterval = vi.spyOn(globalThis, "clearInterval").mockImplementation(() => {});
 
     // Execute effect callback
@@ -87,11 +90,13 @@ describe("useLiveSync", () => {
     expect(spySetInterval).toHaveBeenCalledWith(expect.any(Function), 60000);
 
     if (cleanup) cleanup();
-    expect(spyClearInterval).toHaveBeenCalledWith(123);
+    expect(spyClearInterval).toHaveBeenCalledWith(123 as unknown as NodeJS.Timeout);
   });
 
   it("should not perform sync if document is hidden", async () => {
-    (globalThis as any).document.visibilityState = "hidden";
+    (globalThis as unknown as Record<string, unknown>).document = {
+      visibilityState: "hidden",
+    };
     mockFetch.mockReset();
 
     useLiveSync();
@@ -119,7 +124,7 @@ describe("useLiveSync", () => {
     });
 
     const mockFallbackStats = { leaderboards: { goals: [] }, fetchedAt: "fallback-time" };
-    vi.mocked(fetchTournamentStatsFromFifa).mockResolvedValue(mockFallbackStats as any);
+    vi.mocked(fetchTournamentStatsFromFifa).mockResolvedValue(mockFallbackStats as unknown as TournamentStatsSnapshot);
 
     useLiveSync();
     

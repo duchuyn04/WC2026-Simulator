@@ -21,10 +21,12 @@ export function useLiveSync() {
   const setTournamentStats = useSimulation((s) => s.setTournamentStats);
 
   useEffect(() => {
+    let active = true;
+
     const performSync = async () => {
       if (document.visibilityState !== "visible") return;
 
-      setIsSyncing(true);
+      if (active) setIsSyncing(true);
       try {
         // 1. Fetch and apply ESPN Scoreboard
         try {
@@ -42,7 +44,7 @@ export function useLiveSync() {
               espnMatches,
               ESPN_TO_LOCAL
             );
-            applyLiveResults(updates);
+            if (active) applyLiveResults(updates);
           }
         } catch (error) {
           console.warn("Background sync: Failed to fetch ESPN scoreboard", error);
@@ -53,23 +55,23 @@ export function useLiveSync() {
           const statsResponse = await fetch("/api/tournament-stats");
           if (statsResponse.ok) {
             const statsData = await statsResponse.json();
-            setTournamentStats(statsData);
+            if (active) setTournamentStats(statsData);
           } else {
             // Fallback
             const fallbackStats = await fetchTournamentStatsFromFifa();
-            setTournamentStats(fallbackStats);
+            if (active) setTournamentStats(fallbackStats);
           }
-        } catch (error) {
+        } catch {
           // Fallback
           try {
             const fallbackStats = await fetchTournamentStatsFromFifa();
-            setTournamentStats(fallbackStats);
+            if (active) setTournamentStats(fallbackStats);
           } catch (fallbackError) {
             console.warn("Background sync: Failed to fetch fallback tournament stats", fallbackError);
           }
         }
       } finally {
-        setIsSyncing(false);
+        if (active) setIsSyncing(false);
       }
     };
 
@@ -77,7 +79,10 @@ export function useLiveSync() {
     performSync();
 
     const interval = setInterval(performSync, 60000);
-    return () => clearInterval(interval);
+    return () => {
+      active = false;
+      clearInterval(interval);
+    };
   }, [applyLiveResults, setTournamentStats]);
 
   return { isSyncing };

@@ -318,9 +318,13 @@ export function matchesPlayerName(nameA: string, nameB: string): boolean {
   return false;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function patchMatchPlayerStats(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   liveMatch: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   playerStats: Record<string, any>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   espnSummary: any,
   fifaTeamId: string,
   espnTeamId: string
@@ -453,7 +457,11 @@ export function patchMatchPlayerStats(
 
   for (const [espnName, counts] of Object.entries(countsByName)) {
     // Match player
-    const matchedPlayer = teamPlayers.find((p: any) => {
+    const matchedPlayer = (teamPlayers as Array<{
+      PlayerName?: Array<{ Locale?: string; Description?: string }>;
+      ShortName?: Array<{ Locale?: string; Description?: string }>;
+      IdPlayer?: string | number;
+    }>).find((p) => {
       const pName = p.PlayerName?.[0]?.Description ?? p.ShortName?.[0]?.Description ?? "";
       return matchesPlayerName(espnName, pName);
     });
