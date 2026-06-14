@@ -16,7 +16,7 @@
 - Modify: `src/lib/schedule.ts`
 - Test: `src/lib/__tests__/schedule.test.ts`
 
-- [ ] **Step 1: Viết test unit kiểm tra tính toán lượt trận**
+- [x] **Step 1: Viết test unit kiểm tra tính toán lượt trận**
   Thêm khối mô tả kiểm thử vào `src/lib/__tests__/schedule.test.ts`:
   ```typescript
   describe("matchday calculation", () => {
@@ -37,11 +37,11 @@
   });
   ```
 
-- [ ] **Step 2: Chạy test unit để đảm bảo test thất bại**
+- [x] **Step 2: Chạy test unit để đảm bảo test thất bại**
   Run: `npx vitest run src/lib/__tests__/schedule.test.ts`
   Expected: FAIL (lỗi compile do thiếu thuộc tính `matchday` hoặc property undefined)
 
-- [ ] **Step 3: Khai báo thuộc tính và cập nhật logic ánh xạ**
+- [x] **Step 3: Khai báo thuộc tính và cập nhật logic ánh xạ**
   Cập nhật file `src/lib/schedule.ts`:
   - Thêm `matchday?: number;` vào kiểu `ScheduleEntry`.
   - Cập nhật hàm `groupMatchToEntry` để chấp nhận tham số `matchIndex` và tính `matchday`:
@@ -78,11 +78,11 @@
     );
     ```
 
-- [ ] **Step 4: Chạy test unit để xác minh kiểm thử thành công**
+- [x] **Step 4: Chạy test unit để xác minh kiểm thử thành công**
   Run: `npx vitest run src/lib/__tests__/schedule.test.ts`
   Expected: PASS
 
-- [ ] **Step 5: Thực hiện commit**
+- [x] **Step 5: Thực hiện commit**
   ```bash
   git add src/lib/schedule.ts src/lib/__tests__/schedule.test.ts
   git commit -m "feat: add matchday property and calculation to ScheduleEntry"
