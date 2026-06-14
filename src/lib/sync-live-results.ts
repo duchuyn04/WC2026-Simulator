@@ -1,4 +1,4 @@
-import { findEspnMatch, type EspnScoreboardMatch } from "./espn-match";
+import { findEspnMatch, hasEspnMatchScore, type EspnScoreboardMatch } from "./espn-match";
 import type { MatchResult } from "./fifa/types";
 import type { ScheduleEntry } from "./schedule";
 
@@ -12,7 +12,7 @@ function espnScoresToResult(
   espn: EspnScoreboardMatch,
   espnToLocal: Record<string, string>,
 ): MatchResult | null {
-  if (espn.state !== "post") return null;
+  if (!hasEspnMatchScore(espn)) return null;
 
   const espnHomeScore = parseEspnScore(espn.homeScore);
   const espnAwayScore = parseEspnScore(espn.awayScore);
@@ -39,9 +39,10 @@ export function buildLiveGroupResults(
   groupEntries: ScheduleEntry[],
   espnMatches: EspnScoreboardMatch[],
   espnToLocal: Record<string, string>,
-): { updates: Record<string, MatchResult>; finishedCount: number } {
+): { updates: Record<string, MatchResult>; finishedCount: number; liveCount: number } {
   const updates: Record<string, MatchResult> = {};
   let finishedCount = 0;
+  let liveCount = 0;
 
   for (const entry of groupEntries) {
     if (entry.kind !== "group") continue;
@@ -53,8 +54,12 @@ export function buildLiveGroupResults(
     if (!result) continue;
 
     updates[entry.id] = result;
-    finishedCount += 1;
+    if (espn.state === "post") {
+      finishedCount += 1;
+    } else if (espn.state === "in") {
+      liveCount += 1;
+    }
   }
 
-  return { updates, finishedCount };
+  return { updates, finishedCount, liveCount };
 }

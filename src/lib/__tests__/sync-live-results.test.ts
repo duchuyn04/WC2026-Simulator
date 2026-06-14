@@ -36,13 +36,14 @@ describe("buildLiveGroupResults", () => {
       awayScore: "0",
     }];
 
-    const { updates, finishedCount } = buildLiveGroupResults(
+    const { updates, finishedCount, liveCount } = buildLiveGroupResults(
       [groupEntry],
       espnMatches,
       espnToLocal,
     );
 
     expect(finishedCount).toBe(1);
+    expect(liveCount).toBe(0);
     expect(updates["400021443"]).toEqual({ home: 2, away: 0 });
   });
 
@@ -60,16 +61,18 @@ describe("buildLiveGroupResults", () => {
       awayScore: "3",
     }];
 
-    const { updates } = buildLiveGroupResults(
+    const { updates, finishedCount, liveCount } = buildLiveGroupResults(
       [groupEntry],
       espnMatches,
       espnToLocal,
     );
 
+    expect(finishedCount).toBe(1);
+    expect(liveCount).toBe(0);
     expect(updates["400021443"]).toEqual({ home: 3, away: 1 });
   });
 
-  it("ignores live and scheduled matches", () => {
+  it("includes live matches and ignores scheduled matches", () => {
     const espnMatches: EspnScoreboardMatch[] = [
       {
         id: "live",
@@ -95,14 +98,15 @@ describe("buildLiveGroupResults", () => {
       },
     ];
 
-    const { updates, finishedCount } = buildLiveGroupResults(
+    const { updates, finishedCount, liveCount } = buildLiveGroupResults(
       [groupEntry],
       espnMatches,
       espnToLocal,
     );
 
     expect(finishedCount).toBe(0);
-    expect(updates).toEqual({});
+    expect(liveCount).toBe(1);
+    expect(updates["400021443"]).toEqual({ home: 1, away: 0 });
   });
 
   it("skips knockout schedule entries", () => {
@@ -125,13 +129,14 @@ describe("buildLiveGroupResults", () => {
       awayScore: "0",
     }];
 
-    const { updates, finishedCount } = buildLiveGroupResults(
+    const { updates, finishedCount, liveCount } = buildLiveGroupResults(
       [knockoutEntry],
       espnMatches,
       espnToLocal,
     );
 
     expect(finishedCount).toBe(0);
+    expect(liveCount).toBe(0);
     expect(updates).toEqual({});
   });
 });
