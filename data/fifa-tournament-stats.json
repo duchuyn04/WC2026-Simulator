@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-13T22:17:43.627Z",
-  "completedMatches": 5,
+  "fetchedAt": "2026-06-14T06:04:43.411Z",
+  "completedMatches": 7,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -88,6 +88,32 @@
         "value": 1
       },
       {
+        "playerId": "448598",
+        "name": "Ismael SAIBARI",
+        "shortName": "SAIBARI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/250526c6-26b5-4425-8a21-231c7952e34d/SAIBARI-Ismael_448598",
+        "team": {
+          "id": "43872",
+          "name": "Morocco",
+          "code": "MAR",
+          "flagUrl": "/flags/MAR.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "401334",
+        "name": "John McGinn",
+        "shortName": "John McGINN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/af6ceadd-a14f-47c0-9f30-fd85d71a94cd/McGINN-John_401334",
+        "team": {
+          "id": "43967",
+          "name": "Scotland",
+          "code": "SCO",
+          "flagUrl": "/flags/SCO.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "519954",
         "name": "Jovo LUKIC",
         "shortName": "Jovo LUKIC",
@@ -112,32 +138,6 @@
           "flagUrl": "/flags/MEX.png"
         },
         "value": 1
-      },
-      {
-        "playerId": "441170",
-        "name": "Ladislav KREJCI",
-        "shortName": "Ladislav KREJCI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/04ca9e4e-8ab3-458e-a689-2ac49094fb23/KREJCI-Ladislav_441170",
-        "team": {
-          "id": "43995",
-          "name": "Czechia",
-          "code": "CZE",
-          "flagUrl": "/flags/CZE.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "495046",
-        "name": "MAURICIO",
-        "shortName": "MAURICIO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/20e6d2dd-4d4a-418b-ae0f-0cbcb299d61b/MAURICIO_495046",
-        "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
-        },
-        "value": 1
       }
     ],
     "assists": [
@@ -151,6 +151,32 @@
           "name": "USA",
           "code": "USA",
           "flagUrl": "/flags/USA.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "430740",
+        "name": "Brahim DIAZ",
+        "shortName": "BRAHIM",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b05c2233-cb0a-4abc-9413-e56ad25f0899/DIAZ-Brahim_430740",
+        "team": {
+          "id": "43872",
+          "name": "Morocco",
+          "code": "MAR",
+          "flagUrl": "/flags/MAR.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "430605",
+        "name": "BRUNO GUIMARAES",
+        "shortName": "BRUNO GUIMARAES",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/0215cb23-c389-4c5a-9bb0-c7044ae7059a/BRUNO-GUIMARAES_430605",
+        "team": {
+          "id": "43924",
+          "name": "Brazil",
+          "code": "BRA",
+          "flagUrl": "/flags/BRA.png"
         },
         "value": 1
       },
@@ -244,32 +270,6 @@
           "flagUrl": "/flags/CAN.png"
         },
         "value": 1
-      },
-      {
-        "playerId": "403585",
-        "name": "Roberto ALVARADO",
-        "shortName": "Roberto ALVARADO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b1a8a14a-2a27-4524-a6ed-679aca39d35d/ALVARADO-Roberto_403585",
-        "team": {
-          "id": "43911",
-          "name": "Mexico",
-          "code": "MEX",
-          "flagUrl": "/flags/MEX.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "376230",
-        "name": "Sead KOLASINAC",
-        "shortName": "Sead KOLASINAC",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/bed62578-6b40-402e-8c63-94159988fe95/KOLASINAC-Sead_376230",
-        "team": {
-          "id": "44037",
-          "name": "Bosnia and Herzegovina",
-          "code": "BIH",
-          "flagUrl": "/flags/BIH.png"
-        },
-        "value": 1
       }
     ],
     "penalties": [
@@ -290,6 +290,19 @@
       }
     ],
     "yellowCards": [
+      {
+        "playerId": "442428",
+        "name": "Aaron HICKEY",
+        "shortName": "Aaron HICKEY",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/36ab73b9-b07c-48d7-a2c2-da34b149b0d2/HICKEY-Aaron_442428",
+        "team": {
+          "id": "43967",
+          "name": "Scotland",
+          "code": "SCO",
+          "flagUrl": "/flags/SCO.png"
+        },
+        "value": 1
+      },
       {
         "playerId": "485802",
         "name": "Alex ARCE",
@@ -326,6 +339,19 @@
           "name": "Mexico",
           "code": "MEX",
           "flagUrl": "/flags/MEX.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "308386",
+        "name": "CASEMIRO",
+        "shortName": "CASEMIRO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/49558d20-3d5d-4afb-bf2a-9dc1ab60a6e6/CASEMIRO_308386",
+        "team": {
+          "id": "43924",
+          "name": "Brazil",
+          "code": "BRA",
+          "flagUrl": "/flags/BRA.png"
         },
         "value": 1
       },
@@ -369,6 +395,19 @@
         "value": 1
       },
       {
+        "playerId": "520217",
+        "name": "Findlay CURTIS",
+        "shortName": "Findlay CURTIS",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a6c805c6-37f9-44e9-80a8-e43118e78762/CURTIS-Findlay_520217",
+        "team": {
+          "id": "43967",
+          "name": "Scotland",
+          "code": "SCO",
+          "flagUrl": "/flags/SCO.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "419473",
         "name": "JASSEM GABER",
         "shortName": "JASSEM GABER",
@@ -378,45 +417,6 @@
           "name": "Qatar",
           "code": "QAT",
           "flagUrl": "/flags/QAT.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "519954",
-        "name": "Jovo LUKIC",
-        "shortName": "Jovo LUKIC",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/8fc08945-7c3e-4e0f-95b4-0c94a72a718d/LUKIC-Jovo_519954",
-        "team": {
-          "id": "44037",
-          "name": "Bosnia and Herzegovina",
-          "code": "BIH",
-          "flagUrl": "/flags/BIH.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "479601",
-        "name": "Juan Jose CACERES",
-        "shortName": "Juan Jose CACERES",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b465c59f-b480-4f3d-8f30-bb61a29aa6cb/CACERES-Juan-Jose_479601",
-        "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "369749",
-        "name": "Junior ALONSO",
-        "shortName": "Junior ALONSO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/241fe8c3-a33e-411a-8eca-e81cc3fba926/ALONSO-Junior_369749",
-        "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
         },
         "value": 1
       }
