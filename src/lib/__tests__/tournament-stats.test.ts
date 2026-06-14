@@ -4,6 +4,7 @@ import {
   buildLeaderboards,
   getDataHubId,
   isCompletedMatch,
+  isLiveOrCompletedMatch,
   matchesPlayerName,
   patchMatchPlayerStats,
   detailsOwnGoals,
@@ -389,6 +390,127 @@ describe("patchMatchPlayerStats", () => {
 
     expect(playerStats["10"]).toBeDefined();
     expect(playerStats["10"].find((r) => r[0] === "OwnGoals")?.[1]).toBe(1); // Should only count as 1 due to deduplication
+  });
+});
+
+describe("isLiveOrCompletedMatch", () => {
+  it("should return true for completed matches (OfficialityStatus 1) with finite scores", () => {
+    expect(
+      isLiveOrCompletedMatch({
+        OfficialityStatus: 1,
+        HomeTeamScore: 2,
+        AwayTeamScore: 0,
+      })
+    ).toBe(true);
+  });
+
+  it("should return true for live matches (OfficialityStatus 2) with finite scores", () => {
+    expect(
+      isLiveOrCompletedMatch({
+        OfficialityStatus: 2,
+        HomeTeamScore: 1,
+        AwayTeamScore: 1,
+      })
+    ).toBe(true);
+  });
+
+  it("should return false if match is not official (OfficialityStatus not 1 or 2)", () => {
+    expect(
+      isLiveOrCompletedMatch({
+        OfficialityStatus: 0,
+        HomeTeamScore: 1,
+        AwayTeamScore: 1,
+      })
+    ).toBe(false);
+  });
+
+  it("should return false if scores are missing or null", () => {
+    expect(
+      isLiveOrCompletedMatch({
+        OfficialityStatus: 2,
+        HomeTeamScore: null,
+        AwayTeamScore: null,
+      })
+    ).toBe(false);
+  });
+});
+
+describe("patchMatchPlayerStats - full event parsing", () => {
+  it("should patch assists, yellow/red cards, penalties, and own goals from ESPN data", () => {
+    const liveMatch = {
+      HomeTeam: {
+        IdTeam: "43921",
+        Abbreviation: "USA",
+        Players: [
+          { IdPlayer: "419068", PlayerName: [{ Locale: "en", Description: "Giovanni REYNA" }] },
+          { IdPlayer: "420000", PlayerName: [{ Locale: "en", Description: "Christian PULISIC" }] },
+          { IdPlayer: "430000", PlayerName: [{ Locale: "en", Description: "Weston MCKENNIE" }] }
+        ]
+      },
+      AwayTeam: { Players: [] }
+    };
+    const playerStats: Record<string, any> = {
+      "419068": [["Goals", 0, false], ["Assists", 0, false], ["Penalties", 0, false], ["PenaltiesScored", 0, false]],
+      "420000": [["YellowCards", 0, false], ["DirectRedCards", 0, false]],
+      "430000": [["OwnGoals", 0, false]]
+    };
+    const espnSummary = {
+      header: { competitions: [] },
+      keyEvents: [
+        {
+          clock: { value: 600, displayValue: "10'" },
+          type: { type: "yellow-card" },
+          team: { id: "660" },
+          participants: [{ athlete: { displayName: "C. Pulisic" } }]
+        },
+        {
+          clock: { value: 2700, displayValue: "45'" },
+          type: { type: "red-card" },
+          team: { id: "660" },
+          participants: [{ athlete: { displayName: "C. Pulisic" } }]
+        },
+        {
+          clock: { value: 1380, displayValue: "23'" },
+          type: { type: "assist" },
+          team: { id: "660" },
+          participants: [{ athlete: { displayName: "G. Reyna" } }]
+        },
+        {
+          clock: { value: 4080, displayValue: "68'" },
+          type: { type: "penalty-kick" },
+          scoringPlay: true,
+          penaltyKick: true,
+          team: { id: "660" },
+          participants: [{ athlete: { displayName: "G. Reyna" } }]
+        },
+        {
+          clock: { value: 5340, displayValue: "89'" },
+          type: { type: "own-goal" },
+          scoringPlay: true,
+          team: { id: "other-team" }, // Conceded by USA's opponent, scored by McKennie (own goal)
+          participants: [{ athlete: { displayName: "W. McKennie" } }]
+        }
+      ]
+    };
+    patchMatchPlayerStats(liveMatch, playerStats, espnSummary, "43921", "660");
+    
+    // Christian Pulisic: Yellow card and Red card
+    const pulisicYellows = playerStats["420000"]?.find((row: any) => row[0] === "YellowCards")?.[1];
+    expect(pulisicYellows).toBe(1);
+    const pulisicReds = playerStats["420000"]?.find((row: any) => row[0] === "DirectRedCards")?.[1];
+    expect(pulisicReds).toBe(1);
+
+    // Giovanni Reyna: Assist and Penalty scored
+    const reynaAssists = playerStats["419068"]?.find((row: any) => row[0] === "Assists")?.[1];
+    expect(reynaAssists).toBe(1);
+    const reynaPenalties = playerStats["419068"]?.find((row: any) => row[0] === "Penalties")?.[1];
+    expect(reynaPenalties).toBe(1);
+    const reynaPenaltiesScored = playerStats["419068"]?.find((row: any) => row[0] === "PenaltiesScored")?.[1];
+    expect(reynaPenaltiesScored).toBe(1);
+
+    // Weston McKennie: Own goal
+    const mckennieOwnGoals = playerStats["430000"]?.find((row: any) => row[0] === "OwnGoals")?.[1];
+    expect(mckennieOwnGoals).toBe(1);
   });
 });
 

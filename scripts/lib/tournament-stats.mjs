@@ -31,6 +31,18 @@ export function isCompletedMatch(match) {
   );
 }
 
+export function isLiveOrCompletedMatch(match) {
+  const status = Number(match?.OfficialityStatus);
+  const hasScores =
+    match?.HomeTeamScore !== null &&
+    match?.HomeTeamScore !== undefined &&
+    match?.AwayTeamScore !== null &&
+    match?.AwayTeamScore !== undefined &&
+    Number.isFinite(Number(match?.HomeTeamScore)) &&
+    Number.isFinite(Number(match?.AwayTeamScore));
+  return (status === 1 || status === 2) && hasScores;
+}
+
 export function detailsOwnGoals(rawDetails) {
   if (!Array.isArray(rawDetails)) return 0;
   const seenEvents = new Set();
@@ -259,25 +271,27 @@ export function patchMatchPlayerStats(
     const isOwnGoal = event.ownGoal === true || event.type?.type === "own-goal";
     const rawClock = String(event.clock?.value ?? event.clock?.displayValue ?? "");
     const clock = event.clock?.value ? String(Math.floor(Number(event.clock.value) / 60)) : rawClock.replace(/[^0-9]/g, "");
-    const type = isOwnGoal ? "ownGoal" : "goal";
-    const key = `${clock}-${athleteName}-${type}`;
+    
+    // Determine event type category for safer deduplication
+    let eventType = "other";
+    if (event.yellowCard === true || event.type?.type === "yellow-card") {
+      eventType = "yellowCard";
+    } else if (event.redCard === true || event.type?.type === "red-card" || event.type?.type === "direct-red-card" || event.type?.type === "indirect-red-card") {
+      eventType = "redCard";
+    } else if (event.type?.type === "assist") {
+      eventType = "assist";
+    } else if (event.penaltyKick === true || event.type?.type === "penalty-kick" || event.type?.type === "penalty-goal") {
+      eventType = "penalty";
+    } else if (event.scoringPlay === true) {
+      eventType = isOwnGoal ? "ownGoal" : "goal";
+    } else if (event.type?.type) {
+      eventType = event.type.type;
+    }
+
+    const key = `${clock}-${athleteName}-${eventType}`;
     if (!seenEvents.has(key)) {
       seenEvents.add(key);
       details.push(event);
-    }
-  }
-
-  const goalEvents = details.filter(event => {
-    const isOwnGoal = event.ownGoal === true || event.type?.type === "own-goal";
-    return event.scoringPlay && !isOwnGoal && event.team?.id && String(event.team.id) === espnTeamId;
-  });
-
-  // Group ESPN goals by athlete name
-  const espnGoalsByName = {};
-  for (const event of goalEvents) {
-    const athleteName = event.participants?.[0]?.athlete?.displayName ?? event.participants?.[0]?.athlete?.shortName ?? "";
-    if (athleteName) {
-      espnGoalsByName[athleteName] = (espnGoalsByName[athleteName] ?? 0) + 1;
     }
   }
 
@@ -289,7 +303,81 @@ export function patchMatchPlayerStats(
       ? (liveMatch?.AwayTeam?.Players ?? [])
       : [];
 
-  for (const [espnName, goalCount] of Object.entries(espnGoalsByName)) {
+  const countsByName = {};
+
+  const getOrCreateCountObj = (name) => {
+    if (!countsByName[name]) {
+      countsByName[name] = {
+        Goals: 0,
+        Assists: 0,
+        YellowCards: 0,
+        DirectRedCards: 0,
+        Penalties: 0,
+        PenaltiesScored: 0,
+        OwnGoals: 0,
+      };
+    }
+    return countsByName[name];
+  };
+
+  for (const event of details) {
+    const athleteName = event.participants?.[0]?.athlete?.displayName ?? event.participants?.[0]?.athlete?.shortName ?? "";
+    if (!athleteName) continue;
+
+    const isOwnGoal = event.ownGoal === true || event.type?.type === "own-goal";
+    const teamId = event.team?.id ? String(event.team.id) : "";
+    const isOurTeam = teamId === espnTeamId;
+
+    if (event.scoringPlay) {
+      if (isOwnGoal) {
+        // Own goal conceded by the opponent (so opponent's team got the goal credited on scoreboard,
+        // which means the teamId on the own-goal scoring event is the opponent team)
+        if (teamId && !isOurTeam) {
+          const counts = getOrCreateCountObj(athleteName);
+          counts.OwnGoals++;
+        }
+      } else {
+        // Regular goal
+        if (isOurTeam) {
+          const counts = getOrCreateCountObj(athleteName);
+          counts.Goals++;
+        }
+      }
+    }
+
+    // Assists
+    const isAssist = event.type?.type === "assist" || event.type?.text?.toLowerCase() === "assist";
+    if (isAssist && isOurTeam) {
+      const counts = getOrCreateCountObj(athleteName);
+      counts.Assists++;
+    }
+
+    // Yellow Cards
+    const isYellowCard = event.yellowCard === true || event.type?.type === "yellow-card" || event.type?.text?.toLowerCase().includes("yellow card");
+    if (isYellowCard && isOurTeam) {
+      const counts = getOrCreateCountObj(athleteName);
+      counts.YellowCards++;
+    }
+
+    // Red Cards
+    const isRedCard = event.redCard === true || event.type?.type === "red-card" || event.type?.type === "direct-red-card" || event.type?.type === "indirect-red-card" || event.type?.text?.toLowerCase().includes("red card");
+    if (isRedCard && isOurTeam) {
+      const counts = getOrCreateCountObj(athleteName);
+      counts.DirectRedCards++;
+    }
+
+    // Penalties
+    const isPenalty = event.penaltyKick === true || event.type?.type === "penalty-kick" || event.type?.type === "penalty-goal" || event.type?.text?.toLowerCase().includes("penalty");
+    if (isPenalty && isOurTeam) {
+      const counts = getOrCreateCountObj(athleteName);
+      counts.Penalties++;
+      if (event.scoringPlay && !isOwnGoal) {
+        counts.PenaltiesScored++;
+      }
+    }
+  }
+
+  for (const [espnName, counts] of Object.entries(countsByName)) {
     // Match player
     const matchedPlayer = teamPlayers.find((p) => {
       const pName = p.PlayerName?.[0]?.Description ?? p.ShortName?.[0]?.Description ?? "";
@@ -300,62 +388,23 @@ export function patchMatchPlayerStats(
       const playerId = String(matchedPlayer.IdPlayer);
       let statsRows = playerStats[playerId];
       if (!statsRows) {
-        statsRows = [["Goals", 0, false]];
+        statsRows = [];
         playerStats[playerId] = statsRows;
       }
 
-      let goalsRowIndex = statsRows.findIndex((row) => row[0] === "Goals");
-      if (goalsRowIndex === -1) {
-        statsRows.push(["Goals", 0, false]);
-        goalsRowIndex = statsRows.length - 1;
-      }
+      for (const [metricKey, countVal] of Object.entries(counts)) {
+        if (countVal === 0) continue;
 
-      const currentGoals = Number(statsRows[goalsRowIndex][1]) || 0;
-      if (currentGoals < goalCount) {
-        statsRows[goalsRowIndex][1] = goalCount;
-      }
-    }
-  }
+        let rowIndex = statsRows.findIndex((row) => row[0] === metricKey);
+        if (rowIndex === -1) {
+          statsRows.push([metricKey, 0, false]);
+          rowIndex = statsRows.length - 1;
+        }
 
-  // Filter own goal events from ESPN details/keyEvents
-  const ownGoalEvents = details.filter((event) => {
-    const isOwnGoal = event.ownGoal === true || event.type?.type === "own-goal";
-    return event.scoringPlay && isOwnGoal && event.team?.id && String(event.team.id) !== espnTeamId;
-  });
-  
-  // Group own goals count by athlete name
-  const espnOwnGoalsByName = {};
-  for (const event of ownGoalEvents) {
-    const athleteName = event.participants?.[0]?.athlete?.displayName ?? event.participants?.[0]?.athlete?.shortName ?? "";
-    if (athleteName) {
-      espnOwnGoalsByName[athleteName] = (espnOwnGoalsByName[athleteName] ?? 0) + 1;
-    }
-  }
-
-  // Match and patch player stats with own goals
-  for (const [espnName, ogCount] of Object.entries(espnOwnGoalsByName)) {
-    const matchedPlayer = teamPlayers.find((p) => {
-      const pName = p.PlayerName?.[0]?.Description ?? p.ShortName?.[0]?.Description ?? "";
-      return matchesPlayerName(espnName, pName);
-    });
-
-    if (matchedPlayer) {
-      const playerId = String(matchedPlayer.IdPlayer);
-      let statsRows = playerStats[playerId];
-      if (!statsRows) {
-        statsRows = [["OwnGoals", 0, false]];
-        playerStats[playerId] = statsRows;
-      }
-
-      let ogRowIndex = statsRows.findIndex((row) => row[0] === "OwnGoals");
-      if (ogRowIndex === -1) {
-        statsRows.push(["OwnGoals", 0, false]);
-        ogRowIndex = statsRows.length - 1;
-      }
-
-      const currentOgs = Number(statsRows[ogRowIndex][1]) || 0;
-      if (currentOgs < ogCount) {
-        statsRows[ogRowIndex][1] = ogCount;
+        const currentVal = Number(statsRows[rowIndex][1]) || 0;
+        if (currentVal < countVal) {
+          statsRows[rowIndex][1] = countVal;
+        }
       }
     }
   }
