@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import { useSimulation } from "@/lib/store";
 import Link from "next/link";
 import { useGroupStandings, useStoreHydrated } from "@/lib/hooks";
@@ -28,6 +29,21 @@ export function AppShell() {
   const resetAll = useSimulation((s) => s.resetAll);
   const favoriteMatches = useSimulation((s) => s.favoriteMatches);
   const favoriteTeams = useSimulation((s) => s.favoriteTeams);
+
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+    const observer = new ResizeObserver(() => {
+      document.documentElement.style.setProperty(
+        '--navbar-height',
+        `${header.offsetHeight}px`
+      );
+    });
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
 
   const SIMULATOR_TABS: { id: TabId; label: string }[] = [
     { id: "groups", label: "Vòng bảng" },
@@ -74,7 +90,7 @@ export function AppShell() {
         activeTab === "knockout" ? "h-screen overflow-hidden" : "min-h-screen",
       ].join(" ")}
     >
-      <header className="sticky top-0 z-50 shrink-0 border-b border-zinc-800 bg-[#0c0f14]/95 backdrop-blur">
+      <header ref={headerRef} className="sticky top-0 z-50 shrink-0 border-b border-zinc-800 bg-[#0c0f14]/95 backdrop-blur">
         <div
           className={`max-w-7xl mx-auto px-4 ${activeTab === "knockout" ? "py-2" : "py-3 sm:py-4"}`}
         >
