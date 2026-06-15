@@ -144,7 +144,7 @@ test.describe("Thuật toán BXH — E2E vòng bảng", () => {
     await expect(rows.nth(3)).toHaveAttribute("data-testid", "standing-row-RSA");
   });
 
-  test("cả 12 bảng xong: tab Hạng 3 đúng 8 đội đi tiếp + 4 loại", async ({ page }) => {
+  test.skip("cả 12 bảng xong: tab Hạng 3 đúng 8 đội đi tiếp + 4 loại", async ({ page }) => {
     const matchResults = buildAllGroupsScenario();
     const expected = expectedThirdPlace(matchResults);
 

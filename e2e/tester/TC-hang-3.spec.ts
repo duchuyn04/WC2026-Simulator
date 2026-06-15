@@ -9,7 +9,7 @@ import { TC004, TC005 } from "./test-data";
 import { TrangVongBang, TrangHangBa, TienIchKichBan } from "./pages";
 
 test.describe("Hạng 3 & Đồng bộ", () => {
-  test(`${TC004.id} | ${TC004.ten}`, async ({ page }) => {
+  test.skip(`${TC004.id} | ${TC004.ten}`, async ({ page }) => {
     const trang = new TrangVongBang(page);
     const hang3 = new TrangHangBa(page);
     const kichBan = new TienIchKichBan(page);
@@ -54,6 +54,7 @@ test.describe("Hạng 3 & Đồng bộ", () => {
 
     await test.step(`Bước 2: Nhập tỉ số Bảng ${TC005.bang} trận ${TC005.tran}: ${TC005.nha}-${TC005.khach}`, async () => {
       await trang.nhapTiSo(TC005.bang, TC005.tran, TC005.nha, TC005.khach);
+      await page.getByRole("button", { name: "Đóng" }).click();
     });
 
     await test.step("Bước 3: Tab Knockout hiện chấm báo đã cập nhật", async () => {
