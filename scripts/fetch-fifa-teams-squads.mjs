@@ -279,45 +279,12 @@ function parseWikipediaSquads(raw) {
   return teams;
 }
 
-async function fetchWikipediaImages(titles) {
-  const imageMap = new Map();
-  const uniqueTitles = [...new Set(titles.filter(Boolean))];
-
-  for (let index = 0; index < uniqueTitles.length; index += 25) {
-    const batch = uniqueTitles.slice(index, index + 25);
-    const url = new URL("https://en.wikipedia.org/w/api.php");
-    url.searchParams.set("action", "query");
-    url.searchParams.set("format", "json");
-    url.searchParams.set("prop", "pageimages");
-    url.searchParams.set("piprop", "thumbnail");
-    url.searchParams.set("pithumbsize", "900");
-    url.searchParams.set("redirects", "1");
-    url.searchParams.set("titles", batch.join("|"));
-
-    try {
-      const data = await fetchJson(url.toString());
-      for (const page of Object.values(data.query?.pages ?? {})) {
-        if (page.title && page.thumbnail?.source) {
-          imageMap.set(page.title, page.thumbnail.source);
-        }
-      }
-    } catch (error) {
-      console.warn(`Skipping Wikipedia image batch after retries: ${error.message}`);
-    }
-
-    await wait(250);
-  }
-
-  return imageMap;
-}
-
 async function main() {
   const [teamsModule, wikipediaRaw] = await Promise.all([
     fetchJson(TEAMS_URL),
     fetchText(WIKIPEDIA_SQUADS_URL),
   ]);
   const wikipediaTeams = parseWikipediaSquads(wikipediaRaw);
-  const wikipediaImageTitles = [];
   const teams = teamsModule.teams ?? [];
 
   const enrichedTeams = await Promise.all(
@@ -333,10 +300,6 @@ async function main() {
         const wikiPlayer =
           wikipediaPlayers.get(normalizedPlayer.jerseyNumber) ??
           wikipediaPlayersByName.get(normalizeLookupName(normalizedPlayer.name ?? ""));
-        if (wikiPlayer?.wikiTitle) {
-          wikipediaImageTitles.push(wikiPlayer.wikiTitle);
-        }
-
         return {
           ...normalizedPlayer,
           caps: wikiPlayer?.caps ?? null,
@@ -374,18 +337,16 @@ async function main() {
     }),
   );
 
-  const wikipediaImages = await fetchWikipediaImages(wikipediaImageTitles);
-  let wikipediaImageCount = 0;
-
+  let fifaCount = 0;
+  let noneCount = 0;
   for (const team of enrichedTeams) {
     for (const player of team.squad) {
-      player.wikiPictureUrl = null;
-      if (!player.wikiTitle) continue;
-      const imageUrl = wikipediaImages.get(player.wikiTitle);
-      if (!imageUrl) continue;
-      player.wikiPictureUrl = imageUrl;
-      player.pictureSource = "wikipedia";
-      wikipediaImageCount += 1;
+      if ("wikiPictureUrl" in player) delete player.wikiPictureUrl;
+      if (player.pictureSource && player.pictureSource !== "fifa") {
+        player.pictureSource = null;
+      }
+      if (player.pictureUrl) fifaCount += 1;
+      else noneCount += 1;
     }
   }
 
@@ -402,7 +363,7 @@ async function main() {
     count: enrichedTeams.length,
     enrichment: {
       wikipediaTeams: wikipediaTeams.size,
-      wikipediaFallbackImages: wikipediaImageCount,
+      imageSources: { fifa: fifaCount, none: noneCount },
     },
     teams: enrichedTeams,
   };
