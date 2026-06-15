@@ -696,161 +696,125 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   const dateGroups = useMemo(() => groupScheduleByDate(filtered), [filtered]);
 
   return (
-    <div className="min-w-0 space-y-4" data-testid="schedule-panel">
-      {/* Header matching documented behavior and E2E expectations */}
-      <div className="flex items-baseline gap-3">
-        <h2 className="text-xl font-semibold tracking-tight">Lịch thi đấu</h2>
-        <span className="text-sm text-zinc-500">104 trận</span>
-      </div>
-
-      {/* Sub-navigation & Toolbar */}
-      <div className="flex min-w-0 flex-col gap-2 border-b border-zinc-800 py-2">
-        <div className="flex min-w-0 items-center justify-between gap-3">
-          <div className="min-w-0 flex-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-            <nav className="flex w-max min-w-full items-center gap-4 sm:gap-5 text-sm font-medium">
-              {visibleFilters.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  data-testid={`schedule-filter-${item.id}`}
-                  onClick={() => setFilter(item.id)}
-                  className={[
-                    "pb-3 transition-colors whitespace-nowrap text-xs sm:text-sm",
-                    filter === item.id
-                      ? "underline decoration-[#ff4d6d] decoration-2 underline-offset-8 font-semibold text-zinc-100"
-                      : "text-zinc-500 hover:text-zinc-300",
-                  ].join(" ")}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </nav>
-          </div>
+    <div className="min-w-0" data-testid="schedule-panel">
+      {/* Sticky schedule header: title + tabs + toolbar */}
+      <div
+        className="sticky z-40 -mx-4 px-4 bg-[#0c0f14]/95 backdrop-blur-sm pb-0"
+        style={{ top: "var(--navbar-height, 0px)" }}
+      >
+        {/* Title row needs pt-4 pb-3 to look clean and separate from navbar */}
+        <div className="flex items-baseline gap-3 pt-4 pb-3">
+          <h2 className="text-xl font-semibold tracking-tight">Lịch thi đấu</h2>
+          <span className="text-sm text-zinc-500">104 trận</span>
         </div>
 
-        {filter !== "espn-standings" && filter !== "stats" && (
-          <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center">
-            <div className="relative flex-1">
-              <svg className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              <input
-                type="text"
-                placeholder="Tìm kiếm quốc gia, SVĐ..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-9 pr-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
-              />
+        {/* Sub-navigation & Toolbar */}
+        <div className="flex min-w-0 flex-col gap-2 border-b border-zinc-800 pb-2">
+          <div className="flex min-w-0 items-center justify-between gap-3">
+            <div className="min-w-0 flex-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <nav className="flex w-max min-w-full items-center gap-4 sm:gap-5 text-sm font-medium">
+                {visibleFilters.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    data-testid={`schedule-filter-${item.id}`}
+                    onClick={() => setFilter(item.id)}
+                    className={[
+                      "pb-3 transition-colors whitespace-nowrap text-xs sm:text-sm",
+                      filter === item.id
+                        ? "underline decoration-[#ff4d6d] decoration-2 underline-offset-8 font-semibold text-zinc-100"
+                        : "text-zinc-500 hover:text-zinc-300",
+                    ].join(" ")}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
             </div>
-            
-            {(filter === "all" || filter === "group") && (
-              <div className="flex gap-2 w-full md:w-auto">
-                <select
-                  data-testid="schedule-group-filter"
-                  value={selectedGroup}
-                  onChange={(e) => setSelectedGroup(e.target.value)}
-                  className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 sm:px-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
-                >
-                  <option value="all">Tất cả bảng</option>
-                  {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"].map((letter) => (
-                    <option key={letter} value={letter}>Bảng {letter}</option>
-                  ))}
-                </select>
+          </div>
 
-                <select
-                  data-testid="schedule-matchday-filter"
-                  value={selectedMatchday}
-                  onChange={(e) => setSelectedMatchday(e.target.value)}
-                  className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 sm:px-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
-                >
-                  <option value="all">Tất cả lượt</option>
-                  <option value="1">Lượt trận 1</option>
-                  <option value="2">Lượt trận 2</option>
-                  <option value="3">Lượt trận 3</option>
-                </select>
+          {filter !== "espn-standings" && filter !== "stats" && (
+            <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center">
+              <div className="relative flex-1">
+                <svg className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm quốc gia, SVĐ..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-9 pr-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
+                />
               </div>
-            )}
-          </div>
-        )}
+              
+              {(filter === "all" || filter === "group") && (
+                <div className="flex gap-2 w-full md:w-auto">
+                  <select
+                    data-testid="schedule-group-filter"
+                    value={selectedGroup}
+                    onChange={(e) => setSelectedGroup(e.target.value)}
+                    className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 sm:px-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
+                  >
+                    <option value="all">Tất cả bảng</option>
+                    {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"].map((letter) => (
+                      <option key={letter} value={letter}>Bảng {letter}</option>
+                    ))}
+                  </select>
+
+                  <select
+                    data-testid="schedule-matchday-filter"
+                    value={selectedMatchday}
+                    onChange={(e) => setSelectedMatchday(e.target.value)}
+                    className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 sm:px-3 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700"
+                  >
+                    <option value="all">Tất cả lượt</option>
+                    <option value="1">Lượt trận 1</option>
+                    <option value="2">Lượt trận 2</option>
+                    <option value="3">Lượt trận 3</option>
+                  </select>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
-      {filter === "stats" ? (
-        <TournamentStatsBoard />
-      ) : filter === "espn-standings" ? (
-        <div className="space-y-8">
-          {/* Real external data */}
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="text-xs uppercase tracking-[1px] text-emerald-400 font-semibold">Dữ liệu thực tế (ESPN)</div>
-              <div className="h-px flex-1 bg-zinc-800" />
+      <div className="mt-4">
+        {filter === "stats" ? (
+          <TournamentStatsBoard />
+        ) : filter === "espn-standings" ? (
+          <div className="space-y-8">
+            {/* Real external data */}
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="text-xs uppercase tracking-[1px] text-emerald-400 font-semibold">Dữ liệu thực tế (ESPN)</div>
+                <div className="h-px flex-1 bg-zinc-800" />
+              </div>
+              <EspnStandingsBoard />
             </div>
-            <EspnStandingsBoard />
+
+
           </div>
-
-
-        </div>
-      ) : dateGroups.length === 0 ? (
-        <p className="text-center text-zinc-500 py-12">Không có trận nào trong bộ lọc này.</p>
-      ) : (
-        <div className="space-y-6">
-          {/* Mobile view (< 768px) */}
-          <div className="block md:hidden space-y-6">
-            {dateGroups.map((group) => (
-              <div key={group.dateKey} className="space-y-3">
-                {/* Date Header */}
-                <div className="flex items-center gap-3">
-                  <div className="inline-flex items-center justify-center bg-[#6a041f]/20 text-[#ff4d6d] font-bold px-3 py-1 rounded-full text-xs">
-                    {group.dateLabel}
+        ) : dateGroups.length === 0 ? (
+          <p className="text-center text-zinc-500 py-12">Không có trận nào trong bộ lọc này.</p>
+        ) : (
+          <div className="space-y-6">
+            {/* Mobile view (< 768px) */}
+            <div className="block md:hidden space-y-6">
+              {dateGroups.map((group) => (
+                <div key={group.dateKey} className="space-y-3">
+                  {/* Date Header */}
+                  <div className="flex items-center gap-3">
+                    <div className="inline-flex items-center justify-center bg-[#6a041f]/20 text-[#ff4d6d] font-bold px-3 py-1 rounded-full text-xs">
+                      {group.dateLabel}
+                    </div>
+                    <div className="h-px flex-1 bg-zinc-800/50" />
                   </div>
-                  <div className="h-px flex-1 bg-zinc-800/50" />
-                </div>
-                {/* Matches list */}
-                <div className="space-y-3">
-                  {group.entries.map((entry) => (
-                    <ScheduleMobileCard
-                      key={entry.id}
-                      entry={entry}
-                      espnMatches={espnMatches}
-                      onOpenMatch={(gameId, matchDate) => { setSelectedGameId(gameId); setSelectedMatchDate(matchDate ?? null); }}
-                      onOpenH2H={(h, a) => setH2hTeams({ home: h, away: a })}
-                      isMobile={isMobile}
-                      mounted={mounted}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop view (>= 768px) */}
-          <div className="hidden md:block max-w-full overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950/50 backdrop-blur-sm">
-            <table className="w-full min-w-[560px] border-collapse text-left">
-              <thead>
-                <tr className="border-b border-zinc-800 text-xs font-semibold text-zinc-500 uppercase tracking-wider bg-zinc-900/50">
-                  <th className="hidden lg:table-cell px-4 py-3 text-center whitespace-nowrap">TRẬN</th>
-                  <th className="px-3 py-3 text-center">GIỜ</th>
-                  <th className="hidden lg:table-cell px-4 py-3">VÒNG ĐẤU</th>
-                  <th className="px-2 py-3 text-right">ĐỘI 1</th>
-                  <th className="px-2 py-3 text-center">TỈ SỐ</th>
-                  <th className="px-2 py-3">ĐỘI 2</th>
-                  <th className="w-28 px-2 py-3 text-center whitespace-nowrap">
-                    <span className="hidden lg:inline">THAO TÁC</span>
-                    <svg className="lg:hidden w-4 h-4 inline text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 5v.01M12 12v.01M12 19v.01" /></svg>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-zinc-800/50">
-                {dateGroups.map((group) => (
-                  <React.Fragment key={group.dateKey}>
-                    <tr className="bg-zinc-900/30">
-                      <td colSpan={7} className="px-4 py-2">
-                        <div className="inline-flex items-center justify-center bg-[#6a041f]/20 text-[#ff4d6d] font-bold px-3 py-1 rounded-full text-sm">
-                          {group.dateLabel}
-                        </div>
-                      </td>
-                    </tr>
+                  {/* Matches list */}
+                  <div className="space-y-3">
                     {group.entries.map((entry) => (
-                      <ScheduleTableRow
+                      <ScheduleMobileCard
                         key={entry.id}
                         entry={entry}
                         espnMatches={espnMatches}
@@ -860,13 +824,57 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                         mounted={mounted}
                       />
                     ))}
-                  </React.Fragment>
-                ))}
-              </tbody>
-            </table>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop view (>= 768px) */}
+            <div className="hidden md:block max-w-full overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950/50 backdrop-blur-sm">
+              <table className="w-full min-w-[560px] border-collapse text-left">
+                <thead>
+                  <tr className="border-b border-zinc-800 text-xs font-semibold text-zinc-500 uppercase tracking-wider bg-zinc-900/50">
+                    <th className="hidden lg:table-cell px-4 py-3 text-center whitespace-nowrap">TRẬN</th>
+                    <th className="px-3 py-3 text-center">GIỜ</th>
+                    <th className="hidden lg:table-cell px-4 py-3">VÒNG ĐẤU</th>
+                    <th className="px-2 py-3 text-right">ĐỘI 1</th>
+                    <th className="px-2 py-3 text-center">TỈ SỐ</th>
+                    <th className="px-2 py-3">ĐỘI 2</th>
+                    <th className="w-28 px-2 py-3 text-center whitespace-nowrap">
+                      <span className="hidden lg:inline">THAO TÁC</span>
+                      <svg className="lg:hidden w-4 h-4 inline text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 5v.01M12 12v.01M12 19v.01" /></svg>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-800/50">
+                  {dateGroups.map((group) => (
+                    <React.Fragment key={group.dateKey}>
+                      <tr className="bg-zinc-900/30">
+                        <td colSpan={7} className="px-4 py-2">
+                          <div className="inline-flex items-center justify-center bg-[#6a041f]/20 text-[#ff4d6d] font-bold px-3 py-1 rounded-full text-sm">
+                            {group.dateLabel}
+                          </div>
+                        </td>
+                      </tr>
+                      {group.entries.map((entry) => (
+                        <ScheduleTableRow
+                          key={entry.id}
+                          entry={entry}
+                          espnMatches={espnMatches}
+                          onOpenMatch={(gameId, matchDate) => { setSelectedGameId(gameId); setSelectedMatchDate(matchDate ?? null); }}
+                          onOpenH2H={(h, a) => setH2hTeams({ home: h, away: a })}
+                          isMobile={isMobile}
+                          mounted={mounted}
+                        />
+                      ))}
+                    </React.Fragment>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
       <MatchStatsModal gameId={selectedGameId} matchDate={selectedMatchDate} onClose={() => { setSelectedGameId(null); setSelectedMatchDate(null); }} />
       <H2HModal
         teamA={h2hTeams?.home ?? null}
