@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-15T06:37:47.942Z",
-  "completedMatches": 12,
+  "fetchedAt": "2026-06-15T18:46:19.396Z",
+  "completedMatches": 13,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
