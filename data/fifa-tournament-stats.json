@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-14T22:21:03.785Z",
-  "completedMatches": 10,
+  "fetchedAt": "2026-06-15T06:37:47.942Z",
+  "completedMatches": 12,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -34,6 +34,45 @@
           "flagUrl": "/flags/GER.png"
         },
         "value": 2
+      },
+      {
+        "playerId": "489688",
+        "name": "Yasin AYARI",
+        "shortName": "Yasin AYARI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ac9ed8a6-7b39-4962-8245-b80556224ca0/AYARI-Yasin_489688",
+        "team": {
+          "id": "43970",
+          "name": "Sweden",
+          "code": "SWE",
+          "flagUrl": "/flags/SWE.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "430150",
+        "name": "Alexander Isak",
+        "shortName": "Alexander ISAK",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/c6ffe63b-aefd-43b8-bd9d-3c6e31a8f418/ISAK-Alexander_430150",
+        "team": {
+          "id": "43970",
+          "name": "Sweden",
+          "code": "SWE",
+          "flagUrl": "/flags/SWE.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "430822",
+        "name": "Amad DIALLO",
+        "shortName": "Amad DIALLO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/92354f59-681a-4409-b1eb-0e0744a78da8/DIALLO-Amad_430822",
+        "team": {
+          "id": "43854",
+          "name": "Côte d'Ivoire",
+          "code": "CIV",
+          "flagUrl": "/flags/CIV.png"
+        },
+        "value": 1
       },
       {
         "playerId": "393480",
@@ -99,48 +138,22 @@
           "flagUrl": "/flags/JPN.png"
         },
         "value": 1
-      },
-      {
-        "playerId": "484851",
-        "name": "Deniz UNDAV",
-        "shortName": "Deniz UNDAV",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/3ec30e08-a7eb-4781-aea8-0e9ff86ebef1/UNDAV-Deniz_484851",
-        "team": {
-          "id": "43948",
-          "name": "Germany",
-          "code": "GER",
-          "flagUrl": "/flags/GER.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "492363",
-        "name": "Felix NMECHA",
-        "shortName": "NMECHA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/9895941b-9be6-4900-a336-493f1237b0e6/NMECHA-Felix_492363",
-        "team": {
-          "id": "43948",
-          "name": "Germany",
-          "code": "GER",
-          "flagUrl": "/flags/GER.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "419068",
-        "name": "Giovanni REYNA",
-        "shortName": "REYNA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b30d701d-d9eb-4b2d-8db4-6841fc9ed1a9/REYNA-Giovanni_419068",
-        "team": {
-          "id": "43921",
-          "name": "USA",
-          "code": "USA",
-          "flagUrl": "/flags/USA.png"
-        },
-        "value": 1
       }
     ],
     "assists": [
+      {
+        "playerId": "430150",
+        "name": "Alexander Isak",
+        "shortName": "Alexander ISAK",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/c6ffe63b-aefd-43b8-bd9d-3c6e31a8f418/ISAK-Alexander_430150",
+        "team": {
+          "id": "43970",
+          "name": "Sweden",
+          "code": "SWE",
+          "flagUrl": "/flags/SWE.png"
+        },
+        "value": 2
+      },
       {
         "playerId": "484851",
         "name": "Deniz UNDAV",
@@ -255,19 +268,6 @@
           "name": "Germany",
           "code": "GER",
           "flagUrl": "/flags/GER.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "395084",
-        "name": "HWANG Inbeom",
-        "shortName": "HWANG Inbeom",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/70be8ce3-bc90-4585-8871-a951dabf811e/HWANG-Inbeom_395084",
-        "team": {
-          "id": "43822",
-          "name": "Korea Republic",
-          "code": "KOR",
-          "flagUrl": "/flags/KOR.png"
         },
         "value": 1
       }
