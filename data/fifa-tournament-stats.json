@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-14T09:55:07.525Z",
-  "completedMatches": 8,
+  "fetchedAt": "2026-06-15T06:37:47.942Z",
+  "completedMatches": 12,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -21,6 +21,58 @@
           "flagUrl": "/flags/USA.png"
         },
         "value": 2
+      },
+      {
+        "playerId": "411367",
+        "name": "Kai HAVERTZ",
+        "shortName": "HAVERTZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/1fdd4d11-97d1-4392-b345-5a5eecc54839/HAVERTZ-Kai_411367",
+        "team": {
+          "id": "43948",
+          "name": "Germany",
+          "code": "GER",
+          "flagUrl": "/flags/GER.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "489688",
+        "name": "Yasin AYARI",
+        "shortName": "Yasin AYARI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ac9ed8a6-7b39-4962-8245-b80556224ca0/AYARI-Yasin_489688",
+        "team": {
+          "id": "43970",
+          "name": "Sweden",
+          "code": "SWE",
+          "flagUrl": "/flags/SWE.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "430150",
+        "name": "Alexander Isak",
+        "shortName": "Alexander ISAK",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/c6ffe63b-aefd-43b8-bd9d-3c6e31a8f418/ISAK-Alexander_430150",
+        "team": {
+          "id": "43970",
+          "name": "Sweden",
+          "code": "SWE",
+          "flagUrl": "/flags/SWE.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "430822",
+        "name": "Amad DIALLO",
+        "shortName": "Amad DIALLO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/92354f59-681a-4409-b1eb-0e0744a78da8/DIALLO-Amad_430822",
+        "team": {
+          "id": "43854",
+          "name": "Côte d'Ivoire",
+          "code": "CIV",
+          "flagUrl": "/flags/CIV.png"
+        },
+        "value": 1
       },
       {
         "playerId": "393480",
@@ -49,6 +101,19 @@
         "value": 1
       },
       {
+        "playerId": "489518",
+        "name": "Crysencio SUMMERVILLE",
+        "shortName": "Crysencio SUMMERVILLE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/86e9f724-fc5f-4969-92e3-ac658dafacdd/SUMMERVILLE-Crysencio_489518",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "390670",
         "name": "Cyle LARIN",
         "shortName": "Cyle LARIN",
@@ -62,85 +127,72 @@
         "value": 1
       },
       {
-        "playerId": "419068",
-        "name": "Giovanni REYNA",
-        "shortName": "REYNA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b30d701d-d9eb-4b2d-8db4-6841fc9ed1a9/REYNA-Giovanni_419068",
+        "playerId": "448557",
+        "name": "Daichi KAMADA",
+        "shortName": "KAMADA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/40432f8c-1b4a-444e-b3a4-709164e708d6/KAMADA-Daichi_448557",
         "team": {
-          "id": "43921",
-          "name": "USA",
-          "code": "USA",
-          "flagUrl": "/flags/USA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "419441",
-        "name": "HOMAM AHMED",
-        "shortName": "HOMAM AHMED",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/5a182a95-d4c3-4618-838e-d374bbc576ba/HOMAM-AHMED_419441",
-        "team": {
-          "id": "43834",
-          "name": "Qatar",
-          "code": "QAT",
-          "flagUrl": "/flags/QAT.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "395084",
-        "name": "HWANG Inbeom",
-        "shortName": "HWANG Inbeom",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/70be8ce3-bc90-4585-8871-a951dabf811e/HWANG-Inbeom_395084",
-        "team": {
-          "id": "43822",
-          "name": "Korea Republic",
-          "code": "KOR",
-          "flagUrl": "/flags/KOR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "448598",
-        "name": "Ismael SAIBARI",
-        "shortName": "SAIBARI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/250526c6-26b5-4425-8a21-231c7952e34d/SAIBARI-Ismael_448598",
-        "team": {
-          "id": "43872",
-          "name": "Morocco",
-          "code": "MAR",
-          "flagUrl": "/flags/MAR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "401334",
-        "name": "John McGinn",
-        "shortName": "John McGINN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/af6ceadd-a14f-47c0-9f30-fd85d71a94cd/McGINN-John_401334",
-        "team": {
-          "id": "43967",
-          "name": "Scotland",
-          "code": "SCO",
-          "flagUrl": "/flags/SCO.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "519954",
-        "name": "Jovo LUKIC",
-        "shortName": "Jovo LUKIC",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/8fc08945-7c3e-4e0f-95b4-0c94a72a718d/LUKIC-Jovo_519954",
-        "team": {
-          "id": "44037",
-          "name": "Bosnia and Herzegovina",
-          "code": "BIH",
-          "flagUrl": "/flags/BIH.png"
+          "id": "43819",
+          "name": "Japan",
+          "code": "JPN",
+          "flagUrl": "/flags/JPN.png"
         },
         "value": 1
       }
     ],
     "assists": [
+      {
+        "playerId": "430150",
+        "name": "Alexander Isak",
+        "shortName": "Alexander ISAK",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/c6ffe63b-aefd-43b8-bd9d-3c6e31a8f418/ISAK-Alexander_430150",
+        "team": {
+          "id": "43970",
+          "name": "Sweden",
+          "code": "SWE",
+          "flagUrl": "/flags/SWE.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "484851",
+        "name": "Deniz UNDAV",
+        "shortName": "Deniz UNDAV",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/3ec30e08-a7eb-4781-aea8-0e9ff86ebef1/UNDAV-Deniz_484851",
+        "team": {
+          "id": "43948",
+          "name": "Germany",
+          "code": "GER",
+          "flagUrl": "/flags/GER.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "386413",
+        "name": "Joshua KIMMICH",
+        "shortName": "KIMMICH",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ada33dfd-5b01-4792-88f4-14c06641509e/KIMMICH-Joshua_386413",
+        "team": {
+          "id": "43948",
+          "name": "Germany",
+          "code": "GER",
+          "flagUrl": "/flags/GER.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "430176",
+        "name": "Ryan GRAVENBERCH",
+        "shortName": "Ryan GRAVENBERCH",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ad5fe14f-b29c-4c20-8477-b00bf14c413f/GRAVENBERCH-Ryan_430176",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 2
+      },
       {
         "playerId": "464542",
         "name": "Alex FREEMAN",
@@ -207,67 +259,15 @@
         "value": 1
       },
       {
-        "playerId": "395084",
-        "name": "HWANG Inbeom",
-        "shortName": "HWANG Inbeom",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/70be8ce3-bc90-4585-8871-a951dabf811e/HWANG-Inbeom_395084",
+        "playerId": "430669",
+        "name": "Florian WIRTZ",
+        "shortName": "Florian WIRTZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/3a120189-62cc-441f-b862-7fdd2a9abfa4/WIRTZ-Florian_430669",
         "team": {
-          "id": "43822",
-          "name": "Korea Republic",
-          "code": "KOR",
-          "flagUrl": "/flags/KOR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "441234",
-        "name": "Julio ENCISO",
-        "shortName": "Julio ENCISO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/aa8ef158-6636-46a9-a6fb-185a2f92ad95/ENCISO-Julio_441234",
-        "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "418490",
-        "name": "LEE Kangin",
-        "shortName": "LEE KANG IN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/a54e995b-caa3-43c4-981f-b54ada7f678d/LEE-Kangin_418490",
-        "team": {
-          "id": "43822",
-          "name": "Korea Republic",
-          "code": "KOR",
-          "flagUrl": "/flags/KOR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "448214",
-        "name": "Malik TILLMAN",
-        "shortName": "TILLMAN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/c8c38ca3-7100-4bca-88e7-4ea66fd86ff7/TILLMAN-Malik_448214",
-        "team": {
-          "id": "43921",
-          "name": "USA",
-          "code": "USA",
-          "flagUrl": "/flags/USA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "498421",
-        "name": "Paul OKON-ENGSTLER",
-        "shortName": "Paul OKON-ENGSTLER",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/c010f6a9-53af-4d79-b16d-f25b96670225/OKON-ENGSTLER-Paul_498421",
-        "team": {
-          "id": "43976",
-          "name": "Australia",
-          "code": "AUS",
-          "flagUrl": "/flags/AUS.png"
+          "id": "43948",
+          "name": "Germany",
+          "code": "GER",
+          "flagUrl": "/flags/GER.png"
         },
         "value": 1
       }
@@ -283,6 +283,21 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "411367",
+        "name": "Kai HAVERTZ",
+        "shortName": "HAVERTZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/1fdd4d11-97d1-4392-b345-5a5eecc54839/HAVERTZ-Kai_411367",
+        "team": {
+          "id": "43948",
+          "name": "Germany",
+          "code": "GER",
+          "flagUrl": "/flags/GER.png"
         },
         "value": 1,
         "scored": 1,
@@ -356,6 +371,19 @@
         "value": 1
       },
       {
+        "playerId": "489518",
+        "name": "Crysencio SUMMERVILLE",
+        "shortName": "Crysencio SUMMERVILLE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/86e9f724-fc5f-4969-92e3-ac658dafacdd/SUMMERVILLE-Crysencio_489518",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "401448",
         "name": "Denis ZAKARIA",
         "shortName": "ZAKARIA",
@@ -404,19 +432,6 @@
           "name": "Scotland",
           "code": "SCO",
           "flagUrl": "/flags/SCO.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "419473",
-        "name": "JASSEM GABER",
-        "shortName": "JASSEM GABER",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/14edcf5c-c52c-4a12-8078-40032f99dbd0/JASSEM-GABER_419473",
-        "team": {
-          "id": "43834",
-          "name": "Qatar",
-          "code": "QAT",
-          "flagUrl": "/flags/QAT.png"
         },
         "value": 1
       }
@@ -473,6 +488,19 @@
           "name": "Paraguay",
           "code": "PAR",
           "flagUrl": "/flags/PAR.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "493221",
+        "name": "Miro MUHEIM",
+        "shortName": "Miro MUHEIM",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/d3efd73b-690b-417d-a645-0a45b5c00bc8/MUHEIM-Miro_493221",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
         },
         "value": 1
       }
