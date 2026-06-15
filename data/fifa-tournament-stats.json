@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-15T18:46:19.396Z",
-  "completedMatches": 13,
+  "fetchedAt": "2026-06-15T21:48:49.776Z",
+  "completedMatches": 14,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -319,6 +319,19 @@
         "value": 1
       },
       {
+        "playerId": "430477",
+        "name": "AHMED FATOUH",
+        "shortName": "AHMED FATOUH",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/c22759e9-6346-4cb7-8611-74074421be7f/AHMED-FATOUH_430477",
+        "team": {
+          "id": "43855",
+          "name": "Egypt",
+          "code": "EGY",
+          "flagUrl": "/flags/EGY.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "485802",
         "name": "Alex ARCE",
         "shortName": "Alex ARCE",
@@ -421,19 +434,6 @@
           "flagUrl": "/flags/BIH.png"
         },
         "value": 1
-      },
-      {
-        "playerId": "520217",
-        "name": "Findlay CURTIS",
-        "shortName": "Findlay CURTIS",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/a6c805c6-37f9-44e9-80a8-e43118e78762/CURTIS-Findlay_520217",
-        "team": {
-          "id": "43967",
-          "name": "Scotland",
-          "code": "SCO",
-          "flagUrl": "/flags/SCO.png"
-        },
-        "value": 1
       }
     ],
     "redCards": [
@@ -501,6 +501,19 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "408950",
+        "name": "MOHAMED HANY",
+        "shortName": "M.HANY",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/04f8ef57-e16f-49de-b7d4-ad430c4c430c/MOHAMED-HANY_408950",
+        "team": {
+          "id": "43855",
+          "name": "Egypt",
+          "code": "EGY",
+          "flagUrl": "/flags/EGY.png"
         },
         "value": 1
       }
