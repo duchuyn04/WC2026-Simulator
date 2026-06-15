@@ -123,11 +123,6 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
           </div>
 
           <RecentMatches recentMatches={recentMatches} />
-          {espnId && (
-            <div className="mt-3 sm:mt-8">
-              <TeamStatsBoard espnId={espnId} />
-            </div>
-          )}
         </aside>
 
         <TeamRoster
@@ -136,6 +131,12 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
           groupedPlayers={groupedPlayers}
         />
       </section>
+
+      {espnId && (
+        <section className="mx-auto max-w-7xl px-3 py-4 sm:px-4 sm:py-6">
+          <TeamStatsBoard espnId={espnId} />
+        </section>
+      )}
       </main>
     </>
   );

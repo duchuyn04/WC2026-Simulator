@@ -1,0 +1,688 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e691] [cursor=pointer]:
+    - img [ref=e692]
+  - alert [ref=e695]: Portugal squad | WC 2026
+  - link "Quay lại danh sách" [ref=e697] [cursor=pointer]:
+    - /url: /teams
+    - text: ←
+  - main [ref=e698]:
+    - generic [ref=e700]:
+      - link "← Đội tuyển" [ref=e702] [cursor=pointer]:
+        - /url: /teams
+        - generic [ref=e703]: ←
+        - text: Đội tuyển
+      - generic [ref=e705]:
+        - img "Cờ Portugal" [ref=e706]
+        - generic [ref=e707]:
+          - paragraph [ref=e708]: Bảng K · UEFA
+          - heading "Portugal" [level=1] [ref=e709]
+          - paragraph [ref=e710]: "FIFA #5 · 8 lần tham dự · Vượt qua vòng loại"
+    - generic [ref=e711]:
+      - complementary [ref=e712]:
+        - generic [ref=e713]:
+          - heading "Thông tin đội" [level=2] [ref=e714]
+          - generic [ref=e715]:
+            - generic [ref=e716]:
+              - term [ref=e717]: Mã đội
+              - definition [ref=e718]: POR
+            - generic [ref=e719]:
+              - term [ref=e720]: Bảng
+              - definition [ref=e721]: K
+            - generic [ref=e722]:
+              - term [ref=e723]: Liên đoàn
+              - definition [ref=e724]: UEFA
+            - generic [ref=e725]:
+              - term [ref=e726]: Cầu thủ
+              - definition [ref=e727]: "26"
+        - generic [ref=e728]:
+          - heading "Ban huấn luyện" [level=2] [ref=e729]
+          - generic [ref=e730]:
+            - generic [ref=e731]:
+              - paragraph [ref=e732]: Jesus SEBA
+              - paragraph [ref=e733]: Coach · ESP
+            - generic [ref=e734]:
+              - paragraph [ref=e735]: RICARDO CARVALHO
+              - paragraph [ref=e736]: Coach · POR
+            - generic [ref=e737]:
+              - paragraph [ref=e738]: Richard EVANS
+              - paragraph [ref=e739]: Coach · WAL
+            - generic [ref=e740]:
+              - paragraph [ref=e741]: Austin MacPHEE
+              - paragraph [ref=e742]: Coach · SCO
+            - generic [ref=e743]:
+              - paragraph [ref=e744]: Roberto MARTINEZ
+              - paragraph [ref=e745]: Head coach · ESP
+        - generic [ref=e746]:
+          - heading "Phong độ gần đây" [level=2] [ref=e747]
+          - generic [ref=e748]:
+            - generic [ref=e749] [cursor=pointer]:
+              - generic [ref=e750]: W
+              - generic [ref=e751]:
+                - paragraph [ref=e752]: Nigeria vs Portugal
+                - paragraph [ref=e753]:
+                  - text: 11/6/2026 ·
+                  - generic [ref=e754]: 2 - 1
+            - generic [ref=e755] [cursor=pointer]:
+              - generic [ref=e756]: W
+              - generic [ref=e757]:
+                - paragraph [ref=e758]: Chile vs Portugal
+                - paragraph [ref=e759]:
+                  - text: 7/6/2026 ·
+                  - generic [ref=e760]: 2 - 1
+            - generic [ref=e761] [cursor=pointer]:
+              - generic [ref=e762]: W
+              - generic [ref=e763]:
+                - paragraph [ref=e764]: Portugal vs United States
+                - paragraph [ref=e765]:
+                  - text: 1/4/2026 ·
+                  - generic [ref=e766]: 0 - 2
+            - generic [ref=e767] [cursor=pointer]:
+              - generic [ref=e768]: D
+              - generic [ref=e769]:
+                - paragraph [ref=e770]: Portugal vs Mexico
+                - paragraph [ref=e771]:
+                  - text: 29/3/2026 ·
+                  - generic [ref=e772]: 0 - 0
+            - generic [ref=e773] [cursor=pointer]:
+              - generic [ref=e774]: W
+              - generic [ref=e775]:
+                - paragraph [ref=e776]: Armenia vs Portugal
+                - paragraph [ref=e777]:
+                  - text: 16/11/2025 ·
+                  - generic [ref=e778]: 9 - 1
+          - paragraph [ref=e779]: Dữ liệu từ ESPN
+        - generic [ref=e781]: Chưa có dữ liệu thống kê cho đội tuyển này.
+      - generic [ref=e782]:
+        - generic [ref=e783]:
+          - generic [ref=e784]:
+            - generic [ref=e785]:
+              - paragraph [ref=e786]: Đội hình
+              - heading "Lọc theo vị trí" [level=2] [ref=e787]
+            - paragraph [ref=e788]: 26 cầu thủ
+          - generic [ref=e790]:
+            - button "Tất cả27" [pressed] [ref=e791]
+            - button "HLV1" [ref=e792]
+            - button "Thủ môn3" [ref=e793]
+            - button "Hậu vệ9" [ref=e794]
+            - button "Tiền vệ6" [ref=e795]
+            - button "Tiền đạo8" [ref=e796]
+        - generic [ref=e797]:
+          - generic [ref=e798]:
+            - heading "HLV trưởng" [level=2] [ref=e799]
+            - generic [ref=e800]: ESP
+          - article [ref=e801]:
+            - generic [ref=e802]:
+              - button "Xem ảnh lớn của Roberto MARTINEZ" [ref=e803]:
+                - img "Roberto Martínez Montoliú" [ref=e805]
+                - generic:
+                  - generic: Xem ảnh
+              - generic [ref=e806]: HLV
+            - generic [ref=e807]:
+              - heading "Roberto MARTINEZ" [level=3] [ref=e808]
+              - paragraph [ref=e810]: Head coach · 52 tuổi
+        - generic [ref=e811]:
+          - generic [ref=e812]:
+            - heading "Thủ môn" [level=2] [ref=e813]
+            - generic [ref=e814]: 3 cầu thủ
+          - generic [ref=e815]:
+            - article [ref=e816]:
+              - generic [ref=e817]:
+                - button "Xem ảnh lớn của DIOGO COSTA" [ref=e818]:
+                  - img "DIOGO COSTA" [ref=e820]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e821]: "1"
+              - generic [ref=e822]:
+                - heading "DIOGO COSTA" [level=3] [ref=e824]
+                - paragraph [ref=e826]: Thủ môn
+                - paragraph [ref=e827]: Porto
+              - generic [ref=e828]:
+                - generic [ref=e829]:
+                  - generic [ref=e830]: "26"
+                  - text: Tuổi
+                - generic [ref=e831]:
+                  - generic [ref=e832]: "188"
+                  - text: cm
+                - generic [ref=e833]:
+                  - generic [ref=e834]: "86"
+                  - text: kg
+            - article [ref=e835]:
+              - generic [ref=e836]:
+                - button "Xem ảnh lớn của JOSE SA" [ref=e837]:
+                  - img "JOSE SA" [ref=e839]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e840]: "12"
+              - generic [ref=e841]:
+                - heading "JOSE SA" [level=3] [ref=e843]
+                - paragraph [ref=e845]: Thủ môn
+                - paragraph [ref=e846]: Wolverhampton Wanderers
+              - generic [ref=e847]:
+                - generic [ref=e848]:
+                  - generic [ref=e849]: "33"
+                  - text: Tuổi
+                - generic [ref=e850]:
+                  - generic [ref=e851]: "192"
+                  - text: cm
+                - generic [ref=e852]:
+                  - generic [ref=e853]: "80"
+                  - text: kg
+            - article [ref=e854]:
+              - generic [ref=e855]:
+                - button "Xem ảnh lớn của RUI SILVA" [ref=e856]:
+                  - img "RUI SILVA" [ref=e858]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e859]: "22"
+              - generic [ref=e860]:
+                - heading "RUI SILVA" [level=3] [ref=e862]
+                - paragraph [ref=e864]: Thủ môn
+                - paragraph [ref=e865]: Sporting CP
+              - generic [ref=e866]:
+                - generic [ref=e867]:
+                  - generic [ref=e868]: "32"
+                  - text: Tuổi
+                - generic [ref=e869]:
+                  - generic [ref=e870]: "191"
+                  - text: cm
+                - generic [ref=e871]:
+                  - generic [ref=e872]: "78"
+                  - text: kg
+        - generic [ref=e873]:
+          - generic [ref=e874]:
+            - heading "Hậu vệ" [level=2] [ref=e875]
+            - generic [ref=e876]: 9 cầu thủ
+          - generic [ref=e877]:
+            - article [ref=e878]:
+              - generic [ref=e879]:
+                - button "Xem ảnh lớn của NELSON SEMEDO" [ref=e880]:
+                  - img "NELSON SEMEDO" [ref=e882]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e883]: "2"
+              - generic [ref=e884]:
+                - heading "NELSON SEMEDO" [level=3] [ref=e886]
+                - paragraph [ref=e888]: Hậu vệ
+                - paragraph [ref=e889]: Fenerbahçe
+              - generic [ref=e890]:
+                - generic [ref=e891]:
+                  - generic [ref=e892]: "32"
+                  - text: Tuổi
+                - generic [ref=e893]:
+                  - generic [ref=e894]: "179"
+                  - text: cm
+                - generic [ref=e895]:
+                  - generic [ref=e896]: "66"
+                  - text: kg
+            - article [ref=e897]:
+              - generic [ref=e898]:
+                - button "Xem ảnh lớn của RUBEN DIAS" [ref=e899]:
+                  - img "RUBEN DIAS" [ref=e901]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e902]: "3"
+              - generic [ref=e903]:
+                - heading "RUBEN DIAS" [level=3] [ref=e905]
+                - paragraph [ref=e907]: Hậu vệ
+                - paragraph [ref=e908]: Manchester City
+              - generic [ref=e909]:
+                - generic [ref=e910]:
+                  - generic [ref=e911]: "29"
+                  - text: Tuổi
+                - generic [ref=e912]:
+                  - generic [ref=e913]: "187"
+                  - text: cm
+                - generic [ref=e914]:
+                  - generic [ref=e915]: "86"
+                  - text: kg
+            - article [ref=e916]:
+              - generic [ref=e917]:
+                - button "Xem ảnh lớn của TOMAS ARAUJO" [ref=e918]:
+                  - img "TOMAS ARAUJO" [ref=e920]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e921]: "4"
+              - generic [ref=e922]:
+                - heading "TOMAS ARAUJO" [level=3] [ref=e924]
+                - paragraph [ref=e926]: Hậu vệ
+                - paragraph [ref=e927]: Benfica
+              - generic [ref=e928]:
+                - generic [ref=e929]:
+                  - generic [ref=e930]: "24"
+                  - text: Tuổi
+                - generic [ref=e931]:
+                  - generic [ref=e932]: "187"
+                  - text: cm
+                - generic [ref=e933]:
+                  - generic [ref=e934]: "85"
+                  - text: kg
+            - article [ref=e935]:
+              - generic [ref=e936]:
+                - button "Xem ảnh lớn của DIOGO DALOT" [ref=e937]:
+                  - img "DIOGO DALOT" [ref=e939]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e940]: "5"
+              - generic [ref=e941]:
+                - heading "DIOGO DALOT" [level=3] [ref=e943]
+                - paragraph [ref=e945]: Hậu vệ
+                - paragraph [ref=e946]: Manchester United
+              - generic [ref=e947]:
+                - generic [ref=e948]:
+                  - generic [ref=e949]: "27"
+                  - text: Tuổi
+                - generic [ref=e950]:
+                  - generic [ref=e951]: "184"
+                  - text: cm
+                - generic [ref=e952]:
+                  - generic [ref=e953]: "82"
+                  - text: kg
+            - article [ref=e954]:
+              - generic [ref=e955]:
+                - button "Xem ảnh lớn của RENATO VEIGA" [ref=e956]:
+                  - img "RENATO VEIGA" [ref=e958]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e959]: "13"
+              - generic [ref=e960]:
+                - heading "RENATO VEIGA" [level=3] [ref=e962]
+                - paragraph [ref=e964]: Hậu vệ
+                - paragraph [ref=e965]: Villarreal
+              - generic [ref=e966]:
+                - generic [ref=e967]:
+                  - generic [ref=e968]: "22"
+                  - text: Tuổi
+                - generic [ref=e969]:
+                  - generic [ref=e970]: "188"
+                  - text: cm
+                - generic [ref=e971]:
+                  - generic [ref=e972]: "74"
+                  - text: kg
+            - article [ref=e973]:
+              - generic [ref=e974]:
+                - button "Xem ảnh lớn của GONCALO INACIO" [ref=e975]:
+                  - img "GONCALO INACIO" [ref=e977]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e978]: "14"
+              - generic [ref=e979]:
+                - heading "GONCALO INACIO" [level=3] [ref=e981]
+                - paragraph [ref=e983]: Hậu vệ
+                - paragraph [ref=e984]: Sporting CP
+              - generic [ref=e985]:
+                - generic [ref=e986]:
+                  - generic [ref=e987]: "24"
+                  - text: Tuổi
+                - generic [ref=e988]:
+                  - generic [ref=e989]: "185"
+                  - text: cm
+                - generic [ref=e990]:
+                  - generic [ref=e991]: "79"
+                  - text: kg
+            - article [ref=e992]:
+              - generic [ref=e993]:
+                - button "Xem ảnh lớn của JOAO CANCELO" [ref=e994]:
+                  - img "JOAO CANCELO" [ref=e996]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e997]: "20"
+              - generic [ref=e998]:
+                - heading "JOAO CANCELO" [level=3] [ref=e1000]
+                - paragraph [ref=e1002]: Hậu vệ
+                - paragraph [ref=e1003]: Barcelona
+              - generic [ref=e1004]:
+                - generic [ref=e1005]:
+                  - generic [ref=e1006]: "32"
+                  - text: Tuổi
+                - generic [ref=e1007]:
+                  - generic [ref=e1008]: "173"
+                  - text: cm
+                - generic [ref=e1009]:
+                  - generic [ref=e1010]: "65"
+                  - text: kg
+            - article [ref=e1011]:
+              - generic [ref=e1012]:
+                - button "Xem ảnh lớn của SAMU COSTA" [ref=e1013]:
+                  - img "SAMU COSTA" [ref=e1015]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1016]: "24"
+              - generic [ref=e1017]:
+                - heading "SAMU COSTA" [level=3] [ref=e1019]
+                - paragraph [ref=e1021]: Hậu vệ
+                - paragraph [ref=e1022]: Mallorca
+              - generic [ref=e1023]:
+                - generic [ref=e1024]:
+                  - generic [ref=e1025]: "25"
+                  - text: Tuổi
+                - generic [ref=e1026]:
+                  - generic [ref=e1027]: "185"
+                  - text: cm
+                - generic [ref=e1028]:
+                  - generic [ref=e1029]: "78"
+                  - text: kg
+            - article [ref=e1030]:
+              - generic [ref=e1031]:
+                - button "Xem ảnh lớn của NUNO MENDES" [ref=e1032]:
+                  - img "NUNO MENDES" [ref=e1034]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1035]: "25"
+              - generic [ref=e1036]:
+                - heading "NUNO MENDES" [level=3] [ref=e1038]
+                - paragraph [ref=e1040]: Hậu vệ
+                - paragraph [ref=e1041]: Paris Saint-Germain
+              - generic [ref=e1042]:
+                - generic [ref=e1043]:
+                  - generic [ref=e1044]: "23"
+                  - text: Tuổi
+                - generic [ref=e1045]:
+                  - generic [ref=e1046]: "177"
+                  - text: cm
+                - generic [ref=e1047]:
+                  - generic [ref=e1048]: "81"
+                  - text: kg
+        - generic [ref=e1049]:
+          - generic [ref=e1050]:
+            - heading "Tiền vệ" [level=2] [ref=e1051]
+            - generic [ref=e1052]: 6 cầu thủ
+          - generic [ref=e1053]:
+            - article [ref=e1054]:
+              - generic [ref=e1055]:
+                - button "Xem ảnh lớn của MATHEUS NUNES" [ref=e1056]:
+                  - img "MATHEUS NUNES" [ref=e1058]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1059]: "6"
+              - generic [ref=e1060]:
+                - heading "MATHEUS NUNES" [level=3] [ref=e1062]
+                - paragraph [ref=e1064]: Tiền vệ
+                - paragraph [ref=e1065]: Manchester City
+              - generic [ref=e1066]:
+                - generic [ref=e1067]:
+                  - generic [ref=e1068]: "27"
+                  - text: Tuổi
+                - generic [ref=e1069]:
+                  - generic [ref=e1070]: "183"
+                  - text: cm
+                - generic [ref=e1071]:
+                  - generic [ref=e1072]: "78"
+                  - text: kg
+            - article [ref=e1073]:
+              - generic [ref=e1074]:
+                - button "Xem ảnh lớn của BRUNO FERNANDES" [ref=e1075]:
+                  - img "BRUNO FERNANDES" [ref=e1077]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1078]: "8"
+              - generic [ref=e1079]:
+                - heading "BRUNO FERNANDES" [level=3] [ref=e1081]
+                - paragraph [ref=e1083]: Tiền vệ
+                - paragraph [ref=e1084]: Manchester United
+              - generic [ref=e1085]:
+                - generic [ref=e1086]:
+                  - generic [ref=e1087]: "31"
+                  - text: Tuổi
+                - generic [ref=e1088]:
+                  - generic [ref=e1089]: "183"
+                  - text: cm
+                - generic [ref=e1090]:
+                  - generic [ref=e1091]: "64"
+                  - text: kg
+            - article [ref=e1092]:
+              - generic [ref=e1093]:
+                - button "Xem ảnh lớn của BERNARDO SILVA" [ref=e1094]:
+                  - img "BERNARDO SILVA" [ref=e1096]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1097]: "10"
+              - generic [ref=e1098]:
+                - heading "BERNARDO SILVA" [level=3] [ref=e1100]
+                - paragraph [ref=e1102]: Tiền vệ
+                - paragraph [ref=e1103]: Manchester City
+              - generic [ref=e1104]:
+                - generic [ref=e1105]:
+                  - generic [ref=e1106]: "31"
+                  - text: Tuổi
+                - generic [ref=e1107]:
+                  - generic [ref=e1108]: "173"
+                  - text: cm
+                - generic [ref=e1109]:
+                  - generic [ref=e1110]: "63"
+                  - text: kg
+            - article [ref=e1111]:
+              - generic [ref=e1112]:
+                - button "Xem ảnh lớn của JOAO NEVES" [ref=e1113]:
+                  - img "JOAO NEVES" [ref=e1115]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1116]: "15"
+              - generic [ref=e1117]:
+                - heading "JOAO NEVES" [level=3] [ref=e1119]
+                - paragraph [ref=e1121]: Tiền vệ
+                - paragraph [ref=e1122]: Paris Saint-Germain
+              - generic [ref=e1123]:
+                - generic [ref=e1124]:
+                  - generic [ref=e1125]: "21"
+                  - text: Tuổi
+                - generic [ref=e1126]:
+                  - generic [ref=e1127]: "171"
+                  - text: cm
+                - generic [ref=e1128]:
+                  - generic [ref=e1129]: "74"
+                  - text: kg
+            - article [ref=e1130]:
+              - generic [ref=e1131]:
+                - button "Xem ảnh lớn của RUBEN NEVES" [ref=e1132]:
+                  - img "RUBEN NEVES" [ref=e1134]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1135]: "21"
+              - generic [ref=e1136]:
+                - heading "RUBEN NEVES" [level=3] [ref=e1138]
+                - paragraph [ref=e1140]: Tiền vệ
+                - paragraph [ref=e1141]: Al-Hilal
+              - generic [ref=e1142]:
+                - generic [ref=e1143]:
+                  - generic [ref=e1144]: "29"
+                  - text: Tuổi
+                - generic [ref=e1145]:
+                  - generic [ref=e1146]: "183"
+                  - text: cm
+                - generic [ref=e1147]:
+                  - generic [ref=e1148]: "83"
+                  - text: kg
+            - article [ref=e1149]:
+              - generic [ref=e1150]:
+                - button "Xem ảnh lớn của VITINHA" [ref=e1151]:
+                  - img "VITINHA" [ref=e1153]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1154]: "23"
+              - generic [ref=e1155]:
+                - heading "VITINHA" [level=3] [ref=e1157]
+                - paragraph [ref=e1159]: Tiền vệ
+                - paragraph [ref=e1160]: Paris Saint-Germain
+              - generic [ref=e1161]:
+                - generic [ref=e1162]:
+                  - generic [ref=e1163]: "26"
+                  - text: Tuổi
+                - generic [ref=e1164]:
+                  - generic [ref=e1165]: "170"
+                  - text: cm
+                - generic [ref=e1166]:
+                  - generic [ref=e1167]: "67"
+                  - text: kg
+        - generic [ref=e1168]:
+          - generic [ref=e1169]:
+            - heading "Tiền đạo" [level=2] [ref=e1170]
+            - generic [ref=e1171]: 8 cầu thủ
+          - generic [ref=e1172]:
+            - article [ref=e1173]:
+              - generic [ref=e1174]:
+                - button "Xem ảnh lớn của CRISTIANO RONALDO" [ref=e1175]:
+                  - img "CRISTIANO RONALDO" [ref=e1177]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1178]: "7"
+              - generic [ref=e1179]:
+                - heading "CRISTIANO RONALDO" [level=3] [ref=e1181]
+                - paragraph [ref=e1183]: Tiền đạo
+                - paragraph [ref=e1184]: Al-Nassr
+              - generic [ref=e1185]:
+                - generic [ref=e1186]:
+                  - generic [ref=e1187]: "41"
+                  - text: Tuổi
+                - generic [ref=e1188]:
+                  - generic [ref=e1189]: "185"
+                  - text: cm
+                - generic [ref=e1190]:
+                  - generic [ref=e1191]: "80"
+                  - text: kg
+            - article [ref=e1192]:
+              - generic [ref=e1193]:
+                - button "Xem ảnh lớn của GONCALO RAMOS" [ref=e1194]:
+                  - img "GONCALO RAMOS" [ref=e1196]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1197]: "9"
+              - generic [ref=e1198]:
+                - heading "GONCALO RAMOS" [level=3] [ref=e1200]
+                - paragraph [ref=e1202]: Tiền đạo
+                - paragraph [ref=e1203]: Paris Saint-Germain
+              - generic [ref=e1204]:
+                - generic [ref=e1205]:
+                  - generic [ref=e1206]: "24"
+                  - text: Tuổi
+                - generic [ref=e1207]:
+                  - generic [ref=e1208]: "185"
+                  - text: cm
+                - generic [ref=e1209]:
+                  - generic [ref=e1210]: "84"
+                  - text: kg
+            - article [ref=e1211]:
+              - generic [ref=e1212]:
+                - button "Xem ảnh lớn của JOAO FELIX" [ref=e1213]:
+                  - img "JOAO FELIX" [ref=e1215]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1216]: "11"
+              - generic [ref=e1217]:
+                - heading "JOAO FELIX" [level=3] [ref=e1219]
+                - paragraph [ref=e1221]: Tiền đạo
+                - paragraph [ref=e1222]: Al-Nassr
+              - generic [ref=e1223]:
+                - generic [ref=e1224]:
+                  - generic [ref=e1225]: "26"
+                  - text: Tuổi
+                - generic [ref=e1226]:
+                  - generic [ref=e1227]: "179"
+                  - text: cm
+                - generic [ref=e1228]:
+                  - generic [ref=e1229]: "70"
+                  - text: kg
+            - article [ref=e1230]:
+              - generic [ref=e1231]:
+                - button "Xem ảnh lớn của FRANCISCO TRINCAO" [ref=e1232]:
+                  - img "FRANCISCO TRINCAO" [ref=e1234]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1235]: "16"
+              - generic [ref=e1236]:
+                - heading "FRANCISCO TRINCAO" [level=3] [ref=e1238]
+                - paragraph [ref=e1240]: Tiền đạo
+                - paragraph [ref=e1241]: Sporting CP
+              - generic [ref=e1242]:
+                - generic [ref=e1243]:
+                  - generic [ref=e1244]: "26"
+                  - text: Tuổi
+                - generic [ref=e1245]:
+                  - generic [ref=e1246]: "184"
+                  - text: cm
+                - generic [ref=e1247]:
+                  - generic [ref=e1248]: "76"
+                  - text: kg
+            - article [ref=e1249]:
+              - generic [ref=e1250]:
+                - button "Xem ảnh lớn của RAFAEL LEAO" [ref=e1251]:
+                  - img "RAFAEL LEAO" [ref=e1253]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1254]: "17"
+              - generic [ref=e1255]:
+                - heading "RAFAEL LEAO" [level=3] [ref=e1257]
+                - paragraph [ref=e1259]: Tiền đạo
+                - paragraph [ref=e1260]: Milan
+              - generic [ref=e1261]:
+                - generic [ref=e1262]:
+                  - generic [ref=e1263]: "27"
+                  - text: Tuổi
+                - generic [ref=e1264]:
+                  - generic [ref=e1265]: "188"
+                  - text: cm
+                - generic [ref=e1266]:
+                  - generic [ref=e1267]: "80"
+                  - text: kg
+            - article [ref=e1268]:
+              - generic [ref=e1269]:
+                - button "Xem ảnh lớn của PEDRO NETO" [ref=e1270]:
+                  - img "PEDRO NETO" [ref=e1272]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1273]: "18"
+              - generic [ref=e1274]:
+                - heading "PEDRO NETO" [level=3] [ref=e1276]
+                - paragraph [ref=e1278]: Tiền đạo
+                - paragraph [ref=e1279]: Chelsea
+              - generic [ref=e1280]:
+                - generic [ref=e1281]:
+                  - generic [ref=e1282]: "26"
+                  - text: Tuổi
+                - generic [ref=e1283]:
+                  - generic [ref=e1284]: "174"
+                  - text: cm
+                - generic [ref=e1285]:
+                  - generic [ref=e1286]: "78"
+                  - text: kg
+            - article [ref=e1287]:
+              - generic [ref=e1288]:
+                - button "Xem ảnh lớn của GONCALO GUEDES" [ref=e1289]:
+                  - img "GONCALO GUEDES" [ref=e1291]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1292]: "19"
+              - generic [ref=e1293]:
+                - heading "GONCALO GUEDES" [level=3] [ref=e1295]
+                - paragraph [ref=e1297]: Tiền đạo
+                - paragraph [ref=e1298]: Real Sociedad
+              - generic [ref=e1299]:
+                - generic [ref=e1300]:
+                  - generic [ref=e1301]: "29"
+                  - text: Tuổi
+                - generic [ref=e1302]:
+                  - generic [ref=e1303]: "179"
+                  - text: cm
+                - generic [ref=e1304]:
+                  - generic [ref=e1305]: "72"
+                  - text: kg
+            - article [ref=e1306]:
+              - generic [ref=e1307]:
+                - button "Xem ảnh lớn của FRANCISCO CONCEICAO" [ref=e1308]:
+                  - img "FRANCISCO CONCEICAO" [ref=e1310]
+                  - generic:
+                    - generic: Xem ảnh
+                - generic [ref=e1311]: "26"
+              - generic [ref=e1312]:
+                - heading "FRANCISCO CONCEICAO" [level=3] [ref=e1314]
+                - paragraph [ref=e1316]: Tiền đạo
+                - paragraph [ref=e1317]: Juventus
+              - generic [ref=e1318]:
+                - generic [ref=e1319]:
+                  - generic [ref=e1320]: "23"
+                  - text: Tuổi
+                - generic [ref=e1321]:
+                  - generic [ref=e1322]: "166"
+                  - text: cm
+                - generic [ref=e1323]:
+                  - generic [ref=e1324]: "67"
+                  - text: kg

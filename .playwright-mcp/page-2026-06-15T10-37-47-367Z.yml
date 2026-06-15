@@ -1,0 +1,10 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - paragraph [ref=e5]: FIFA World Cup
+        - heading "WC 2026 Simulator" [level=1] [ref=e6]
+    - main [ref=e7]:
+      - img [ref=e10]
+  - button "Open Next.js Dev Tools" [ref=e28] [cursor=pointer]:
+    - img [ref=e29]

@@ -1,0 +1,3394 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - generic [ref=e6]:
+            - paragraph [ref=e7]: FIFA World Cup
+            - heading "WC 2026 Simulator" [level=1] [ref=e9]
+            - paragraph [ref=e15]: Xem lịch thi đấu · Lọc trận đấu và đội bóng yêu thích
+          - generic [ref=e20]:
+            - button "Mô phỏng" [ref=e21]
+            - button "Lịch thi đấu & Yêu thích" [active] [ref=e22]
+            - link "Đội tuyển" [ref=e23] [cursor=pointer]:
+              - /url: /teams
+        - navigation [ref=e24]:
+          - button "Tất cả lịch thi đấu" [ref=e588]
+          - button "Trận yêu thích (0)" [ref=e589]
+          - button "Đội yêu thích (0)" [ref=e590]
+    - main [ref=e28]:
+      - generic [ref=e591]:
+        - generic [ref=e592]:
+          - generic [ref=e593]:
+            - heading "Lịch thi đấu" [level=2] [ref=e594]
+            - generic [ref=e595]: 104 trận
+          - generic [ref=e596]:
+            - navigation [ref=e599]:
+              - button "Tất cả trận đấu" [ref=e600]
+              - button "Vòng bảng" [ref=e601]
+              - button "Nhánh Knockout" [ref=e602]
+              - button "BXH Thực tế" [ref=e603]
+              - button "Thống kê" [ref=e604]
+            - generic [ref=e605]:
+              - generic [ref=e606]:
+                - img [ref=e607]
+                - textbox "Tìm kiếm quốc gia, SVĐ..." [ref=e609]
+              - generic [ref=e610]:
+                - combobox [ref=e611]:
+                  - option "Tất cả bảng" [selected]
+                  - option "Bảng A"
+                  - option "Bảng B"
+                  - option "Bảng C"
+                  - option "Bảng D"
+                  - option "Bảng E"
+                  - option "Bảng F"
+                  - option "Bảng G"
+                  - option "Bảng H"
+                  - option "Bảng I"
+                  - option "Bảng J"
+                  - option "Bảng K"
+                  - option "Bảng L"
+                - combobox [ref=e612]:
+                  - option "Tất cả lượt" [selected]
+                  - option "Lượt trận 1"
+                  - option "Lượt trận 2"
+                  - option "Lượt trận 3"
+        - table [ref=e616]:
+          - rowgroup [ref=e617]:
+            - row "TRẬN GIỜ VÒNG ĐẤU ĐỘI 1 TỈ SỐ ĐỘI 2 THAO TÁC" [ref=e618]:
+              - columnheader "TRẬN" [ref=e619]
+              - columnheader "GIỜ" [ref=e620]
+              - columnheader "VÒNG ĐẤU" [ref=e621]
+              - columnheader "ĐỘI 1" [ref=e622]
+              - columnheader "TỈ SỐ" [ref=e623]
+              - columnheader "ĐỘI 2" [ref=e624]
+              - columnheader "THAO TÁC" [ref=e625]
+          - rowgroup [ref=e626]:
+            - row "Thứ Sáu, 12/06/2026" [ref=e627]:
+              - cell "Thứ Sáu, 12/06/2026" [ref=e628]:
+                - generic [ref=e629]: Thứ Sáu, 12/06/2026
+            - row "1 02:00 Vòng bảng · Bảng A Mexico City Stadium - Mexico City Mexico Xem chi tiết trận 1 South Africa Chi tiết Lịch sử đối đầu Mexico vs South Africa" [ref=e630]:
+              - cell "1" [ref=e631]
+              - cell "02:00" [ref=e632]:
+                - generic [ref=e633]:
+                  - img [ref=e634]
+                  - generic [ref=e636]: 02:00
+              - cell "Vòng bảng · Bảng A Mexico City Stadium - Mexico City" [ref=e637]:
+                - generic [ref=e638]:
+                  - generic [ref=e639]: Vòng bảng · Bảng A
+                  - generic "Mexico City Stadium - Mexico City" [ref=e640]
+              - cell "Mexico" [ref=e641]:
+                - link "Mexico" [ref=e642] [cursor=pointer]:
+                  - /url: /teams/mexico
+                  - generic [ref=e643]: Mexico
+                  - button "Yêu thích đội" [ref=e644]:
+                    - generic "Mexico" [ref=e645]:
+                      - img [ref=e646]
+              - cell "Xem chi tiết trận 1" [ref=e647]:
+                - button "Xem chi tiết trận 1" [ref=e648]:
+                  - generic [ref=e649]:
+                    - generic [ref=e650]: 2 - 0
+                    - generic [ref=e651]: FT
+                  - generic [ref=e652]: Chi tiết
+              - cell "South Africa" [ref=e653]:
+                - link "South Africa" [ref=e654] [cursor=pointer]:
+                  - /url: /teams/south-africa
+                  - button "Yêu thích đội" [ref=e655]:
+                    - generic "South Africa" [ref=e656]:
+                      - img [ref=e657]
+                  - generic [ref=e658]: South Africa
+              - cell "Chi tiết Lịch sử đối đầu Mexico vs South Africa" [ref=e659]:
+                - generic [ref=e660]:
+                  - button "Chi tiết" [ref=e661]
+                  - button "Lịch sử đối đầu Mexico vs South Africa" [ref=e662]:
+                    - img [ref=e663]
+                  - button "Yêu thích trận" [ref=e665]:
+                    - img [ref=e666]
+            - row "2 09:00 Vòng bảng · Bảng A Guadalajara Stadium - Guadalajara Korea Republic Xem chi tiết trận 2 Czechia Chi tiết Lịch sử đối đầu Korea Republic vs Czechia" [ref=e668]:
+              - cell "2" [ref=e669]
+              - cell "09:00" [ref=e670]:
+                - generic [ref=e671]:
+                  - img [ref=e672]
+                  - generic [ref=e674]: 09:00
+              - cell "Vòng bảng · Bảng A Guadalajara Stadium - Guadalajara" [ref=e675]:
+                - generic [ref=e676]:
+                  - generic [ref=e677]: Vòng bảng · Bảng A
+                  - generic "Guadalajara Stadium - Guadalajara" [ref=e678]
+              - cell "Korea Republic" [ref=e679]:
+                - link "Korea Republic" [ref=e680] [cursor=pointer]:
+                  - /url: /teams/korea-republic
+                  - generic [ref=e681]: Korea Republic
+                  - button "Yêu thích đội" [ref=e682]:
+                    - generic "Korea Republic" [ref=e683]:
+                      - img [ref=e684]
+              - cell "Xem chi tiết trận 2" [ref=e685]:
+                - button "Xem chi tiết trận 2" [ref=e686]:
+                  - generic [ref=e687]:
+                    - generic [ref=e688]: 2 - 1
+                    - generic [ref=e689]: FT
+                  - generic [ref=e690]: Chi tiết
+              - cell "Czechia" [ref=e691]:
+                - link "Czechia" [ref=e692] [cursor=pointer]:
+                  - /url: /teams/czechia
+                  - button "Yêu thích đội" [ref=e693]:
+                    - generic "Czechia" [ref=e694]:
+                      - img [ref=e695]
+                  - generic [ref=e696]: Czechia
+              - cell "Chi tiết Lịch sử đối đầu Korea Republic vs Czechia" [ref=e697]:
+                - generic [ref=e698]:
+                  - button "Chi tiết" [ref=e699]
+                  - button "Lịch sử đối đầu Korea Republic vs Czechia" [ref=e700]:
+                    - img [ref=e701]
+                  - button "Yêu thích trận" [ref=e703]:
+                    - img [ref=e704]
+            - row "Thứ Bảy, 13/06/2026" [ref=e706]:
+              - cell "Thứ Bảy, 13/06/2026" [ref=e707]:
+                - generic [ref=e708]: Thứ Bảy, 13/06/2026
+            - row "3 02:00 Vòng bảng · Bảng B Toronto Stadium - Toronto Canada Xem chi tiết trận 3 Bosnia and Herzegovina Chi tiết Lịch sử đối đầu Canada vs Bosnia and Herzegovina" [ref=e709]:
+              - cell "3" [ref=e710]
+              - cell "02:00" [ref=e711]:
+                - generic [ref=e712]:
+                  - img [ref=e713]
+                  - generic [ref=e715]: 02:00
+              - cell "Vòng bảng · Bảng B Toronto Stadium - Toronto" [ref=e716]:
+                - generic [ref=e717]:
+                  - generic [ref=e718]: Vòng bảng · Bảng B
+                  - generic "Toronto Stadium - Toronto" [ref=e719]
+              - cell "Canada" [ref=e720]:
+                - link "Canada" [ref=e721] [cursor=pointer]:
+                  - /url: /teams/canada
+                  - generic [ref=e722]: Canada
+                  - button "Yêu thích đội" [ref=e723]:
+                    - generic "Canada" [ref=e724]:
+                      - img [ref=e725]
+              - cell "Xem chi tiết trận 3" [ref=e726]:
+                - button "Xem chi tiết trận 3" [ref=e727]:
+                  - generic [ref=e728]:
+                    - generic [ref=e729]: 1 - 1
+                    - generic [ref=e730]: FT
+                  - generic [ref=e731]: Chi tiết
+              - cell "Bosnia and Herzegovina" [ref=e732]:
+                - link "Bosnia and Herzegovina" [ref=e733] [cursor=pointer]:
+                  - /url: /teams/bosnia-herzegovina
+                  - button "Yêu thích đội" [ref=e734]:
+                    - generic "Bosnia and Herzegovina" [ref=e735]:
+                      - img [ref=e736]
+                  - generic [ref=e737]: Bosnia and Herzegovina
+              - cell "Chi tiết Lịch sử đối đầu Canada vs Bosnia and Herzegovina" [ref=e738]:
+                - generic [ref=e739]:
+                  - button "Chi tiết" [ref=e740]
+                  - button "Lịch sử đối đầu Canada vs Bosnia and Herzegovina" [ref=e741]:
+                    - img [ref=e742]
+                  - button "Yêu thích trận" [ref=e744]:
+                    - img [ref=e745]
+            - row "4 08:00 Vòng bảng · Bảng D Los Angeles Stadium - Los Angeles USA Xem chi tiết trận 4 Paraguay Chi tiết Lịch sử đối đầu USA vs Paraguay" [ref=e747]:
+              - cell "4" [ref=e748]
+              - cell "08:00" [ref=e749]:
+                - generic [ref=e750]:
+                  - img [ref=e751]
+                  - generic [ref=e753]: 08:00
+              - cell "Vòng bảng · Bảng D Los Angeles Stadium - Los Angeles" [ref=e754]:
+                - generic [ref=e755]:
+                  - generic [ref=e756]: Vòng bảng · Bảng D
+                  - generic "Los Angeles Stadium - Los Angeles" [ref=e757]
+              - cell "USA" [ref=e758]:
+                - link "USA" [ref=e759] [cursor=pointer]:
+                  - /url: /teams/usa
+                  - generic [ref=e760]: USA
+                  - button "Yêu thích đội" [ref=e761]:
+                    - generic "USA" [ref=e762]:
+                      - img [ref=e763]
+              - cell "Xem chi tiết trận 4" [ref=e764]:
+                - button "Xem chi tiết trận 4" [ref=e765]:
+                  - generic [ref=e766]:
+                    - generic [ref=e767]: 4 - 1
+                    - generic [ref=e768]: FT
+                  - generic [ref=e769]: Chi tiết
+              - cell "Paraguay" [ref=e770]:
+                - link "Paraguay" [ref=e771] [cursor=pointer]:
+                  - /url: /teams/paraguay
+                  - button "Yêu thích đội" [ref=e772]:
+                    - generic "Paraguay" [ref=e773]:
+                      - img [ref=e774]
+                  - generic [ref=e775]: Paraguay
+              - cell "Chi tiết Lịch sử đối đầu USA vs Paraguay" [ref=e776]:
+                - generic [ref=e777]:
+                  - button "Chi tiết" [ref=e778]
+                  - button "Lịch sử đối đầu USA vs Paraguay" [ref=e779]:
+                    - img [ref=e780]
+                  - button "Yêu thích trận" [ref=e782]:
+                    - img [ref=e783]
+            - row "Chủ Nhật, 14/06/2026" [ref=e785]:
+              - cell "Chủ Nhật, 14/06/2026" [ref=e786]:
+                - generic [ref=e787]: Chủ Nhật, 14/06/2026
+            - row "8 02:00 Vòng bảng · Bảng B San Francisco Bay Area Stadium - San Francisco Bay Area Qatar Xem chi tiết trận 8 Switzerland Chi tiết Lịch sử đối đầu Qatar vs Switzerland" [ref=e788]:
+              - cell "8" [ref=e789]
+              - cell "02:00" [ref=e790]:
+                - generic [ref=e791]:
+                  - img [ref=e792]
+                  - generic [ref=e794]: 02:00
+              - cell "Vòng bảng · Bảng B San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e795]:
+                - generic [ref=e796]:
+                  - generic [ref=e797]: Vòng bảng · Bảng B
+                  - generic "San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e798]
+              - cell "Qatar" [ref=e799]:
+                - link "Qatar" [ref=e800] [cursor=pointer]:
+                  - /url: /teams/qatar
+                  - generic [ref=e801]: Qatar
+                  - button "Yêu thích đội" [ref=e802]:
+                    - generic "Qatar" [ref=e803]:
+                      - img [ref=e804]
+              - cell "Xem chi tiết trận 8" [ref=e805]:
+                - button "Xem chi tiết trận 8" [ref=e806]:
+                  - generic [ref=e807]:
+                    - generic [ref=e808]: 1 - 1
+                    - generic [ref=e809]: FT
+                  - generic [ref=e810]: Chi tiết
+              - cell "Switzerland" [ref=e811]:
+                - link "Switzerland" [ref=e812] [cursor=pointer]:
+                  - /url: /teams/switzerland
+                  - button "Yêu thích đội" [ref=e813]:
+                    - generic "Switzerland" [ref=e814]:
+                      - img [ref=e815]
+                  - generic [ref=e816]: Switzerland
+              - cell "Chi tiết Lịch sử đối đầu Qatar vs Switzerland" [ref=e817]:
+                - generic [ref=e818]:
+                  - button "Chi tiết" [ref=e819]
+                  - button "Lịch sử đối đầu Qatar vs Switzerland" [ref=e820]:
+                    - img [ref=e821]
+                  - button "Yêu thích trận" [ref=e823]:
+                    - img [ref=e824]
+            - row "7 05:00 Vòng bảng · Bảng C New York/New Jersey Stadium - New Jersey Brazil Xem chi tiết trận 7 Morocco Chi tiết Lịch sử đối đầu Brazil vs Morocco" [ref=e826]:
+              - cell "7" [ref=e827]
+              - cell "05:00" [ref=e828]:
+                - generic [ref=e829]:
+                  - img [ref=e830]
+                  - generic [ref=e832]: 05:00
+              - cell "Vòng bảng · Bảng C New York/New Jersey Stadium - New Jersey" [ref=e833]:
+                - generic [ref=e834]:
+                  - generic [ref=e835]: Vòng bảng · Bảng C
+                  - generic "New York/New Jersey Stadium - New Jersey" [ref=e836]
+              - cell "Brazil" [ref=e837]:
+                - link "Brazil" [ref=e838] [cursor=pointer]:
+                  - /url: /teams/brazil
+                  - generic [ref=e839]: Brazil
+                  - button "Yêu thích đội" [ref=e840]:
+                    - generic "Brazil" [ref=e841]:
+                      - img [ref=e842]
+              - cell "Xem chi tiết trận 7" [ref=e843]:
+                - button "Xem chi tiết trận 7" [ref=e844]:
+                  - generic [ref=e845]:
+                    - generic [ref=e846]: 1 - 1
+                    - generic [ref=e847]: FT
+                  - generic [ref=e848]: Chi tiết
+              - cell "Morocco" [ref=e849]:
+                - link "Morocco" [ref=e850] [cursor=pointer]:
+                  - /url: /teams/morocco
+                  - button "Yêu thích đội" [ref=e851]:
+                    - generic "Morocco" [ref=e852]:
+                      - img [ref=e853]
+                  - generic [ref=e854]: Morocco
+              - cell "Chi tiết Lịch sử đối đầu Brazil vs Morocco" [ref=e855]:
+                - generic [ref=e856]:
+                  - button "Chi tiết" [ref=e857]
+                  - button "Lịch sử đối đầu Brazil vs Morocco" [ref=e858]:
+                    - img [ref=e859]
+                  - button "Yêu thích trận" [ref=e861]:
+                    - img [ref=e862]
+            - row "5 08:00 Vòng bảng · Bảng C Boston Stadium - Boston Haiti Xem chi tiết trận 5 Scotland Chi tiết Lịch sử đối đầu Haiti vs Scotland" [ref=e864]:
+              - cell "5" [ref=e865]
+              - cell "08:00" [ref=e866]:
+                - generic [ref=e867]:
+                  - img [ref=e868]
+                  - generic [ref=e870]: 08:00
+              - cell "Vòng bảng · Bảng C Boston Stadium - Boston" [ref=e871]:
+                - generic [ref=e872]:
+                  - generic [ref=e873]: Vòng bảng · Bảng C
+                  - generic "Boston Stadium - Boston" [ref=e874]
+              - cell "Haiti" [ref=e875]:
+                - link "Haiti" [ref=e876] [cursor=pointer]:
+                  - /url: /teams/haiti
+                  - generic [ref=e877]: Haiti
+                  - button "Yêu thích đội" [ref=e878]:
+                    - generic "Haiti" [ref=e879]:
+                      - img [ref=e880]
+              - cell "Xem chi tiết trận 5" [ref=e881]:
+                - button "Xem chi tiết trận 5" [ref=e882]:
+                  - generic [ref=e883]:
+                    - generic [ref=e884]: 0 - 1
+                    - generic [ref=e885]: FT
+                  - generic [ref=e886]: Chi tiết
+              - cell "Scotland" [ref=e887]:
+                - link "Scotland" [ref=e888] [cursor=pointer]:
+                  - /url: /teams/scotland
+                  - button "Yêu thích đội" [ref=e889]:
+                    - generic "Scotland" [ref=e890]:
+                      - img [ref=e891]
+                  - generic [ref=e892]: Scotland
+              - cell "Chi tiết Lịch sử đối đầu Haiti vs Scotland" [ref=e893]:
+                - generic [ref=e894]:
+                  - button "Chi tiết" [ref=e895]
+                  - button "Lịch sử đối đầu Haiti vs Scotland" [ref=e896]:
+                    - img [ref=e897]
+                  - button "Yêu thích trận" [ref=e899]:
+                    - img [ref=e900]
+            - row "6 11:00 Vòng bảng · Bảng D BC Place Vancouver - Vancouver Australia Xem chi tiết trận 6 Türkiye Chi tiết Lịch sử đối đầu Australia vs Türkiye" [ref=e902]:
+              - cell "6" [ref=e903]
+              - cell "11:00" [ref=e904]:
+                - generic [ref=e905]:
+                  - img [ref=e906]
+                  - generic [ref=e908]: 11:00
+              - cell "Vòng bảng · Bảng D BC Place Vancouver - Vancouver" [ref=e909]:
+                - generic [ref=e910]:
+                  - generic [ref=e911]: Vòng bảng · Bảng D
+                  - generic "BC Place Vancouver - Vancouver" [ref=e912]
+              - cell "Australia" [ref=e913]:
+                - link "Australia" [ref=e914] [cursor=pointer]:
+                  - /url: /teams/australia
+                  - generic [ref=e915]: Australia
+                  - button "Yêu thích đội" [ref=e916]:
+                    - generic "Australia" [ref=e917]:
+                      - img [ref=e918]
+              - cell "Xem chi tiết trận 6" [ref=e919]:
+                - button "Xem chi tiết trận 6" [ref=e920]:
+                  - generic [ref=e921]:
+                    - generic [ref=e922]: 2 - 0
+                    - generic [ref=e923]: FT
+                  - generic [ref=e924]: Chi tiết
+              - cell "Türkiye" [ref=e925]:
+                - link "Türkiye" [ref=e926] [cursor=pointer]:
+                  - /url: /teams/turkiye
+                  - button "Yêu thích đội" [ref=e927]:
+                    - generic "Türkiye" [ref=e928]:
+                      - img [ref=e929]
+                  - generic [ref=e930]: Türkiye
+              - cell "Chi tiết Lịch sử đối đầu Australia vs Türkiye" [ref=e931]:
+                - generic [ref=e932]:
+                  - button "Chi tiết" [ref=e933]
+                  - button "Lịch sử đối đầu Australia vs Türkiye" [ref=e934]:
+                    - img [ref=e935]
+                  - button "Yêu thích trận" [ref=e937]:
+                    - img [ref=e938]
+            - row "Thứ Hai, 15/06/2026" [ref=e940]:
+              - cell "Thứ Hai, 15/06/2026" [ref=e941]:
+                - generic [ref=e942]: Thứ Hai, 15/06/2026
+            - row "10 00:00 Vòng bảng · Bảng E Houston Stadium - Houston Germany Xem chi tiết trận 10 Curaçao Chi tiết Lịch sử đối đầu Germany vs Curaçao" [ref=e943]:
+              - cell "10" [ref=e944]
+              - cell "00:00" [ref=e945]:
+                - generic [ref=e946]:
+                  - img [ref=e947]
+                  - generic [ref=e949]: 00:00
+              - cell "Vòng bảng · Bảng E Houston Stadium - Houston" [ref=e950]:
+                - generic [ref=e951]:
+                  - generic [ref=e952]: Vòng bảng · Bảng E
+                  - generic "Houston Stadium - Houston" [ref=e953]
+              - cell "Germany" [ref=e954]:
+                - link "Germany" [ref=e955] [cursor=pointer]:
+                  - /url: /teams/germany
+                  - generic [ref=e956]: Germany
+                  - button "Yêu thích đội" [ref=e957]:
+                    - generic "Germany" [ref=e958]:
+                      - img [ref=e959]
+              - cell "Xem chi tiết trận 10" [ref=e960]:
+                - button "Xem chi tiết trận 10" [ref=e961]:
+                  - generic [ref=e962]:
+                    - generic [ref=e963]: 7 - 1
+                    - generic [ref=e964]: FT
+                  - generic [ref=e965]: Chi tiết
+              - cell "Curaçao" [ref=e966]:
+                - link "Curaçao" [ref=e967] [cursor=pointer]:
+                  - /url: /teams/curacao
+                  - button "Yêu thích đội" [ref=e968]:
+                    - generic "Curaçao" [ref=e969]:
+                      - img [ref=e970]
+                  - generic [ref=e971]: Curaçao
+              - cell "Chi tiết Lịch sử đối đầu Germany vs Curaçao" [ref=e972]:
+                - generic [ref=e973]:
+                  - button "Chi tiết" [ref=e974]
+                  - button "Lịch sử đối đầu Germany vs Curaçao" [ref=e975]:
+                    - img [ref=e976]
+                  - button "Yêu thích trận" [ref=e978]:
+                    - img [ref=e979]
+            - row "11 03:00 Vòng bảng · Bảng F Dallas Stadium - Dallas Netherlands Xem chi tiết trận 11 Japan Chi tiết Lịch sử đối đầu Netherlands vs Japan" [ref=e981]:
+              - cell "11" [ref=e982]
+              - cell "03:00" [ref=e983]:
+                - generic [ref=e984]:
+                  - img [ref=e985]
+                  - generic [ref=e987]: 03:00
+              - cell "Vòng bảng · Bảng F Dallas Stadium - Dallas" [ref=e988]:
+                - generic [ref=e989]:
+                  - generic [ref=e990]: Vòng bảng · Bảng F
+                  - generic "Dallas Stadium - Dallas" [ref=e991]
+              - cell "Netherlands" [ref=e992]:
+                - link "Netherlands" [ref=e993] [cursor=pointer]:
+                  - /url: /teams/netherlands
+                  - generic [ref=e994]: Netherlands
+                  - button "Yêu thích đội" [ref=e995]:
+                    - generic "Netherlands" [ref=e996]:
+                      - img [ref=e997]
+              - cell "Xem chi tiết trận 11" [ref=e998]:
+                - button "Xem chi tiết trận 11" [ref=e999]:
+                  - generic [ref=e1000]:
+                    - generic [ref=e1001]: 2 - 2
+                    - generic [ref=e1002]: FT
+                  - generic [ref=e1003]: Chi tiết
+              - cell "Japan" [ref=e1004]:
+                - link "Japan" [ref=e1005] [cursor=pointer]:
+                  - /url: /teams/japan
+                  - button "Yêu thích đội" [ref=e1006]:
+                    - generic "Japan" [ref=e1007]:
+                      - img [ref=e1008]
+                  - generic [ref=e1009]: Japan
+              - cell "Chi tiết Lịch sử đối đầu Netherlands vs Japan" [ref=e1010]:
+                - generic [ref=e1011]:
+                  - button "Chi tiết" [ref=e1012]
+                  - button "Lịch sử đối đầu Netherlands vs Japan" [ref=e1013]:
+                    - img [ref=e1014]
+                  - button "Yêu thích trận" [ref=e1016]:
+                    - img [ref=e1017]
+            - row "9 06:00 Vòng bảng · Bảng E Philadelphia Stadium - Philadelphia Côte d'Ivoire Xem chi tiết trận 9 Ecuador Chi tiết Lịch sử đối đầu Côte d'Ivoire vs Ecuador" [ref=e1019]:
+              - cell "9" [ref=e1020]
+              - cell "06:00" [ref=e1021]:
+                - generic [ref=e1022]:
+                  - img [ref=e1023]
+                  - generic [ref=e1025]: 06:00
+              - cell "Vòng bảng · Bảng E Philadelphia Stadium - Philadelphia" [ref=e1026]:
+                - generic [ref=e1027]:
+                  - generic [ref=e1028]: Vòng bảng · Bảng E
+                  - generic "Philadelphia Stadium - Philadelphia" [ref=e1029]
+              - cell "Côte d'Ivoire" [ref=e1030]:
+                - link "Côte d'Ivoire" [ref=e1031] [cursor=pointer]:
+                  - /url: /teams/cote-d-ivoire
+                  - generic [ref=e1032]: Côte d'Ivoire
+                  - button "Yêu thích đội" [ref=e1033]:
+                    - generic "Côte d'Ivoire" [ref=e1034]:
+                      - img [ref=e1035]
+              - cell "Xem chi tiết trận 9" [ref=e1036]:
+                - button "Xem chi tiết trận 9" [ref=e1037]:
+                  - generic [ref=e1038]:
+                    - generic [ref=e1039]: 1 - 0
+                    - generic [ref=e1040]: FT
+                  - generic [ref=e1041]: Chi tiết
+              - cell "Ecuador" [ref=e1042]:
+                - link "Ecuador" [ref=e1043] [cursor=pointer]:
+                  - /url: /teams/ecuador
+                  - button "Yêu thích đội" [ref=e1044]:
+                    - generic "Ecuador" [ref=e1045]:
+                      - img [ref=e1046]
+                  - generic [ref=e1047]: Ecuador
+              - cell "Chi tiết Lịch sử đối đầu Côte d'Ivoire vs Ecuador" [ref=e1048]:
+                - generic [ref=e1049]:
+                  - button "Chi tiết" [ref=e1050]
+                  - button "Lịch sử đối đầu Côte d'Ivoire vs Ecuador" [ref=e1051]:
+                    - img [ref=e1052]
+                  - button "Yêu thích trận" [ref=e1054]:
+                    - img [ref=e1055]
+            - row "12 09:00 Vòng bảng · Bảng F Monterrey Stadium - Monterrey Sweden Xem chi tiết trận 12 Tunisia Chi tiết Lịch sử đối đầu Sweden vs Tunisia" [ref=e1057]:
+              - cell "12" [ref=e1058]
+              - cell "09:00" [ref=e1059]:
+                - generic [ref=e1060]:
+                  - img [ref=e1061]
+                  - generic [ref=e1063]: 09:00
+              - cell "Vòng bảng · Bảng F Monterrey Stadium - Monterrey" [ref=e1064]:
+                - generic [ref=e1065]:
+                  - generic [ref=e1066]: Vòng bảng · Bảng F
+                  - generic "Monterrey Stadium - Monterrey" [ref=e1067]
+              - cell "Sweden" [ref=e1068]:
+                - link "Sweden" [ref=e1069] [cursor=pointer]:
+                  - /url: /teams/sweden
+                  - generic [ref=e1070]: Sweden
+                  - button "Yêu thích đội" [ref=e1071]:
+                    - generic "Sweden" [ref=e1072]:
+                      - img [ref=e1073]
+              - cell "Xem chi tiết trận 12" [ref=e1074]:
+                - button "Xem chi tiết trận 12" [ref=e1075]:
+                  - generic [ref=e1076]:
+                    - generic [ref=e1077]: 5 - 1
+                    - generic [ref=e1078]: FT
+                  - generic [ref=e1079]: Chi tiết
+              - cell "Tunisia" [ref=e1080]:
+                - link "Tunisia" [ref=e1081] [cursor=pointer]:
+                  - /url: /teams/tunisia
+                  - button "Yêu thích đội" [ref=e1082]:
+                    - generic "Tunisia" [ref=e1083]:
+                      - img [ref=e1084]
+                  - generic [ref=e1085]: Tunisia
+              - cell "Chi tiết Lịch sử đối đầu Sweden vs Tunisia" [ref=e1086]:
+                - generic [ref=e1087]:
+                  - button "Chi tiết" [ref=e1088]
+                  - button "Lịch sử đối đầu Sweden vs Tunisia" [ref=e1089]:
+                    - img [ref=e1090]
+                  - button "Yêu thích trận" [ref=e1092]:
+                    - img [ref=e1093]
+            - row "14 23:00 Vòng bảng · Bảng H Atlanta Stadium - Atlanta Spain Xem chi tiết trận 14 Cabo Verde Chi tiết Lịch sử đối đầu Spain vs Cabo Verde" [ref=e1095]:
+              - cell "14" [ref=e1096]
+              - cell "23:00" [ref=e1097]:
+                - generic [ref=e1098]:
+                  - img [ref=e1099]
+                  - generic [ref=e1101]: 23:00
+              - cell "Vòng bảng · Bảng H Atlanta Stadium - Atlanta" [ref=e1102]:
+                - generic [ref=e1103]:
+                  - generic [ref=e1104]: Vòng bảng · Bảng H
+                  - generic "Atlanta Stadium - Atlanta" [ref=e1105]
+              - cell "Spain" [ref=e1106]:
+                - link "Spain" [ref=e1107] [cursor=pointer]:
+                  - /url: /teams/spain
+                  - generic [ref=e1108]: Spain
+                  - button "Yêu thích đội" [ref=e1109]:
+                    - generic "Spain" [ref=e1110]:
+                      - img [ref=e1111]
+              - cell "Xem chi tiết trận 14" [ref=e1112]:
+                - button "Xem chi tiết trận 14" [ref=e1113]:
+                  - text: vs
+                  - generic [ref=e1114]: Chi tiết
+              - cell "Cabo Verde" [ref=e1115]:
+                - link "Cabo Verde" [ref=e1116] [cursor=pointer]:
+                  - /url: /teams/cabo-verde
+                  - button "Yêu thích đội" [ref=e1117]:
+                    - generic "Cabo Verde" [ref=e1118]:
+                      - img [ref=e1119]
+                  - generic [ref=e1120]: Cabo Verde
+              - cell "Chi tiết Lịch sử đối đầu Spain vs Cabo Verde" [ref=e1121]:
+                - generic [ref=e1122]:
+                  - button "Chi tiết" [ref=e1123]
+                  - button "Lịch sử đối đầu Spain vs Cabo Verde" [ref=e1124]:
+                    - img [ref=e1125]
+                  - button "Yêu thích trận" [ref=e1127]:
+                    - img [ref=e1128]
+            - row "Thứ Ba, 16/06/2026" [ref=e1130]:
+              - cell "Thứ Ba, 16/06/2026" [ref=e1131]:
+                - generic [ref=e1132]: Thứ Ba, 16/06/2026
+            - row "16 02:00 Vòng bảng · Bảng G Seattle Stadium - Seattle Belgium Xem chi tiết trận 16 Egypt Chi tiết Lịch sử đối đầu Belgium vs Egypt" [ref=e1133]:
+              - cell "16" [ref=e1134]
+              - cell "02:00" [ref=e1135]:
+                - generic [ref=e1136]:
+                  - img [ref=e1137]
+                  - generic [ref=e1139]: 02:00
+              - cell "Vòng bảng · Bảng G Seattle Stadium - Seattle" [ref=e1140]:
+                - generic [ref=e1141]:
+                  - generic [ref=e1142]: Vòng bảng · Bảng G
+                  - generic "Seattle Stadium - Seattle" [ref=e1143]
+              - cell "Belgium" [ref=e1144]:
+                - link "Belgium" [ref=e1145] [cursor=pointer]:
+                  - /url: /teams/belgium
+                  - generic [ref=e1146]: Belgium
+                  - button "Yêu thích đội" [ref=e1147]:
+                    - generic "Belgium" [ref=e1148]:
+                      - img [ref=e1149]
+              - cell "Xem chi tiết trận 16" [ref=e1150]:
+                - button "Xem chi tiết trận 16" [ref=e1151]:
+                  - text: vs
+                  - generic [ref=e1152]: Chi tiết
+              - cell "Egypt" [ref=e1153]:
+                - link "Egypt" [ref=e1154] [cursor=pointer]:
+                  - /url: /teams/egypt
+                  - button "Yêu thích đội" [ref=e1155]:
+                    - generic "Egypt" [ref=e1156]:
+                      - img [ref=e1157]
+                  - generic [ref=e1158]: Egypt
+              - cell "Chi tiết Lịch sử đối đầu Belgium vs Egypt" [ref=e1159]:
+                - generic [ref=e1160]:
+                  - button "Chi tiết" [ref=e1161]
+                  - button "Lịch sử đối đầu Belgium vs Egypt" [ref=e1162]:
+                    - img [ref=e1163]
+                  - button "Yêu thích trận" [ref=e1165]:
+                    - img [ref=e1166]
+            - row "13 05:00 Vòng bảng · Bảng H Miami Stadium - Miami Saudi Arabia Xem chi tiết trận 13 Uruguay Chi tiết Lịch sử đối đầu Saudi Arabia vs Uruguay" [ref=e1168]:
+              - cell "13" [ref=e1169]
+              - cell "05:00" [ref=e1170]:
+                - generic [ref=e1171]:
+                  - img [ref=e1172]
+                  - generic [ref=e1174]: 05:00
+              - cell "Vòng bảng · Bảng H Miami Stadium - Miami" [ref=e1175]:
+                - generic [ref=e1176]:
+                  - generic [ref=e1177]: Vòng bảng · Bảng H
+                  - generic "Miami Stadium - Miami" [ref=e1178]
+              - cell "Saudi Arabia" [ref=e1179]:
+                - link "Saudi Arabia" [ref=e1180] [cursor=pointer]:
+                  - /url: /teams/saudi-arabia
+                  - generic [ref=e1181]: Saudi Arabia
+                  - button "Yêu thích đội" [ref=e1182]:
+                    - generic "Saudi Arabia" [ref=e1183]:
+                      - img [ref=e1184]
+              - cell "Xem chi tiết trận 13" [ref=e1185]:
+                - button "Xem chi tiết trận 13" [ref=e1186]:
+                  - text: vs
+                  - generic [ref=e1187]: Chi tiết
+              - cell "Uruguay" [ref=e1188]:
+                - link "Uruguay" [ref=e1189] [cursor=pointer]:
+                  - /url: /teams/uruguay
+                  - button "Yêu thích đội" [ref=e1190]:
+                    - generic "Uruguay" [ref=e1191]:
+                      - img [ref=e1192]
+                  - generic [ref=e1193]: Uruguay
+              - cell "Chi tiết Lịch sử đối đầu Saudi Arabia vs Uruguay" [ref=e1194]:
+                - generic [ref=e1195]:
+                  - button "Chi tiết" [ref=e1196]
+                  - button "Lịch sử đối đầu Saudi Arabia vs Uruguay" [ref=e1197]:
+                    - img [ref=e1198]
+                  - button "Yêu thích trận" [ref=e1200]:
+                    - img [ref=e1201]
+            - row "15 08:00 Vòng bảng · Bảng G Los Angeles Stadium - Los Angeles IR Iran Xem chi tiết trận 15 New Zealand Chi tiết Lịch sử đối đầu IR Iran vs New Zealand" [ref=e1203]:
+              - cell "15" [ref=e1204]
+              - cell "08:00" [ref=e1205]:
+                - generic [ref=e1206]:
+                  - img [ref=e1207]
+                  - generic [ref=e1209]: 08:00
+              - cell "Vòng bảng · Bảng G Los Angeles Stadium - Los Angeles" [ref=e1210]:
+                - generic [ref=e1211]:
+                  - generic [ref=e1212]: Vòng bảng · Bảng G
+                  - generic "Los Angeles Stadium - Los Angeles" [ref=e1213]
+              - cell "IR Iran" [ref=e1214]:
+                - link "IR Iran" [ref=e1215] [cursor=pointer]:
+                  - /url: /teams/ir-iran
+                  - generic [ref=e1216]: IR Iran
+                  - button "Yêu thích đội" [ref=e1217]:
+                    - generic "IR Iran" [ref=e1218]:
+                      - img [ref=e1219]
+              - cell "Xem chi tiết trận 15" [ref=e1220]:
+                - button "Xem chi tiết trận 15" [ref=e1221]:
+                  - text: vs
+                  - generic [ref=e1222]: Chi tiết
+              - cell "New Zealand" [ref=e1223]:
+                - link "New Zealand" [ref=e1224] [cursor=pointer]:
+                  - /url: /teams/new-zealand
+                  - button "Yêu thích đội" [ref=e1225]:
+                    - generic "New Zealand" [ref=e1226]:
+                      - img [ref=e1227]
+                  - generic [ref=e1228]: New Zealand
+              - cell "Chi tiết Lịch sử đối đầu IR Iran vs New Zealand" [ref=e1229]:
+                - generic [ref=e1230]:
+                  - button "Chi tiết" [ref=e1231]
+                  - button "Lịch sử đối đầu IR Iran vs New Zealand" [ref=e1232]:
+                    - img [ref=e1233]
+                  - button "Yêu thích trận" [ref=e1235]:
+                    - img [ref=e1236]
+            - row "Thứ Tư, 17/06/2026" [ref=e1238]:
+              - cell "Thứ Tư, 17/06/2026" [ref=e1239]:
+                - generic [ref=e1240]: Thứ Tư, 17/06/2026
+            - row "17 02:00 Vòng bảng · Bảng I New York/New Jersey Stadium - New Jersey France Xem chi tiết trận 17 Senegal Chi tiết Lịch sử đối đầu France vs Senegal" [ref=e1241]:
+              - cell "17" [ref=e1242]
+              - cell "02:00" [ref=e1243]:
+                - generic [ref=e1244]:
+                  - img [ref=e1245]
+                  - generic [ref=e1247]: 02:00
+              - cell "Vòng bảng · Bảng I New York/New Jersey Stadium - New Jersey" [ref=e1248]:
+                - generic [ref=e1249]:
+                  - generic [ref=e1250]: Vòng bảng · Bảng I
+                  - generic "New York/New Jersey Stadium - New Jersey" [ref=e1251]
+              - cell "France" [ref=e1252]:
+                - link "France" [ref=e1253] [cursor=pointer]:
+                  - /url: /teams/france
+                  - generic [ref=e1254]: France
+                  - button "Yêu thích đội" [ref=e1255]:
+                    - generic "France" [ref=e1256]:
+                      - img [ref=e1257]
+              - cell "Xem chi tiết trận 17" [ref=e1258]:
+                - button "Xem chi tiết trận 17" [ref=e1259]:
+                  - text: vs
+                  - generic [ref=e1260]: Chi tiết
+              - cell "Senegal" [ref=e1261]:
+                - link "Senegal" [ref=e1262] [cursor=pointer]:
+                  - /url: /teams/senegal
+                  - button "Yêu thích đội" [ref=e1263]:
+                    - generic "Senegal" [ref=e1264]:
+                      - img [ref=e1265]
+                  - generic [ref=e1266]: Senegal
+              - cell "Chi tiết Lịch sử đối đầu France vs Senegal" [ref=e1267]:
+                - generic [ref=e1268]:
+                  - button "Chi tiết" [ref=e1269]
+                  - button "Lịch sử đối đầu France vs Senegal" [ref=e1270]:
+                    - img [ref=e1271]
+                  - button "Yêu thích trận" [ref=e1273]:
+                    - img [ref=e1274]
+            - row "18 05:00 Vòng bảng · Bảng I Boston Stadium - Boston Iraq Xem chi tiết trận 18 Norway Chi tiết Lịch sử đối đầu Iraq vs Norway" [ref=e1276]:
+              - cell "18" [ref=e1277]
+              - cell "05:00" [ref=e1278]:
+                - generic [ref=e1279]:
+                  - img [ref=e1280]
+                  - generic [ref=e1282]: 05:00
+              - cell "Vòng bảng · Bảng I Boston Stadium - Boston" [ref=e1283]:
+                - generic [ref=e1284]:
+                  - generic [ref=e1285]: Vòng bảng · Bảng I
+                  - generic "Boston Stadium - Boston" [ref=e1286]
+              - cell "Iraq" [ref=e1287]:
+                - link "Iraq" [ref=e1288] [cursor=pointer]:
+                  - /url: /teams/iraq
+                  - generic [ref=e1289]: Iraq
+                  - button "Yêu thích đội" [ref=e1290]:
+                    - generic "Iraq" [ref=e1291]:
+                      - img [ref=e1292]
+              - cell "Xem chi tiết trận 18" [ref=e1293]:
+                - button "Xem chi tiết trận 18" [ref=e1294]:
+                  - text: vs
+                  - generic [ref=e1295]: Chi tiết
+              - cell "Norway" [ref=e1296]:
+                - link "Norway" [ref=e1297] [cursor=pointer]:
+                  - /url: /teams/norway
+                  - button "Yêu thích đội" [ref=e1298]:
+                    - generic "Norway" [ref=e1299]:
+                      - img [ref=e1300]
+                  - generic [ref=e1301]: Norway
+              - cell "Chi tiết Lịch sử đối đầu Iraq vs Norway" [ref=e1302]:
+                - generic [ref=e1303]:
+                  - button "Chi tiết" [ref=e1304]
+                  - button "Lịch sử đối đầu Iraq vs Norway" [ref=e1305]:
+                    - img [ref=e1306]
+                  - button "Yêu thích trận" [ref=e1308]:
+                    - img [ref=e1309]
+            - row "19 08:00 Vòng bảng · Bảng J Kansas City Stadium - Kansas City Argentina Xem chi tiết trận 19 Algeria Chi tiết Lịch sử đối đầu Argentina vs Algeria" [ref=e1311]:
+              - cell "19" [ref=e1312]
+              - cell "08:00" [ref=e1313]:
+                - generic [ref=e1314]:
+                  - img [ref=e1315]
+                  - generic [ref=e1317]: 08:00
+              - cell "Vòng bảng · Bảng J Kansas City Stadium - Kansas City" [ref=e1318]:
+                - generic [ref=e1319]:
+                  - generic [ref=e1320]: Vòng bảng · Bảng J
+                  - generic "Kansas City Stadium - Kansas City" [ref=e1321]
+              - cell "Argentina" [ref=e1322]:
+                - link "Argentina" [ref=e1323] [cursor=pointer]:
+                  - /url: /teams/argentina
+                  - generic [ref=e1324]: Argentina
+                  - button "Yêu thích đội" [ref=e1325]:
+                    - generic "Argentina" [ref=e1326]:
+                      - img [ref=e1327]
+              - cell "Xem chi tiết trận 19" [ref=e1328]:
+                - button "Xem chi tiết trận 19" [ref=e1329]:
+                  - text: vs
+                  - generic [ref=e1330]: Chi tiết
+              - cell "Algeria" [ref=e1331]:
+                - link "Algeria" [ref=e1332] [cursor=pointer]:
+                  - /url: /teams/algeria
+                  - button "Yêu thích đội" [ref=e1333]:
+                    - generic "Algeria" [ref=e1334]:
+                      - img [ref=e1335]
+                  - generic [ref=e1336]: Algeria
+              - cell "Chi tiết Lịch sử đối đầu Argentina vs Algeria" [ref=e1337]:
+                - generic [ref=e1338]:
+                  - button "Chi tiết" [ref=e1339]
+                  - button "Lịch sử đối đầu Argentina vs Algeria" [ref=e1340]:
+                    - img [ref=e1341]
+                  - button "Yêu thích trận" [ref=e1343]:
+                    - img [ref=e1344]
+            - row "20 11:00 Vòng bảng · Bảng J San Francisco Bay Area Stadium - San Francisco Bay Area Austria Xem chi tiết trận 20 Jordan Chi tiết Lịch sử đối đầu Austria vs Jordan" [ref=e1346]:
+              - cell "20" [ref=e1347]
+              - cell "11:00" [ref=e1348]:
+                - generic [ref=e1349]:
+                  - img [ref=e1350]
+                  - generic [ref=e1352]: 11:00
+              - cell "Vòng bảng · Bảng J San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e1353]:
+                - generic [ref=e1354]:
+                  - generic [ref=e1355]: Vòng bảng · Bảng J
+                  - generic "San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e1356]
+              - cell "Austria" [ref=e1357]:
+                - link "Austria" [ref=e1358] [cursor=pointer]:
+                  - /url: /teams/austria
+                  - generic [ref=e1359]: Austria
+                  - button "Yêu thích đội" [ref=e1360]:
+                    - generic "Austria" [ref=e1361]:
+                      - img [ref=e1362]
+              - cell "Xem chi tiết trận 20" [ref=e1363]:
+                - button "Xem chi tiết trận 20" [ref=e1364]:
+                  - text: vs
+                  - generic [ref=e1365]: Chi tiết
+              - cell "Jordan" [ref=e1366]:
+                - link "Jordan" [ref=e1367] [cursor=pointer]:
+                  - /url: /teams/jordan
+                  - button "Yêu thích đội" [ref=e1368]:
+                    - generic "Jordan" [ref=e1369]:
+                      - img [ref=e1370]
+                  - generic [ref=e1371]: Jordan
+              - cell "Chi tiết Lịch sử đối đầu Austria vs Jordan" [ref=e1372]:
+                - generic [ref=e1373]:
+                  - button "Chi tiết" [ref=e1374]
+                  - button "Lịch sử đối đầu Austria vs Jordan" [ref=e1375]:
+                    - img [ref=e1376]
+                  - button "Yêu thích trận" [ref=e1378]:
+                    - img [ref=e1379]
+            - row "Thứ Năm, 18/06/2026" [ref=e1381]:
+              - cell "Thứ Năm, 18/06/2026" [ref=e1382]:
+                - generic [ref=e1383]: Thứ Năm, 18/06/2026
+            - row "23 00:00 Vòng bảng · Bảng K Houston Stadium - Houston Portugal Xem chi tiết trận 23 Congo DR Chi tiết Lịch sử đối đầu Portugal vs Congo DR" [ref=e1384]:
+              - cell "23" [ref=e1385]
+              - cell "00:00" [ref=e1386]:
+                - generic [ref=e1387]:
+                  - img [ref=e1388]
+                  - generic [ref=e1390]: 00:00
+              - cell "Vòng bảng · Bảng K Houston Stadium - Houston" [ref=e1391]:
+                - generic [ref=e1392]:
+                  - generic [ref=e1393]: Vòng bảng · Bảng K
+                  - generic "Houston Stadium - Houston" [ref=e1394]
+              - cell "Portugal" [ref=e1395]:
+                - link "Portugal" [ref=e1396] [cursor=pointer]:
+                  - /url: /teams/portugal
+                  - generic [ref=e1397]: Portugal
+                  - button "Yêu thích đội" [ref=e1398]:
+                    - generic "Portugal" [ref=e1399]:
+                      - img [ref=e1400]
+              - cell "Xem chi tiết trận 23" [ref=e1401]:
+                - button "Xem chi tiết trận 23" [ref=e1402]:
+                  - text: vs
+                  - generic [ref=e1403]: Chi tiết
+              - cell "Congo DR" [ref=e1404]:
+                - link "Congo DR" [ref=e1405] [cursor=pointer]:
+                  - /url: /teams/congo-dr
+                  - button "Yêu thích đội" [ref=e1406]:
+                    - generic "Congo DR" [ref=e1407]:
+                      - img [ref=e1408]
+                  - generic [ref=e1409]: Congo DR
+              - cell "Chi tiết Lịch sử đối đầu Portugal vs Congo DR" [ref=e1410]:
+                - generic [ref=e1411]:
+                  - button "Chi tiết" [ref=e1412]
+                  - button "Lịch sử đối đầu Portugal vs Congo DR" [ref=e1413]:
+                    - img [ref=e1414]
+                  - button "Yêu thích trận" [ref=e1416]:
+                    - img [ref=e1417]
+            - row "22 03:00 Vòng bảng · Bảng L Dallas Stadium - Dallas England Xem chi tiết trận 22 Croatia Chi tiết Lịch sử đối đầu England vs Croatia" [ref=e1419]:
+              - cell "22" [ref=e1420]
+              - cell "03:00" [ref=e1421]:
+                - generic [ref=e1422]:
+                  - img [ref=e1423]
+                  - generic [ref=e1425]: 03:00
+              - cell "Vòng bảng · Bảng L Dallas Stadium - Dallas" [ref=e1426]:
+                - generic [ref=e1427]:
+                  - generic [ref=e1428]: Vòng bảng · Bảng L
+                  - generic "Dallas Stadium - Dallas" [ref=e1429]
+              - cell "England" [ref=e1430]:
+                - link "England" [ref=e1431] [cursor=pointer]:
+                  - /url: /teams/england
+                  - generic [ref=e1432]: England
+                  - button "Yêu thích đội" [ref=e1433]:
+                    - generic "England" [ref=e1434]:
+                      - img [ref=e1435]
+              - cell "Xem chi tiết trận 22" [ref=e1436]:
+                - button "Xem chi tiết trận 22" [ref=e1437]:
+                  - text: vs
+                  - generic [ref=e1438]: Chi tiết
+              - cell "Croatia" [ref=e1439]:
+                - link "Croatia" [ref=e1440] [cursor=pointer]:
+                  - /url: /teams/croatia
+                  - button "Yêu thích đội" [ref=e1441]:
+                    - generic "Croatia" [ref=e1442]:
+                      - img [ref=e1443]
+                  - generic [ref=e1444]: Croatia
+              - cell "Chi tiết Lịch sử đối đầu England vs Croatia" [ref=e1445]:
+                - generic [ref=e1446]:
+                  - button "Chi tiết" [ref=e1447]
+                  - button "Lịch sử đối đầu England vs Croatia" [ref=e1448]:
+                    - img [ref=e1449]
+                  - button "Yêu thích trận" [ref=e1451]:
+                    - img [ref=e1452]
+            - row "21 06:00 Vòng bảng · Bảng L Toronto Stadium - Toronto Ghana Xem chi tiết trận 21 Panama Chi tiết Lịch sử đối đầu Ghana vs Panama" [ref=e1454]:
+              - cell "21" [ref=e1455]
+              - cell "06:00" [ref=e1456]:
+                - generic [ref=e1457]:
+                  - img [ref=e1458]
+                  - generic [ref=e1460]: 06:00
+              - cell "Vòng bảng · Bảng L Toronto Stadium - Toronto" [ref=e1461]:
+                - generic [ref=e1462]:
+                  - generic [ref=e1463]: Vòng bảng · Bảng L
+                  - generic "Toronto Stadium - Toronto" [ref=e1464]
+              - cell "Ghana" [ref=e1465]:
+                - link "Ghana" [ref=e1466] [cursor=pointer]:
+                  - /url: /teams/ghana
+                  - generic [ref=e1467]: Ghana
+                  - button "Yêu thích đội" [ref=e1468]:
+                    - generic "Ghana" [ref=e1469]:
+                      - img [ref=e1470]
+              - cell "Xem chi tiết trận 21" [ref=e1471]:
+                - button "Xem chi tiết trận 21" [ref=e1472]:
+                  - text: vs
+                  - generic [ref=e1473]: Chi tiết
+              - cell "Panama" [ref=e1474]:
+                - link "Panama" [ref=e1475] [cursor=pointer]:
+                  - /url: /teams/panama
+                  - button "Yêu thích đội" [ref=e1476]:
+                    - generic "Panama" [ref=e1477]:
+                      - img [ref=e1478]
+                  - generic [ref=e1479]: Panama
+              - cell "Chi tiết Lịch sử đối đầu Ghana vs Panama" [ref=e1480]:
+                - generic [ref=e1481]:
+                  - button "Chi tiết" [ref=e1482]
+                  - button "Lịch sử đối đầu Ghana vs Panama" [ref=e1483]:
+                    - img [ref=e1484]
+                  - button "Yêu thích trận" [ref=e1486]:
+                    - img [ref=e1487]
+            - row "24 09:00 Vòng bảng · Bảng K Mexico City Stadium - Mexico City Uzbekistan Xem chi tiết trận 24 Colombia Chi tiết Lịch sử đối đầu Uzbekistan vs Colombia" [ref=e1489]:
+              - cell "24" [ref=e1490]
+              - cell "09:00" [ref=e1491]:
+                - generic [ref=e1492]:
+                  - img [ref=e1493]
+                  - generic [ref=e1495]: 09:00
+              - cell "Vòng bảng · Bảng K Mexico City Stadium - Mexico City" [ref=e1496]:
+                - generic [ref=e1497]:
+                  - generic [ref=e1498]: Vòng bảng · Bảng K
+                  - generic "Mexico City Stadium - Mexico City" [ref=e1499]
+              - cell "Uzbekistan" [ref=e1500]:
+                - link "Uzbekistan" [ref=e1501] [cursor=pointer]:
+                  - /url: /teams/uzbekistan
+                  - generic [ref=e1502]: Uzbekistan
+                  - button "Yêu thích đội" [ref=e1503]:
+                    - generic "Uzbekistan" [ref=e1504]:
+                      - img [ref=e1505]
+              - cell "Xem chi tiết trận 24" [ref=e1506]:
+                - button "Xem chi tiết trận 24" [ref=e1507]:
+                  - text: vs
+                  - generic [ref=e1508]: Chi tiết
+              - cell "Colombia" [ref=e1509]:
+                - link "Colombia" [ref=e1510] [cursor=pointer]:
+                  - /url: /teams/colombia
+                  - button "Yêu thích đội" [ref=e1511]:
+                    - generic "Colombia" [ref=e1512]:
+                      - img [ref=e1513]
+                  - generic [ref=e1514]: Colombia
+              - cell "Chi tiết Lịch sử đối đầu Uzbekistan vs Colombia" [ref=e1515]:
+                - generic [ref=e1516]:
+                  - button "Chi tiết" [ref=e1517]
+                  - button "Lịch sử đối đầu Uzbekistan vs Colombia" [ref=e1518]:
+                    - img [ref=e1519]
+                  - button "Yêu thích trận" [ref=e1521]:
+                    - img [ref=e1522]
+            - row "25 23:00 Vòng bảng · Bảng A Atlanta Stadium - Atlanta Czechia Xem chi tiết trận 25 South Africa Chi tiết Lịch sử đối đầu Czechia vs South Africa" [ref=e1524]:
+              - cell "25" [ref=e1525]
+              - cell "23:00" [ref=e1526]:
+                - generic [ref=e1527]:
+                  - img [ref=e1528]
+                  - generic [ref=e1530]: 23:00
+              - cell "Vòng bảng · Bảng A Atlanta Stadium - Atlanta" [ref=e1531]:
+                - generic [ref=e1532]:
+                  - generic [ref=e1533]: Vòng bảng · Bảng A
+                  - generic "Atlanta Stadium - Atlanta" [ref=e1534]
+              - cell "Czechia" [ref=e1535]:
+                - link "Czechia" [ref=e1536] [cursor=pointer]:
+                  - /url: /teams/czechia
+                  - generic [ref=e1537]: Czechia
+                  - button "Yêu thích đội" [ref=e1538]:
+                    - generic "Czechia" [ref=e1539]:
+                      - img [ref=e1540]
+              - cell "Xem chi tiết trận 25" [ref=e1541]:
+                - button "Xem chi tiết trận 25" [ref=e1542]:
+                  - text: vs
+                  - generic [ref=e1543]: Chi tiết
+              - cell "South Africa" [ref=e1544]:
+                - link "South Africa" [ref=e1545] [cursor=pointer]:
+                  - /url: /teams/south-africa
+                  - button "Yêu thích đội" [ref=e1546]:
+                    - generic "South Africa" [ref=e1547]:
+                      - img [ref=e1548]
+                  - generic [ref=e1549]: South Africa
+              - cell "Chi tiết Lịch sử đối đầu Czechia vs South Africa" [ref=e1550]:
+                - generic [ref=e1551]:
+                  - button "Chi tiết" [ref=e1552]
+                  - button "Lịch sử đối đầu Czechia vs South Africa" [ref=e1553]:
+                    - img [ref=e1554]
+                  - button "Yêu thích trận" [ref=e1556]:
+                    - img [ref=e1557]
+            - row "Thứ Sáu, 19/06/2026" [ref=e1559]:
+              - cell "Thứ Sáu, 19/06/2026" [ref=e1560]:
+                - generic [ref=e1561]: Thứ Sáu, 19/06/2026
+            - row "26 02:00 Vòng bảng · Bảng B Los Angeles Stadium - Los Angeles Switzerland Xem chi tiết trận 26 Bosnia and Herzegovina Chi tiết Lịch sử đối đầu Switzerland vs Bosnia and Herzegovina" [ref=e1562]:
+              - cell "26" [ref=e1563]
+              - cell "02:00" [ref=e1564]:
+                - generic [ref=e1565]:
+                  - img [ref=e1566]
+                  - generic [ref=e1568]: 02:00
+              - cell "Vòng bảng · Bảng B Los Angeles Stadium - Los Angeles" [ref=e1569]:
+                - generic [ref=e1570]:
+                  - generic [ref=e1571]: Vòng bảng · Bảng B
+                  - generic "Los Angeles Stadium - Los Angeles" [ref=e1572]
+              - cell "Switzerland" [ref=e1573]:
+                - link "Switzerland" [ref=e1574] [cursor=pointer]:
+                  - /url: /teams/switzerland
+                  - generic [ref=e1575]: Switzerland
+                  - button "Yêu thích đội" [ref=e1576]:
+                    - generic "Switzerland" [ref=e1577]:
+                      - img [ref=e1578]
+              - cell "Xem chi tiết trận 26" [ref=e1579]:
+                - button "Xem chi tiết trận 26" [ref=e1580]:
+                  - text: vs
+                  - generic [ref=e1581]: Chi tiết
+              - cell "Bosnia and Herzegovina" [ref=e1582]:
+                - link "Bosnia and Herzegovina" [ref=e1583] [cursor=pointer]:
+                  - /url: /teams/bosnia-herzegovina
+                  - button "Yêu thích đội" [ref=e1584]:
+                    - generic "Bosnia and Herzegovina" [ref=e1585]:
+                      - img [ref=e1586]
+                  - generic [ref=e1587]: Bosnia and Herzegovina
+              - cell "Chi tiết Lịch sử đối đầu Switzerland vs Bosnia and Herzegovina" [ref=e1588]:
+                - generic [ref=e1589]:
+                  - button "Chi tiết" [ref=e1590]
+                  - button "Lịch sử đối đầu Switzerland vs Bosnia and Herzegovina" [ref=e1591]:
+                    - img [ref=e1592]
+                  - button "Yêu thích trận" [ref=e1594]:
+                    - img [ref=e1595]
+            - row "27 05:00 Vòng bảng · Bảng B BC Place Vancouver - Vancouver Canada Xem chi tiết trận 27 Qatar Chi tiết Lịch sử đối đầu Canada vs Qatar" [ref=e1597]:
+              - cell "27" [ref=e1598]
+              - cell "05:00" [ref=e1599]:
+                - generic [ref=e1600]:
+                  - img [ref=e1601]
+                  - generic [ref=e1603]: 05:00
+              - cell "Vòng bảng · Bảng B BC Place Vancouver - Vancouver" [ref=e1604]:
+                - generic [ref=e1605]:
+                  - generic [ref=e1606]: Vòng bảng · Bảng B
+                  - generic "BC Place Vancouver - Vancouver" [ref=e1607]
+              - cell "Canada" [ref=e1608]:
+                - link "Canada" [ref=e1609] [cursor=pointer]:
+                  - /url: /teams/canada
+                  - generic [ref=e1610]: Canada
+                  - button "Yêu thích đội" [ref=e1611]:
+                    - generic "Canada" [ref=e1612]:
+                      - img [ref=e1613]
+              - cell "Xem chi tiết trận 27" [ref=e1614]:
+                - button "Xem chi tiết trận 27" [ref=e1615]:
+                  - text: vs
+                  - generic [ref=e1616]: Chi tiết
+              - cell "Qatar" [ref=e1617]:
+                - link "Qatar" [ref=e1618] [cursor=pointer]:
+                  - /url: /teams/qatar
+                  - button "Yêu thích đội" [ref=e1619]:
+                    - generic "Qatar" [ref=e1620]:
+                      - img [ref=e1621]
+                  - generic [ref=e1622]: Qatar
+              - cell "Chi tiết Lịch sử đối đầu Canada vs Qatar" [ref=e1623]:
+                - generic [ref=e1624]:
+                  - button "Chi tiết" [ref=e1625]
+                  - button "Lịch sử đối đầu Canada vs Qatar" [ref=e1626]:
+                    - img [ref=e1627]
+                  - button "Yêu thích trận" [ref=e1629]:
+                    - img [ref=e1630]
+            - row "28 08:00 Vòng bảng · Bảng A Guadalajara Stadium - Guadalajara Mexico Xem chi tiết trận 28 Korea Republic Chi tiết Lịch sử đối đầu Mexico vs Korea Republic" [ref=e1632]:
+              - cell "28" [ref=e1633]
+              - cell "08:00" [ref=e1634]:
+                - generic [ref=e1635]:
+                  - img [ref=e1636]
+                  - generic [ref=e1638]: 08:00
+              - cell "Vòng bảng · Bảng A Guadalajara Stadium - Guadalajara" [ref=e1639]:
+                - generic [ref=e1640]:
+                  - generic [ref=e1641]: Vòng bảng · Bảng A
+                  - generic "Guadalajara Stadium - Guadalajara" [ref=e1642]
+              - cell "Mexico" [ref=e1643]:
+                - link "Mexico" [ref=e1644] [cursor=pointer]:
+                  - /url: /teams/mexico
+                  - generic [ref=e1645]: Mexico
+                  - button "Yêu thích đội" [ref=e1646]:
+                    - generic "Mexico" [ref=e1647]:
+                      - img [ref=e1648]
+              - cell "Xem chi tiết trận 28" [ref=e1649]:
+                - button "Xem chi tiết trận 28" [ref=e1650]:
+                  - text: vs
+                  - generic [ref=e1651]: Chi tiết
+              - cell "Korea Republic" [ref=e1652]:
+                - link "Korea Republic" [ref=e1653] [cursor=pointer]:
+                  - /url: /teams/korea-republic
+                  - button "Yêu thích đội" [ref=e1654]:
+                    - generic "Korea Republic" [ref=e1655]:
+                      - img [ref=e1656]
+                  - generic [ref=e1657]: Korea Republic
+              - cell "Chi tiết Lịch sử đối đầu Mexico vs Korea Republic" [ref=e1658]:
+                - generic [ref=e1659]:
+                  - button "Chi tiết" [ref=e1660]
+                  - button "Lịch sử đối đầu Mexico vs Korea Republic" [ref=e1661]:
+                    - img [ref=e1662]
+                  - button "Yêu thích trận" [ref=e1664]:
+                    - img [ref=e1665]
+            - row "Thứ Bảy, 20/06/2026" [ref=e1667]:
+              - cell "Thứ Bảy, 20/06/2026" [ref=e1668]:
+                - generic [ref=e1669]: Thứ Bảy, 20/06/2026
+            - row "32 02:00 Vòng bảng · Bảng D Seattle Stadium - Seattle USA Xem chi tiết trận 32 Australia Chi tiết Lịch sử đối đầu USA vs Australia" [ref=e1670]:
+              - cell "32" [ref=e1671]
+              - cell "02:00" [ref=e1672]:
+                - generic [ref=e1673]:
+                  - img [ref=e1674]
+                  - generic [ref=e1676]: 02:00
+              - cell "Vòng bảng · Bảng D Seattle Stadium - Seattle" [ref=e1677]:
+                - generic [ref=e1678]:
+                  - generic [ref=e1679]: Vòng bảng · Bảng D
+                  - generic "Seattle Stadium - Seattle" [ref=e1680]
+              - cell "USA" [ref=e1681]:
+                - link "USA" [ref=e1682] [cursor=pointer]:
+                  - /url: /teams/usa
+                  - generic [ref=e1683]: USA
+                  - button "Yêu thích đội" [ref=e1684]:
+                    - generic "USA" [ref=e1685]:
+                      - img [ref=e1686]
+              - cell "Xem chi tiết trận 32" [ref=e1687]:
+                - button "Xem chi tiết trận 32" [ref=e1688]:
+                  - text: vs
+                  - generic [ref=e1689]: Chi tiết
+              - cell "Australia" [ref=e1690]:
+                - link "Australia" [ref=e1691] [cursor=pointer]:
+                  - /url: /teams/australia
+                  - button "Yêu thích đội" [ref=e1692]:
+                    - generic "Australia" [ref=e1693]:
+                      - img [ref=e1694]
+                  - generic [ref=e1695]: Australia
+              - cell "Chi tiết Lịch sử đối đầu USA vs Australia" [ref=e1696]:
+                - generic [ref=e1697]:
+                  - button "Chi tiết" [ref=e1698]
+                  - button "Lịch sử đối đầu USA vs Australia" [ref=e1699]:
+                    - img [ref=e1700]
+                  - button "Yêu thích trận" [ref=e1702]:
+                    - img [ref=e1703]
+            - row "30 05:00 Vòng bảng · Bảng C Boston Stadium - Boston Scotland Xem chi tiết trận 30 Morocco Chi tiết Lịch sử đối đầu Scotland vs Morocco" [ref=e1705]:
+              - cell "30" [ref=e1706]
+              - cell "05:00" [ref=e1707]:
+                - generic [ref=e1708]:
+                  - img [ref=e1709]
+                  - generic [ref=e1711]: 05:00
+              - cell "Vòng bảng · Bảng C Boston Stadium - Boston" [ref=e1712]:
+                - generic [ref=e1713]:
+                  - generic [ref=e1714]: Vòng bảng · Bảng C
+                  - generic "Boston Stadium - Boston" [ref=e1715]
+              - cell "Scotland" [ref=e1716]:
+                - link "Scotland" [ref=e1717] [cursor=pointer]:
+                  - /url: /teams/scotland
+                  - generic [ref=e1718]: Scotland
+                  - button "Yêu thích đội" [ref=e1719]:
+                    - generic "Scotland" [ref=e1720]:
+                      - img [ref=e1721]
+              - cell "Xem chi tiết trận 30" [ref=e1722]:
+                - button "Xem chi tiết trận 30" [ref=e1723]:
+                  - text: vs
+                  - generic [ref=e1724]: Chi tiết
+              - cell "Morocco" [ref=e1725]:
+                - link "Morocco" [ref=e1726] [cursor=pointer]:
+                  - /url: /teams/morocco
+                  - button "Yêu thích đội" [ref=e1727]:
+                    - generic "Morocco" [ref=e1728]:
+                      - img [ref=e1729]
+                  - generic [ref=e1730]: Morocco
+              - cell "Chi tiết Lịch sử đối đầu Scotland vs Morocco" [ref=e1731]:
+                - generic [ref=e1732]:
+                  - button "Chi tiết" [ref=e1733]
+                  - button "Lịch sử đối đầu Scotland vs Morocco" [ref=e1734]:
+                    - img [ref=e1735]
+                  - button "Yêu thích trận" [ref=e1737]:
+                    - img [ref=e1738]
+            - row "29 07:30 Vòng bảng · Bảng C Philadelphia Stadium - Philadelphia Brazil Xem chi tiết trận 29 Haiti Chi tiết Lịch sử đối đầu Brazil vs Haiti" [ref=e1740]:
+              - cell "29" [ref=e1741]
+              - cell "07:30" [ref=e1742]:
+                - generic [ref=e1743]:
+                  - img [ref=e1744]
+                  - generic [ref=e1746]: 07:30
+              - cell "Vòng bảng · Bảng C Philadelphia Stadium - Philadelphia" [ref=e1747]:
+                - generic [ref=e1748]:
+                  - generic [ref=e1749]: Vòng bảng · Bảng C
+                  - generic "Philadelphia Stadium - Philadelphia" [ref=e1750]
+              - cell "Brazil" [ref=e1751]:
+                - link "Brazil" [ref=e1752] [cursor=pointer]:
+                  - /url: /teams/brazil
+                  - generic [ref=e1753]: Brazil
+                  - button "Yêu thích đội" [ref=e1754]:
+                    - generic "Brazil" [ref=e1755]:
+                      - img [ref=e1756]
+              - cell "Xem chi tiết trận 29" [ref=e1757]:
+                - button "Xem chi tiết trận 29" [ref=e1758]:
+                  - text: vs
+                  - generic [ref=e1759]: Chi tiết
+              - cell "Haiti" [ref=e1760]:
+                - link "Haiti" [ref=e1761] [cursor=pointer]:
+                  - /url: /teams/haiti
+                  - button "Yêu thích đội" [ref=e1762]:
+                    - generic "Haiti" [ref=e1763]:
+                      - img [ref=e1764]
+                  - generic [ref=e1765]: Haiti
+              - cell "Chi tiết Lịch sử đối đầu Brazil vs Haiti" [ref=e1766]:
+                - generic [ref=e1767]:
+                  - button "Chi tiết" [ref=e1768]
+                  - button "Lịch sử đối đầu Brazil vs Haiti" [ref=e1769]:
+                    - img [ref=e1770]
+                  - button "Yêu thích trận" [ref=e1772]:
+                    - img [ref=e1773]
+            - row "31 10:00 Vòng bảng · Bảng D San Francisco Bay Area Stadium - San Francisco Bay Area Türkiye Xem chi tiết trận 31 Paraguay Chi tiết Lịch sử đối đầu Türkiye vs Paraguay" [ref=e1775]:
+              - cell "31" [ref=e1776]
+              - cell "10:00" [ref=e1777]:
+                - generic [ref=e1778]:
+                  - img [ref=e1779]
+                  - generic [ref=e1781]: 10:00
+              - cell "Vòng bảng · Bảng D San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e1782]:
+                - generic [ref=e1783]:
+                  - generic [ref=e1784]: Vòng bảng · Bảng D
+                  - generic "San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e1785]
+              - cell "Türkiye" [ref=e1786]:
+                - link "Türkiye" [ref=e1787] [cursor=pointer]:
+                  - /url: /teams/turkiye
+                  - generic [ref=e1788]: Türkiye
+                  - button "Yêu thích đội" [ref=e1789]:
+                    - generic "Türkiye" [ref=e1790]:
+                      - img [ref=e1791]
+              - cell "Xem chi tiết trận 31" [ref=e1792]:
+                - button "Xem chi tiết trận 31" [ref=e1793]:
+                  - text: vs
+                  - generic [ref=e1794]: Chi tiết
+              - cell "Paraguay" [ref=e1795]:
+                - link "Paraguay" [ref=e1796] [cursor=pointer]:
+                  - /url: /teams/paraguay
+                  - button "Yêu thích đội" [ref=e1797]:
+                    - generic "Paraguay" [ref=e1798]:
+                      - img [ref=e1799]
+                  - generic [ref=e1800]: Paraguay
+              - cell "Chi tiết Lịch sử đối đầu Türkiye vs Paraguay" [ref=e1801]:
+                - generic [ref=e1802]:
+                  - button "Chi tiết" [ref=e1803]
+                  - button "Lịch sử đối đầu Türkiye vs Paraguay" [ref=e1804]:
+                    - img [ref=e1805]
+                  - button "Yêu thích trận" [ref=e1807]:
+                    - img [ref=e1808]
+            - row "Chủ Nhật, 21/06/2026" [ref=e1810]:
+              - cell "Chủ Nhật, 21/06/2026" [ref=e1811]:
+                - generic [ref=e1812]: Chủ Nhật, 21/06/2026
+            - row "35 00:00 Vòng bảng · Bảng F Houston Stadium - Houston Netherlands Xem chi tiết trận 35 Sweden Chi tiết Lịch sử đối đầu Netherlands vs Sweden" [ref=e1813]:
+              - cell "35" [ref=e1814]
+              - cell "00:00" [ref=e1815]:
+                - generic [ref=e1816]:
+                  - img [ref=e1817]
+                  - generic [ref=e1819]: 00:00
+              - cell "Vòng bảng · Bảng F Houston Stadium - Houston" [ref=e1820]:
+                - generic [ref=e1821]:
+                  - generic [ref=e1822]: Vòng bảng · Bảng F
+                  - generic "Houston Stadium - Houston" [ref=e1823]
+              - cell "Netherlands" [ref=e1824]:
+                - link "Netherlands" [ref=e1825] [cursor=pointer]:
+                  - /url: /teams/netherlands
+                  - generic [ref=e1826]: Netherlands
+                  - button "Yêu thích đội" [ref=e1827]:
+                    - generic "Netherlands" [ref=e1828]:
+                      - img [ref=e1829]
+              - cell "Xem chi tiết trận 35" [ref=e1830]:
+                - button "Xem chi tiết trận 35" [ref=e1831]:
+                  - text: vs
+                  - generic [ref=e1832]: Chi tiết
+              - cell "Sweden" [ref=e1833]:
+                - link "Sweden" [ref=e1834] [cursor=pointer]:
+                  - /url: /teams/sweden
+                  - button "Yêu thích đội" [ref=e1835]:
+                    - generic "Sweden" [ref=e1836]:
+                      - img [ref=e1837]
+                  - generic [ref=e1838]: Sweden
+              - cell "Chi tiết Lịch sử đối đầu Netherlands vs Sweden" [ref=e1839]:
+                - generic [ref=e1840]:
+                  - button "Chi tiết" [ref=e1841]
+                  - button "Lịch sử đối đầu Netherlands vs Sweden" [ref=e1842]:
+                    - img [ref=e1843]
+                  - button "Yêu thích trận" [ref=e1845]:
+                    - img [ref=e1846]
+            - row "33 03:00 Vòng bảng · Bảng E Toronto Stadium - Toronto Germany Xem chi tiết trận 33 Côte d'Ivoire Chi tiết Lịch sử đối đầu Germany vs Côte d'Ivoire" [ref=e1848]:
+              - cell "33" [ref=e1849]
+              - cell "03:00" [ref=e1850]:
+                - generic [ref=e1851]:
+                  - img [ref=e1852]
+                  - generic [ref=e1854]: 03:00
+              - cell "Vòng bảng · Bảng E Toronto Stadium - Toronto" [ref=e1855]:
+                - generic [ref=e1856]:
+                  - generic [ref=e1857]: Vòng bảng · Bảng E
+                  - generic "Toronto Stadium - Toronto" [ref=e1858]
+              - cell "Germany" [ref=e1859]:
+                - link "Germany" [ref=e1860] [cursor=pointer]:
+                  - /url: /teams/germany
+                  - generic [ref=e1861]: Germany
+                  - button "Yêu thích đội" [ref=e1862]:
+                    - generic "Germany" [ref=e1863]:
+                      - img [ref=e1864]
+              - cell "Xem chi tiết trận 33" [ref=e1865]:
+                - button "Xem chi tiết trận 33" [ref=e1866]:
+                  - text: vs
+                  - generic [ref=e1867]: Chi tiết
+              - cell "Côte d'Ivoire" [ref=e1868]:
+                - link "Côte d'Ivoire" [ref=e1869] [cursor=pointer]:
+                  - /url: /teams/cote-d-ivoire
+                  - button "Yêu thích đội" [ref=e1870]:
+                    - generic "Côte d'Ivoire" [ref=e1871]:
+                      - img [ref=e1872]
+                  - generic [ref=e1873]: Côte d'Ivoire
+              - cell "Chi tiết Lịch sử đối đầu Germany vs Côte d'Ivoire" [ref=e1874]:
+                - generic [ref=e1875]:
+                  - button "Chi tiết" [ref=e1876]
+                  - button "Lịch sử đối đầu Germany vs Côte d'Ivoire" [ref=e1877]:
+                    - img [ref=e1878]
+                  - button "Yêu thích trận" [ref=e1880]:
+                    - img [ref=e1881]
+            - row "34 07:00 Vòng bảng · Bảng E Kansas City Stadium - Kansas City Ecuador Xem chi tiết trận 34 Curaçao Chi tiết Lịch sử đối đầu Ecuador vs Curaçao" [ref=e1883]:
+              - cell "34" [ref=e1884]
+              - cell "07:00" [ref=e1885]:
+                - generic [ref=e1886]:
+                  - img [ref=e1887]
+                  - generic [ref=e1889]: 07:00
+              - cell "Vòng bảng · Bảng E Kansas City Stadium - Kansas City" [ref=e1890]:
+                - generic [ref=e1891]:
+                  - generic [ref=e1892]: Vòng bảng · Bảng E
+                  - generic "Kansas City Stadium - Kansas City" [ref=e1893]
+              - cell "Ecuador" [ref=e1894]:
+                - link "Ecuador" [ref=e1895] [cursor=pointer]:
+                  - /url: /teams/ecuador
+                  - generic [ref=e1896]: Ecuador
+                  - button "Yêu thích đội" [ref=e1897]:
+                    - generic "Ecuador" [ref=e1898]:
+                      - img [ref=e1899]
+              - cell "Xem chi tiết trận 34" [ref=e1900]:
+                - button "Xem chi tiết trận 34" [ref=e1901]:
+                  - text: vs
+                  - generic [ref=e1902]: Chi tiết
+              - cell "Curaçao" [ref=e1903]:
+                - link "Curaçao" [ref=e1904] [cursor=pointer]:
+                  - /url: /teams/curacao
+                  - button "Yêu thích đội" [ref=e1905]:
+                    - generic "Curaçao" [ref=e1906]:
+                      - img [ref=e1907]
+                  - generic [ref=e1908]: Curaçao
+              - cell "Chi tiết Lịch sử đối đầu Ecuador vs Curaçao" [ref=e1909]:
+                - generic [ref=e1910]:
+                  - button "Chi tiết" [ref=e1911]
+                  - button "Lịch sử đối đầu Ecuador vs Curaçao" [ref=e1912]:
+                    - img [ref=e1913]
+                  - button "Yêu thích trận" [ref=e1915]:
+                    - img [ref=e1916]
+            - row "36 11:00 Vòng bảng · Bảng F Monterrey Stadium - Monterrey Tunisia Xem chi tiết trận 36 Japan Chi tiết Lịch sử đối đầu Tunisia vs Japan" [ref=e1918]:
+              - cell "36" [ref=e1919]
+              - cell "11:00" [ref=e1920]:
+                - generic [ref=e1921]:
+                  - img [ref=e1922]
+                  - generic [ref=e1924]: 11:00
+              - cell "Vòng bảng · Bảng F Monterrey Stadium - Monterrey" [ref=e1925]:
+                - generic [ref=e1926]:
+                  - generic [ref=e1927]: Vòng bảng · Bảng F
+                  - generic "Monterrey Stadium - Monterrey" [ref=e1928]
+              - cell "Tunisia" [ref=e1929]:
+                - link "Tunisia" [ref=e1930] [cursor=pointer]:
+                  - /url: /teams/tunisia
+                  - generic [ref=e1931]: Tunisia
+                  - button "Yêu thích đội" [ref=e1932]:
+                    - generic "Tunisia" [ref=e1933]:
+                      - img [ref=e1934]
+              - cell "Xem chi tiết trận 36" [ref=e1935]:
+                - button "Xem chi tiết trận 36" [ref=e1936]:
+                  - text: vs
+                  - generic [ref=e1937]: Chi tiết
+              - cell "Japan" [ref=e1938]:
+                - link "Japan" [ref=e1939] [cursor=pointer]:
+                  - /url: /teams/japan
+                  - button "Yêu thích đội" [ref=e1940]:
+                    - generic "Japan" [ref=e1941]:
+                      - img [ref=e1942]
+                  - generic [ref=e1943]: Japan
+              - cell "Chi tiết Lịch sử đối đầu Tunisia vs Japan" [ref=e1944]:
+                - generic [ref=e1945]:
+                  - button "Chi tiết" [ref=e1946]
+                  - button "Lịch sử đối đầu Tunisia vs Japan" [ref=e1947]:
+                    - img [ref=e1948]
+                  - button "Yêu thích trận" [ref=e1950]:
+                    - img [ref=e1951]
+            - row "38 23:00 Vòng bảng · Bảng H Atlanta Stadium - Atlanta Spain Xem chi tiết trận 38 Saudi Arabia Chi tiết Lịch sử đối đầu Spain vs Saudi Arabia" [ref=e1953]:
+              - cell "38" [ref=e1954]
+              - cell "23:00" [ref=e1955]:
+                - generic [ref=e1956]:
+                  - img [ref=e1957]
+                  - generic [ref=e1959]: 23:00
+              - cell "Vòng bảng · Bảng H Atlanta Stadium - Atlanta" [ref=e1960]:
+                - generic [ref=e1961]:
+                  - generic [ref=e1962]: Vòng bảng · Bảng H
+                  - generic "Atlanta Stadium - Atlanta" [ref=e1963]
+              - cell "Spain" [ref=e1964]:
+                - link "Spain" [ref=e1965] [cursor=pointer]:
+                  - /url: /teams/spain
+                  - generic [ref=e1966]: Spain
+                  - button "Yêu thích đội" [ref=e1967]:
+                    - generic "Spain" [ref=e1968]:
+                      - img [ref=e1969]
+              - cell "Xem chi tiết trận 38" [ref=e1970]:
+                - button "Xem chi tiết trận 38" [ref=e1971]:
+                  - text: vs
+                  - generic [ref=e1972]: Chi tiết
+              - cell "Saudi Arabia" [ref=e1973]:
+                - link "Saudi Arabia" [ref=e1974] [cursor=pointer]:
+                  - /url: /teams/saudi-arabia
+                  - button "Yêu thích đội" [ref=e1975]:
+                    - generic "Saudi Arabia" [ref=e1976]:
+                      - img [ref=e1977]
+                  - generic [ref=e1978]: Saudi Arabia
+              - cell "Chi tiết Lịch sử đối đầu Spain vs Saudi Arabia" [ref=e1979]:
+                - generic [ref=e1980]:
+                  - button "Chi tiết" [ref=e1981]
+                  - button "Lịch sử đối đầu Spain vs Saudi Arabia" [ref=e1982]:
+                    - img [ref=e1983]
+                  - button "Yêu thích trận" [ref=e1985]:
+                    - img [ref=e1986]
+            - row "Thứ Hai, 22/06/2026" [ref=e1988]:
+              - cell "Thứ Hai, 22/06/2026" [ref=e1989]:
+                - generic [ref=e1990]: Thứ Hai, 22/06/2026
+            - row "39 02:00 Vòng bảng · Bảng G Los Angeles Stadium - Los Angeles Belgium Xem chi tiết trận 39 IR Iran Chi tiết Lịch sử đối đầu Belgium vs IR Iran" [ref=e1991]:
+              - cell "39" [ref=e1992]
+              - cell "02:00" [ref=e1993]:
+                - generic [ref=e1994]:
+                  - img [ref=e1995]
+                  - generic [ref=e1997]: 02:00
+              - cell "Vòng bảng · Bảng G Los Angeles Stadium - Los Angeles" [ref=e1998]:
+                - generic [ref=e1999]:
+                  - generic [ref=e2000]: Vòng bảng · Bảng G
+                  - generic "Los Angeles Stadium - Los Angeles" [ref=e2001]
+              - cell "Belgium" [ref=e2002]:
+                - link "Belgium" [ref=e2003] [cursor=pointer]:
+                  - /url: /teams/belgium
+                  - generic [ref=e2004]: Belgium
+                  - button "Yêu thích đội" [ref=e2005]:
+                    - generic "Belgium" [ref=e2006]:
+                      - img [ref=e2007]
+              - cell "Xem chi tiết trận 39" [ref=e2008]:
+                - button "Xem chi tiết trận 39" [ref=e2009]:
+                  - text: vs
+                  - generic [ref=e2010]: Chi tiết
+              - cell "IR Iran" [ref=e2011]:
+                - link "IR Iran" [ref=e2012] [cursor=pointer]:
+                  - /url: /teams/ir-iran
+                  - button "Yêu thích đội" [ref=e2013]:
+                    - generic "IR Iran" [ref=e2014]:
+                      - img [ref=e2015]
+                  - generic [ref=e2016]: IR Iran
+              - cell "Chi tiết Lịch sử đối đầu Belgium vs IR Iran" [ref=e2017]:
+                - generic [ref=e2018]:
+                  - button "Chi tiết" [ref=e2019]
+                  - button "Lịch sử đối đầu Belgium vs IR Iran" [ref=e2020]:
+                    - img [ref=e2021]
+                  - button "Yêu thích trận" [ref=e2023]:
+                    - img [ref=e2024]
+            - row "37 05:00 Vòng bảng · Bảng H Miami Stadium - Miami Uruguay Xem chi tiết trận 37 Cabo Verde Chi tiết Lịch sử đối đầu Uruguay vs Cabo Verde" [ref=e2026]:
+              - cell "37" [ref=e2027]
+              - cell "05:00" [ref=e2028]:
+                - generic [ref=e2029]:
+                  - img [ref=e2030]
+                  - generic [ref=e2032]: 05:00
+              - cell "Vòng bảng · Bảng H Miami Stadium - Miami" [ref=e2033]:
+                - generic [ref=e2034]:
+                  - generic [ref=e2035]: Vòng bảng · Bảng H
+                  - generic "Miami Stadium - Miami" [ref=e2036]
+              - cell "Uruguay" [ref=e2037]:
+                - link "Uruguay" [ref=e2038] [cursor=pointer]:
+                  - /url: /teams/uruguay
+                  - generic [ref=e2039]: Uruguay
+                  - button "Yêu thích đội" [ref=e2040]:
+                    - generic "Uruguay" [ref=e2041]:
+                      - img [ref=e2042]
+              - cell "Xem chi tiết trận 37" [ref=e2043]:
+                - button "Xem chi tiết trận 37" [ref=e2044]:
+                  - text: vs
+                  - generic [ref=e2045]: Chi tiết
+              - cell "Cabo Verde" [ref=e2046]:
+                - link "Cabo Verde" [ref=e2047] [cursor=pointer]:
+                  - /url: /teams/cabo-verde
+                  - button "Yêu thích đội" [ref=e2048]:
+                    - generic "Cabo Verde" [ref=e2049]:
+                      - img [ref=e2050]
+                  - generic [ref=e2051]: Cabo Verde
+              - cell "Chi tiết Lịch sử đối đầu Uruguay vs Cabo Verde" [ref=e2052]:
+                - generic [ref=e2053]:
+                  - button "Chi tiết" [ref=e2054]
+                  - button "Lịch sử đối đầu Uruguay vs Cabo Verde" [ref=e2055]:
+                    - img [ref=e2056]
+                  - button "Yêu thích trận" [ref=e2058]:
+                    - img [ref=e2059]
+            - row "40 08:00 Vòng bảng · Bảng G BC Place Vancouver - Vancouver New Zealand Xem chi tiết trận 40 Egypt Chi tiết Lịch sử đối đầu New Zealand vs Egypt" [ref=e2061]:
+              - cell "40" [ref=e2062]
+              - cell "08:00" [ref=e2063]:
+                - generic [ref=e2064]:
+                  - img [ref=e2065]
+                  - generic [ref=e2067]: 08:00
+              - cell "Vòng bảng · Bảng G BC Place Vancouver - Vancouver" [ref=e2068]:
+                - generic [ref=e2069]:
+                  - generic [ref=e2070]: Vòng bảng · Bảng G
+                  - generic "BC Place Vancouver - Vancouver" [ref=e2071]
+              - cell "New Zealand" [ref=e2072]:
+                - link "New Zealand" [ref=e2073] [cursor=pointer]:
+                  - /url: /teams/new-zealand
+                  - generic [ref=e2074]: New Zealand
+                  - button "Yêu thích đội" [ref=e2075]:
+                    - generic "New Zealand" [ref=e2076]:
+                      - img [ref=e2077]
+              - cell "Xem chi tiết trận 40" [ref=e2078]:
+                - button "Xem chi tiết trận 40" [ref=e2079]:
+                  - text: vs
+                  - generic [ref=e2080]: Chi tiết
+              - cell "Egypt" [ref=e2081]:
+                - link "Egypt" [ref=e2082] [cursor=pointer]:
+                  - /url: /teams/egypt
+                  - button "Yêu thích đội" [ref=e2083]:
+                    - generic "Egypt" [ref=e2084]:
+                      - img [ref=e2085]
+                  - generic [ref=e2086]: Egypt
+              - cell "Chi tiết Lịch sử đối đầu New Zealand vs Egypt" [ref=e2087]:
+                - generic [ref=e2088]:
+                  - button "Chi tiết" [ref=e2089]
+                  - button "Lịch sử đối đầu New Zealand vs Egypt" [ref=e2090]:
+                    - img [ref=e2091]
+                  - button "Yêu thích trận" [ref=e2093]:
+                    - img [ref=e2094]
+            - row "Thứ Ba, 23/06/2026" [ref=e2096]:
+              - cell "Thứ Ba, 23/06/2026" [ref=e2097]:
+                - generic [ref=e2098]: Thứ Ba, 23/06/2026
+            - row "43 00:00 Vòng bảng · Bảng J Dallas Stadium - Dallas Argentina Xem chi tiết trận 43 Austria Chi tiết Lịch sử đối đầu Argentina vs Austria" [ref=e2099]:
+              - cell "43" [ref=e2100]
+              - cell "00:00" [ref=e2101]:
+                - generic [ref=e2102]:
+                  - img [ref=e2103]
+                  - generic [ref=e2105]: 00:00
+              - cell "Vòng bảng · Bảng J Dallas Stadium - Dallas" [ref=e2106]:
+                - generic [ref=e2107]:
+                  - generic [ref=e2108]: Vòng bảng · Bảng J
+                  - generic "Dallas Stadium - Dallas" [ref=e2109]
+              - cell "Argentina" [ref=e2110]:
+                - link "Argentina" [ref=e2111] [cursor=pointer]:
+                  - /url: /teams/argentina
+                  - generic [ref=e2112]: Argentina
+                  - button "Yêu thích đội" [ref=e2113]:
+                    - generic "Argentina" [ref=e2114]:
+                      - img [ref=e2115]
+              - cell "Xem chi tiết trận 43" [ref=e2116]:
+                - button "Xem chi tiết trận 43" [ref=e2117]:
+                  - text: vs
+                  - generic [ref=e2118]: Chi tiết
+              - cell "Austria" [ref=e2119]:
+                - link "Austria" [ref=e2120] [cursor=pointer]:
+                  - /url: /teams/austria
+                  - button "Yêu thích đội" [ref=e2121]:
+                    - generic "Austria" [ref=e2122]:
+                      - img [ref=e2123]
+                  - generic [ref=e2124]: Austria
+              - cell "Chi tiết Lịch sử đối đầu Argentina vs Austria" [ref=e2125]:
+                - generic [ref=e2126]:
+                  - button "Chi tiết" [ref=e2127]
+                  - button "Lịch sử đối đầu Argentina vs Austria" [ref=e2128]:
+                    - img [ref=e2129]
+                  - button "Yêu thích trận" [ref=e2131]:
+                    - img [ref=e2132]
+            - row "42 04:00 Vòng bảng · Bảng I Philadelphia Stadium - Philadelphia France Xem chi tiết trận 42 Iraq Chi tiết Lịch sử đối đầu France vs Iraq" [ref=e2134]:
+              - cell "42" [ref=e2135]
+              - cell "04:00" [ref=e2136]:
+                - generic [ref=e2137]:
+                  - img [ref=e2138]
+                  - generic [ref=e2140]: 04:00
+              - cell "Vòng bảng · Bảng I Philadelphia Stadium - Philadelphia" [ref=e2141]:
+                - generic [ref=e2142]:
+                  - generic [ref=e2143]: Vòng bảng · Bảng I
+                  - generic "Philadelphia Stadium - Philadelphia" [ref=e2144]
+              - cell "France" [ref=e2145]:
+                - link "France" [ref=e2146] [cursor=pointer]:
+                  - /url: /teams/france
+                  - generic [ref=e2147]: France
+                  - button "Yêu thích đội" [ref=e2148]:
+                    - generic "France" [ref=e2149]:
+                      - img [ref=e2150]
+              - cell "Xem chi tiết trận 42" [ref=e2151]:
+                - button "Xem chi tiết trận 42" [ref=e2152]:
+                  - text: vs
+                  - generic [ref=e2153]: Chi tiết
+              - cell "Iraq" [ref=e2154]:
+                - link "Iraq" [ref=e2155] [cursor=pointer]:
+                  - /url: /teams/iraq
+                  - button "Yêu thích đội" [ref=e2156]:
+                    - generic "Iraq" [ref=e2157]:
+                      - img [ref=e2158]
+                  - generic [ref=e2159]: Iraq
+              - cell "Chi tiết Lịch sử đối đầu France vs Iraq" [ref=e2160]:
+                - generic [ref=e2161]:
+                  - button "Chi tiết" [ref=e2162]
+                  - button "Lịch sử đối đầu France vs Iraq" [ref=e2163]:
+                    - img [ref=e2164]
+                  - button "Yêu thích trận" [ref=e2166]:
+                    - img [ref=e2167]
+            - row "41 07:00 Vòng bảng · Bảng I New York/New Jersey Stadium - New Jersey Norway Xem chi tiết trận 41 Senegal Chi tiết Lịch sử đối đầu Norway vs Senegal" [ref=e2169]:
+              - cell "41" [ref=e2170]
+              - cell "07:00" [ref=e2171]:
+                - generic [ref=e2172]:
+                  - img [ref=e2173]
+                  - generic [ref=e2175]: 07:00
+              - cell "Vòng bảng · Bảng I New York/New Jersey Stadium - New Jersey" [ref=e2176]:
+                - generic [ref=e2177]:
+                  - generic [ref=e2178]: Vòng bảng · Bảng I
+                  - generic "New York/New Jersey Stadium - New Jersey" [ref=e2179]
+              - cell "Norway" [ref=e2180]:
+                - link "Norway" [ref=e2181] [cursor=pointer]:
+                  - /url: /teams/norway
+                  - generic [ref=e2182]: Norway
+                  - button "Yêu thích đội" [ref=e2183]:
+                    - generic "Norway" [ref=e2184]:
+                      - img [ref=e2185]
+              - cell "Xem chi tiết trận 41" [ref=e2186]:
+                - button "Xem chi tiết trận 41" [ref=e2187]:
+                  - text: vs
+                  - generic [ref=e2188]: Chi tiết
+              - cell "Senegal" [ref=e2189]:
+                - link "Senegal" [ref=e2190] [cursor=pointer]:
+                  - /url: /teams/senegal
+                  - button "Yêu thích đội" [ref=e2191]:
+                    - generic "Senegal" [ref=e2192]:
+                      - img [ref=e2193]
+                  - generic [ref=e2194]: Senegal
+              - cell "Chi tiết Lịch sử đối đầu Norway vs Senegal" [ref=e2195]:
+                - generic [ref=e2196]:
+                  - button "Chi tiết" [ref=e2197]
+                  - button "Lịch sử đối đầu Norway vs Senegal" [ref=e2198]:
+                    - img [ref=e2199]
+                  - button "Yêu thích trận" [ref=e2201]:
+                    - img [ref=e2202]
+            - row "44 10:00 Vòng bảng · Bảng J San Francisco Bay Area Stadium - San Francisco Bay Area Jordan Xem chi tiết trận 44 Algeria Chi tiết Lịch sử đối đầu Jordan vs Algeria" [ref=e2204]:
+              - cell "44" [ref=e2205]
+              - cell "10:00" [ref=e2206]:
+                - generic [ref=e2207]:
+                  - img [ref=e2208]
+                  - generic [ref=e2210]: 10:00
+              - cell "Vòng bảng · Bảng J San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e2211]:
+                - generic [ref=e2212]:
+                  - generic [ref=e2213]: Vòng bảng · Bảng J
+                  - generic "San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e2214]
+              - cell "Jordan" [ref=e2215]:
+                - link "Jordan" [ref=e2216] [cursor=pointer]:
+                  - /url: /teams/jordan
+                  - generic [ref=e2217]: Jordan
+                  - button "Yêu thích đội" [ref=e2218]:
+                    - generic "Jordan" [ref=e2219]:
+                      - img [ref=e2220]
+              - cell "Xem chi tiết trận 44" [ref=e2221]:
+                - button "Xem chi tiết trận 44" [ref=e2222]:
+                  - text: vs
+                  - generic [ref=e2223]: Chi tiết
+              - cell "Algeria" [ref=e2224]:
+                - link "Algeria" [ref=e2225] [cursor=pointer]:
+                  - /url: /teams/algeria
+                  - button "Yêu thích đội" [ref=e2226]:
+                    - generic "Algeria" [ref=e2227]:
+                      - img [ref=e2228]
+                  - generic [ref=e2229]: Algeria
+              - cell "Chi tiết Lịch sử đối đầu Jordan vs Algeria" [ref=e2230]:
+                - generic [ref=e2231]:
+                  - button "Chi tiết" [ref=e2232]
+                  - button "Lịch sử đối đầu Jordan vs Algeria" [ref=e2233]:
+                    - img [ref=e2234]
+                  - button "Yêu thích trận" [ref=e2236]:
+                    - img [ref=e2237]
+            - row "Thứ Tư, 24/06/2026" [ref=e2239]:
+              - cell "Thứ Tư, 24/06/2026" [ref=e2240]:
+                - generic [ref=e2241]: Thứ Tư, 24/06/2026
+            - row "47 00:00 Vòng bảng · Bảng K Houston Stadium - Houston Portugal Xem chi tiết trận 47 Uzbekistan Chi tiết Lịch sử đối đầu Portugal vs Uzbekistan" [ref=e2242]:
+              - cell "47" [ref=e2243]
+              - cell "00:00" [ref=e2244]:
+                - generic [ref=e2245]:
+                  - img [ref=e2246]
+                  - generic [ref=e2248]: 00:00
+              - cell "Vòng bảng · Bảng K Houston Stadium - Houston" [ref=e2249]:
+                - generic [ref=e2250]:
+                  - generic [ref=e2251]: Vòng bảng · Bảng K
+                  - generic "Houston Stadium - Houston" [ref=e2252]
+              - cell "Portugal" [ref=e2253]:
+                - link "Portugal" [ref=e2254] [cursor=pointer]:
+                  - /url: /teams/portugal
+                  - generic [ref=e2255]: Portugal
+                  - button "Yêu thích đội" [ref=e2256]:
+                    - generic "Portugal" [ref=e2257]:
+                      - img [ref=e2258]
+              - cell "Xem chi tiết trận 47" [ref=e2259]:
+                - button "Xem chi tiết trận 47" [ref=e2260]:
+                  - text: vs
+                  - generic [ref=e2261]: Chi tiết
+              - cell "Uzbekistan" [ref=e2262]:
+                - link "Uzbekistan" [ref=e2263] [cursor=pointer]:
+                  - /url: /teams/uzbekistan
+                  - button "Yêu thích đội" [ref=e2264]:
+                    - generic "Uzbekistan" [ref=e2265]:
+                      - img [ref=e2266]
+                  - generic [ref=e2267]: Uzbekistan
+              - cell "Chi tiết Lịch sử đối đầu Portugal vs Uzbekistan" [ref=e2268]:
+                - generic [ref=e2269]:
+                  - button "Chi tiết" [ref=e2270]
+                  - button "Lịch sử đối đầu Portugal vs Uzbekistan" [ref=e2271]:
+                    - img [ref=e2272]
+                  - button "Yêu thích trận" [ref=e2274]:
+                    - img [ref=e2275]
+            - row "45 03:00 Vòng bảng · Bảng L Boston Stadium - Boston England Xem chi tiết trận 45 Ghana Chi tiết Lịch sử đối đầu England vs Ghana" [ref=e2277]:
+              - cell "45" [ref=e2278]
+              - cell "03:00" [ref=e2279]:
+                - generic [ref=e2280]:
+                  - img [ref=e2281]
+                  - generic [ref=e2283]: 03:00
+              - cell "Vòng bảng · Bảng L Boston Stadium - Boston" [ref=e2284]:
+                - generic [ref=e2285]:
+                  - generic [ref=e2286]: Vòng bảng · Bảng L
+                  - generic "Boston Stadium - Boston" [ref=e2287]
+              - cell "England" [ref=e2288]:
+                - link "England" [ref=e2289] [cursor=pointer]:
+                  - /url: /teams/england
+                  - generic [ref=e2290]: England
+                  - button "Yêu thích đội" [ref=e2291]:
+                    - generic "England" [ref=e2292]:
+                      - img [ref=e2293]
+              - cell "Xem chi tiết trận 45" [ref=e2294]:
+                - button "Xem chi tiết trận 45" [ref=e2295]:
+                  - text: vs
+                  - generic [ref=e2296]: Chi tiết
+              - cell "Ghana" [ref=e2297]:
+                - link "Ghana" [ref=e2298] [cursor=pointer]:
+                  - /url: /teams/ghana
+                  - button "Yêu thích đội" [ref=e2299]:
+                    - generic "Ghana" [ref=e2300]:
+                      - img [ref=e2301]
+                  - generic [ref=e2302]: Ghana
+              - cell "Chi tiết Lịch sử đối đầu England vs Ghana" [ref=e2303]:
+                - generic [ref=e2304]:
+                  - button "Chi tiết" [ref=e2305]
+                  - button "Lịch sử đối đầu England vs Ghana" [ref=e2306]:
+                    - img [ref=e2307]
+                  - button "Yêu thích trận" [ref=e2309]:
+                    - img [ref=e2310]
+            - row "46 06:00 Vòng bảng · Bảng L Toronto Stadium - Toronto Panama Xem chi tiết trận 46 Croatia Chi tiết Lịch sử đối đầu Panama vs Croatia" [ref=e2312]:
+              - cell "46" [ref=e2313]
+              - cell "06:00" [ref=e2314]:
+                - generic [ref=e2315]:
+                  - img [ref=e2316]
+                  - generic [ref=e2318]: 06:00
+              - cell "Vòng bảng · Bảng L Toronto Stadium - Toronto" [ref=e2319]:
+                - generic [ref=e2320]:
+                  - generic [ref=e2321]: Vòng bảng · Bảng L
+                  - generic "Toronto Stadium - Toronto" [ref=e2322]
+              - cell "Panama" [ref=e2323]:
+                - link "Panama" [ref=e2324] [cursor=pointer]:
+                  - /url: /teams/panama
+                  - generic [ref=e2325]: Panama
+                  - button "Yêu thích đội" [ref=e2326]:
+                    - generic "Panama" [ref=e2327]:
+                      - img [ref=e2328]
+              - cell "Xem chi tiết trận 46" [ref=e2329]:
+                - button "Xem chi tiết trận 46" [ref=e2330]:
+                  - text: vs
+                  - generic [ref=e2331]: Chi tiết
+              - cell "Croatia" [ref=e2332]:
+                - link "Croatia" [ref=e2333] [cursor=pointer]:
+                  - /url: /teams/croatia
+                  - button "Yêu thích đội" [ref=e2334]:
+                    - generic "Croatia" [ref=e2335]:
+                      - img [ref=e2336]
+                  - generic [ref=e2337]: Croatia
+              - cell "Chi tiết Lịch sử đối đầu Panama vs Croatia" [ref=e2338]:
+                - generic [ref=e2339]:
+                  - button "Chi tiết" [ref=e2340]
+                  - button "Lịch sử đối đầu Panama vs Croatia" [ref=e2341]:
+                    - img [ref=e2342]
+                  - button "Yêu thích trận" [ref=e2344]:
+                    - img [ref=e2345]
+            - row "48 09:00 Vòng bảng · Bảng K Guadalajara Stadium - Guadalajara Colombia Xem chi tiết trận 48 Congo DR Chi tiết Lịch sử đối đầu Colombia vs Congo DR" [ref=e2347]:
+              - cell "48" [ref=e2348]
+              - cell "09:00" [ref=e2349]:
+                - generic [ref=e2350]:
+                  - img [ref=e2351]
+                  - generic [ref=e2353]: 09:00
+              - cell "Vòng bảng · Bảng K Guadalajara Stadium - Guadalajara" [ref=e2354]:
+                - generic [ref=e2355]:
+                  - generic [ref=e2356]: Vòng bảng · Bảng K
+                  - generic "Guadalajara Stadium - Guadalajara" [ref=e2357]
+              - cell "Colombia" [ref=e2358]:
+                - link "Colombia" [ref=e2359] [cursor=pointer]:
+                  - /url: /teams/colombia
+                  - generic [ref=e2360]: Colombia
+                  - button "Yêu thích đội" [ref=e2361]:
+                    - generic "Colombia" [ref=e2362]:
+                      - img [ref=e2363]
+              - cell "Xem chi tiết trận 48" [ref=e2364]:
+                - button "Xem chi tiết trận 48" [ref=e2365]:
+                  - text: vs
+                  - generic [ref=e2366]: Chi tiết
+              - cell "Congo DR" [ref=e2367]:
+                - link "Congo DR" [ref=e2368] [cursor=pointer]:
+                  - /url: /teams/congo-dr
+                  - button "Yêu thích đội" [ref=e2369]:
+                    - generic "Congo DR" [ref=e2370]:
+                      - img [ref=e2371]
+                  - generic [ref=e2372]: Congo DR
+              - cell "Chi tiết Lịch sử đối đầu Colombia vs Congo DR" [ref=e2373]:
+                - generic [ref=e2374]:
+                  - button "Chi tiết" [ref=e2375]
+                  - button "Lịch sử đối đầu Colombia vs Congo DR" [ref=e2376]:
+                    - img [ref=e2377]
+                  - button "Yêu thích trận" [ref=e2379]:
+                    - img [ref=e2380]
+            - row "Thứ Năm, 25/06/2026" [ref=e2382]:
+              - cell "Thứ Năm, 25/06/2026" [ref=e2383]:
+                - generic [ref=e2384]: Thứ Năm, 25/06/2026
+            - row "51 02:00 Vòng bảng · Bảng B BC Place Vancouver - Vancouver Switzerland Xem chi tiết trận 51 Canada Chi tiết Lịch sử đối đầu Switzerland vs Canada" [ref=e2385]:
+              - cell "51" [ref=e2386]
+              - cell "02:00" [ref=e2387]:
+                - generic [ref=e2388]:
+                  - img [ref=e2389]
+                  - generic [ref=e2391]: 02:00
+              - cell "Vòng bảng · Bảng B BC Place Vancouver - Vancouver" [ref=e2392]:
+                - generic [ref=e2393]:
+                  - generic [ref=e2394]: Vòng bảng · Bảng B
+                  - generic "BC Place Vancouver - Vancouver" [ref=e2395]
+              - cell "Switzerland" [ref=e2396]:
+                - link "Switzerland" [ref=e2397] [cursor=pointer]:
+                  - /url: /teams/switzerland
+                  - generic [ref=e2398]: Switzerland
+                  - button "Yêu thích đội" [ref=e2399]:
+                    - generic "Switzerland" [ref=e2400]:
+                      - img [ref=e2401]
+              - cell "Xem chi tiết trận 51" [ref=e2402]:
+                - button "Xem chi tiết trận 51" [ref=e2403]:
+                  - text: vs
+                  - generic [ref=e2404]: Chi tiết
+              - cell "Canada" [ref=e2405]:
+                - link "Canada" [ref=e2406] [cursor=pointer]:
+                  - /url: /teams/canada
+                  - button "Yêu thích đội" [ref=e2407]:
+                    - generic "Canada" [ref=e2408]:
+                      - img [ref=e2409]
+                  - generic [ref=e2410]: Canada
+              - cell "Chi tiết Lịch sử đối đầu Switzerland vs Canada" [ref=e2411]:
+                - generic [ref=e2412]:
+                  - button "Chi tiết" [ref=e2413]
+                  - button "Lịch sử đối đầu Switzerland vs Canada" [ref=e2414]:
+                    - img [ref=e2415]
+                  - button "Yêu thích trận" [ref=e2417]:
+                    - img [ref=e2418]
+            - row "52 02:00 Vòng bảng · Bảng B Seattle Stadium - Seattle Bosnia and Herzegovina Xem chi tiết trận 52 Qatar Chi tiết Lịch sử đối đầu Bosnia and Herzegovina vs Qatar" [ref=e2420]:
+              - cell "52" [ref=e2421]
+              - cell "02:00" [ref=e2422]:
+                - generic [ref=e2423]:
+                  - img [ref=e2424]
+                  - generic [ref=e2426]: 02:00
+              - cell "Vòng bảng · Bảng B Seattle Stadium - Seattle" [ref=e2427]:
+                - generic [ref=e2428]:
+                  - generic [ref=e2429]: Vòng bảng · Bảng B
+                  - generic "Seattle Stadium - Seattle" [ref=e2430]
+              - cell "Bosnia and Herzegovina" [ref=e2431]:
+                - link "Bosnia and Herzegovina" [ref=e2432] [cursor=pointer]:
+                  - /url: /teams/bosnia-herzegovina
+                  - generic [ref=e2433]: Bosnia and Herzegovina
+                  - button "Yêu thích đội" [ref=e2434]:
+                    - generic "Bosnia and Herzegovina" [ref=e2435]:
+                      - img [ref=e2436]
+              - cell "Xem chi tiết trận 52" [ref=e2437]:
+                - button "Xem chi tiết trận 52" [ref=e2438]:
+                  - text: vs
+                  - generic [ref=e2439]: Chi tiết
+              - cell "Qatar" [ref=e2440]:
+                - link "Qatar" [ref=e2441] [cursor=pointer]:
+                  - /url: /teams/qatar
+                  - button "Yêu thích đội" [ref=e2442]:
+                    - generic "Qatar" [ref=e2443]:
+                      - img [ref=e2444]
+                  - generic [ref=e2445]: Qatar
+              - cell "Chi tiết Lịch sử đối đầu Bosnia and Herzegovina vs Qatar" [ref=e2446]:
+                - generic [ref=e2447]:
+                  - button "Chi tiết" [ref=e2448]
+                  - button "Lịch sử đối đầu Bosnia and Herzegovina vs Qatar" [ref=e2449]:
+                    - img [ref=e2450]
+                  - button "Yêu thích trận" [ref=e2452]:
+                    - img [ref=e2453]
+            - row "49 05:00 Vòng bảng · Bảng C Miami Stadium - Miami Scotland Xem chi tiết trận 49 Brazil Chi tiết Lịch sử đối đầu Scotland vs Brazil" [ref=e2455]:
+              - cell "49" [ref=e2456]
+              - cell "05:00" [ref=e2457]:
+                - generic [ref=e2458]:
+                  - img [ref=e2459]
+                  - generic [ref=e2461]: 05:00
+              - cell "Vòng bảng · Bảng C Miami Stadium - Miami" [ref=e2462]:
+                - generic [ref=e2463]:
+                  - generic [ref=e2464]: Vòng bảng · Bảng C
+                  - generic "Miami Stadium - Miami" [ref=e2465]
+              - cell "Scotland" [ref=e2466]:
+                - link "Scotland" [ref=e2467] [cursor=pointer]:
+                  - /url: /teams/scotland
+                  - generic [ref=e2468]: Scotland
+                  - button "Yêu thích đội" [ref=e2469]:
+                    - generic "Scotland" [ref=e2470]:
+                      - img [ref=e2471]
+              - cell "Xem chi tiết trận 49" [ref=e2472]:
+                - button "Xem chi tiết trận 49" [ref=e2473]:
+                  - text: vs
+                  - generic [ref=e2474]: Chi tiết
+              - cell "Brazil" [ref=e2475]:
+                - link "Brazil" [ref=e2476] [cursor=pointer]:
+                  - /url: /teams/brazil
+                  - button "Yêu thích đội" [ref=e2477]:
+                    - generic "Brazil" [ref=e2478]:
+                      - img [ref=e2479]
+                  - generic [ref=e2480]: Brazil
+              - cell "Chi tiết Lịch sử đối đầu Scotland vs Brazil" [ref=e2481]:
+                - generic [ref=e2482]:
+                  - button "Chi tiết" [ref=e2483]
+                  - button "Lịch sử đối đầu Scotland vs Brazil" [ref=e2484]:
+                    - img [ref=e2485]
+                  - button "Yêu thích trận" [ref=e2487]:
+                    - img [ref=e2488]
+            - row "50 05:00 Vòng bảng · Bảng C Atlanta Stadium - Atlanta Morocco Xem chi tiết trận 50 Haiti Chi tiết Lịch sử đối đầu Morocco vs Haiti" [ref=e2490]:
+              - cell "50" [ref=e2491]
+              - cell "05:00" [ref=e2492]:
+                - generic [ref=e2493]:
+                  - img [ref=e2494]
+                  - generic [ref=e2496]: 05:00
+              - cell "Vòng bảng · Bảng C Atlanta Stadium - Atlanta" [ref=e2497]:
+                - generic [ref=e2498]:
+                  - generic [ref=e2499]: Vòng bảng · Bảng C
+                  - generic "Atlanta Stadium - Atlanta" [ref=e2500]
+              - cell "Morocco" [ref=e2501]:
+                - link "Morocco" [ref=e2502] [cursor=pointer]:
+                  - /url: /teams/morocco
+                  - generic [ref=e2503]: Morocco
+                  - button "Yêu thích đội" [ref=e2504]:
+                    - generic "Morocco" [ref=e2505]:
+                      - img [ref=e2506]
+              - cell "Xem chi tiết trận 50" [ref=e2507]:
+                - button "Xem chi tiết trận 50" [ref=e2508]:
+                  - text: vs
+                  - generic [ref=e2509]: Chi tiết
+              - cell "Haiti" [ref=e2510]:
+                - link "Haiti" [ref=e2511] [cursor=pointer]:
+                  - /url: /teams/haiti
+                  - button "Yêu thích đội" [ref=e2512]:
+                    - generic "Haiti" [ref=e2513]:
+                      - img [ref=e2514]
+                  - generic [ref=e2515]: Haiti
+              - cell "Chi tiết Lịch sử đối đầu Morocco vs Haiti" [ref=e2516]:
+                - generic [ref=e2517]:
+                  - button "Chi tiết" [ref=e2518]
+                  - button "Lịch sử đối đầu Morocco vs Haiti" [ref=e2519]:
+                    - img [ref=e2520]
+                  - button "Yêu thích trận" [ref=e2522]:
+                    - img [ref=e2523]
+            - row "53 08:00 Vòng bảng · Bảng A Mexico City Stadium - Mexico City Czechia Xem chi tiết trận 53 Mexico Chi tiết Lịch sử đối đầu Czechia vs Mexico" [ref=e2525]:
+              - cell "53" [ref=e2526]
+              - cell "08:00" [ref=e2527]:
+                - generic [ref=e2528]:
+                  - img [ref=e2529]
+                  - generic [ref=e2531]: 08:00
+              - cell "Vòng bảng · Bảng A Mexico City Stadium - Mexico City" [ref=e2532]:
+                - generic [ref=e2533]:
+                  - generic [ref=e2534]: Vòng bảng · Bảng A
+                  - generic "Mexico City Stadium - Mexico City" [ref=e2535]
+              - cell "Czechia" [ref=e2536]:
+                - link "Czechia" [ref=e2537] [cursor=pointer]:
+                  - /url: /teams/czechia
+                  - generic [ref=e2538]: Czechia
+                  - button "Yêu thích đội" [ref=e2539]:
+                    - generic "Czechia" [ref=e2540]:
+                      - img [ref=e2541]
+              - cell "Xem chi tiết trận 53" [ref=e2542]:
+                - button "Xem chi tiết trận 53" [ref=e2543]:
+                  - text: vs
+                  - generic [ref=e2544]: Chi tiết
+              - cell "Mexico" [ref=e2545]:
+                - link "Mexico" [ref=e2546] [cursor=pointer]:
+                  - /url: /teams/mexico
+                  - button "Yêu thích đội" [ref=e2547]:
+                    - generic "Mexico" [ref=e2548]:
+                      - img [ref=e2549]
+                  - generic [ref=e2550]: Mexico
+              - cell "Chi tiết Lịch sử đối đầu Czechia vs Mexico" [ref=e2551]:
+                - generic [ref=e2552]:
+                  - button "Chi tiết" [ref=e2553]
+                  - button "Lịch sử đối đầu Czechia vs Mexico" [ref=e2554]:
+                    - img [ref=e2555]
+                  - button "Yêu thích trận" [ref=e2557]:
+                    - img [ref=e2558]
+            - row "54 08:00 Vòng bảng · Bảng A Monterrey Stadium - Monterrey South Africa Xem chi tiết trận 54 Korea Republic Chi tiết Lịch sử đối đầu South Africa vs Korea Republic" [ref=e2560]:
+              - cell "54" [ref=e2561]
+              - cell "08:00" [ref=e2562]:
+                - generic [ref=e2563]:
+                  - img [ref=e2564]
+                  - generic [ref=e2566]: 08:00
+              - cell "Vòng bảng · Bảng A Monterrey Stadium - Monterrey" [ref=e2567]:
+                - generic [ref=e2568]:
+                  - generic [ref=e2569]: Vòng bảng · Bảng A
+                  - generic "Monterrey Stadium - Monterrey" [ref=e2570]
+              - cell "South Africa" [ref=e2571]:
+                - link "South Africa" [ref=e2572] [cursor=pointer]:
+                  - /url: /teams/south-africa
+                  - generic [ref=e2573]: South Africa
+                  - button "Yêu thích đội" [ref=e2574]:
+                    - generic "South Africa" [ref=e2575]:
+                      - img [ref=e2576]
+              - cell "Xem chi tiết trận 54" [ref=e2577]:
+                - button "Xem chi tiết trận 54" [ref=e2578]:
+                  - text: vs
+                  - generic [ref=e2579]: Chi tiết
+              - cell "Korea Republic" [ref=e2580]:
+                - link "Korea Republic" [ref=e2581] [cursor=pointer]:
+                  - /url: /teams/korea-republic
+                  - button "Yêu thích đội" [ref=e2582]:
+                    - generic "Korea Republic" [ref=e2583]:
+                      - img [ref=e2584]
+                  - generic [ref=e2585]: Korea Republic
+              - cell "Chi tiết Lịch sử đối đầu South Africa vs Korea Republic" [ref=e2586]:
+                - generic [ref=e2587]:
+                  - button "Chi tiết" [ref=e2588]
+                  - button "Lịch sử đối đầu South Africa vs Korea Republic" [ref=e2589]:
+                    - img [ref=e2590]
+                  - button "Yêu thích trận" [ref=e2592]:
+                    - img [ref=e2593]
+            - row "Thứ Sáu, 26/06/2026" [ref=e2595]:
+              - cell "Thứ Sáu, 26/06/2026" [ref=e2596]:
+                - generic [ref=e2597]: Thứ Sáu, 26/06/2026
+            - row "55 03:00 Vòng bảng · Bảng E Philadelphia Stadium - Philadelphia Curaçao Xem chi tiết trận 55 Côte d'Ivoire Chi tiết Lịch sử đối đầu Curaçao vs Côte d'Ivoire" [ref=e2598]:
+              - cell "55" [ref=e2599]
+              - cell "03:00" [ref=e2600]:
+                - generic [ref=e2601]:
+                  - img [ref=e2602]
+                  - generic [ref=e2604]: 03:00
+              - cell "Vòng bảng · Bảng E Philadelphia Stadium - Philadelphia" [ref=e2605]:
+                - generic [ref=e2606]:
+                  - generic [ref=e2607]: Vòng bảng · Bảng E
+                  - generic "Philadelphia Stadium - Philadelphia" [ref=e2608]
+              - cell "Curaçao" [ref=e2609]:
+                - link "Curaçao" [ref=e2610] [cursor=pointer]:
+                  - /url: /teams/curacao
+                  - generic [ref=e2611]: Curaçao
+                  - button "Yêu thích đội" [ref=e2612]:
+                    - generic "Curaçao" [ref=e2613]:
+                      - img [ref=e2614]
+              - cell "Xem chi tiết trận 55" [ref=e2615]:
+                - button "Xem chi tiết trận 55" [ref=e2616]:
+                  - text: vs
+                  - generic [ref=e2617]: Chi tiết
+              - cell "Côte d'Ivoire" [ref=e2618]:
+                - link "Côte d'Ivoire" [ref=e2619] [cursor=pointer]:
+                  - /url: /teams/cote-d-ivoire
+                  - button "Yêu thích đội" [ref=e2620]:
+                    - generic "Côte d'Ivoire" [ref=e2621]:
+                      - img [ref=e2622]
+                  - generic [ref=e2623]: Côte d'Ivoire
+              - cell "Chi tiết Lịch sử đối đầu Curaçao vs Côte d'Ivoire" [ref=e2624]:
+                - generic [ref=e2625]:
+                  - button "Chi tiết" [ref=e2626]
+                  - button "Lịch sử đối đầu Curaçao vs Côte d'Ivoire" [ref=e2627]:
+                    - img [ref=e2628]
+                  - button "Yêu thích trận" [ref=e2630]:
+                    - img [ref=e2631]
+            - row "56 03:00 Vòng bảng · Bảng E New York/New Jersey Stadium - New Jersey Ecuador Xem chi tiết trận 56 Germany Chi tiết Lịch sử đối đầu Ecuador vs Germany" [ref=e2633]:
+              - cell "56" [ref=e2634]
+              - cell "03:00" [ref=e2635]:
+                - generic [ref=e2636]:
+                  - img [ref=e2637]
+                  - generic [ref=e2639]: 03:00
+              - cell "Vòng bảng · Bảng E New York/New Jersey Stadium - New Jersey" [ref=e2640]:
+                - generic [ref=e2641]:
+                  - generic [ref=e2642]: Vòng bảng · Bảng E
+                  - generic "New York/New Jersey Stadium - New Jersey" [ref=e2643]
+              - cell "Ecuador" [ref=e2644]:
+                - link "Ecuador" [ref=e2645] [cursor=pointer]:
+                  - /url: /teams/ecuador
+                  - generic [ref=e2646]: Ecuador
+                  - button "Yêu thích đội" [ref=e2647]:
+                    - generic "Ecuador" [ref=e2648]:
+                      - img [ref=e2649]
+              - cell "Xem chi tiết trận 56" [ref=e2650]:
+                - button "Xem chi tiết trận 56" [ref=e2651]:
+                  - text: vs
+                  - generic [ref=e2652]: Chi tiết
+              - cell "Germany" [ref=e2653]:
+                - link "Germany" [ref=e2654] [cursor=pointer]:
+                  - /url: /teams/germany
+                  - button "Yêu thích đội" [ref=e2655]:
+                    - generic "Germany" [ref=e2656]:
+                      - img [ref=e2657]
+                  - generic [ref=e2658]: Germany
+              - cell "Chi tiết Lịch sử đối đầu Ecuador vs Germany" [ref=e2659]:
+                - generic [ref=e2660]:
+                  - button "Chi tiết" [ref=e2661]
+                  - button "Lịch sử đối đầu Ecuador vs Germany" [ref=e2662]:
+                    - img [ref=e2663]
+                  - button "Yêu thích trận" [ref=e2665]:
+                    - img [ref=e2666]
+            - row "57 06:00 Vòng bảng · Bảng F Dallas Stadium - Dallas Japan Xem chi tiết trận 57 Sweden Chi tiết Lịch sử đối đầu Japan vs Sweden" [ref=e2668]:
+              - cell "57" [ref=e2669]
+              - cell "06:00" [ref=e2670]:
+                - generic [ref=e2671]:
+                  - img [ref=e2672]
+                  - generic [ref=e2674]: 06:00
+              - cell "Vòng bảng · Bảng F Dallas Stadium - Dallas" [ref=e2675]:
+                - generic [ref=e2676]:
+                  - generic [ref=e2677]: Vòng bảng · Bảng F
+                  - generic "Dallas Stadium - Dallas" [ref=e2678]
+              - cell "Japan" [ref=e2679]:
+                - link "Japan" [ref=e2680] [cursor=pointer]:
+                  - /url: /teams/japan
+                  - generic [ref=e2681]: Japan
+                  - button "Yêu thích đội" [ref=e2682]:
+                    - generic "Japan" [ref=e2683]:
+                      - img [ref=e2684]
+              - cell "Xem chi tiết trận 57" [ref=e2685]:
+                - button "Xem chi tiết trận 57" [ref=e2686]:
+                  - text: vs
+                  - generic [ref=e2687]: Chi tiết
+              - cell "Sweden" [ref=e2688]:
+                - link "Sweden" [ref=e2689] [cursor=pointer]:
+                  - /url: /teams/sweden
+                  - button "Yêu thích đội" [ref=e2690]:
+                    - generic "Sweden" [ref=e2691]:
+                      - img [ref=e2692]
+                  - generic [ref=e2693]: Sweden
+              - cell "Chi tiết Lịch sử đối đầu Japan vs Sweden" [ref=e2694]:
+                - generic [ref=e2695]:
+                  - button "Chi tiết" [ref=e2696]
+                  - button "Lịch sử đối đầu Japan vs Sweden" [ref=e2697]:
+                    - img [ref=e2698]
+                  - button "Yêu thích trận" [ref=e2700]:
+                    - img [ref=e2701]
+            - row "58 06:00 Vòng bảng · Bảng F Kansas City Stadium - Kansas City Tunisia Xem chi tiết trận 58 Netherlands Chi tiết Lịch sử đối đầu Tunisia vs Netherlands" [ref=e2703]:
+              - cell "58" [ref=e2704]
+              - cell "06:00" [ref=e2705]:
+                - generic [ref=e2706]:
+                  - img [ref=e2707]
+                  - generic [ref=e2709]: 06:00
+              - cell "Vòng bảng · Bảng F Kansas City Stadium - Kansas City" [ref=e2710]:
+                - generic [ref=e2711]:
+                  - generic [ref=e2712]: Vòng bảng · Bảng F
+                  - generic "Kansas City Stadium - Kansas City" [ref=e2713]
+              - cell "Tunisia" [ref=e2714]:
+                - link "Tunisia" [ref=e2715] [cursor=pointer]:
+                  - /url: /teams/tunisia
+                  - generic [ref=e2716]: Tunisia
+                  - button "Yêu thích đội" [ref=e2717]:
+                    - generic "Tunisia" [ref=e2718]:
+                      - img [ref=e2719]
+              - cell "Xem chi tiết trận 58" [ref=e2720]:
+                - button "Xem chi tiết trận 58" [ref=e2721]:
+                  - text: vs
+                  - generic [ref=e2722]: Chi tiết
+              - cell "Netherlands" [ref=e2723]:
+                - link "Netherlands" [ref=e2724] [cursor=pointer]:
+                  - /url: /teams/netherlands
+                  - button "Yêu thích đội" [ref=e2725]:
+                    - generic "Netherlands" [ref=e2726]:
+                      - img [ref=e2727]
+                  - generic [ref=e2728]: Netherlands
+              - cell "Chi tiết Lịch sử đối đầu Tunisia vs Netherlands" [ref=e2729]:
+                - generic [ref=e2730]:
+                  - button "Chi tiết" [ref=e2731]
+                  - button "Lịch sử đối đầu Tunisia vs Netherlands" [ref=e2732]:
+                    - img [ref=e2733]
+                  - button "Yêu thích trận" [ref=e2735]:
+                    - img [ref=e2736]
+            - row "59 09:00 Vòng bảng · Bảng D Los Angeles Stadium - Los Angeles Türkiye Xem chi tiết trận 59 USA Chi tiết Lịch sử đối đầu Türkiye vs USA" [ref=e2738]:
+              - cell "59" [ref=e2739]
+              - cell "09:00" [ref=e2740]:
+                - generic [ref=e2741]:
+                  - img [ref=e2742]
+                  - generic [ref=e2744]: 09:00
+              - cell "Vòng bảng · Bảng D Los Angeles Stadium - Los Angeles" [ref=e2745]:
+                - generic [ref=e2746]:
+                  - generic [ref=e2747]: Vòng bảng · Bảng D
+                  - generic "Los Angeles Stadium - Los Angeles" [ref=e2748]
+              - cell "Türkiye" [ref=e2749]:
+                - link "Türkiye" [ref=e2750] [cursor=pointer]:
+                  - /url: /teams/turkiye
+                  - generic [ref=e2751]: Türkiye
+                  - button "Yêu thích đội" [ref=e2752]:
+                    - generic "Türkiye" [ref=e2753]:
+                      - img [ref=e2754]
+              - cell "Xem chi tiết trận 59" [ref=e2755]:
+                - button "Xem chi tiết trận 59" [ref=e2756]:
+                  - text: vs
+                  - generic [ref=e2757]: Chi tiết
+              - cell "USA" [ref=e2758]:
+                - link "USA" [ref=e2759] [cursor=pointer]:
+                  - /url: /teams/usa
+                  - button "Yêu thích đội" [ref=e2760]:
+                    - generic "USA" [ref=e2761]:
+                      - img [ref=e2762]
+                  - generic [ref=e2763]: USA
+              - cell "Chi tiết Lịch sử đối đầu Türkiye vs USA" [ref=e2764]:
+                - generic [ref=e2765]:
+                  - button "Chi tiết" [ref=e2766]
+                  - button "Lịch sử đối đầu Türkiye vs USA" [ref=e2767]:
+                    - img [ref=e2768]
+                  - button "Yêu thích trận" [ref=e2770]:
+                    - img [ref=e2771]
+            - row "60 09:00 Vòng bảng · Bảng D San Francisco Bay Area Stadium - San Francisco Bay Area Paraguay Xem chi tiết trận 60 Australia Chi tiết Lịch sử đối đầu Paraguay vs Australia" [ref=e2773]:
+              - cell "60" [ref=e2774]
+              - cell "09:00" [ref=e2775]:
+                - generic [ref=e2776]:
+                  - img [ref=e2777]
+                  - generic [ref=e2779]: 09:00
+              - cell "Vòng bảng · Bảng D San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e2780]:
+                - generic [ref=e2781]:
+                  - generic [ref=e2782]: Vòng bảng · Bảng D
+                  - generic "San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e2783]
+              - cell "Paraguay" [ref=e2784]:
+                - link "Paraguay" [ref=e2785] [cursor=pointer]:
+                  - /url: /teams/paraguay
+                  - generic [ref=e2786]: Paraguay
+                  - button "Yêu thích đội" [ref=e2787]:
+                    - generic "Paraguay" [ref=e2788]:
+                      - img [ref=e2789]
+              - cell "Xem chi tiết trận 60" [ref=e2790]:
+                - button "Xem chi tiết trận 60" [ref=e2791]:
+                  - text: vs
+                  - generic [ref=e2792]: Chi tiết
+              - cell "Australia" [ref=e2793]:
+                - link "Australia" [ref=e2794] [cursor=pointer]:
+                  - /url: /teams/australia
+                  - button "Yêu thích đội" [ref=e2795]:
+                    - generic "Australia" [ref=e2796]:
+                      - img [ref=e2797]
+                  - generic [ref=e2798]: Australia
+              - cell "Chi tiết Lịch sử đối đầu Paraguay vs Australia" [ref=e2799]:
+                - generic [ref=e2800]:
+                  - button "Chi tiết" [ref=e2801]
+                  - button "Lịch sử đối đầu Paraguay vs Australia" [ref=e2802]:
+                    - img [ref=e2803]
+                  - button "Yêu thích trận" [ref=e2805]:
+                    - img [ref=e2806]
+            - row "Thứ Bảy, 27/06/2026" [ref=e2808]:
+              - cell "Thứ Bảy, 27/06/2026" [ref=e2809]:
+                - generic [ref=e2810]: Thứ Bảy, 27/06/2026
+            - row "61 02:00 Vòng bảng · Bảng I Boston Stadium - Boston Norway Xem chi tiết trận 61 France Chi tiết Lịch sử đối đầu Norway vs France" [ref=e2811]:
+              - cell "61" [ref=e2812]
+              - cell "02:00" [ref=e2813]:
+                - generic [ref=e2814]:
+                  - img [ref=e2815]
+                  - generic [ref=e2817]: 02:00
+              - cell "Vòng bảng · Bảng I Boston Stadium - Boston" [ref=e2818]:
+                - generic [ref=e2819]:
+                  - generic [ref=e2820]: Vòng bảng · Bảng I
+                  - generic "Boston Stadium - Boston" [ref=e2821]
+              - cell "Norway" [ref=e2822]:
+                - link "Norway" [ref=e2823] [cursor=pointer]:
+                  - /url: /teams/norway
+                  - generic [ref=e2824]: Norway
+                  - button "Yêu thích đội" [ref=e2825]:
+                    - generic "Norway" [ref=e2826]:
+                      - img [ref=e2827]
+              - cell "Xem chi tiết trận 61" [ref=e2828]:
+                - button "Xem chi tiết trận 61" [ref=e2829]:
+                  - text: vs
+                  - generic [ref=e2830]: Chi tiết
+              - cell "France" [ref=e2831]:
+                - link "France" [ref=e2832] [cursor=pointer]:
+                  - /url: /teams/france
+                  - button "Yêu thích đội" [ref=e2833]:
+                    - generic "France" [ref=e2834]:
+                      - img [ref=e2835]
+                  - generic [ref=e2836]: France
+              - cell "Chi tiết Lịch sử đối đầu Norway vs France" [ref=e2837]:
+                - generic [ref=e2838]:
+                  - button "Chi tiết" [ref=e2839]
+                  - button "Lịch sử đối đầu Norway vs France" [ref=e2840]:
+                    - img [ref=e2841]
+                  - button "Yêu thích trận" [ref=e2843]:
+                    - img [ref=e2844]
+            - row "62 02:00 Vòng bảng · Bảng I Toronto Stadium - Toronto Senegal Xem chi tiết trận 62 Iraq Chi tiết Lịch sử đối đầu Senegal vs Iraq" [ref=e2846]:
+              - cell "62" [ref=e2847]
+              - cell "02:00" [ref=e2848]:
+                - generic [ref=e2849]:
+                  - img [ref=e2850]
+                  - generic [ref=e2852]: 02:00
+              - cell "Vòng bảng · Bảng I Toronto Stadium - Toronto" [ref=e2853]:
+                - generic [ref=e2854]:
+                  - generic [ref=e2855]: Vòng bảng · Bảng I
+                  - generic "Toronto Stadium - Toronto" [ref=e2856]
+              - cell "Senegal" [ref=e2857]:
+                - link "Senegal" [ref=e2858] [cursor=pointer]:
+                  - /url: /teams/senegal
+                  - generic [ref=e2859]: Senegal
+                  - button "Yêu thích đội" [ref=e2860]:
+                    - generic "Senegal" [ref=e2861]:
+                      - img [ref=e2862]
+              - cell "Xem chi tiết trận 62" [ref=e2863]:
+                - button "Xem chi tiết trận 62" [ref=e2864]:
+                  - text: vs
+                  - generic [ref=e2865]: Chi tiết
+              - cell "Iraq" [ref=e2866]:
+                - link "Iraq" [ref=e2867] [cursor=pointer]:
+                  - /url: /teams/iraq
+                  - button "Yêu thích đội" [ref=e2868]:
+                    - generic "Iraq" [ref=e2869]:
+                      - img [ref=e2870]
+                  - generic [ref=e2871]: Iraq
+              - cell "Chi tiết Lịch sử đối đầu Senegal vs Iraq" [ref=e2872]:
+                - generic [ref=e2873]:
+                  - button "Chi tiết" [ref=e2874]
+                  - button "Lịch sử đối đầu Senegal vs Iraq" [ref=e2875]:
+                    - img [ref=e2876]
+                  - button "Yêu thích trận" [ref=e2878]:
+                    - img [ref=e2879]
+            - row "65 07:00 Vòng bảng · Bảng H Houston Stadium - Houston Cabo Verde Xem chi tiết trận 65 Saudi Arabia Chi tiết Lịch sử đối đầu Cabo Verde vs Saudi Arabia" [ref=e2881]:
+              - cell "65" [ref=e2882]
+              - cell "07:00" [ref=e2883]:
+                - generic [ref=e2884]:
+                  - img [ref=e2885]
+                  - generic [ref=e2887]: 07:00
+              - cell "Vòng bảng · Bảng H Houston Stadium - Houston" [ref=e2888]:
+                - generic [ref=e2889]:
+                  - generic [ref=e2890]: Vòng bảng · Bảng H
+                  - generic "Houston Stadium - Houston" [ref=e2891]
+              - cell "Cabo Verde" [ref=e2892]:
+                - link "Cabo Verde" [ref=e2893] [cursor=pointer]:
+                  - /url: /teams/cabo-verde
+                  - generic [ref=e2894]: Cabo Verde
+                  - button "Yêu thích đội" [ref=e2895]:
+                    - generic "Cabo Verde" [ref=e2896]:
+                      - img [ref=e2897]
+              - cell "Xem chi tiết trận 65" [ref=e2898]:
+                - button "Xem chi tiết trận 65" [ref=e2899]:
+                  - text: vs
+                  - generic [ref=e2900]: Chi tiết
+              - cell "Saudi Arabia" [ref=e2901]:
+                - link "Saudi Arabia" [ref=e2902] [cursor=pointer]:
+                  - /url: /teams/saudi-arabia
+                  - button "Yêu thích đội" [ref=e2903]:
+                    - generic "Saudi Arabia" [ref=e2904]:
+                      - img [ref=e2905]
+                  - generic [ref=e2906]: Saudi Arabia
+              - cell "Chi tiết Lịch sử đối đầu Cabo Verde vs Saudi Arabia" [ref=e2907]:
+                - generic [ref=e2908]:
+                  - button "Chi tiết" [ref=e2909]
+                  - button "Lịch sử đối đầu Cabo Verde vs Saudi Arabia" [ref=e2910]:
+                    - img [ref=e2911]
+                  - button "Yêu thích trận" [ref=e2913]:
+                    - img [ref=e2914]
+            - row "66 07:00 Vòng bảng · Bảng H Guadalajara Stadium - Guadalajara Uruguay Xem chi tiết trận 66 Spain Chi tiết Lịch sử đối đầu Uruguay vs Spain" [ref=e2916]:
+              - cell "66" [ref=e2917]
+              - cell "07:00" [ref=e2918]:
+                - generic [ref=e2919]:
+                  - img [ref=e2920]
+                  - generic [ref=e2922]: 07:00
+              - cell "Vòng bảng · Bảng H Guadalajara Stadium - Guadalajara" [ref=e2923]:
+                - generic [ref=e2924]:
+                  - generic [ref=e2925]: Vòng bảng · Bảng H
+                  - generic "Guadalajara Stadium - Guadalajara" [ref=e2926]
+              - cell "Uruguay" [ref=e2927]:
+                - link "Uruguay" [ref=e2928] [cursor=pointer]:
+                  - /url: /teams/uruguay
+                  - generic [ref=e2929]: Uruguay
+                  - button "Yêu thích đội" [ref=e2930]:
+                    - generic "Uruguay" [ref=e2931]:
+                      - img [ref=e2932]
+              - cell "Xem chi tiết trận 66" [ref=e2933]:
+                - button "Xem chi tiết trận 66" [ref=e2934]:
+                  - text: vs
+                  - generic [ref=e2935]: Chi tiết
+              - cell "Spain" [ref=e2936]:
+                - link "Spain" [ref=e2937] [cursor=pointer]:
+                  - /url: /teams/spain
+                  - button "Yêu thích đội" [ref=e2938]:
+                    - generic "Spain" [ref=e2939]:
+                      - img [ref=e2940]
+                  - generic [ref=e2941]: Spain
+              - cell "Chi tiết Lịch sử đối đầu Uruguay vs Spain" [ref=e2942]:
+                - generic [ref=e2943]:
+                  - button "Chi tiết" [ref=e2944]
+                  - button "Lịch sử đối đầu Uruguay vs Spain" [ref=e2945]:
+                    - img [ref=e2946]
+                  - button "Yêu thích trận" [ref=e2948]:
+                    - img [ref=e2949]
+            - row "63 10:00 Vòng bảng · Bảng G Seattle Stadium - Seattle Egypt Xem chi tiết trận 63 IR Iran Chi tiết Lịch sử đối đầu Egypt vs IR Iran" [ref=e2951]:
+              - cell "63" [ref=e2952]
+              - cell "10:00" [ref=e2953]:
+                - generic [ref=e2954]:
+                  - img [ref=e2955]
+                  - generic [ref=e2957]: 10:00
+              - cell "Vòng bảng · Bảng G Seattle Stadium - Seattle" [ref=e2958]:
+                - generic [ref=e2959]:
+                  - generic [ref=e2960]: Vòng bảng · Bảng G
+                  - generic "Seattle Stadium - Seattle" [ref=e2961]
+              - cell "Egypt" [ref=e2962]:
+                - link "Egypt" [ref=e2963] [cursor=pointer]:
+                  - /url: /teams/egypt
+                  - generic [ref=e2964]: Egypt
+                  - button "Yêu thích đội" [ref=e2965]:
+                    - generic "Egypt" [ref=e2966]:
+                      - img [ref=e2967]
+              - cell "Xem chi tiết trận 63" [ref=e2968]:
+                - button "Xem chi tiết trận 63" [ref=e2969]:
+                  - text: vs
+                  - generic [ref=e2970]: Chi tiết
+              - cell "IR Iran" [ref=e2971]:
+                - link "IR Iran" [ref=e2972] [cursor=pointer]:
+                  - /url: /teams/ir-iran
+                  - button "Yêu thích đội" [ref=e2973]:
+                    - generic "IR Iran" [ref=e2974]:
+                      - img [ref=e2975]
+                  - generic [ref=e2976]: IR Iran
+              - cell "Chi tiết Lịch sử đối đầu Egypt vs IR Iran" [ref=e2977]:
+                - generic [ref=e2978]:
+                  - button "Chi tiết" [ref=e2979]
+                  - button "Lịch sử đối đầu Egypt vs IR Iran" [ref=e2980]:
+                    - img [ref=e2981]
+                  - button "Yêu thích trận" [ref=e2983]:
+                    - img [ref=e2984]
+            - row "64 10:00 Vòng bảng · Bảng G BC Place Vancouver - Vancouver New Zealand Xem chi tiết trận 64 Belgium Chi tiết Lịch sử đối đầu New Zealand vs Belgium" [ref=e2986]:
+              - cell "64" [ref=e2987]
+              - cell "10:00" [ref=e2988]:
+                - generic [ref=e2989]:
+                  - img [ref=e2990]
+                  - generic [ref=e2992]: 10:00
+              - cell "Vòng bảng · Bảng G BC Place Vancouver - Vancouver" [ref=e2993]:
+                - generic [ref=e2994]:
+                  - generic [ref=e2995]: Vòng bảng · Bảng G
+                  - generic "BC Place Vancouver - Vancouver" [ref=e2996]
+              - cell "New Zealand" [ref=e2997]:
+                - link "New Zealand" [ref=e2998] [cursor=pointer]:
+                  - /url: /teams/new-zealand
+                  - generic [ref=e2999]: New Zealand
+                  - button "Yêu thích đội" [ref=e3000]:
+                    - generic "New Zealand" [ref=e3001]:
+                      - img [ref=e3002]
+              - cell "Xem chi tiết trận 64" [ref=e3003]:
+                - button "Xem chi tiết trận 64" [ref=e3004]:
+                  - text: vs
+                  - generic [ref=e3005]: Chi tiết
+              - cell "Belgium" [ref=e3006]:
+                - link "Belgium" [ref=e3007] [cursor=pointer]:
+                  - /url: /teams/belgium
+                  - button "Yêu thích đội" [ref=e3008]:
+                    - generic "Belgium" [ref=e3009]:
+                      - img [ref=e3010]
+                  - generic [ref=e3011]: Belgium
+              - cell "Chi tiết Lịch sử đối đầu New Zealand vs Belgium" [ref=e3012]:
+                - generic [ref=e3013]:
+                  - button "Chi tiết" [ref=e3014]
+                  - button "Lịch sử đối đầu New Zealand vs Belgium" [ref=e3015]:
+                    - img [ref=e3016]
+                  - button "Yêu thích trận" [ref=e3018]:
+                    - img [ref=e3019]
+            - row "Chủ Nhật, 28/06/2026" [ref=e3021]:
+              - cell "Chủ Nhật, 28/06/2026" [ref=e3022]:
+                - generic [ref=e3023]: Chủ Nhật, 28/06/2026
+            - row "67 04:00 Vòng bảng · Bảng L New York/New Jersey Stadium - New Jersey Panama Xem chi tiết trận 67 England Chi tiết Lịch sử đối đầu Panama vs England" [ref=e3024]:
+              - cell "67" [ref=e3025]
+              - cell "04:00" [ref=e3026]:
+                - generic [ref=e3027]:
+                  - img [ref=e3028]
+                  - generic [ref=e3030]: 04:00
+              - cell "Vòng bảng · Bảng L New York/New Jersey Stadium - New Jersey" [ref=e3031]:
+                - generic [ref=e3032]:
+                  - generic [ref=e3033]: Vòng bảng · Bảng L
+                  - generic "New York/New Jersey Stadium - New Jersey" [ref=e3034]
+              - cell "Panama" [ref=e3035]:
+                - link "Panama" [ref=e3036] [cursor=pointer]:
+                  - /url: /teams/panama
+                  - generic [ref=e3037]: Panama
+                  - button "Yêu thích đội" [ref=e3038]:
+                    - generic "Panama" [ref=e3039]:
+                      - img [ref=e3040]
+              - cell "Xem chi tiết trận 67" [ref=e3041]:
+                - button "Xem chi tiết trận 67" [ref=e3042]:
+                  - text: vs
+                  - generic [ref=e3043]: Chi tiết
+              - cell "England" [ref=e3044]:
+                - link "England" [ref=e3045] [cursor=pointer]:
+                  - /url: /teams/england
+                  - button "Yêu thích đội" [ref=e3046]:
+                    - generic "England" [ref=e3047]:
+                      - img [ref=e3048]
+                  - generic [ref=e3049]: England
+              - cell "Chi tiết Lịch sử đối đầu Panama vs England" [ref=e3050]:
+                - generic [ref=e3051]:
+                  - button "Chi tiết" [ref=e3052]
+                  - button "Lịch sử đối đầu Panama vs England" [ref=e3053]:
+                    - img [ref=e3054]
+                  - button "Yêu thích trận" [ref=e3056]:
+                    - img [ref=e3057]
+            - row "68 04:00 Vòng bảng · Bảng L Philadelphia Stadium - Philadelphia Croatia Xem chi tiết trận 68 Ghana Chi tiết Lịch sử đối đầu Croatia vs Ghana" [ref=e3059]:
+              - cell "68" [ref=e3060]
+              - cell "04:00" [ref=e3061]:
+                - generic [ref=e3062]:
+                  - img [ref=e3063]
+                  - generic [ref=e3065]: 04:00
+              - cell "Vòng bảng · Bảng L Philadelphia Stadium - Philadelphia" [ref=e3066]:
+                - generic [ref=e3067]:
+                  - generic [ref=e3068]: Vòng bảng · Bảng L
+                  - generic "Philadelphia Stadium - Philadelphia" [ref=e3069]
+              - cell "Croatia" [ref=e3070]:
+                - link "Croatia" [ref=e3071] [cursor=pointer]:
+                  - /url: /teams/croatia
+                  - generic [ref=e3072]: Croatia
+                  - button "Yêu thích đội" [ref=e3073]:
+                    - generic "Croatia" [ref=e3074]:
+                      - img [ref=e3075]
+              - cell "Xem chi tiết trận 68" [ref=e3076]:
+                - button "Xem chi tiết trận 68" [ref=e3077]:
+                  - text: vs
+                  - generic [ref=e3078]: Chi tiết
+              - cell "Ghana" [ref=e3079]:
+                - link "Ghana" [ref=e3080] [cursor=pointer]:
+                  - /url: /teams/ghana
+                  - button "Yêu thích đội" [ref=e3081]:
+                    - generic "Ghana" [ref=e3082]:
+                      - img [ref=e3083]
+                  - generic [ref=e3084]: Ghana
+              - cell "Chi tiết Lịch sử đối đầu Croatia vs Ghana" [ref=e3085]:
+                - generic [ref=e3086]:
+                  - button "Chi tiết" [ref=e3087]
+                  - button "Lịch sử đối đầu Croatia vs Ghana" [ref=e3088]:
+                    - img [ref=e3089]
+                  - button "Yêu thích trận" [ref=e3091]:
+                    - img [ref=e3092]
+            - row "71 06:30 Vòng bảng · Bảng K Miami Stadium - Miami Colombia Xem chi tiết trận 71 Portugal Chi tiết Lịch sử đối đầu Colombia vs Portugal" [ref=e3094]:
+              - cell "71" [ref=e3095]
+              - cell "06:30" [ref=e3096]:
+                - generic [ref=e3097]:
+                  - img [ref=e3098]
+                  - generic [ref=e3100]: 06:30
+              - cell "Vòng bảng · Bảng K Miami Stadium - Miami" [ref=e3101]:
+                - generic [ref=e3102]:
+                  - generic [ref=e3103]: Vòng bảng · Bảng K
+                  - generic "Miami Stadium - Miami" [ref=e3104]
+              - cell "Colombia" [ref=e3105]:
+                - link "Colombia" [ref=e3106] [cursor=pointer]:
+                  - /url: /teams/colombia
+                  - generic [ref=e3107]: Colombia
+                  - button "Yêu thích đội" [ref=e3108]:
+                    - generic "Colombia" [ref=e3109]:
+                      - img [ref=e3110]
+              - cell "Xem chi tiết trận 71" [ref=e3111]:
+                - button "Xem chi tiết trận 71" [ref=e3112]:
+                  - text: vs
+                  - generic [ref=e3113]: Chi tiết
+              - cell "Portugal" [ref=e3114]:
+                - link "Portugal" [ref=e3115] [cursor=pointer]:
+                  - /url: /teams/portugal
+                  - button "Yêu thích đội" [ref=e3116]:
+                    - generic "Portugal" [ref=e3117]:
+                      - img [ref=e3118]
+                  - generic [ref=e3119]: Portugal
+              - cell "Chi tiết Lịch sử đối đầu Colombia vs Portugal" [ref=e3120]:
+                - generic [ref=e3121]:
+                  - button "Chi tiết" [ref=e3122]
+                  - button "Lịch sử đối đầu Colombia vs Portugal" [ref=e3123]:
+                    - img [ref=e3124]
+                  - button "Yêu thích trận" [ref=e3126]:
+                    - img [ref=e3127]
+            - row "72 06:30 Vòng bảng · Bảng K Atlanta Stadium - Atlanta Congo DR Xem chi tiết trận 72 Uzbekistan Chi tiết Lịch sử đối đầu Congo DR vs Uzbekistan" [ref=e3129]:
+              - cell "72" [ref=e3130]
+              - cell "06:30" [ref=e3131]:
+                - generic [ref=e3132]:
+                  - img [ref=e3133]
+                  - generic [ref=e3135]: 06:30
+              - cell "Vòng bảng · Bảng K Atlanta Stadium - Atlanta" [ref=e3136]:
+                - generic [ref=e3137]:
+                  - generic [ref=e3138]: Vòng bảng · Bảng K
+                  - generic "Atlanta Stadium - Atlanta" [ref=e3139]
+              - cell "Congo DR" [ref=e3140]:
+                - link "Congo DR" [ref=e3141] [cursor=pointer]:
+                  - /url: /teams/congo-dr
+                  - generic [ref=e3142]: Congo DR
+                  - button "Yêu thích đội" [ref=e3143]:
+                    - generic "Congo DR" [ref=e3144]:
+                      - img [ref=e3145]
+              - cell "Xem chi tiết trận 72" [ref=e3146]:
+                - button "Xem chi tiết trận 72" [ref=e3147]:
+                  - text: vs
+                  - generic [ref=e3148]: Chi tiết
+              - cell "Uzbekistan" [ref=e3149]:
+                - link "Uzbekistan" [ref=e3150] [cursor=pointer]:
+                  - /url: /teams/uzbekistan
+                  - button "Yêu thích đội" [ref=e3151]:
+                    - generic "Uzbekistan" [ref=e3152]:
+                      - img [ref=e3153]
+                  - generic [ref=e3154]: Uzbekistan
+              - cell "Chi tiết Lịch sử đối đầu Congo DR vs Uzbekistan" [ref=e3155]:
+                - generic [ref=e3156]:
+                  - button "Chi tiết" [ref=e3157]
+                  - button "Lịch sử đối đầu Congo DR vs Uzbekistan" [ref=e3158]:
+                    - img [ref=e3159]
+                  - button "Yêu thích trận" [ref=e3161]:
+                    - img [ref=e3162]
+            - row "69 09:00 Vòng bảng · Bảng J Kansas City Stadium - Kansas City Algeria Xem chi tiết trận 69 Austria Chi tiết Lịch sử đối đầu Algeria vs Austria" [ref=e3164]:
+              - cell "69" [ref=e3165]
+              - cell "09:00" [ref=e3166]:
+                - generic [ref=e3167]:
+                  - img [ref=e3168]
+                  - generic [ref=e3170]: 09:00
+              - cell "Vòng bảng · Bảng J Kansas City Stadium - Kansas City" [ref=e3171]:
+                - generic [ref=e3172]:
+                  - generic [ref=e3173]: Vòng bảng · Bảng J
+                  - generic "Kansas City Stadium - Kansas City" [ref=e3174]
+              - cell "Algeria" [ref=e3175]:
+                - link "Algeria" [ref=e3176] [cursor=pointer]:
+                  - /url: /teams/algeria
+                  - generic [ref=e3177]: Algeria
+                  - button "Yêu thích đội" [ref=e3178]:
+                    - generic "Algeria" [ref=e3179]:
+                      - img [ref=e3180]
+              - cell "Xem chi tiết trận 69" [ref=e3181]:
+                - button "Xem chi tiết trận 69" [ref=e3182]:
+                  - text: vs
+                  - generic [ref=e3183]: Chi tiết
+              - cell "Austria" [ref=e3184]:
+                - link "Austria" [ref=e3185] [cursor=pointer]:
+                  - /url: /teams/austria
+                  - button "Yêu thích đội" [ref=e3186]:
+                    - generic "Austria" [ref=e3187]:
+                      - img [ref=e3188]
+                  - generic [ref=e3189]: Austria
+              - cell "Chi tiết Lịch sử đối đầu Algeria vs Austria" [ref=e3190]:
+                - generic [ref=e3191]:
+                  - button "Chi tiết" [ref=e3192]
+                  - button "Lịch sử đối đầu Algeria vs Austria" [ref=e3193]:
+                    - img [ref=e3194]
+                  - button "Yêu thích trận" [ref=e3196]:
+                    - img [ref=e3197]
+            - row "70 09:00 Vòng bảng · Bảng J Dallas Stadium - Dallas Jordan Xem chi tiết trận 70 Argentina Chi tiết Lịch sử đối đầu Jordan vs Argentina" [ref=e3199]:
+              - cell "70" [ref=e3200]
+              - cell "09:00" [ref=e3201]:
+                - generic [ref=e3202]:
+                  - img [ref=e3203]
+                  - generic [ref=e3205]: 09:00
+              - cell "Vòng bảng · Bảng J Dallas Stadium - Dallas" [ref=e3206]:
+                - generic [ref=e3207]:
+                  - generic [ref=e3208]: Vòng bảng · Bảng J
+                  - generic "Dallas Stadium - Dallas" [ref=e3209]
+              - cell "Jordan" [ref=e3210]:
+                - link "Jordan" [ref=e3211] [cursor=pointer]:
+                  - /url: /teams/jordan
+                  - generic [ref=e3212]: Jordan
+                  - button "Yêu thích đội" [ref=e3213]:
+                    - generic "Jordan" [ref=e3214]:
+                      - img [ref=e3215]
+              - cell "Xem chi tiết trận 70" [ref=e3216]:
+                - button "Xem chi tiết trận 70" [ref=e3217]:
+                  - text: vs
+                  - generic [ref=e3218]: Chi tiết
+              - cell "Argentina" [ref=e3219]:
+                - link "Argentina" [ref=e3220] [cursor=pointer]:
+                  - /url: /teams/argentina
+                  - button "Yêu thích đội" [ref=e3221]:
+                    - generic "Argentina" [ref=e3222]:
+                      - img [ref=e3223]
+                  - generic [ref=e3224]: Argentina
+              - cell "Chi tiết Lịch sử đối đầu Jordan vs Argentina" [ref=e3225]:
+                - generic [ref=e3226]:
+                  - button "Chi tiết" [ref=e3227]
+                  - button "Lịch sử đối đầu Jordan vs Argentina" [ref=e3228]:
+                    - img [ref=e3229]
+                  - button "Yêu thích trận" [ref=e3231]:
+                    - img [ref=e3232]
+            - row "Thứ Hai, 29/06/2026" [ref=e3234]:
+              - cell "Thứ Hai, 29/06/2026" [ref=e3235]:
+                - generic [ref=e3236]: Thứ Hai, 29/06/2026
+            - row "73 02:00 Vòng 32 Los Angeles Stadium - Los Angeles 2A Xem chi tiết trận 73 2B Chi tiết" [ref=e3237]:
+              - cell "73" [ref=e3238]
+              - cell "02:00" [ref=e3239]:
+                - generic [ref=e3240]:
+                  - img [ref=e3241]
+                  - generic [ref=e3243]: 02:00
+              - cell "Vòng 32 Los Angeles Stadium - Los Angeles" [ref=e3244]:
+                - generic [ref=e3245]:
+                  - generic [ref=e3246]: Vòng 32
+                  - generic "Los Angeles Stadium - Los Angeles" [ref=e3247]
+              - cell "2A" [ref=e3248]
+              - cell "Xem chi tiết trận 73" [ref=e3249]:
+                - button "Xem chi tiết trận 73" [ref=e3250]:
+                  - text: vs
+                  - generic [ref=e3251]: Chi tiết
+              - cell "2B" [ref=e3252]
+              - cell "Chi tiết" [ref=e3253]:
+                - generic [ref=e3254]:
+                  - button "Chi tiết" [ref=e3255]
+                  - button "Yêu thích trận" [ref=e3256]:
+                    - img [ref=e3257]
+            - row "Thứ Ba, 30/06/2026" [ref=e3259]:
+              - cell "Thứ Ba, 30/06/2026" [ref=e3260]:
+                - generic [ref=e3261]: Thứ Ba, 30/06/2026
+            - row "76 00:00 Vòng 32 Houston Stadium - Houston 1C Xem chi tiết trận 76 2F Chi tiết" [ref=e3262]:
+              - cell "76" [ref=e3263]
+              - cell "00:00" [ref=e3264]:
+                - generic [ref=e3265]:
+                  - img [ref=e3266]
+                  - generic [ref=e3268]: 00:00
+              - cell "Vòng 32 Houston Stadium - Houston" [ref=e3269]:
+                - generic [ref=e3270]:
+                  - generic [ref=e3271]: Vòng 32
+                  - generic "Houston Stadium - Houston" [ref=e3272]
+              - cell "1C" [ref=e3273]
+              - cell "Xem chi tiết trận 76" [ref=e3274]:
+                - button "Xem chi tiết trận 76" [ref=e3275]:
+                  - text: vs
+                  - generic [ref=e3276]: Chi tiết
+              - cell "2F" [ref=e3277]
+              - cell "Chi tiết" [ref=e3278]:
+                - generic [ref=e3279]:
+                  - button "Chi tiết" [ref=e3280]
+                  - button "Yêu thích trận" [ref=e3281]:
+                    - img [ref=e3282]
+            - row "74 03:30 Vòng 32 Boston Stadium - Boston 1E Xem chi tiết trận 74 3ABCDF Chi tiết" [ref=e3284]:
+              - cell "74" [ref=e3285]
+              - cell "03:30" [ref=e3286]:
+                - generic [ref=e3287]:
+                  - img [ref=e3288]
+                  - generic [ref=e3290]: 03:30
+              - cell "Vòng 32 Boston Stadium - Boston" [ref=e3291]:
+                - generic [ref=e3292]:
+                  - generic [ref=e3293]: Vòng 32
+                  - generic "Boston Stadium - Boston" [ref=e3294]
+              - cell "1E" [ref=e3295]
+              - cell "Xem chi tiết trận 74" [ref=e3296]:
+                - button "Xem chi tiết trận 74" [ref=e3297]:
+                  - text: vs
+                  - generic [ref=e3298]: Chi tiết
+              - cell "3ABCDF" [ref=e3299]
+              - cell "Chi tiết" [ref=e3300]:
+                - generic [ref=e3301]:
+                  - button "Chi tiết" [ref=e3302]
+                  - button "Yêu thích trận" [ref=e3303]:
+                    - img [ref=e3304]
+            - row "75 08:00 Vòng 32 Monterrey Stadium - Monterrey 1F Xem chi tiết trận 75 2C Chi tiết" [ref=e3306]:
+              - cell "75" [ref=e3307]
+              - cell "08:00" [ref=e3308]:
+                - generic [ref=e3309]:
+                  - img [ref=e3310]
+                  - generic [ref=e3312]: 08:00
+              - cell "Vòng 32 Monterrey Stadium - Monterrey" [ref=e3313]:
+                - generic [ref=e3314]:
+                  - generic [ref=e3315]: Vòng 32
+                  - generic "Monterrey Stadium - Monterrey" [ref=e3316]
+              - cell "1F" [ref=e3317]
+              - cell "Xem chi tiết trận 75" [ref=e3318]:
+                - button "Xem chi tiết trận 75" [ref=e3319]:
+                  - text: vs
+                  - generic [ref=e3320]: Chi tiết
+              - cell "2C" [ref=e3321]
+              - cell "Chi tiết" [ref=e3322]:
+                - generic [ref=e3323]:
+                  - button "Chi tiết" [ref=e3324]
+                  - button "Yêu thích trận" [ref=e3325]:
+                    - img [ref=e3326]
+            - row "Thứ Tư, 01/07/2026" [ref=e3328]:
+              - cell "Thứ Tư, 01/07/2026" [ref=e3329]:
+                - generic [ref=e3330]: Thứ Tư, 01/07/2026
+            - row "78 00:00 Vòng 32 Dallas Stadium - Dallas 2E Xem chi tiết trận 78 2I Chi tiết" [ref=e3331]:
+              - cell "78" [ref=e3332]
+              - cell "00:00" [ref=e3333]:
+                - generic [ref=e3334]:
+                  - img [ref=e3335]
+                  - generic [ref=e3337]: 00:00
+              - cell "Vòng 32 Dallas Stadium - Dallas" [ref=e3338]:
+                - generic [ref=e3339]:
+                  - generic [ref=e3340]: Vòng 32
+                  - generic "Dallas Stadium - Dallas" [ref=e3341]
+              - cell "2E" [ref=e3342]
+              - cell "Xem chi tiết trận 78" [ref=e3343]:
+                - button "Xem chi tiết trận 78" [ref=e3344]:
+                  - text: vs
+                  - generic [ref=e3345]: Chi tiết
+              - cell "2I" [ref=e3346]
+              - cell "Chi tiết" [ref=e3347]:
+                - generic [ref=e3348]:
+                  - button "Chi tiết" [ref=e3349]
+                  - button "Yêu thích trận" [ref=e3350]:
+                    - img [ref=e3351]
+            - row "77 04:00 Vòng 32 New York/New Jersey Stadium - New Jersey 1I Xem chi tiết trận 77 3CDFGH Chi tiết" [ref=e3353]:
+              - cell "77" [ref=e3354]
+              - cell "04:00" [ref=e3355]:
+                - generic [ref=e3356]:
+                  - img [ref=e3357]
+                  - generic [ref=e3359]: 04:00
+              - cell "Vòng 32 New York/New Jersey Stadium - New Jersey" [ref=e3360]:
+                - generic [ref=e3361]:
+                  - generic [ref=e3362]: Vòng 32
+                  - generic "New York/New Jersey Stadium - New Jersey" [ref=e3363]
+              - cell "1I" [ref=e3364]
+              - cell "Xem chi tiết trận 77" [ref=e3365]:
+                - button "Xem chi tiết trận 77" [ref=e3366]:
+                  - text: vs
+                  - generic [ref=e3367]: Chi tiết
+              - cell "3CDFGH" [ref=e3368]
+              - cell "Chi tiết" [ref=e3369]:
+                - generic [ref=e3370]:
+                  - button "Chi tiết" [ref=e3371]
+                  - button "Yêu thích trận" [ref=e3372]:
+                    - img [ref=e3373]
+            - row "79 08:00 Vòng 32 Mexico City Stadium - Mexico City 1A Xem chi tiết trận 79 3CEFHI Chi tiết" [ref=e3375]:
+              - cell "79" [ref=e3376]
+              - cell "08:00" [ref=e3377]:
+                - generic [ref=e3378]:
+                  - img [ref=e3379]
+                  - generic [ref=e3381]: 08:00
+              - cell "Vòng 32 Mexico City Stadium - Mexico City" [ref=e3382]:
+                - generic [ref=e3383]:
+                  - generic [ref=e3384]: Vòng 32
+                  - generic "Mexico City Stadium - Mexico City" [ref=e3385]
+              - cell "1A" [ref=e3386]
+              - cell "Xem chi tiết trận 79" [ref=e3387]:
+                - button "Xem chi tiết trận 79" [ref=e3388]:
+                  - text: vs
+                  - generic [ref=e3389]: Chi tiết
+              - cell "3CEFHI" [ref=e3390]
+              - cell "Chi tiết" [ref=e3391]:
+                - generic [ref=e3392]:
+                  - button "Chi tiết" [ref=e3393]
+                  - button "Yêu thích trận" [ref=e3394]:
+                    - img [ref=e3395]
+            - row "80 23:00 Vòng 32 Atlanta Stadium - Atlanta 1L Xem chi tiết trận 80 3EHIJK Chi tiết" [ref=e3397]:
+              - cell "80" [ref=e3398]
+              - cell "23:00" [ref=e3399]:
+                - generic [ref=e3400]:
+                  - img [ref=e3401]
+                  - generic [ref=e3403]: 23:00
+              - cell "Vòng 32 Atlanta Stadium - Atlanta" [ref=e3404]:
+                - generic [ref=e3405]:
+                  - generic [ref=e3406]: Vòng 32
+                  - generic "Atlanta Stadium - Atlanta" [ref=e3407]
+              - cell "1L" [ref=e3408]
+              - cell "Xem chi tiết trận 80" [ref=e3409]:
+                - button "Xem chi tiết trận 80" [ref=e3410]:
+                  - text: vs
+                  - generic [ref=e3411]: Chi tiết
+              - cell "3EHIJK" [ref=e3412]
+              - cell "Chi tiết" [ref=e3413]:
+                - generic [ref=e3414]:
+                  - button "Chi tiết" [ref=e3415]
+                  - button "Yêu thích trận" [ref=e3416]:
+                    - img [ref=e3417]
+            - row "Thứ Năm, 02/07/2026" [ref=e3419]:
+              - cell "Thứ Năm, 02/07/2026" [ref=e3420]:
+                - generic [ref=e3421]: Thứ Năm, 02/07/2026
+            - row "82 03:00 Vòng 32 Seattle Stadium - Seattle 1G Xem chi tiết trận 82 3AEHIJ Chi tiết" [ref=e3422]:
+              - cell "82" [ref=e3423]
+              - cell "03:00" [ref=e3424]:
+                - generic [ref=e3425]:
+                  - img [ref=e3426]
+                  - generic [ref=e3428]: 03:00
+              - cell "Vòng 32 Seattle Stadium - Seattle" [ref=e3429]:
+                - generic [ref=e3430]:
+                  - generic [ref=e3431]: Vòng 32
+                  - generic "Seattle Stadium - Seattle" [ref=e3432]
+              - cell "1G" [ref=e3433]
+              - cell "Xem chi tiết trận 82" [ref=e3434]:
+                - button "Xem chi tiết trận 82" [ref=e3435]:
+                  - text: vs
+                  - generic [ref=e3436]: Chi tiết
+              - cell "3AEHIJ" [ref=e3437]
+              - cell "Chi tiết" [ref=e3438]:
+                - generic [ref=e3439]:
+                  - button "Chi tiết" [ref=e3440]
+                  - button "Yêu thích trận" [ref=e3441]:
+                    - img [ref=e3442]
+            - row "81 07:00 Vòng 32 San Francisco Bay Area Stadium - San Francisco Bay Area 1D Xem chi tiết trận 81 3BEFIJ Chi tiết" [ref=e3444]:
+              - cell "81" [ref=e3445]
+              - cell "07:00" [ref=e3446]:
+                - generic [ref=e3447]:
+                  - img [ref=e3448]
+                  - generic [ref=e3450]: 07:00
+              - cell "Vòng 32 San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e3451]:
+                - generic [ref=e3452]:
+                  - generic [ref=e3453]: Vòng 32
+                  - generic "San Francisco Bay Area Stadium - San Francisco Bay Area" [ref=e3454]
+              - cell "1D" [ref=e3455]
+              - cell "Xem chi tiết trận 81" [ref=e3456]:
+                - button "Xem chi tiết trận 81" [ref=e3457]:
+                  - text: vs
+                  - generic [ref=e3458]: Chi tiết
+              - cell "3BEFIJ" [ref=e3459]
+              - cell "Chi tiết" [ref=e3460]:
+                - generic [ref=e3461]:
+                  - button "Chi tiết" [ref=e3462]
+                  - button "Yêu thích trận" [ref=e3463]:
+                    - img [ref=e3464]
+            - row "Thứ Sáu, 03/07/2026" [ref=e3466]:
+              - cell "Thứ Sáu, 03/07/2026" [ref=e3467]:
+                - generic [ref=e3468]: Thứ Sáu, 03/07/2026
+            - row "84 02:00 Vòng 32 Los Angeles Stadium - Los Angeles 1H Xem chi tiết trận 84 2J Chi tiết" [ref=e3469]:
+              - cell "84" [ref=e3470]
+              - cell "02:00" [ref=e3471]:
+                - generic [ref=e3472]:
+                  - img [ref=e3473]
+                  - generic [ref=e3475]: 02:00
+              - cell "Vòng 32 Los Angeles Stadium - Los Angeles" [ref=e3476]:
+                - generic [ref=e3477]:
+                  - generic [ref=e3478]: Vòng 32
+                  - generic "Los Angeles Stadium - Los Angeles" [ref=e3479]
+              - cell "1H" [ref=e3480]
+              - cell "Xem chi tiết trận 84" [ref=e3481]:
+                - button "Xem chi tiết trận 84" [ref=e3482]:
+                  - text: vs
+                  - generic [ref=e3483]: Chi tiết
+              - cell "2J" [ref=e3484]
+              - cell "Chi tiết" [ref=e3485]:
+                - generic [ref=e3486]:
+                  - button "Chi tiết" [ref=e3487]
+                  - button "Yêu thích trận" [ref=e3488]:
+                    - img [ref=e3489]
+            - row "83 06:00 Vòng 32 Toronto Stadium - Toronto 2K Xem chi tiết trận 83 2L Chi tiết" [ref=e3491]:
+              - cell "83" [ref=e3492]
+              - cell "06:00" [ref=e3493]:
+                - generic [ref=e3494]:
+                  - img [ref=e3495]
+                  - generic [ref=e3497]: 06:00
+              - cell "Vòng 32 Toronto Stadium - Toronto" [ref=e3498]:
+                - generic [ref=e3499]:
+                  - generic [ref=e3500]: Vòng 32
+                  - generic "Toronto Stadium - Toronto" [ref=e3501]
+              - cell "2K" [ref=e3502]
+              - cell "Xem chi tiết trận 83" [ref=e3503]:
+                - button "Xem chi tiết trận 83" [ref=e3504]:
+                  - text: vs
+                  - generic [ref=e3505]: Chi tiết
+              - cell "2L" [ref=e3506]
+              - cell "Chi tiết" [ref=e3507]:
+                - generic [ref=e3508]:
+                  - button "Chi tiết" [ref=e3509]
+                  - button "Yêu thích trận" [ref=e3510]:
+                    - img [ref=e3511]
+            - row "85 10:00 Vòng 32 BC Place Vancouver - Vancouver 1B Xem chi tiết trận 85 3EFGIJ Chi tiết" [ref=e3513]:
+              - cell "85" [ref=e3514]
+              - cell "10:00" [ref=e3515]:
+                - generic [ref=e3516]:
+                  - img [ref=e3517]
+                  - generic [ref=e3519]: 10:00
+              - cell "Vòng 32 BC Place Vancouver - Vancouver" [ref=e3520]:
+                - generic [ref=e3521]:
+                  - generic [ref=e3522]: Vòng 32
+                  - generic "BC Place Vancouver - Vancouver" [ref=e3523]
+              - cell "1B" [ref=e3524]
+              - cell "Xem chi tiết trận 85" [ref=e3525]:
+                - button "Xem chi tiết trận 85" [ref=e3526]:
+                  - text: vs
+                  - generic [ref=e3527]: Chi tiết
+              - cell "3EFGIJ" [ref=e3528]
+              - cell "Chi tiết" [ref=e3529]:
+                - generic [ref=e3530]:
+                  - button "Chi tiết" [ref=e3531]
+                  - button "Yêu thích trận" [ref=e3532]:
+                    - img [ref=e3533]
+            - row "Thứ Bảy, 04/07/2026" [ref=e3535]:
+              - cell "Thứ Bảy, 04/07/2026" [ref=e3536]:
+                - generic [ref=e3537]: Thứ Bảy, 04/07/2026
+            - row "88 01:00 Vòng 32 Dallas Stadium - Dallas 2D Xem chi tiết trận 88 2G Chi tiết" [ref=e3538]:
+              - cell "88" [ref=e3539]
+              - cell "01:00" [ref=e3540]:
+                - generic [ref=e3541]:
+                  - img [ref=e3542]
+                  - generic [ref=e3544]: 01:00
+              - cell "Vòng 32 Dallas Stadium - Dallas" [ref=e3545]:
+                - generic [ref=e3546]:
+                  - generic [ref=e3547]: Vòng 32
+                  - generic "Dallas Stadium - Dallas" [ref=e3548]
+              - cell "2D" [ref=e3549]
+              - cell "Xem chi tiết trận 88" [ref=e3550]:
+                - button "Xem chi tiết trận 88" [ref=e3551]:
+                  - text: vs
+                  - generic [ref=e3552]: Chi tiết
+              - cell "2G" [ref=e3553]
+              - cell "Chi tiết" [ref=e3554]:
+                - generic [ref=e3555]:
+                  - button "Chi tiết" [ref=e3556]
+                  - button "Yêu thích trận" [ref=e3557]:
+                    - img [ref=e3558]
+            - row "86 05:00 Vòng 32 Miami Stadium - Miami 1J Xem chi tiết trận 86 2H Chi tiết" [ref=e3560]:
+              - cell "86" [ref=e3561]
+              - cell "05:00" [ref=e3562]:
+                - generic [ref=e3563]:
+                  - img [ref=e3564]
+                  - generic [ref=e3566]: 05:00
+              - cell "Vòng 32 Miami Stadium - Miami" [ref=e3567]:
+                - generic [ref=e3568]:
+                  - generic [ref=e3569]: Vòng 32
+                  - generic "Miami Stadium - Miami" [ref=e3570]
+              - cell "1J" [ref=e3571]
+              - cell "Xem chi tiết trận 86" [ref=e3572]:
+                - button "Xem chi tiết trận 86" [ref=e3573]:
+                  - text: vs
+                  - generic [ref=e3574]: Chi tiết
+              - cell "2H" [ref=e3575]
+              - cell "Chi tiết" [ref=e3576]:
+                - generic [ref=e3577]:
+                  - button "Chi tiết" [ref=e3578]
+                  - button "Yêu thích trận" [ref=e3579]:
+                    - img [ref=e3580]
+            - row "87 08:30 Vòng 32 Kansas City Stadium - Kansas City 1K Xem chi tiết trận 87 3DEIJL Chi tiết" [ref=e3582]:
+              - cell "87" [ref=e3583]
+              - cell "08:30" [ref=e3584]:
+                - generic [ref=e3585]:
+                  - img [ref=e3586]
+                  - generic [ref=e3588]: 08:30
+              - cell "Vòng 32 Kansas City Stadium - Kansas City" [ref=e3589]:
+                - generic [ref=e3590]:
+                  - generic [ref=e3591]: Vòng 32
+                  - generic "Kansas City Stadium - Kansas City" [ref=e3592]
+              - cell "1K" [ref=e3593]
+              - cell "Xem chi tiết trận 87" [ref=e3594]:
+                - button "Xem chi tiết trận 87" [ref=e3595]:
+                  - text: vs
+                  - generic [ref=e3596]: Chi tiết
+              - cell "3DEIJL" [ref=e3597]
+              - cell "Chi tiết" [ref=e3598]:
+                - generic [ref=e3599]:
+                  - button "Chi tiết" [ref=e3600]
+                  - button "Yêu thích trận" [ref=e3601]:
+                    - img [ref=e3602]
+            - row "Chủ Nhật, 05/07/2026" [ref=e3604]:
+              - cell "Chủ Nhật, 05/07/2026" [ref=e3605]:
+                - generic [ref=e3606]: Chủ Nhật, 05/07/2026
+            - row "90 00:00 Vòng 16 Houston Stadium - Houston W73 Xem chi tiết trận 90 W75 Chi tiết" [ref=e3607]:
+              - cell "90" [ref=e3608]
+              - cell "00:00" [ref=e3609]:
+                - generic [ref=e3610]:
+                  - img [ref=e3611]
+                  - generic [ref=e3613]: 00:00
+              - cell "Vòng 16 Houston Stadium - Houston" [ref=e3614]:
+                - generic [ref=e3615]:
+                  - generic [ref=e3616]: Vòng 16
+                  - generic "Houston Stadium - Houston" [ref=e3617]
+              - cell "W73" [ref=e3618]
+              - cell "Xem chi tiết trận 90" [ref=e3619]:
+                - button "Xem chi tiết trận 90" [ref=e3620]:
+                  - text: vs
+                  - generic [ref=e3621]: Chi tiết
+              - cell "W75" [ref=e3622]
+              - cell "Chi tiết" [ref=e3623]:
+                - generic [ref=e3624]:
+                  - button "Chi tiết" [ref=e3625]
+                  - button "Yêu thích trận" [ref=e3626]:
+                    - img [ref=e3627]
+            - row "89 04:00 Vòng 16 Philadelphia Stadium - Philadelphia W74 Xem chi tiết trận 89 W77 Chi tiết" [ref=e3629]:
+              - cell "89" [ref=e3630]
+              - cell "04:00" [ref=e3631]:
+                - generic [ref=e3632]:
+                  - img [ref=e3633]
+                  - generic [ref=e3635]: 04:00
+              - cell "Vòng 16 Philadelphia Stadium - Philadelphia" [ref=e3636]:
+                - generic [ref=e3637]:
+                  - generic [ref=e3638]: Vòng 16
+                  - generic "Philadelphia Stadium - Philadelphia" [ref=e3639]
+              - cell "W74" [ref=e3640]
+              - cell "Xem chi tiết trận 89" [ref=e3641]:
+                - button "Xem chi tiết trận 89" [ref=e3642]:
+                  - text: vs
+                  - generic [ref=e3643]: Chi tiết
+              - cell "W77" [ref=e3644]
+              - cell "Chi tiết" [ref=e3645]:
+                - generic [ref=e3646]:
+                  - button "Chi tiết" [ref=e3647]
+                  - button "Yêu thích trận" [ref=e3648]:
+                    - img [ref=e3649]
+            - row "Thứ Hai, 06/07/2026" [ref=e3651]:
+              - cell "Thứ Hai, 06/07/2026" [ref=e3652]:
+                - generic [ref=e3653]: Thứ Hai, 06/07/2026
+            - row "91 03:00 Vòng 16 New York/New Jersey Stadium - New Jersey W76 Xem chi tiết trận 91 W78 Chi tiết" [ref=e3654]:
+              - cell "91" [ref=e3655]
+              - cell "03:00" [ref=e3656]:
+                - generic [ref=e3657]:
+                  - img [ref=e3658]
+                  - generic [ref=e3660]: 03:00
+              - cell "Vòng 16 New York/New Jersey Stadium - New Jersey" [ref=e3661]:
+                - generic [ref=e3662]:
+                  - generic [ref=e3663]: Vòng 16
+                  - generic "New York/New Jersey Stadium - New Jersey" [ref=e3664]
+              - cell "W76" [ref=e3665]
+              - cell "Xem chi tiết trận 91" [ref=e3666]:
+                - button "Xem chi tiết trận 91" [ref=e3667]:
+                  - text: vs
+                  - generic [ref=e3668]: Chi tiết
+              - cell "W78" [ref=e3669]
+              - cell "Chi tiết" [ref=e3670]:
+                - generic [ref=e3671]:
+                  - button "Chi tiết" [ref=e3672]
+                  - button "Yêu thích trận" [ref=e3673]:
+                    - img [ref=e3674]
+            - row "92 07:00 Vòng 16 Mexico City Stadium - Mexico City W79 Xem chi tiết trận 92 W80 Chi tiết" [ref=e3676]:
+              - cell "92" [ref=e3677]
+              - cell "07:00" [ref=e3678]:
+                - generic [ref=e3679]:
+                  - img [ref=e3680]
+                  - generic [ref=e3682]: 07:00
+              - cell "Vòng 16 Mexico City Stadium - Mexico City" [ref=e3683]:
+                - generic [ref=e3684]:
+                  - generic [ref=e3685]: Vòng 16
+                  - generic "Mexico City Stadium - Mexico City" [ref=e3686]
+              - cell "W79" [ref=e3687]
+              - cell "Xem chi tiết trận 92" [ref=e3688]:
+                - button "Xem chi tiết trận 92" [ref=e3689]:
+                  - text: vs
+                  - generic [ref=e3690]: Chi tiết
+              - cell "W80" [ref=e3691]
+              - cell "Chi tiết" [ref=e3692]:
+                - generic [ref=e3693]:
+                  - button "Chi tiết" [ref=e3694]
+                  - button "Yêu thích trận" [ref=e3695]:
+                    - img [ref=e3696]
+            - row "Thứ Ba, 07/07/2026" [ref=e3698]:
+              - cell "Thứ Ba, 07/07/2026" [ref=e3699]:
+                - generic [ref=e3700]: Thứ Ba, 07/07/2026
+            - row "93 02:00 Vòng 16 Dallas Stadium - Dallas W83 Xem chi tiết trận 93 W84 Chi tiết" [ref=e3701]:
+              - cell "93" [ref=e3702]
+              - cell "02:00" [ref=e3703]:
+                - generic [ref=e3704]:
+                  - img [ref=e3705]
+                  - generic [ref=e3707]: 02:00
+              - cell "Vòng 16 Dallas Stadium - Dallas" [ref=e3708]:
+                - generic [ref=e3709]:
+                  - generic [ref=e3710]: Vòng 16
+                  - generic "Dallas Stadium - Dallas" [ref=e3711]
+              - cell "W83" [ref=e3712]
+              - cell "Xem chi tiết trận 93" [ref=e3713]:
+                - button "Xem chi tiết trận 93" [ref=e3714]:
+                  - text: vs
+                  - generic [ref=e3715]: Chi tiết
+              - cell "W84" [ref=e3716]
+              - cell "Chi tiết" [ref=e3717]:
+                - generic [ref=e3718]:
+                  - button "Chi tiết" [ref=e3719]
+                  - button "Yêu thích trận" [ref=e3720]:
+                    - img [ref=e3721]
+            - row "94 07:00 Vòng 16 Seattle Stadium - Seattle W81 Xem chi tiết trận 94 W82 Chi tiết" [ref=e3723]:
+              - cell "94" [ref=e3724]
+              - cell "07:00" [ref=e3725]:
+                - generic [ref=e3726]:
+                  - img [ref=e3727]
+                  - generic [ref=e3729]: 07:00
+              - cell "Vòng 16 Seattle Stadium - Seattle" [ref=e3730]:
+                - generic [ref=e3731]:
+                  - generic [ref=e3732]: Vòng 16
+                  - generic "Seattle Stadium - Seattle" [ref=e3733]
+              - cell "W81" [ref=e3734]
+              - cell "Xem chi tiết trận 94" [ref=e3735]:
+                - button "Xem chi tiết trận 94" [ref=e3736]:
+                  - text: vs
+                  - generic [ref=e3737]: Chi tiết
+              - cell "W82" [ref=e3738]
+              - cell "Chi tiết" [ref=e3739]:
+                - generic [ref=e3740]:
+                  - button "Chi tiết" [ref=e3741]
+                  - button "Yêu thích trận" [ref=e3742]:
+                    - img [ref=e3743]
+            - row "95 23:00 Vòng 16 Atlanta Stadium - Atlanta W86 Xem chi tiết trận 95 W88 Chi tiết" [ref=e3745]:
+              - cell "95" [ref=e3746]
+              - cell "23:00" [ref=e3747]:
+                - generic [ref=e3748]:
+                  - img [ref=e3749]
+                  - generic [ref=e3751]: 23:00
+              - cell "Vòng 16 Atlanta Stadium - Atlanta" [ref=e3752]:
+                - generic [ref=e3753]:
+                  - generic [ref=e3754]: Vòng 16
+                  - generic "Atlanta Stadium - Atlanta" [ref=e3755]
+              - cell "W86" [ref=e3756]
+              - cell "Xem chi tiết trận 95" [ref=e3757]:
+                - button "Xem chi tiết trận 95" [ref=e3758]:
+                  - text: vs
+                  - generic [ref=e3759]: Chi tiết
+              - cell "W88" [ref=e3760]
+              - cell "Chi tiết" [ref=e3761]:
+                - generic [ref=e3762]:
+                  - button "Chi tiết" [ref=e3763]
+                  - button "Yêu thích trận" [ref=e3764]:
+                    - img [ref=e3765]
+            - row "Thứ Tư, 08/07/2026" [ref=e3767]:
+              - cell "Thứ Tư, 08/07/2026" [ref=e3768]:
+                - generic [ref=e3769]: Thứ Tư, 08/07/2026
+            - row "96 03:00 Vòng 16 BC Place Vancouver - Vancouver W85 Xem chi tiết trận 96 W87 Chi tiết" [ref=e3770]:
+              - cell "96" [ref=e3771]
+              - cell "03:00" [ref=e3772]:
+                - generic [ref=e3773]:
+                  - img [ref=e3774]
+                  - generic [ref=e3776]: 03:00
+              - cell "Vòng 16 BC Place Vancouver - Vancouver" [ref=e3777]:
+                - generic [ref=e3778]:
+                  - generic [ref=e3779]: Vòng 16
+                  - generic "BC Place Vancouver - Vancouver" [ref=e3780]
+              - cell "W85" [ref=e3781]
+              - cell "Xem chi tiết trận 96" [ref=e3782]:
+                - button "Xem chi tiết trận 96" [ref=e3783]:
+                  - text: vs
+                  - generic [ref=e3784]: Chi tiết
+              - cell "W87" [ref=e3785]
+              - cell "Chi tiết" [ref=e3786]:
+                - generic [ref=e3787]:
+                  - button "Chi tiết" [ref=e3788]
+                  - button "Yêu thích trận" [ref=e3789]:
+                    - img [ref=e3790]
+            - row "Thứ Sáu, 10/07/2026" [ref=e3792]:
+              - cell "Thứ Sáu, 10/07/2026" [ref=e3793]:
+                - generic [ref=e3794]: Thứ Sáu, 10/07/2026
+            - row "97 03:00 Tứ kết Boston Stadium - Boston W89 Xem chi tiết trận 97 W90 Chi tiết" [ref=e3795]:
+              - cell "97" [ref=e3796]
+              - cell "03:00" [ref=e3797]:
+                - generic [ref=e3798]:
+                  - img [ref=e3799]
+                  - generic [ref=e3801]: 03:00
+              - cell "Tứ kết Boston Stadium - Boston" [ref=e3802]:
+                - generic [ref=e3803]:
+                  - generic [ref=e3804]: Tứ kết
+                  - generic "Boston Stadium - Boston" [ref=e3805]
+              - cell "W89" [ref=e3806]
+              - cell "Xem chi tiết trận 97" [ref=e3807]:
+                - button "Xem chi tiết trận 97" [ref=e3808]:
+                  - text: vs
+                  - generic [ref=e3809]: Chi tiết
+              - cell "W90" [ref=e3810]
+              - cell "Chi tiết" [ref=e3811]:
+                - generic [ref=e3812]:
+                  - button "Chi tiết" [ref=e3813]
+                  - button "Yêu thích trận" [ref=e3814]:
+                    - img [ref=e3815]
+            - row "Thứ Bảy, 11/07/2026" [ref=e3817]:
+              - cell "Thứ Bảy, 11/07/2026" [ref=e3818]:
+                - generic [ref=e3819]: Thứ Bảy, 11/07/2026
+            - row "98 02:00 Tứ kết Los Angeles Stadium - Los Angeles W93 Xem chi tiết trận 98 W94 Chi tiết" [ref=e3820]:
+              - cell "98" [ref=e3821]
+              - cell "02:00" [ref=e3822]:
+                - generic [ref=e3823]:
+                  - img [ref=e3824]
+                  - generic [ref=e3826]: 02:00
+              - cell "Tứ kết Los Angeles Stadium - Los Angeles" [ref=e3827]:
+                - generic [ref=e3828]:
+                  - generic [ref=e3829]: Tứ kết
+                  - generic "Los Angeles Stadium - Los Angeles" [ref=e3830]
+              - cell "W93" [ref=e3831]
+              - cell "Xem chi tiết trận 98" [ref=e3832]:
+                - button "Xem chi tiết trận 98" [ref=e3833]:
+                  - text: vs
+                  - generic [ref=e3834]: Chi tiết
+              - cell "W94" [ref=e3835]
+              - cell "Chi tiết" [ref=e3836]:
+                - generic [ref=e3837]:
+                  - button "Chi tiết" [ref=e3838]
+                  - button "Yêu thích trận" [ref=e3839]:
+                    - img [ref=e3840]
+            - row "Chủ Nhật, 12/07/2026" [ref=e3842]:
+              - cell "Chủ Nhật, 12/07/2026" [ref=e3843]:
+                - generic [ref=e3844]: Chủ Nhật, 12/07/2026
+            - row "99 04:00 Tứ kết Miami Stadium - Miami W91 Xem chi tiết trận 99 W92 Chi tiết" [ref=e3845]:
+              - cell "99" [ref=e3846]
+              - cell "04:00" [ref=e3847]:
+                - generic [ref=e3848]:
+                  - img [ref=e3849]
+                  - generic [ref=e3851]: 04:00
+              - cell "Tứ kết Miami Stadium - Miami" [ref=e3852]:
+                - generic [ref=e3853]:
+                  - generic [ref=e3854]: Tứ kết
+                  - generic "Miami Stadium - Miami" [ref=e3855]
+              - cell "W91" [ref=e3856]
+              - cell "Xem chi tiết trận 99" [ref=e3857]:
+                - button "Xem chi tiết trận 99" [ref=e3858]:
+                  - text: vs
+                  - generic [ref=e3859]: Chi tiết
+              - cell "W92" [ref=e3860]
+              - cell "Chi tiết" [ref=e3861]:
+                - generic [ref=e3862]:
+                  - button "Chi tiết" [ref=e3863]
+                  - button "Yêu thích trận" [ref=e3864]:
+                    - img [ref=e3865]
+            - row "100 08:00 Tứ kết Kansas City Stadium - Kansas City W95 Xem chi tiết trận 100 W96 Chi tiết" [ref=e3867]:
+              - cell "100" [ref=e3868]
+              - cell "08:00" [ref=e3869]:
+                - generic [ref=e3870]:
+                  - img [ref=e3871]
+                  - generic [ref=e3873]: 08:00
+              - cell "Tứ kết Kansas City Stadium - Kansas City" [ref=e3874]:
+                - generic [ref=e3875]:
+                  - generic [ref=e3876]: Tứ kết
+                  - generic "Kansas City Stadium - Kansas City" [ref=e3877]
+              - cell "W95" [ref=e3878]
+              - cell "Xem chi tiết trận 100" [ref=e3879]:
+                - button "Xem chi tiết trận 100" [ref=e3880]:
+                  - text: vs
+                  - generic [ref=e3881]: Chi tiết
+              - cell "W96" [ref=e3882]
+              - cell "Chi tiết" [ref=e3883]:
+                - generic [ref=e3884]:
+                  - button "Chi tiết" [ref=e3885]
+                  - button "Yêu thích trận" [ref=e3886]:
+                    - img [ref=e3887]
+            - row "Thứ Tư, 15/07/2026" [ref=e3889]:
+              - cell "Thứ Tư, 15/07/2026" [ref=e3890]:
+                - generic [ref=e3891]: Thứ Tư, 15/07/2026
+            - row "101 02:00 Bán kết Dallas Stadium - Dallas W97 Xem chi tiết trận 101 W98 Chi tiết" [ref=e3892]:
+              - cell "101" [ref=e3893]
+              - cell "02:00" [ref=e3894]:
+                - generic [ref=e3895]:
+                  - img [ref=e3896]
+                  - generic [ref=e3898]: 02:00
+              - cell "Bán kết Dallas Stadium - Dallas" [ref=e3899]:
+                - generic [ref=e3900]:
+                  - generic [ref=e3901]: Bán kết
+                  - generic "Dallas Stadium - Dallas" [ref=e3902]
+              - cell "W97" [ref=e3903]
+              - cell "Xem chi tiết trận 101" [ref=e3904]:
+                - button "Xem chi tiết trận 101" [ref=e3905]:
+                  - text: vs
+                  - generic [ref=e3906]: Chi tiết
+              - cell "W98" [ref=e3907]
+              - cell "Chi tiết" [ref=e3908]:
+                - generic [ref=e3909]:
+                  - button "Chi tiết" [ref=e3910]
+                  - button "Yêu thích trận" [ref=e3911]:
+                    - img [ref=e3912]
+            - row "Thứ Năm, 16/07/2026" [ref=e3914]:
+              - cell "Thứ Năm, 16/07/2026" [ref=e3915]:
+                - generic [ref=e3916]: Thứ Năm, 16/07/2026
+            - row "102 02:00 Bán kết Atlanta Stadium - Atlanta W99 Xem chi tiết trận 102 W100 Chi tiết" [ref=e3917]:
+              - cell "102" [ref=e3918]
+              - cell "02:00" [ref=e3919]:
+                - generic [ref=e3920]:
+                  - img [ref=e3921]
+                  - generic [ref=e3923]: 02:00
+              - cell "Bán kết Atlanta Stadium - Atlanta" [ref=e3924]:
+                - generic [ref=e3925]:
+                  - generic [ref=e3926]: Bán kết
+                  - generic "Atlanta Stadium - Atlanta" [ref=e3927]
+              - cell "W99" [ref=e3928]
+              - cell "Xem chi tiết trận 102" [ref=e3929]:
+                - button "Xem chi tiết trận 102" [ref=e3930]:
+                  - text: vs
+                  - generic [ref=e3931]: Chi tiết
+              - cell "W100" [ref=e3932]
+              - cell "Chi tiết" [ref=e3933]:
+                - generic [ref=e3934]:
+                  - button "Chi tiết" [ref=e3935]
+                  - button "Yêu thích trận" [ref=e3936]:
+                    - img [ref=e3937]
+            - row "Chủ Nhật, 19/07/2026" [ref=e3939]:
+              - cell "Chủ Nhật, 19/07/2026" [ref=e3940]:
+                - generic [ref=e3941]: Chủ Nhật, 19/07/2026
+            - row "103 04:00 Tranh hạng 3 Miami Stadium - Miami RU101 Xem chi tiết trận 103 RU102 Chi tiết" [ref=e3942]:
+              - cell "103" [ref=e3943]
+              - cell "04:00" [ref=e3944]:
+                - generic [ref=e3945]:
+                  - img [ref=e3946]
+                  - generic [ref=e3948]: 04:00
+              - cell "Tranh hạng 3 Miami Stadium - Miami" [ref=e3949]:
+                - generic [ref=e3950]:
+                  - generic [ref=e3951]: Tranh hạng 3
+                  - generic "Miami Stadium - Miami" [ref=e3952]
+              - cell "RU101" [ref=e3953]
+              - cell "Xem chi tiết trận 103" [ref=e3954]:
+                - button "Xem chi tiết trận 103" [ref=e3955]:
+                  - text: vs
+                  - generic [ref=e3956]: Chi tiết
+              - cell "RU102" [ref=e3957]
+              - cell "Chi tiết" [ref=e3958]:
+                - generic [ref=e3959]:
+                  - button "Chi tiết" [ref=e3960]
+                  - button "Yêu thích trận" [ref=e3961]:
+                    - img [ref=e3962]
+            - row "Thứ Hai, 20/07/2026" [ref=e3964]:
+              - cell "Thứ Hai, 20/07/2026" [ref=e3965]:
+                - generic [ref=e3966]: Thứ Hai, 20/07/2026
+            - row "104 02:00 Chung kết New York/New Jersey Stadium - New Jersey W101 Xem chi tiết trận 104 W102 Chi tiết" [ref=e3967]:
+              - cell "104" [ref=e3968]
+              - cell "02:00" [ref=e3969]:
+                - generic [ref=e3970]:
+                  - img [ref=e3971]
+                  - generic [ref=e3973]: 02:00
+              - cell "Chung kết New York/New Jersey Stadium - New Jersey" [ref=e3974]:
+                - generic [ref=e3975]:
+                  - generic [ref=e3976]: Chung kết
+                  - generic "New York/New Jersey Stadium - New Jersey" [ref=e3977]
+              - cell "W101" [ref=e3978]
+              - cell "Xem chi tiết trận 104" [ref=e3979]:
+                - button "Xem chi tiết trận 104" [ref=e3980]:
+                  - text: vs
+                  - generic [ref=e3981]: Chi tiết
+              - cell "W102" [ref=e3982]
+              - cell "Chi tiết" [ref=e3983]:
+                - generic [ref=e3984]:
+                  - button "Chi tiết" [ref=e3985]
+                  - button "Yêu thích trận" [ref=e3986]:
+                    - img [ref=e3987]
+    - contentinfo [ref=e574]:
+      - paragraph [ref=e575]: Dữ liệu trận đấu từ FIFA API · Annex C 495 tổ hợp hạng 3
+      - paragraph [ref=e576]:
+        - text: "FIFA Ranking:"
+        - link "inside.fifa.com" [ref=e577] [cursor=pointer]:
+          - /url: https://inside.fifa.com/fifa-world-ranking/men
+        - text: · cập nhật chính thức 01 April 2026
+  - button "Open Next.js Dev Tools" [ref=e583] [cursor=pointer]:
+    - img [ref=e584]
+  - alert [ref=e587]
