@@ -43,7 +43,7 @@ export function AppShell() {
     });
     observer.observe(header);
     return () => observer.disconnect();
-  }, []);
+  }, [hydrated]);
 
   const SIMULATOR_TABS: { id: TabId; label: string }[] = [
     { id: "groups", label: "Vòng bảng" },
