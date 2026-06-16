@@ -4,11 +4,24 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-15T21:48:49.776Z",
-  "completedMatches": 14,
+  "fetchedAt": "2026-06-16T05:29:38.895Z",
+  "completedMatches": 16,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
+      {
+        "playerId": "405454",
+        "name": "Elijah JUST",
+        "shortName": "JUST",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/fe32736f-5d5f-4870-8db3-5b4560835f53/JUST-Elijah_405454",
+        "team": {
+          "id": "43978",
+          "name": "New Zealand",
+          "code": "NZL",
+          "flagUrl": "/flags/NZL.png"
+        },
+        "value": 2
+      },
       {
         "playerId": "466624",
         "name": "Folarin BALOGUN",
@@ -47,6 +60,19 @@
           "flagUrl": "/flags/SWE.png"
         },
         "value": 2
+      },
+      {
+        "playerId": "403312",
+        "name": "Abdulelah ALAMRI",
+        "shortName": "ALAMRI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/3ec8a8ea-beb5-4f8b-b8f6-66030bda5c4e/ABDULELAH-ALAMRI_403312",
+        "team": {
+          "id": "43835",
+          "name": "Saudi Arabia",
+          "code": "KSA",
+          "flagUrl": "/flags/KSA.png"
+        },
+        "value": 1
       },
       {
         "playerId": "430150",
@@ -112,32 +138,6 @@
           "flagUrl": "/flags/NED.png"
         },
         "value": 1
-      },
-      {
-        "playerId": "390670",
-        "name": "Cyle LARIN",
-        "shortName": "Cyle LARIN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/21086aea-3ec5-47b2-a81f-f7316489183a/LARIN-Cyle_390670",
-        "team": {
-          "id": "43899",
-          "name": "Canada",
-          "code": "CAN",
-          "flagUrl": "/flags/CAN.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "448557",
-        "name": "Daichi KAMADA",
-        "shortName": "KAMADA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/40432f8c-1b4a-444e-b3a4-709164e708d6/KAMADA-Daichi_448557",
-        "team": {
-          "id": "43819",
-          "name": "Japan",
-          "code": "JPN",
-          "flagUrl": "/flags/JPN.png"
-        },
-        "value": 1
       }
     ],
     "assists": [
@@ -151,6 +151,19 @@
           "name": "Sweden",
           "code": "SWE",
           "flagUrl": "/flags/SWE.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "274078",
+        "name": "Chris WOOD",
+        "shortName": "Chris WOOD",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/431bf921-6e73-469f-87bd-3fb2c010966e/WOOD-Chris_274078",
+        "team": {
+          "id": "43978",
+          "name": "New Zealand",
+          "code": "NZL",
+          "flagUrl": "/flags/NZL.png"
         },
         "value": 2
       },
@@ -257,19 +270,6 @@
           "flagUrl": "/flags/MEX.png"
         },
         "value": 1
-      },
-      {
-        "playerId": "430669",
-        "name": "Florian WIRTZ",
-        "shortName": "Florian WIRTZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/3a120189-62cc-441f-b862-7fdd2a9abfa4/WIRTZ-Florian_430669",
-        "team": {
-          "id": "43948",
-          "name": "Germany",
-          "code": "GER",
-          "flagUrl": "/flags/GER.png"
-        },
-        "value": 1
       }
     ],
     "penalties": [
@@ -315,6 +315,19 @@
           "name": "Scotland",
           "code": "SCO",
           "flagUrl": "/flags/SCO.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "403312",
+        "name": "Abdulelah ALAMRI",
+        "shortName": "ALAMRI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/3ec8a8ea-beb5-4f8b-b8f6-66030bda5c4e/ABDULELAH-ALAMRI_403312",
+        "team": {
+          "id": "43835",
+          "name": "Saudi Arabia",
+          "code": "KSA",
+          "flagUrl": "/flags/KSA.png"
         },
         "value": 1
       },
@@ -419,19 +432,6 @@
           "name": "Paraguay",
           "code": "PAR",
           "flagUrl": "/flags/PAR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "436743",
-        "name": "Ermedin DEMIROVIC",
-        "shortName": "Ermedin DEMIROVIC",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b9e9f187-0936-4aba-9c70-2a4bcf2281e0/DEMIROVIC-Ermedin_436743",
-        "team": {
-          "id": "44037",
-          "name": "Bosnia and Herzegovina",
-          "code": "BIH",
-          "flagUrl": "/flags/BIH.png"
         },
         "value": 1
       }
