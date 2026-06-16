@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-16T05:29:38.895Z",
-  "completedMatches": 16,
+  "fetchedAt": "2026-06-16T23:46:40.397Z",
+  "completedMatches": 17,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -45,6 +45,19 @@
           "name": "Germany",
           "code": "GER",
           "flagUrl": "/flags/GER.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "389867",
+        "name": "Kylian MBAPPE",
+        "shortName": "MBAPPÉ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
         },
         "value": 2
       },
@@ -101,6 +114,19 @@
         "value": 1
       },
       {
+        "playerId": "484860",
+        "name": "Bradley BARCOLA",
+        "shortName": "BARCOLA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/10e80ef7-3aa9-4c07-9639-e8bc04828d31/BARCOLA-Bradley_484860",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "393480",
         "name": "Breel EMBOLO",
         "shortName": "EMBOLO",
@@ -110,32 +136,6 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "430452",
-        "name": "Connor METCALFE",
-        "shortName": "Connor METCALFE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/a539f793-3d95-46b8-805e-67156152ac8b/METCALFE-Connor_430452",
-        "team": {
-          "id": "43976",
-          "name": "Australia",
-          "code": "AUS",
-          "flagUrl": "/flags/AUS.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "489518",
-        "name": "Crysencio SUMMERVILLE",
-        "shortName": "Crysencio SUMMERVILLE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/86e9f724-fc5f-4969-92e3-ac658dafacdd/SUMMERVILLE-Crysencio_489518",
-        "team": {
-          "id": "43960",
-          "name": "Netherlands",
-          "code": "NED",
-          "flagUrl": "/flags/NED.png"
         },
         "value": 1
       }
@@ -207,6 +207,19 @@
         "value": 2
       },
       {
+        "playerId": "402047",
+        "name": "Adrien RABIOT",
+        "shortName": "Adrien RABIOT",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2daab6cd-9fc6-4a46-acd6-82974aab8415/RABIOT-Adrien_402047",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "464542",
         "name": "Alex FREEMAN",
         "shortName": "Alex FREEMAN",
@@ -255,19 +268,6 @@
           "name": "USA",
           "code": "USA",
           "flagUrl": "/flags/USA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "419518",
-        "name": "Erik LIRA",
-        "shortName": "Erik LIRA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/83109586-542d-4950-83eb-f3388757ef90/LIRA-Erik_419518",
-        "team": {
-          "id": "43911",
-          "name": "Mexico",
-          "code": "MEX",
-          "flagUrl": "/flags/MEX.png"
         },
         "value": 1
       }
