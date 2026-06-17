@@ -4,11 +4,24 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-16T23:46:40.397Z",
-  "completedMatches": 17,
+  "fetchedAt": "2026-06-17T05:13:45.081Z",
+  "completedMatches": 19,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
+      {
+        "playerId": "229397",
+        "name": "Lionel MESSI",
+        "shortName": "MESSI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/19823774-fac0-485a-8a8f-572e7324c6c2/MESSI-Lionel_229397",
+        "team": {
+          "id": "43922",
+          "name": "Argentina",
+          "code": "ARG",
+          "flagUrl": "/flags/ARG.png"
+        },
+        "value": 3
+      },
       {
         "playerId": "405454",
         "name": "Elijah JUST",
@@ -19,6 +32,19 @@
           "name": "New Zealand",
           "code": "NZL",
           "flagUrl": "/flags/NZL.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "419652",
+        "name": "Erling HAALAND",
+        "shortName": "HAALAND",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ee269811-9f84-401f-99b8-e953a2704ebb/HAALAND-Erling_419652",
+        "team": {
+          "id": "43961",
+          "name": "Norway",
+          "code": "NOR",
+          "flagUrl": "/flags/NOR.png"
         },
         "value": 2
       },
@@ -110,32 +136,6 @@
           "name": "Côte d'Ivoire",
           "code": "CIV",
           "flagUrl": "/flags/CIV.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "484860",
-        "name": "Bradley BARCOLA",
-        "shortName": "BARCOLA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/10e80ef7-3aa9-4c07-9639-e8bc04828d31/BARCOLA-Bradley_484860",
-        "team": {
-          "id": "43946",
-          "name": "France",
-          "code": "FRA",
-          "flagUrl": "/flags/FRA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "393480",
-        "name": "Breel EMBOLO",
-        "shortName": "EMBOLO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b2483096-041c-489b-a1c5-6d930f380909/EMBOLO-Breel_393480",
-        "team": {
-          "id": "43971",
-          "name": "Switzerland",
-          "code": "SUI",
-          "flagUrl": "/flags/SUI.png"
         },
         "value": 1
       }
@@ -233,6 +233,19 @@
         "value": 1
       },
       {
+        "playerId": "433074",
+        "name": "AMIR ALAMMARI",
+        "shortName": "AMIR ALAMMARI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/d80ff1d4-6bce-462b-bc11-6b4049fe9741/AMIR-ALAMMARI_433074",
+        "team": {
+          "id": "43818",
+          "name": "Iraq",
+          "code": "IRQ",
+          "flagUrl": "/flags/IRQ.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "430740",
         "name": "Brahim DIAZ",
         "shortName": "BRAHIM",
@@ -255,19 +268,6 @@
           "name": "Brazil",
           "code": "BRA",
           "flagUrl": "/flags/BRA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "390267",
-        "name": "Christian PULISIC",
-        "shortName": "Christian PULISIC",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/34d1c247-2a09-4fd6-87bc-71ec687a54aa/PULISIC-Christian_390267",
-        "team": {
-          "id": "43921",
-          "name": "USA",
-          "code": "USA",
-          "flagUrl": "/flags/USA.png"
         },
         "value": 1
       }
@@ -478,6 +478,19 @@
       }
     ],
     "ownGoals": [
+      {
+        "playerId": "395186",
+        "name": "AYMEN HUSSEIN",
+        "shortName": "HUSSEIN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/388e5207-980c-407a-828c-270fbd4fdff6/AYMEN-HUSSEIN_395186",
+        "team": {
+          "id": "43818",
+          "name": "Iraq",
+          "code": "IRQ",
+          "flagUrl": "/flags/IRQ.png"
+        },
+        "value": 1
+      },
       {
         "playerId": "476348",
         "name": "Damian BOBADILLA",
