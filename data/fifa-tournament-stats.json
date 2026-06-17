@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-17T10:04:06.105Z",
-  "completedMatches": 20,
+  "fetchedAt": "2026-06-17T20:29:34.092Z",
+  "completedMatches": 21,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -246,6 +246,19 @@
         "value": 1
       },
       {
+        "playerId": "436572",
+        "name": "Arthur MASUAKU",
+        "shortName": "Arthur MASUAKU",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/7c521f94-2538-45a0-a77e-4a529b9dfc8f/MASUAKU-Arthur_436572",
+        "team": {
+          "id": "20014",
+          "name": "Congo DR",
+          "code": "COD",
+          "flagUrl": "/flags/COD.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "430740",
         "name": "Brahim DIAZ",
         "shortName": "BRAHIM",
@@ -255,19 +268,6 @@
           "name": "Morocco",
           "code": "MAR",
           "flagUrl": "/flags/MAR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "430605",
-        "name": "BRUNO GUIMARAES",
-        "shortName": "BRUNO GUIMARAES",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/0215cb23-c389-4c5a-9bb0-c7044ae7059a/BRUNO-GUIMARAES_430605",
-        "team": {
-          "id": "43924",
-          "name": "Brazil",
-          "code": "BRA",
-          "flagUrl": "/flags/BRA.png"
         },
         "value": 1
       }
@@ -386,6 +386,19 @@
         "value": 1
       },
       {
+        "playerId": "395205",
+        "name": "BERNARDO SILVA",
+        "shortName": "BERNARDO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/97535989-5b6f-414b-a582-54a0c48df12a/BERNARDO-SILVA_395205",
+        "team": {
+          "id": "43963",
+          "name": "Portugal",
+          "code": "POR",
+          "flagUrl": "/flags/POR.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "464533",
         "name": "Brian GUTIERREZ",
         "shortName": "Brian GUTIERREZ",
@@ -412,6 +425,19 @@
         "value": 1
       },
       {
+        "playerId": "356532",
+        "name": "Chancel MBEMBA",
+        "shortName": "Chancel MBEMBA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/30bebca0-cc33-4a32-ad33-8a6141647128/MBEMBA-Chancel_356532",
+        "team": {
+          "id": "20014",
+          "name": "Congo DR",
+          "code": "COD",
+          "flagUrl": "/flags/COD.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "489518",
         "name": "Crysencio SUMMERVILLE",
         "shortName": "Crysencio SUMMERVILLE",
@@ -421,32 +447,6 @@
           "name": "Netherlands",
           "code": "NED",
           "flagUrl": "/flags/NED.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "401448",
-        "name": "Denis ZAKARIA",
-        "shortName": "ZAKARIA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/e47d229b-d092-4759-82e0-0e5f88b2c894/ZAKARIA-Denis_401448",
-        "team": {
-          "id": "43971",
-          "name": "Switzerland",
-          "code": "SUI",
-          "flagUrl": "/flags/SUI.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "463128",
-        "name": "Diego GOMEZ",
-        "shortName": "Diego GOMEZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/88e45d01-241d-4d9d-8b40-3f2cb2963d4d/GOMEZ-Diego_463128",
-        "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
         },
         "value": 1
       }
