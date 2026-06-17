@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-17T20:29:34.092Z",
-  "completedMatches": 21,
+  "fetchedAt": "2026-06-17T22:52:44.714Z",
+  "completedMatches": 22,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -58,6 +58,19 @@
           "name": "USA",
           "code": "USA",
           "flagUrl": "/flags/USA.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "369419",
+        "name": "Harry KANE",
+        "shortName": "KANE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
+        "team": {
+          "id": "43942",
+          "name": "England",
+          "code": "ENG",
+          "flagUrl": "/flags/ENG.png"
         },
         "value": 2
       },
@@ -123,19 +136,6 @@
           "name": "Sweden",
           "code": "SWE",
           "flagUrl": "/flags/SWE.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "431212",
-        "name": "ALI OLWAN",
-        "shortName": "ALI OLWAN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/f9806f7c-f81f-4653-a81a-9bbcfcd587c9/ALI-OLWAN_431212",
-        "team": {
-          "id": "43820",
-          "name": "Jordan",
-          "code": "JOR",
-          "flagUrl": "/flags/JOR.png"
         },
         "value": 1
       }
@@ -283,6 +283,21 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "369419",
+        "name": "Harry KANE",
+        "shortName": "KANE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
+        "team": {
+          "id": "43942",
+          "name": "England",
+          "code": "ENG",
+          "flagUrl": "/flags/ENG.png"
         },
         "value": 1,
         "scored": 1,
