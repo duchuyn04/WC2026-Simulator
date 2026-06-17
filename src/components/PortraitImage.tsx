@@ -42,7 +42,9 @@ export function PortraitPlaceholder({
       <div className="absolute -bottom-16 -left-14 h-44 w-44 rounded-full bg-white/5" />
       <div className="relative flex items-center justify-between text-xs font-black uppercase tracking-[0.22em] text-white/60">
         <span>{teamCode}</span>
-        <span>No image</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 opacity-60 sm:h-5 sm:w-5" aria-hidden="true">
+          <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+        </svg>
       </div>
       <div className="relative text-center">
         <p className="text-4xl font-black tracking-tight text-white drop-shadow-lg sm:text-7xl">
