@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { PortraitLightbox } from "@/components/PortraitLightbox";
+import { useLiveSquadSync } from "@/lib/hooks";
 
 type TeamColors = {
   primary?: string | null;
@@ -9,6 +10,7 @@ type TeamColors = {
 };
 
 type RosterTeam = {
+  id: string;
   name: string;
   code: string | null;
   colors: TeamColors;
@@ -45,7 +47,10 @@ type Props = {
   team: RosterTeam;
   headCoach?: Coach | null;
   groupedPlayers: PlayerGroup[];
+  fetchedAt?: string | null;
 };
+
+const positionOrder = ["Goalkeeper", "Defender", "Midfielder", "Forward"];
 
 const positionMap: Record<string, string> = {
   Goalkeeper: "Thủ môn",
@@ -72,19 +77,41 @@ function ageOn(date?: string | null) {
   return age;
 }
 
-export function TeamRoster({ team, headCoach, groupedPlayers }: Props) {
+export function TeamRoster({ team, headCoach, groupedPlayers, fetchedAt }: Props) {
   const [activeFilter, setActiveFilter] = useState("all");
-  const totalPlayers = groupedPlayers.reduce((sum, group) => sum + group.players.length, 0);
+
+  const flatPlayers = useMemo(
+    () => groupedPlayers.flatMap((g) => g.players),
+    [groupedPlayers]
+  );
+  const syncedPlayers = useLiveSquadSync({ id: team.id, squad: flatPlayers }, fetchedAt ?? null);
+
+  const syncedGrouped = useMemo(() => {
+    const byPosition = new Map<string, Player[]>();
+    for (const player of syncedPlayers) {
+      const pos = player.position ?? "Unknown";
+      if (!byPosition.has(pos)) byPosition.set(pos, []);
+      byPosition.get(pos)!.push(player);
+    }
+    return positionOrder.map((position) => ({
+      position,
+      players: (byPosition.get(position) ?? []).sort(
+        (a, b) => (a.jerseyNumber ?? 999) - (b.jerseyNumber ?? 999)
+      ),
+    }));
+  }, [syncedPlayers]);
+
+  const totalPlayers = flatPlayers.length;
   const visibleGroups =
     activeFilter === "all"
-      ? groupedPlayers
-      : groupedPlayers.filter((group) => group.position === activeFilter);
+      ? syncedGrouped
+      : syncedGrouped.filter((group) => group.position === activeFilter);
   const showHeadCoach = !!headCoach && (activeFilter === "all" || activeFilter === "coach");
 
   const filters = [
     { id: "all", label: "Tất cả", count: totalPlayers + (headCoach ? 1 : 0) },
     { id: "coach", label: "HLV", count: headCoach ? 1 : 0 },
-    ...groupedPlayers.map((group) => ({
+    ...syncedGrouped.map((group) => ({
       id: group.position,
       label: translatePosition(group.position),
       count: group.players.length,

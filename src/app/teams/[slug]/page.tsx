@@ -126,9 +126,10 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
         </aside>
 
         <TeamRoster
-          team={{ name: team.name, code: team.code, colors: team.colors }}
+          team={{ id: team.id, name: team.name, code: team.code, colors: team.colors }}
           headCoach={headCoach}
           groupedPlayers={groupedPlayers}
+          fetchedAt={teamsData.fetchedAt}
         />
       </section>
 
