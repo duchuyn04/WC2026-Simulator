@@ -7,6 +7,7 @@ import { rankThirdPlaceTeams } from "./fifa/third-place";
 import { resolveKnockoutBracket, getMatchesByStage } from "./fifa/bracket";
 import { seed } from "./data";
 import { buildScheduleEntries } from "./schedule";
+import { fetchTeamSquadFromFifa, type SquadPlayer } from "./fifa-squads-fetch";
 import type { GroupStanding, MatchResult, Team } from "./fifa/types";
 
 /** Chờ localStorage hydrate xong trước khi render UI (tránh nhảy về tab đầu). */
@@ -98,4 +99,45 @@ export function useSchedule() {
     }));
     return buildScheduleEntries(scheduleMockResults, actualKnockout);
   }, [scheduleMockResults]);
+}
+
+const TWENTY_FOUR_HOURS_MS = 24 * 60 * 60 * 1000;
+
+export function useLiveSquadSync(
+  team: { id: string; squad: SquadPlayer[] },
+  staticFetchedAt: string | null
+) {
+  const [liveSquad, setLiveSquad] = useState<SquadPlayer[] | null>(null);
+
+  useEffect(() => {
+    const fetchedAtTime = staticFetchedAt ? new Date(staticFetchedAt).getTime() : 0;
+    const now = Date.now();
+    const isStale = now - fetchedAtTime > TWENTY_FOUR_HOURS_MS;
+
+    if (!isStale) return;
+
+    let active = true;
+    fetchTeamSquadFromFifa(team.id).then((freshPlayers) => {
+      if (!active || !freshPlayers || freshPlayers.length === 0) return;
+
+      setLiveSquad((current) => {
+        if (current) return current;
+
+        const merged = team.squad.map((player) => {
+          const fresh =
+            freshPlayers.find((p) => p.id === player.id) ??
+            freshPlayers.find((p) => p.jerseyNumber === player.jerseyNumber);
+          if (!fresh || !fresh.pictureUrl) return player;
+          return { ...player, pictureUrl: fresh.pictureUrl, pictureSource: "fifa" };
+        });
+        return merged;
+      });
+    });
+
+    return () => {
+      active = false;
+    };
+  }, [team.id, staticFetchedAt, team.squad]);
+
+  return liveSquad ?? team.squad;
 }
