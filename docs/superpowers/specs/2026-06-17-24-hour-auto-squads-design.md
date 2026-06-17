@@ -56,7 +56,7 @@ Sử dụng trong `src/app/teams/[slug]/page.tsx` hoặc `TeamRoster`:
 - So sánh `data.fetchedAt` với `Date.now()`.
 - Nếu chênh lệch > 24h:
   - Gọi `fetchTeamSquadFromFifa(team.id)`.
-  - Nếu thành công, merge ảnh mới (`pictureUrl`) vào danh sách cầu thủ đang render.
+  - Nếu thành công, merge ảnh mới (`pictureUrl`) vào danh sách cầu thủ đang render, match theo `player.id` (FIFA player ID) và fallback theo `jerseyNumber`.
   - Không persist localStorage — chỉ dùng trong session hiện tại để tránh data lỗi lan truyền.
 - Nếu thất bại, giữ nguyên static JSON.
 
