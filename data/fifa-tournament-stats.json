@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-17T22:52:44.714Z",
-  "completedMatches": 22,
+  "fetchedAt": "2026-06-18T01:38:53.353Z",
+  "completedMatches": 23,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -427,6 +427,32 @@
         "value": 1
       },
       {
+        "playerId": "506279",
+        "name": "Caleb YIRENKYI",
+        "shortName": "Caleb YIRENKYI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/3c283bda-a2ed-4c1d-9115-aef0cc7dac97/YIRENKYI-Caleb_506279",
+        "team": {
+          "id": "43860",
+          "name": "Ghana",
+          "code": "GHA",
+          "flagUrl": "/flags/GHA.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "418729",
+        "name": "Carlos HARVEY",
+        "shortName": "Carlos HARVEY",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/498810de-6369-469e-8df9-db21395d1ee0/HARVEY-Carlos_418729",
+        "team": {
+          "id": "43914",
+          "name": "Panama",
+          "code": "PAN",
+          "flagUrl": "/flags/PAN.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "308386",
         "name": "CASEMIRO",
         "shortName": "CASEMIRO",
@@ -436,32 +462,6 @@
           "name": "Brazil",
           "code": "BRA",
           "flagUrl": "/flags/BRA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "356532",
-        "name": "Chancel MBEMBA",
-        "shortName": "Chancel MBEMBA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/30bebca0-cc33-4a32-ad33-8a6141647128/MBEMBA-Chancel_356532",
-        "team": {
-          "id": "20014",
-          "name": "Congo DR",
-          "code": "COD",
-          "flagUrl": "/flags/COD.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "489518",
-        "name": "Crysencio SUMMERVILLE",
-        "shortName": "Crysencio SUMMERVILLE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/86e9f724-fc5f-4969-92e3-ac658dafacdd/SUMMERVILLE-Crysencio_489518",
-        "team": {
-          "id": "43960",
-          "name": "Netherlands",
-          "code": "NED",
-          "flagUrl": "/flags/NED.png"
         },
         "value": 1
       }
