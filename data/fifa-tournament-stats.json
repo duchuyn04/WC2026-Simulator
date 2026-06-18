@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-18T01:38:53.353Z",
-  "completedMatches": 23,
+  "fetchedAt": "2026-06-18T07:04:43.249Z",
+  "completedMatches": 24,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -114,6 +114,19 @@
         "value": 2
       },
       {
+        "playerId": "464933",
+        "name": "Abbosbek FAYZULLAEV",
+        "shortName": "Abbosbek FAYZULLAEV",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/184c6d22-8ce0-4701-8582-39e1653b77f8/FAYZULLAEV-Abbosbek_464933",
+        "team": {
+          "id": "44005",
+          "name": "Uzbekistan",
+          "code": "UZB",
+          "flagUrl": "/flags/UZB.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "403312",
         "name": "Abdulelah ALAMRI",
         "shortName": "ALAMRI",
@@ -123,19 +136,6 @@
           "name": "Saudi Arabia",
           "code": "KSA",
           "flagUrl": "/flags/KSA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "430150",
-        "name": "Alexander Isak",
-        "shortName": "Alexander ISAK",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/c6ffe63b-aefd-43b8-bd9d-3c6e31a8f418/ISAK-Alexander_430150",
-        "team": {
-          "id": "43970",
-          "name": "Sweden",
-          "code": "SWE",
-          "flagUrl": "/flags/SWE.png"
         },
         "value": 1
       }
@@ -349,6 +349,19 @@
         "value": 1
       },
       {
+        "playerId": "464924",
+        "name": "Abdukodir KHUSANOV",
+        "shortName": "KHUSANOV",
+        "pictureUrl": null,
+        "team": {
+          "id": "44005",
+          "name": "Uzbekistan",
+          "code": "UZB",
+          "flagUrl": "/flags/UZB.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "403312",
         "name": "Abdulelah ALAMRI",
         "shortName": "ALAMRI",
@@ -449,19 +462,6 @@
           "name": "Panama",
           "code": "PAN",
           "flagUrl": "/flags/PAN.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "308386",
-        "name": "CASEMIRO",
-        "shortName": "CASEMIRO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/49558d20-3d5d-4afb-bf2a-9dc1ab60a6e6/CASEMIRO_308386",
-        "team": {
-          "id": "43924",
-          "name": "Brazil",
-          "code": "BRA",
-          "flagUrl": "/flags/BRA.png"
         },
         "value": 1
       }
