@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-18T07:04:43.249Z",
-  "completedMatches": 24,
+  "fetchedAt": "2026-06-18T21:27:43.450Z",
+  "completedMatches": 25,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -233,6 +233,19 @@
         "value": 1
       },
       {
+        "playerId": "523097",
+        "name": "Alexandr SOJKA",
+        "shortName": "Alexandr SOJKA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/f8e5df75-7de8-4950-bb53-b1d950621d33/SOJKA-Alexandr_523097",
+        "team": {
+          "id": "43995",
+          "name": "Czechia",
+          "code": "CZE",
+          "flagUrl": "/flags/CZE.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "433074",
         "name": "AMIR ALAMMARI",
         "shortName": "AMIR ALAMMARI",
@@ -255,19 +268,6 @@
           "name": "Congo DR",
           "code": "COD",
           "flagUrl": "/flags/COD.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "430740",
-        "name": "Brahim DIAZ",
-        "shortName": "BRAHIM",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b05c2233-cb0a-4abc-9413-e56ad25f0899/DIAZ-Brahim_430740",
-        "team": {
-          "id": "43872",
-          "name": "Morocco",
-          "code": "MAR",
-          "flagUrl": "/flags/MAR.png"
         },
         "value": 1
       }
@@ -332,9 +332,37 @@
         "value": 1,
         "scored": 1,
         "successRate": 100
+      },
+      {
+        "playerId": "403616",
+        "name": "Teboho MOKOENA",
+        "shortName": "MOKOENA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bf36679b-73eb-4813-a99d-b9673439dd05/MOKOENA-Teboho_403616",
+        "team": {
+          "id": "43883",
+          "name": "South Africa",
+          "code": "RSA",
+          "flagUrl": "/flags/RSA.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
       }
     ],
     "yellowCards": [
+      {
+        "playerId": "403616",
+        "name": "Teboho MOKOENA",
+        "shortName": "MOKOENA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bf36679b-73eb-4813-a99d-b9673439dd05/MOKOENA-Teboho_403616",
+        "team": {
+          "id": "43883",
+          "name": "South Africa",
+          "code": "RSA",
+          "flagUrl": "/flags/RSA.png"
+        },
+        "value": 2
+      },
       {
         "playerId": "442428",
         "name": "Aaron HICKEY",
@@ -449,19 +477,6 @@
           "name": "Ghana",
           "code": "GHA",
           "flagUrl": "/flags/GHA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "418729",
-        "name": "Carlos HARVEY",
-        "shortName": "Carlos HARVEY",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/498810de-6369-469e-8df9-db21395d1ee0/HARVEY-Carlos_418729",
-        "team": {
-          "id": "43914",
-          "name": "Panama",
-          "code": "PAN",
-          "flagUrl": "/flags/PAN.png"
         },
         "value": 1
       }
