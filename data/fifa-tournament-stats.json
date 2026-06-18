@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-18T21:27:43.450Z",
-  "completedMatches": 25,
+  "fetchedAt": "2026-06-18T23:59:35.527Z",
+  "completedMatches": 26,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -75,6 +75,19 @@
         "value": 2
       },
       {
+        "playerId": "502727",
+        "name": "Johan MANZAMBI",
+        "shortName": "Johan MANZAMBI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a0cb9413-32ea-4b8f-9801-55474cb12b77/MANZAMBI-Johan_502727",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "411367",
         "name": "Kai HAVERTZ",
         "shortName": "HAVERTZ",
@@ -123,19 +136,6 @@
           "name": "Uzbekistan",
           "code": "UZB",
           "flagUrl": "/flags/UZB.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "403312",
-        "name": "Abdulelah ALAMRI",
-        "shortName": "ALAMRI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/3ec8a8ea-beb5-4f8b-b8f6-66030bda5c4e/ABDULELAH-ALAMRI_403312",
-        "team": {
-          "id": "43835",
-          "name": "Saudi Arabia",
-          "code": "KSA",
-          "flagUrl": "/flags/KSA.png"
         },
         "value": 1
       }
@@ -278,6 +278,21 @@
         "name": "Breel EMBOLO",
         "shortName": "EMBOLO",
         "pictureUrl": "https://digitalhub.fifa.com/transform/b2483096-041c-489b-a1c5-6d930f380909/EMBOLO-Breel_393480",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "311558",
+        "name": "Granit XHAKA",
+        "shortName": "XHAKA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a6c333cc-3042-4094-9ec0-094479b8ca3a/XHAKA-Granit_311558",
         "team": {
           "id": "43971",
           "name": "Switzerland",
@@ -442,6 +457,19 @@
         "value": 1
       },
       {
+        "playerId": "482976",
+        "name": "Amar DEDIC",
+        "shortName": "Amar DEDIC",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/87dcec5a-fbf4-45d7-8f1e-26e00140cce7/DEDIC-Amar_482976",
+        "team": {
+          "id": "44037",
+          "name": "Bosnia and Herzegovina",
+          "code": "BIH",
+          "flagUrl": "/flags/BIH.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "395205",
         "name": "BERNARDO SILVA",
         "shortName": "BERNARDO",
@@ -464,19 +492,6 @@
           "name": "Mexico",
           "code": "MEX",
           "flagUrl": "/flags/MEX.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "506279",
-        "name": "Caleb YIRENKYI",
-        "shortName": "Caleb YIRENKYI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/3c283bda-a2ed-4c1d-9115-aef0cc7dac97/YIRENKYI-Caleb_506279",
-        "team": {
-          "id": "43860",
-          "name": "Ghana",
-          "code": "GHA",
-          "flagUrl": "/flags/GHA.png"
         },
         "value": 1
       }
@@ -505,6 +520,19 @@
           "name": "South Africa",
           "code": "RSA",
           "flagUrl": "/flags/RSA.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "484022",
+        "name": "Tarik MUHAREMOVIC",
+        "shortName": "Tarik MUHAREMOVIC",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a230cb00-997c-4a8c-9983-b03fa2dbe2ad/MUHAREMOVIC-Tarik_484022",
+        "team": {
+          "id": "44037",
+          "name": "Bosnia and Herzegovina",
+          "code": "BIH",
+          "flagUrl": "/flags/BIH.png"
         },
         "value": 1
       },
