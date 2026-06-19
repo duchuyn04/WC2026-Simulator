@@ -6,19 +6,21 @@ import type { ScheduleEntry } from "@/lib/schedule";
 
 type UpcomingMatchCardProps = {
   entry: ScheduleEntry;
+  gameId?: string;
+  onOpenDetail?: (gameId: string, matchDate: string) => void;
 };
 
 function getTeamSlug(name: string) {
   return name
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[̀-ͯ]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/-and-/g, "-")
     .replace(/(^-|-$)+/g, "");
 }
 
-export function UpcomingMatchCard({ entry }: UpcomingMatchCardProps) {
+export function UpcomingMatchCard({ entry, gameId, onOpenDetail }: UpcomingMatchCardProps) {
   let timeStr = "--:--";
   if (entry.date) {
     const d = new Date(entry.date);
@@ -34,28 +36,42 @@ export function UpcomingMatchCard({ entry }: UpcomingMatchCardProps) {
 
   const stadiumStr = entry.stadium ? entry.stadium : entry.city ?? "";
 
+  const handleClick = onOpenDetail && gameId && entry.date
+    ? () => onOpenDetail(gameId, entry.date!)
+    : undefined;
+
   return (
-    <div className="bg-[#16182a] border border-white/5 rounded-lg px-4 py-3 flex items-center justify-between">
+    <div
+      onClick={handleClick}
+      className={`bg-zinc-900/50 border border-zinc-800 rounded-xl px-3 sm:px-4 py-3 flex items-center gap-2 sm:gap-3 transition-colors ${
+        handleClick ? "cursor-pointer hover:border-zinc-600 hover:bg-zinc-900/70 active:scale-[0.99]" : "hover:border-zinc-700 hover:bg-zinc-900/70"
+      }`}
+    >
       {/* Home side */}
       {entry.home ? (
         <Link
           href={`/teams/${getTeamSlug(entry.home.name)}`}
-          className="flex items-center gap-2 min-w-0 flex-1 hover:underline decoration-zinc-500"
+          onClick={(e) => e.stopPropagation()}
+          className="flex items-center gap-2 min-w-0 flex-1 justify-end hover:opacity-80 transition-opacity"
         >
+          <span className="font-semibold text-xs sm:text-sm truncate">{entry.home.name}</span>
           <FlagIcon code={entry.home.code} size="sm" title={entry.home.name} />
-          <span className="font-semibold text-sm truncate">{entry.home.name}</span>
         </Link>
       ) : (
-        <div className="flex items-center gap-2 flex-1">
-          <span className="text-sm text-zinc-500">{entry.homePlaceholder}</span>
+        <div className="flex items-center gap-2 flex-1 justify-end">
+          <span className="text-xs sm:text-sm text-zinc-500">{entry.homePlaceholder}</span>
         </div>
       )}
 
       {/* Center: time + stadium */}
-      <div className="text-center mx-3 min-w-[80px]">
-        <div className="text-sm font-mono text-zinc-400">{timeStr}</div>
+      <div className="flex-shrink-0 text-center min-w-[72px] sm:min-w-[88px]">
+        <div className="text-sm sm:text-base font-mono font-semibold text-amber-400 tabular-nums">
+          {timeStr}
+        </div>
         {stadiumStr && (
-          <div className="text-[10px] text-zinc-600 truncate max-w-[100px]">{stadiumStr}</div>
+          <div className="text-[10px] sm:text-[11px] text-zinc-500 truncate max-w-[96px] sm:max-w-[120px] mt-0.5">
+            {stadiumStr}
+          </div>
         )}
       </div>
 
@@ -63,14 +79,15 @@ export function UpcomingMatchCard({ entry }: UpcomingMatchCardProps) {
       {entry.away ? (
         <Link
           href={`/teams/${getTeamSlug(entry.away.name)}`}
-          className="flex items-center gap-2 min-w-0 flex-1 justify-end hover:underline decoration-zinc-500"
+          onClick={(e) => e.stopPropagation()}
+          className="flex items-center gap-2 min-w-0 flex-1 hover:opacity-80 transition-opacity"
         >
-          <span className="font-semibold text-sm truncate">{entry.away.name}</span>
           <FlagIcon code={entry.away.code} size="sm" title={entry.away.name} />
+          <span className="font-semibold text-xs sm:text-sm truncate">{entry.away.name}</span>
         </Link>
       ) : (
-        <div className="flex items-center gap-2 flex-1 justify-end">
-          <span className="text-sm text-zinc-500">{entry.awayPlaceholder}</span>
+        <div className="flex items-center gap-2 flex-1">
+          <span className="text-xs sm:text-sm text-zinc-500">{entry.awayPlaceholder}</span>
         </div>
       )}
     </div>

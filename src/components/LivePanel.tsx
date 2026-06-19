@@ -7,6 +7,7 @@ import { findEspnMatch, isEspnMatchLive, hasEspnMatchScore } from "@/lib/espn-ma
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { LiveMatchCard } from "./LiveMatchCard";
 import { UpcomingMatchCard } from "./UpcomingMatchCard";
+import { MatchStatsModal } from "./MatchStatsModal";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnId]) => {
   acc[espnId] = localId;
@@ -37,12 +38,21 @@ function isTodayOrTomorrow(date: Date): boolean {
   return target.getTime() === today.getTime() || target.getTime() === tomorrow.getTime();
 }
 
+/** Match likely finished if kickoff was >3h ago — used when ESPN data not yet loaded. */
+function hasProbablyEnded(kickoff: Date): boolean {
+  return Date.now() - kickoff.getTime() > 3 * 60 * 60 * 1000;
+}
+
 type FilterMode = "live" | "upcoming";
 
 export function LivePanel() {
   const [filterMode, setFilterMode] = useState<FilterMode | "all">("all");
   const espnMatches = useEspnLiveScores();
   const allEntries = useSchedule();
+
+  // Match detail modal state
+  const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
+  const [selectedMatchDate, setSelectedMatchDate] = useState<string | null>(null);
 
   const { liveEntries, upcomingEntries } = useMemo(() => {
     const live: typeof allEntries = [];
@@ -61,8 +71,8 @@ export function LivePanel() {
         continue;
       }
 
-      // Upcoming matches: today or tomorrow, not started yet
-      if (isTodayOrTomorrow(eventDate)) {
+      // Upcoming: today or tomorrow, not started yet, not already finished
+      if (isTodayOrTomorrow(eventDate) && !hasProbablyEnded(eventDate)) {
         if (!espnMatch || !hasEspnMatchScore(espnMatch)) {
           upcoming.push(entry);
         }
@@ -84,6 +94,33 @@ export function LivePanel() {
     return (
       <div className="min-w-0">
         <h2 className="text-xl font-semibold tracking-tight pt-4 pb-3">Trực tiếp</h2>
+
+        {/* Toggle bar — always visible so user can switch back */}
+        <div className="flex gap-2 mb-4">
+          <button
+            type="button"
+            onClick={() => setFilterMode(filterMode === "live" ? "all" : "live")}
+            className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors ${
+              showLive
+                ? "bg-rose-950/40 border border-rose-500/30 text-rose-400"
+                : "bg-zinc-900 border border-zinc-800 text-zinc-500 hover:text-zinc-300"
+            }`}
+          >
+            🔴 LIVE {liveEntries.length > 0 && `(${liveEntries.length})`}
+          </button>
+          <button
+            type="button"
+            onClick={() => setFilterMode(filterMode === "upcoming" ? "all" : "upcoming")}
+            className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors ${
+              showUpcoming
+                ? "bg-amber-950/30 border border-amber-500/20 text-amber-400"
+                : "bg-zinc-900 border border-zinc-800 text-zinc-500 hover:text-zinc-300"
+            }`}
+          >
+            ⏰ Sắp đá {upcomingEntries.length > 0 && `(${upcomingEntries.length})`}
+          </button>
+        </div>
+
         <p className="text-zinc-500 text-sm py-12 text-center">
           Không có trận đấu trực tiếp hoặc sắp đá trong 1-2 ngày tới.
         </p>
@@ -151,6 +188,7 @@ export function LivePanel() {
                     awayName={entry.away?.name ?? entry.awayPlaceholder}
                     homeCode={entry.home?.code ?? ""}
                     awayCode={entry.away?.code ?? ""}
+                    onOpenDetail={(gameId, matchDate) => { setSelectedGameId(gameId); setSelectedMatchDate(matchDate); }}
                   />
                 );
               })}
@@ -187,9 +225,17 @@ export function LivePanel() {
                     <div className="h-px flex-1 bg-zinc-800/50" />
                   </div>
                   <div className="space-y-2">
-                    {group.entries.map((entry) => (
-                      <UpcomingMatchCard key={entry.id} entry={entry} />
-                    ))}
+                    {group.entries.map((entry) => {
+                      const espnMatch = findEspnMatch(entry, espnMatches, ESPN_TO_LOCAL);
+                      return (
+                        <UpcomingMatchCard
+                          key={entry.id}
+                          entry={entry}
+                          gameId={espnMatch?.id}
+                          onOpenDetail={(gameId, matchDate) => { setSelectedGameId(gameId); setSelectedMatchDate(matchDate); }}
+                        />
+                      );
+                    })}
                   </div>
                 </div>
               ));
@@ -197,6 +243,12 @@ export function LivePanel() {
           </div>
         )}
       </div>
+
+      <MatchStatsModal
+        gameId={selectedGameId}
+        matchDate={selectedMatchDate}
+        onClose={() => { setSelectedGameId(null); setSelectedMatchDate(null); }}
+      />
     </div>
   );
 }
