@@ -116,11 +116,13 @@ export function AppShell() {
               </div>
               {activeTab !== "knockout" && (
                 <p className="hidden sm:block text-sm text-zinc-500 mt-0.5">
-                  {activeTab === "groups" && groupInputMode === "ranks"
-                    ? "Kéo thả thứ hạng · Xếp hạng 3 · Knockout"
-                    : isSimulatorMode
-                      ? "Nhập tỉ số · Kéo thả thứ hạng · Dự đoán knockout"
-                      : "Xem lịch thi đấu · Lọc trận đấu và đội bóng yêu thích"}
+                  {activeTab === "live"
+                    ? "Kết quả trực tiếp · Tỉ số các trận đang diễn ra"
+                    : activeTab === "groups" && groupInputMode === "ranks"
+                      ? "Kéo thả thứ hạng · Xếp hạng 3 · Knockout"
+                      : isSimulatorMode
+                        ? "Nhập tỉ số · Kéo thả thứ hạng · Dự đoán knockout"
+                        : "Xem lịch thi đấu · Lọc trận đấu và đội bóng yêu thích"}
                 </p>
               )}
             </div>
@@ -155,7 +157,7 @@ export function AppShell() {
                   type="button"
                   onClick={() => setActiveTab("schedule")}
                   className={`px-2 sm:px-3 py-1 sm:py-1.5 font-medium rounded-md transition-colors ${
-                    !isSimulatorMode
+                    activeTab === "schedule" || activeTab === "fav-matches" || activeTab === "fav-teams"
                       ? "bg-[#6a041f] text-white"
                       : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800"
                   }`}
