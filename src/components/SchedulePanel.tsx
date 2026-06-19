@@ -28,11 +28,13 @@ import {
 } from "@/lib/espn-match";
 import { useEspnLiveScores } from "@/lib/use-espn-live-scores";
 
-
-const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnId]) => {
-  acc[espnId] = localId;
-  return acc;
-}, {} as Record<string, string>);
+const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce(
+  (acc, [localId, espnId]) => {
+    acc[espnId] = localId;
+    return acc;
+  },
+  {} as Record<string, string>,
+);
 
 type SchedulePanelFilter = ScheduleFilter | "espn-standings" | "stats";
 
@@ -72,9 +74,7 @@ function MatchSide({
 
   if (!team) {
     return (
-      <span className="text-sm font-medium text-zinc-500">
-        {placeholder}
-      </span>
+      <span className="text-sm font-medium text-zinc-500">{placeholder}</span>
     );
   }
 
@@ -88,8 +88,14 @@ function MatchSide({
 
   if (side === "home") {
     return (
-      <Link href={`/teams/${getTeamSlug(team.name)}`} className={`flex items-center justify-end gap-2 min-w-0 ${tone} hover:underline decoration-zinc-500`} title={team.name}>
-        <span className="text-sm font-semibold truncate leading-none">{team.name}</span>
+      <Link
+        href={`/teams/${getTeamSlug(team.name)}`}
+        className={`flex items-center justify-end gap-2 min-w-0 ${tone} hover:underline decoration-zinc-500`}
+        title={team.name}
+      >
+        <span className="text-sm font-semibold truncate leading-none">
+          {team.name}
+        </span>
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -100,7 +106,9 @@ function MatchSide({
           title="Yêu thích đội"
         >
           <FlagIcon code={team.code} size="sm" title={team.name} />
-          {isFav && <span className="absolute -top-1 -right-1 text-[8px]">⭐</span>}
+          {isFav && (
+            <span className="absolute -top-1 -right-1 text-[8px]">⭐</span>
+          )}
         </button>
       </Link>
     );
@@ -122,9 +130,13 @@ function MatchSide({
         title="Yêu thích đội"
       >
         <FlagIcon code={team.code} size="sm" title={team.name} />
-        {isFav && <span className="absolute -top-1 -right-1 text-[8px]">⭐</span>}
+        {isFav && (
+          <span className="absolute -top-1 -right-1 text-[8px]">⭐</span>
+        )}
       </button>
-      <span className="text-sm font-semibold truncate leading-none">{team.name}</span>
+      <span className="text-sm font-semibold truncate leading-none">
+        {team.name}
+      </span>
     </Link>
   );
 }
@@ -156,7 +168,9 @@ function ScoreDisplay({
           </span>
         )}
         {!isLive && !isHalftime && espnMatch.shortDetail && (
-          <span className="text-[9px] font-bold text-zinc-500 mt-0.5 whitespace-nowrap">{espnMatch.shortDetail}</span>
+          <span className="text-[9px] font-bold text-zinc-500 mt-0.5 whitespace-nowrap">
+            {espnMatch.shortDetail}
+          </span>
         )}
       </div>
     );
@@ -179,7 +193,8 @@ function ScoreDisplay({
 
   return (
     <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400/90 uppercase tracking-wide">
-      ✓ <FlagIcon code={entry.winner.code} size="xs" title={entry.winner.name} />
+      ✓{" "}
+      <FlagIcon code={entry.winner.code} size="xs" title={entry.winner.name} />
     </span>
   );
 }
@@ -213,8 +228,6 @@ function MatchScoreButton({
   );
 }
 
-
-
 function ScheduleTableRow({
   entry,
   espnMatches,
@@ -226,7 +239,10 @@ function ScheduleTableRow({
   entry: ScheduleEntry;
   espnMatches: EspnScoreboardMatch[];
   onOpenMatch: (gameId: string, matchDate?: string) => void;
-  onOpenH2H: (home: { id: string; name: string; flagUrl: string }, away: { id: string; name: string; flagUrl: string }) => void;
+  onOpenH2H: (
+    home: { id: string; name: string; flagUrl: string },
+    away: { id: string; name: string; flagUrl: string },
+  ) => void;
   isMobile: boolean;
   mounted: boolean;
 }) {
@@ -264,7 +280,11 @@ function ScheduleTableRow({
 
   return (
     <tr
-      data-testid={!mounted || !isMobile ? `schedule-match-${entry.matchNumber}` : undefined}
+      data-testid={
+        !mounted || !isMobile
+          ? `schedule-match-${entry.matchNumber}`
+          : undefined
+      }
       className="border-b border-zinc-800 hover:bg-zinc-900/40 transition-colors group"
     >
       <td className="hidden lg:table-cell px-2 py-3 text-sm text-zinc-500 text-center w-12">
@@ -272,8 +292,18 @@ function ScheduleTableRow({
       </td>
       <td className="px-2 py-3 text-sm text-zinc-300">
         <div className="flex items-center gap-1.5 justify-center">
-          <svg className="w-4 h-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <svg
+            className="w-4 h-4 text-zinc-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
           </svg>
           <span className="font-mono">{timeStr}</span>
         </div>
@@ -284,7 +314,10 @@ function ScheduleTableRow({
             {entry.stageLabel}
           </div>
           {(entry.stadium || entry.city) && (
-            <div className="text-xs text-zinc-500 truncate max-w-[140px] lg:max-w-[200px]" title={`${entry.stadium || ""} ${entry.city ? `- ${entry.city}` : ""}`}>
+            <div
+              className="text-xs text-zinc-500 truncate max-w-[140px] lg:max-w-[200px]"
+              title={`${entry.stadium || ""} ${entry.city ? `- ${entry.city}` : ""}`}
+            >
               {entry.stadium} {entry.city ? `- ${entry.city}` : ""}
             </div>
           )}
@@ -302,7 +335,11 @@ function ScheduleTableRow({
         <MatchScoreButton
           entry={entry}
           espnMatch={espnMatch}
-          onOpen={matchedEspn ? () => onOpenMatch(matchedEspn.id, entry.date) : undefined}
+          onOpen={
+            matchedEspn
+              ? () => onOpenMatch(matchedEspn.id, entry.date)
+              : undefined
+          }
         />
       </td>
       <td className="px-2 py-3 text-left max-w-[140px] lg:max-w-[170px] xl:max-w-none overflow-hidden">
@@ -330,8 +367,18 @@ function ScheduleTableRow({
               title="Lịch sử đối đầu"
               aria-label={`Lịch sử đối đầu ${entry.home.name} vs ${entry.away.name}`}
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                />
               </svg>
             </button>
           )}
@@ -345,8 +392,18 @@ function ScheduleTableRow({
                 <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-1.81.588l1.15 5.394a.562.562 0 01-.84.61l-4.717-2.784a.563.563 0 00-.57 0l-4.717 2.784a.562.562 0 01-.84-.61l1.15-5.394a.563.563 0 00-1.81-.588l-4.204-3.602c-.38-.325-.178-.948.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
               </svg>
             ) : (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-1.81.588l1.15 5.394a.562.562 0 01-.84.61l-4.717-2.784a.563.563 0 00-.57 0l-4.717 2.784a.562.562 0 01-.84-.61l1.15-5.394a.563.563 0 00-1.81-.588l-4.204-3.602c-.38-.325-.178-.948.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-1.81.588l1.15 5.394a.562.562 0 01-.84.61l-4.717-2.784a.563.563 0 00-.57 0l-4.717 2.784a.562.562 0 01-.84-.61l1.15-5.394a.563.563 0 00-1.81-.588l-4.204-3.602c-.38-.325-.178-.948.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+                />
               </svg>
             )}
           </button>
@@ -367,7 +424,10 @@ function ScheduleMobileCard({
   entry: ScheduleEntry;
   espnMatches: EspnScoreboardMatch[];
   onOpenMatch: (gameId: string, matchDate?: string) => void;
-  onOpenH2H: (home: { id: string; name: string; flagUrl: string }, away: { id: string; name: string; flagUrl: string }) => void;
+  onOpenH2H: (
+    home: { id: string; name: string; flagUrl: string },
+    away: { id: string; name: string; flagUrl: string },
+  ) => void;
   isMobile: boolean;
   mounted: boolean;
 }) {
@@ -410,8 +470,16 @@ function ScheduleMobileCard({
   const isHomeLoser = entry.home && winnerId && winnerId !== entry.home.id;
   const isAwayLoser = entry.away && winnerId && winnerId !== entry.away.id;
 
-  const homeTone = isHomeWinner ? "text-amber-300 font-bold" : isHomeLoser ? "text-zinc-500" : "text-zinc-100";
-  const awayTone = isAwayWinner ? "text-amber-300 font-bold" : isAwayLoser ? "text-zinc-500" : "text-zinc-100";
+  const homeTone = isHomeWinner
+    ? "text-amber-300 font-bold"
+    : isHomeLoser
+      ? "text-zinc-500"
+      : "text-zinc-100";
+  const awayTone = isAwayWinner
+    ? "text-amber-300 font-bold"
+    : isAwayLoser
+      ? "text-zinc-500"
+      : "text-zinc-100";
 
   const getMobileScore = () => {
     if (espnMatch && hasEspnMatchScore(espnMatch)) {
@@ -438,7 +506,9 @@ function ScheduleMobileCard({
 
   return (
     <div
-      data-testid={mounted && isMobile ? `schedule-match-${entry.matchNumber}` : undefined}
+      data-testid={
+        mounted && isMobile ? `schedule-match-${entry.matchNumber}` : undefined
+      }
       onClick={handleCardClick}
       className={[
         "rounded-xl border border-zinc-800/80 bg-zinc-950/40 p-3.5 space-y-3 transition-colors",
@@ -450,10 +520,22 @@ function ScheduleMobileCard({
       {/* Top row: Match info */}
       <div className="flex items-center justify-between text-[11px] text-zinc-500 font-medium border-b border-zinc-900 pb-2">
         <div className="flex items-center gap-2">
-          <span className="bg-zinc-900 px-1.5 py-0.5 rounded text-zinc-400 font-semibold">Trận {entry.matchNumber}</span>
+          <span className="bg-zinc-900 px-1.5 py-0.5 rounded text-zinc-400 font-semibold">
+            Trận {entry.matchNumber}
+          </span>
           <span className="flex items-center gap-1">
-            <svg className="w-3.5 h-3.5 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              className="w-3.5 h-3.5 text-zinc-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
             <span className="font-mono">{timeStr}</span>
           </span>
@@ -463,8 +545,18 @@ function ScheduleMobileCard({
             {entry.stageLabel}
           </div>
           {matchedEspn && (
-            <svg className="w-3.5 h-3.5 text-zinc-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="w-3.5 h-3.5 text-zinc-600 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           )}
         </div>
@@ -479,16 +571,28 @@ function ScheduleMobileCard({
             <div className="flex items-center gap-2 min-w-0">
               {entry.home ? (
                 <>
-                  <FlagIcon code={entry.home.code} size="sm" title={entry.home.name} />
-                  <span className={`text-sm truncate ${homeTone}`}>{entry.home.name}</span>
-                  {favoriteTeams.includes(entry.home.id) && <span className="text-[10px]">⭐</span>}
+                  <FlagIcon
+                    code={entry.home.code}
+                    size="sm"
+                    title={entry.home.name}
+                  />
+                  <span className={`text-sm truncate ${homeTone}`}>
+                    {entry.home.name}
+                  </span>
+                  {favoriteTeams.includes(entry.home.id) && (
+                    <span className="text-[10px]">⭐</span>
+                  )}
                 </>
               ) : (
-                <span className="text-sm text-zinc-500 italic">{entry.homePlaceholder}</span>
+                <span className="text-sm text-zinc-500 italic">
+                  {entry.homePlaceholder}
+                </span>
               )}
             </div>
             {scores && (
-              <span className="font-mono text-sm font-bold text-zinc-200">{scores.home}</span>
+              <span className="font-mono text-sm font-bold text-zinc-200">
+                {scores.home}
+              </span>
             )}
           </div>
 
@@ -497,16 +601,28 @@ function ScheduleMobileCard({
             <div className="flex items-center gap-2 min-w-0">
               {entry.away ? (
                 <>
-                  <FlagIcon code={entry.away.code} size="sm" title={entry.away.name} />
-                  <span className={`text-sm truncate ${awayTone}`}>{entry.away.name}</span>
-                  {favoriteTeams.includes(entry.away.id) && <span className="text-[10px]">⭐</span>}
+                  <FlagIcon
+                    code={entry.away.code}
+                    size="sm"
+                    title={entry.away.name}
+                  />
+                  <span className={`text-sm truncate ${awayTone}`}>
+                    {entry.away.name}
+                  </span>
+                  {favoriteTeams.includes(entry.away.id) && (
+                    <span className="text-[10px]">⭐</span>
+                  )}
                 </>
               ) : (
-                <span className="text-sm text-zinc-500 italic">{entry.awayPlaceholder}</span>
+                <span className="text-sm text-zinc-500 italic">
+                  {entry.awayPlaceholder}
+                </span>
               )}
             </div>
             {scores && (
-              <span className="font-mono text-sm font-bold text-zinc-200">{scores.away}</span>
+              <span className="font-mono text-sm font-bold text-zinc-200">
+                {scores.away}
+              </span>
             )}
           </div>
         </div>
@@ -522,13 +638,23 @@ function ScheduleMobileCard({
               HT
             </span>
           ) : scores?.detail ? (
-            <span className="text-[9px] font-bold text-zinc-500 whitespace-nowrap">{scores.detail}</span>
+            <span className="text-[9px] font-bold text-zinc-500 whitespace-nowrap">
+              {scores.detail}
+            </span>
           ) : !scores ? (
-            <span className="text-xs font-semibold text-zinc-600 uppercase">VS</span>
+            <span className="text-xs font-semibold text-zinc-600 uppercase">
+              VS
+            </span>
           ) : (
-            entry.kind === "knockout" && entry.winner && (
+            entry.kind === "knockout" &&
+            entry.winner && (
               <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-400 uppercase tracking-wide">
-                ✓ <FlagIcon code={entry.winner.code} size="xs" title={entry.winner.name} />
+                ✓{" "}
+                <FlagIcon
+                  code={entry.winner.code}
+                  size="xs"
+                  title={entry.winner.name}
+                />
               </span>
             )
           )}
@@ -539,7 +665,9 @@ function ScheduleMobileCard({
       <div className="flex items-center justify-between text-[11px] text-zinc-600 pt-1.5 border-t border-zinc-900/50">
         <div className="truncate max-w-[70%]">
           {entry.stadium || entry.city ? (
-            <span>📍 {entry.stadium} {entry.city ? `- ${entry.city}` : ""}</span>
+            <span>
+              📍 {entry.stadium} {entry.city ? `- ${entry.city}` : ""}
+            </span>
           ) : (
             <span className="italic">Chưa xác định địa điểm</span>
           )}
@@ -547,18 +675,34 @@ function ScheduleMobileCard({
         <div className="flex items-center gap-3">
           {entry.home && entry.away && (
             <button
-              onClick={(e) => { e.stopPropagation(); onOpenH2H(entry.home!, entry.away!); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpenH2H(entry.home!, entry.away!);
+              }}
               className="text-zinc-500 hover:text-emerald-400 transition-colors"
               title="Lịch sử đối đầu"
               aria-label={`Lịch sử đối đầu ${entry.home.name} vs ${entry.away.name}`}
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                />
               </svg>
             </button>
           )}
           <button
-            onClick={(e) => { e.stopPropagation(); toggleFavoriteMatch(entry.id); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleFavoriteMatch(entry.id);
+            }}
             className={`transition-colors ${isFavMatch ? "text-amber-400" : "text-zinc-500 hover:text-zinc-300"}`}
             title={isFavMatch ? "Bỏ yêu thích" : "Yêu thích trận"}
           >
@@ -567,8 +711,18 @@ function ScheduleMobileCard({
                 <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-1.81.588l1.15 5.394a.562.562 0 01-.84.61l-4.717-2.784a.563.563 0 00-.57 0l-4.717 2.784a.562.562 0 01-.84-.61l1.15-5.394a.563.563 0 00-1.81-.588l-4.204-3.602c-.38-.325-.178-.948.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
               </svg>
             ) : (
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-1.81.588l1.15 5.394a.562.562 0 01-.84.61l-4.717-2.784a.563.563 0 00-.57 0l-4.717 2.784a.562.562 0 01-.84-.61l1.15-5.394a.563.563 0 00-1.81-.588l-4.204-3.602c-.38-.325-.178-.948.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-1.81.588l1.15 5.394a.562.562 0 01-.84.61l-4.717-2.784a.563.563 0 00-.57 0l-4.717 2.784a.562.562 0 01-.84-.61l1.15-5.394a.563.563 0 00-1.81-.588l-4.204-3.602c-.38-.325-.178-.948.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+                />
               </svg>
             )}
           </button>
@@ -578,16 +732,25 @@ function ScheduleMobileCard({
   );
 }
 
-export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fav-matches" | "fav-teams" }) {
+export function SchedulePanel({
+  filterMode = "all",
+}: {
+  filterMode?: "all" | "fav-matches" | "fav-teams";
+}) {
   const allEntries = useSchedule();
-  const espnMatches = useEspnLiveScores();
+  const { matches: espnMatches } = useEspnLiveScores();
   const [selectedFilter, setFilter] = useState<SchedulePanelFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedGroup, setSelectedGroup] = useState<string>("all");
   const [selectedMatchday, setSelectedMatchday] = useState<string>("all");
   const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
-  const [selectedMatchDate, setSelectedMatchDate] = useState<string | null>(null);
-  const [h2hTeams, setH2hTeams] = useState<{ home: { id: string; name: string; flagUrl: string }; away: { id: string; name: string; flagUrl: string } } | null>(null);
+  const [selectedMatchDate, setSelectedMatchDate] = useState<string | null>(
+    null,
+  );
+  const [h2hTeams, setH2hTeams] = useState<{
+    home: { id: string; name: string; flagUrl: string };
+    away: { id: string; name: string; flagUrl: string };
+  } | null>(null);
   const favoriteMatches = useSimulation((s) => s.favoriteMatches);
   const favoriteTeams = useSimulation((s) => s.favoriteTeams);
 
@@ -619,7 +782,10 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   // (the entire KO schedule branch with real dates is still available in the main "Tất cả lịch thi đấu" tab).
   const visibleFilters = useMemo(() => {
     if (filterMode === "fav-matches" || filterMode === "fav-teams") {
-      return FILTERS.filter((f) => f.id !== "knockout" && f.id !== "espn-standings" && f.id !== "stats");
+      return FILTERS.filter(
+        (f) =>
+          f.id !== "knockout" && f.id !== "espn-standings" && f.id !== "stats",
+      );
     }
     return FILTERS;
   }, [filterMode]);
@@ -627,25 +793,32 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
   const filtered = useMemo(() => {
     if (filter === "espn-standings" || filter === "stats") return []; // Not used for standings or stats
     let list = filterScheduleEntries(allEntries, filter as ScheduleFilter);
-    
+
     if (filterMode === "fav-matches") {
       list = list.filter((e) => favoriteMatches.includes(e.id));
     } else if (filterMode === "fav-teams") {
       list = list.filter(
         (e) =>
           (e.home && favoriteTeams.includes(e.home.id)) ||
-          (e.away && favoriteTeams.includes(e.away.id))
+          (e.away && favoriteTeams.includes(e.away.id)),
       );
     }
 
     // Bộ lọc Bảng đấu (chỉ lọc cho các trận vòng bảng khi ở tab phù hợp)
     if (selectedGroup !== "all" && (filter === "all" || filter === "group")) {
-      list = list.filter((e) => e.kind === "group" && e.groupLetter === selectedGroup);
+      list = list.filter(
+        (e) => e.kind === "group" && e.groupLetter === selectedGroup,
+      );
     }
 
     // Bộ lọc Lượt trận (chỉ lọc cho các trận vòng bảng khi ở tab phù hợp)
-    if (selectedMatchday !== "all" && (filter === "all" || filter === "group")) {
-      list = list.filter((e) => e.kind === "group" && e.matchday === Number(selectedMatchday));
+    if (
+      selectedMatchday !== "all" &&
+      (filter === "all" || filter === "group")
+    ) {
+      list = list.filter(
+        (e) => e.kind === "group" && e.matchday === Number(selectedMatchday),
+      );
     }
 
     if (searchQuery.trim()) {
@@ -655,12 +828,21 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
           e.home?.name.toLowerCase().includes(q) ||
           e.away?.name.toLowerCase().includes(q) ||
           e.stadium?.toLowerCase().includes(q) ||
-          e.city?.toLowerCase().includes(q)
+          e.city?.toLowerCase().includes(q),
       );
     }
-    
+
     return list;
-  }, [allEntries, filter, filterMode, favoriteMatches, favoriteTeams, searchQuery, selectedGroup, selectedMatchday]);
+  }, [
+    allEntries,
+    filter,
+    filterMode,
+    favoriteMatches,
+    favoriteTeams,
+    searchQuery,
+    selectedGroup,
+    selectedMatchday,
+  ]);
 
   const dateGroups = useMemo(() => groupScheduleByDate(filtered), [filtered]);
 
@@ -712,8 +894,18 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                     onClick={() => setIsSearchExpanded(true)}
                     className="w-7 h-7 flex items-center justify-center bg-zinc-900 border border-zinc-800 rounded-md text-zinc-400 hover:text-zinc-200"
                   >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
                     </svg>
                   </button>
 
@@ -726,11 +918,21 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                         "w-7 h-7 flex items-center justify-center border rounded-md transition-colors",
                         isFiltersExpanded
                           ? "bg-zinc-800 border-zinc-700 text-zinc-100"
-                          : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-zinc-200"
+                          : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-zinc-200",
                       ].join(" ")}
                     >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                        />
                       </svg>
                     </button>
                   )}
@@ -756,8 +958,18 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                     }}
                     className="p-1 text-zinc-400 hover:text-zinc-200"
                   >
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
                     </svg>
                   </button>
                 </div>
@@ -766,8 +978,18 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
               {/* Ô tìm kiếm Desktop */}
               {!isMobile && (
                 <div className="relative">
-                  <svg className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <svg
+                    className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
                   </svg>
                   <input
                     type="text"
@@ -789,8 +1011,23 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                     className="bg-zinc-900 border border-zinc-800 rounded-md px-2 py-1 text-xs text-zinc-200 focus:outline-none"
                   >
                     <option value="all">Tất cả bảng</option>
-                    {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"].map((letter) => (
-                      <option key={letter} value={letter}>Bảng {letter}</option>
+                    {[
+                      "A",
+                      "B",
+                      "C",
+                      "D",
+                      "E",
+                      "F",
+                      "G",
+                      "H",
+                      "I",
+                      "J",
+                      "K",
+                      "L",
+                    ].map((letter) => (
+                      <option key={letter} value={letter}>
+                        Bảng {letter}
+                      </option>
                     ))}
                   </select>
 
@@ -812,33 +1049,50 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
         </div>
 
         {/* Panel dropdown phụ trên Mobile */}
-        {isFiltersExpanded && (filter === "all" || filter === "group") && isMobile && (
-          <div className="flex gap-2 pt-2 pb-2 border-t border-zinc-800/50 mt-1">
-            <select
-              data-testid="schedule-group-filter"
-              value={selectedGroup}
-              onChange={(e) => setSelectedGroup(e.target.value)}
-              className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 py-1.5 text-sm text-zinc-200 focus:outline-none"
-            >
-              <option value="all">Tất cả bảng</option>
-              {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"].map((letter) => (
-                <option key={letter} value={letter}>Bảng {letter}</option>
-              ))}
-            </select>
+        {isFiltersExpanded &&
+          (filter === "all" || filter === "group") &&
+          isMobile && (
+            <div className="flex gap-2 pt-2 pb-2 border-t border-zinc-800/50 mt-1">
+              <select
+                data-testid="schedule-group-filter"
+                value={selectedGroup}
+                onChange={(e) => setSelectedGroup(e.target.value)}
+                className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 py-1.5 text-sm text-zinc-200 focus:outline-none"
+              >
+                <option value="all">Tất cả bảng</option>
+                {[
+                  "A",
+                  "B",
+                  "C",
+                  "D",
+                  "E",
+                  "F",
+                  "G",
+                  "H",
+                  "I",
+                  "J",
+                  "K",
+                  "L",
+                ].map((letter) => (
+                  <option key={letter} value={letter}>
+                    Bảng {letter}
+                  </option>
+                ))}
+              </select>
 
-            <select
-              data-testid="schedule-matchday-filter"
-              value={selectedMatchday}
-              onChange={(e) => setSelectedMatchday(e.target.value)}
-              className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 py-1.5 text-sm text-zinc-200 focus:outline-none"
-            >
-              <option value="all">Tất cả lượt</option>
-              <option value="1">Lượt trận 1</option>
-              <option value="2">Lượt trận 2</option>
-              <option value="3">Lượt trận 3</option>
-            </select>
-          </div>
-        )}
+              <select
+                data-testid="schedule-matchday-filter"
+                value={selectedMatchday}
+                onChange={(e) => setSelectedMatchday(e.target.value)}
+                className="flex-1 min-w-0 h-9 bg-zinc-900 border border-zinc-800 rounded-md px-2 py-1.5 text-sm text-zinc-200 focus:outline-none"
+              >
+                <option value="all">Tất cả lượt</option>
+                <option value="1">Lượt trận 1</option>
+                <option value="2">Lượt trận 2</option>
+                <option value="3">Lượt trận 3</option>
+              </select>
+            </div>
+          )}
       </div>
 
       <div className="mt-4">
@@ -849,16 +1103,18 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
             {/* Real external data */}
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <div className="text-xs uppercase tracking-[1px] text-emerald-400 font-semibold">Dữ liệu thực tế (ESPN)</div>
+                <div className="text-xs uppercase tracking-[1px] text-emerald-400 font-semibold">
+                  Dữ liệu thực tế (ESPN)
+                </div>
                 <div className="h-px flex-1 bg-zinc-800" />
               </div>
               <EspnStandingsBoard />
             </div>
-
-
           </div>
         ) : dateGroups.length === 0 ? (
-          <p className="text-center text-zinc-500 py-12">Không có trận nào trong bộ lọc này.</p>
+          <p className="text-center text-zinc-500 py-12">
+            Không có trận nào trong bộ lọc này.
+          </p>
         ) : (
           <div className="space-y-6">
             {/* Mobile view (< 768px) */}
@@ -879,7 +1135,10 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                         key={entry.id}
                         entry={entry}
                         espnMatches={espnMatches}
-                        onOpenMatch={(gameId, matchDate) => { setSelectedGameId(gameId); setSelectedMatchDate(matchDate ?? null); }}
+                        onOpenMatch={(gameId, matchDate) => {
+                          setSelectedGameId(gameId);
+                          setSelectedMatchDate(matchDate ?? null);
+                        }}
                         onOpenH2H={(h, a) => setH2hTeams({ home: h, away: a })}
                         isMobile={isMobile}
                         mounted={mounted}
@@ -895,7 +1154,9 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
               <table className="w-full min-w-[560px] border-collapse text-left">
                 <thead>
                   <tr className="border-b border-zinc-800 text-xs font-semibold text-zinc-500 uppercase tracking-wider bg-zinc-900/50">
-                    <th className="hidden lg:table-cell px-4 py-3 text-center whitespace-nowrap">TRẬN</th>
+                    <th className="hidden lg:table-cell px-4 py-3 text-center whitespace-nowrap">
+                      TRẬN
+                    </th>
                     <th className="px-3 py-3 text-center">GIỜ</th>
                     <th className="hidden lg:table-cell px-4 py-3">VÒNG ĐẤU</th>
                     <th className="px-2 py-3 text-right">ĐỘI 1</th>
@@ -903,7 +1164,19 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                     <th className="px-2 py-3">ĐỘI 2</th>
                     <th className="w-28 px-2 py-3 text-center whitespace-nowrap">
                       <span className="hidden lg:inline">THAO TÁC</span>
-                      <svg className="lg:hidden w-4 h-4 inline text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 5v.01M12 12v.01M12 19v.01" /></svg>
+                      <svg
+                        className="lg:hidden w-4 h-4 inline text-zinc-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M12 5v.01M12 12v.01M12 19v.01"
+                        />
+                      </svg>
                     </th>
                   </tr>
                 </thead>
@@ -922,8 +1195,13 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
                           key={entry.id}
                           entry={entry}
                           espnMatches={espnMatches}
-                          onOpenMatch={(gameId, matchDate) => { setSelectedGameId(gameId); setSelectedMatchDate(matchDate ?? null); }}
-                          onOpenH2H={(h, a) => setH2hTeams({ home: h, away: a })}
+                          onOpenMatch={(gameId, matchDate) => {
+                            setSelectedGameId(gameId);
+                            setSelectedMatchDate(matchDate ?? null);
+                          }}
+                          onOpenH2H={(h, a) =>
+                            setH2hTeams({ home: h, away: a })
+                          }
                           isMobile={isMobile}
                           mounted={mounted}
                         />
@@ -936,7 +1214,14 @@ export function SchedulePanel({ filterMode = "all" }: { filterMode?: "all" | "fa
           </div>
         )}
       </div>
-      <MatchStatsModal gameId={selectedGameId} matchDate={selectedMatchDate} onClose={() => { setSelectedGameId(null); setSelectedMatchDate(null); }} />
+      <MatchStatsModal
+        gameId={selectedGameId}
+        matchDate={selectedMatchDate}
+        onClose={() => {
+          setSelectedGameId(null);
+          setSelectedMatchDate(null);
+        }}
+      />
       <H2HModal
         teamA={h2hTeams?.home ?? null}
         teamB={h2hTeams?.away ?? null}

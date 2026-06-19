@@ -14,7 +14,7 @@ export function getPodiumFromMatches(
 
   let champion: Team | null = null;
   let runnerUp: Team | null = null;
-  let bronze: Team | null = third?.winner ?? null;
+  const bronze = third?.winner ?? null;
 
   if (final?.winner) {
     champion = final.winner;

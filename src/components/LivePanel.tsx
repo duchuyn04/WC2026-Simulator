@@ -1,43 +1,68 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useEspnLiveScores } from "@/lib/use-espn-live-scores";
 import { useSchedule } from "@/lib/hooks";
-import { findEspnMatch, categorizeLiveEntry } from "@/lib/espn-match";
+import {
+  findEspnMatch,
+  categorizeLiveEntry,
+  type EspnScoreboardMatch,
+} from "@/lib/espn-match";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { LiveMatchCard } from "./LiveMatchCard";
 import { UpcomingMatchCard } from "./UpcomingMatchCard";
 import { MatchStatsModal } from "./MatchStatsModal";
 
-const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnId]) => {
-  acc[espnId] = localId;
-  return acc;
-}, {} as Record<string, string>);
+const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce(
+  (acc, [localId, espnId]) => {
+    acc[espnId] = localId;
+    return acc;
+  },
+  {} as Record<string, string>,
+);
 
 function formatDateLabel(date: Date): string {
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
 
-  const dStr = new Intl.DateTimeFormat("vi-VN", { day: "2-digit", month: "2-digit" }).format(date);
-  const todayStr = new Intl.DateTimeFormat("vi-VN", { day: "2-digit", month: "2-digit" }).format(today);
-  const tomorrowStr = new Intl.DateTimeFormat("vi-VN", { day: "2-digit", month: "2-digit" }).format(tomorrow);
+  const dStr = new Intl.DateTimeFormat("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+  }).format(date);
+  const todayStr = new Intl.DateTimeFormat("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+  }).format(today);
+  const tomorrowStr = new Intl.DateTimeFormat("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+  }).format(tomorrow);
 
   if (dStr === todayStr) return `HÔM NAY · ${dStr}`;
   if (dStr === tomorrowStr) return `NGÀY MAI · ${dStr}`;
-  return date.toLocaleDateString("vi-VN", { weekday: "long", day: "numeric", month: "numeric" });
+  return date.toLocaleDateString("vi-VN", {
+    weekday: "long",
+    day: "numeric",
+    month: "numeric",
+  });
 }
 
 type FilterMode = "live" | "upcoming";
 
-export function LivePanel() {
+type LivePanelProps = {
+  espnMatches: EspnScoreboardMatch[];
+  espnLoading: boolean;
+};
+
+export function LivePanel({ espnMatches, espnLoading }: LivePanelProps) {
   const [filterMode, setFilterMode] = useState<FilterMode | "all">("all");
-  const espnMatches = useEspnLiveScores();
   const allEntries = useSchedule();
 
   // Match detail modal state
   const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
-  const [selectedMatchDate, setSelectedMatchDate] = useState<string | null>(null);
+  const [selectedMatchDate, setSelectedMatchDate] = useState<string | null>(
+    null,
+  );
 
   const { liveEntries, upcomingEntries } = useMemo(() => {
     const live: typeof allEntries = [];
@@ -49,13 +74,19 @@ export function LivePanel() {
       const eventDate = new Date(entry.date);
       const espnMatch = findEspnMatch(entry, espnMatches, ESPN_TO_LOCAL);
 
-      const category = categorizeLiveEntry({ eventDate, espnMatch, espnLoaded });
+      const category = categorizeLiveEntry({
+        eventDate,
+        espnMatch,
+        espnLoaded,
+      });
       if (category === "live") live.push(entry);
       else if (category === "upcoming") upcoming.push(entry);
     }
 
     // Sort upcoming by date
-    upcoming.sort((a, b) => new Date(a.date!).getTime() - new Date(b.date!).getTime());
+    upcoming.sort(
+      (a, b) => new Date(a.date!).getTime() - new Date(b.date!).getTime(),
+    );
 
     return { liveEntries: live, upcomingEntries: upcoming };
   }, [allEntries, espnMatches]);
@@ -63,18 +94,24 @@ export function LivePanel() {
   const showLive = filterMode === "all" || filterMode === "live";
   const showUpcoming = filterMode === "all" || filterMode === "upcoming";
 
-  const hasContent = (showLive && liveEntries.length > 0) || (showUpcoming && upcomingEntries.length > 0);
+  const hasContent =
+    (showLive && liveEntries.length > 0) ||
+    (showUpcoming && upcomingEntries.length > 0);
 
   if (!hasContent) {
     return (
       <div className="min-w-0">
-        <h2 className="text-xl font-semibold tracking-tight pt-4 pb-3">Trực tiếp</h2>
+        <h2 className="text-xl font-semibold tracking-tight pt-4 pb-3">
+          Trực tiếp
+        </h2>
 
         {/* Toggle bar — always visible so user can switch back */}
         <div className="flex gap-2 mb-4">
           <button
             type="button"
-            onClick={() => setFilterMode(filterMode === "live" ? "all" : "live")}
+            onClick={() =>
+              setFilterMode(filterMode === "live" ? "all" : "live")
+            }
             className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors ${
               showLive
                 ? "bg-rose-950/40 border border-rose-500/30 text-rose-400"
@@ -85,14 +122,17 @@ export function LivePanel() {
           </button>
           <button
             type="button"
-            onClick={() => setFilterMode(filterMode === "upcoming" ? "all" : "upcoming")}
+            onClick={() =>
+              setFilterMode(filterMode === "upcoming" ? "all" : "upcoming")
+            }
             className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors ${
               showUpcoming
                 ? "bg-amber-950/30 border border-amber-500/20 text-amber-400"
                 : "bg-zinc-900 border border-zinc-800 text-zinc-500 hover:text-zinc-300"
             }`}
           >
-            ⏰ Sắp đá {upcomingEntries.length > 0 && `(${upcomingEntries.length})`}
+            ⏰ Sắp đá{" "}
+            {upcomingEntries.length > 0 && `(${upcomingEntries.length})`}
           </button>
         </div>
 
@@ -130,14 +170,17 @@ export function LivePanel() {
         </button>
         <button
           type="button"
-          onClick={() => setFilterMode(filterMode === "upcoming" ? "all" : "upcoming")}
+          onClick={() =>
+            setFilterMode(filterMode === "upcoming" ? "all" : "upcoming")
+          }
           className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors ${
             showUpcoming
               ? "bg-amber-950/30 border border-amber-500/20 text-amber-400"
               : "bg-zinc-900 border border-zinc-800 text-zinc-500 hover:text-zinc-300"
           }`}
         >
-          ⏰ Sắp đá {upcomingEntries.length > 0 && `(${upcomingEntries.length})`}
+          ⏰ Sắp đá{" "}
+          {upcomingEntries.length > 0 && `(${upcomingEntries.length})`}
         </button>
       </div>
 
@@ -153,7 +196,11 @@ export function LivePanel() {
             </div>
             <div className="space-y-3">
               {liveEntries.map((entry) => {
-                const espnMatch = findEspnMatch(entry, espnMatches, ESPN_TO_LOCAL);
+                const espnMatch = findEspnMatch(
+                  entry,
+                  espnMatches,
+                  ESPN_TO_LOCAL,
+                );
                 if (!espnMatch) return null;
                 return (
                   <LiveMatchCard
@@ -163,7 +210,10 @@ export function LivePanel() {
                     awayName={entry.away?.name ?? entry.awayPlaceholder}
                     homeCode={entry.home?.code ?? ""}
                     awayCode={entry.away?.code ?? ""}
-                    onOpenDetail={(gameId, matchDate) => { setSelectedGameId(gameId); setSelectedMatchDate(matchDate); }}
+                    onOpenDetail={(gameId, matchDate) => {
+                      setSelectedGameId(gameId);
+                      setSelectedMatchDate(matchDate);
+                    }}
                   />
                 );
               })}
@@ -176,7 +226,10 @@ export function LivePanel() {
           <div>
             {/* Group by date */}
             {(() => {
-              const groups: { label: string; entries: typeof upcomingEntries }[] = [];
+              const groups: {
+                label: string;
+                entries: typeof upcomingEntries;
+              }[] = [];
               let currentLabel = "";
               let currentGroup: typeof upcomingEntries = [];
               for (const entry of upcomingEntries) {
@@ -196,18 +249,27 @@ export function LivePanel() {
               return groups.map((group) => (
                 <div key={group.label} className="mb-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-semibold text-amber-400">{group.label}</span>
+                    <span className="text-xs font-semibold text-amber-400">
+                      {group.label}
+                    </span>
                     <div className="h-px flex-1 bg-zinc-800/50" />
                   </div>
                   <div className="space-y-2">
                     {group.entries.map((entry) => {
-                      const espnMatch = findEspnMatch(entry, espnMatches, ESPN_TO_LOCAL);
+                      const espnMatch = findEspnMatch(
+                        entry,
+                        espnMatches,
+                        ESPN_TO_LOCAL,
+                      );
                       return (
                         <UpcomingMatchCard
                           key={entry.id}
                           entry={entry}
                           gameId={espnMatch?.id}
-                          onOpenDetail={(gameId, matchDate) => { setSelectedGameId(gameId); setSelectedMatchDate(matchDate); }}
+                          onOpenDetail={(gameId, matchDate) => {
+                            setSelectedGameId(gameId);
+                            setSelectedMatchDate(matchDate);
+                          }}
                         />
                       );
                     })}
@@ -222,7 +284,10 @@ export function LivePanel() {
       <MatchStatsModal
         gameId={selectedGameId}
         matchDate={selectedMatchDate}
-        onClose={() => { setSelectedGameId(null); setSelectedMatchDate(null); }}
+        onClose={() => {
+          setSelectedGameId(null);
+          setSelectedMatchDate(null);
+        }}
       />
     </div>
   );

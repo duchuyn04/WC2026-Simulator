@@ -28,7 +28,7 @@ export function TeamsDirectory({ teams }: { teams: TeamCard[] }) {
   useEffect(() => {
     const savedFilter = sessionStorage.getItem("teamsFilter") as Confederation;
     if (savedFilter && filters.includes(savedFilter)) {
-      setActiveFilter(savedFilter);
+      Promise.resolve().then(() => setActiveFilter(savedFilter));
     }
     // Clear it so it only persists when returning from a team page
     sessionStorage.removeItem("teamsFilter");

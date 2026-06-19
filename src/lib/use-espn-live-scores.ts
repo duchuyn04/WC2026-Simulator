@@ -1,10 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ESPN_SCOREBOARD_URL, parseEspnScoreboard, type EspnScoreboardMatch } from "./espn-match";
+import {
+  ESPN_SCOREBOARD_URL,
+  parseEspnScoreboard,
+  type EspnScoreboardMatch,
+} from "./espn-match";
 
-export function useEspnLiveScores(): EspnScoreboardMatch[] {
+export function useEspnLiveScores(): {
+  matches: EspnScoreboardMatch[];
+  loading: boolean;
+} {
   const [matches, setMatches] = useState<EspnScoreboardMatch[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let mounted = true;
@@ -14,21 +22,23 @@ export function useEspnLiveScores(): EspnScoreboardMatch[] {
         if (!res.ok) return;
         const data = await res.json();
         const parsedMatches = parseEspnScoreboard(data);
-        if (mounted && parsedMatches.length > 0) {
+        if (mounted) {
           setMatches(parsedMatches);
+          setLoading(false);
         }
       } catch {
         // Keep UI usable when ESPN is temporarily unavailable
+        if (mounted) setLoading(false);
       }
     };
 
     fetchScores();
-    const interval = setInterval(fetchScores, 30000);
+    const interval = setInterval(fetchScores, 15000);
     return () => {
       mounted = false;
       clearInterval(interval);
     };
   }, []);
 
-  return matches;
+  return { matches, loading };
 }

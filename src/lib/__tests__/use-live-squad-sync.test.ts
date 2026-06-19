@@ -53,7 +53,8 @@ describe("useLiveSquadSync", () => {
   };
 
   it("does nothing when static data is fresh", () => {
-    useLiveSquadSync(baseTeam, "2026-06-17T11:00:00Z");
+    const freshDate = new Date().toISOString();
+    useLiveSquadSync(baseTeam, freshDate);
     effectCallback?.();
     expect(fetchTeamSquadFromFifa).not.toHaveBeenCalled();
   });

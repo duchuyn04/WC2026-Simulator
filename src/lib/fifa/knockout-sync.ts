@@ -47,7 +47,7 @@ export function pruneKnockoutWinners(
     for (const t of g.teams) allTeams.set(t.id, t);
   }
 
-  let current = { ...knockoutWinners };
+  const current = { ...knockoutWinners };
   let removedCount = 0;
   let changed = true;
 

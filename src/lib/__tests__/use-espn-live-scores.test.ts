@@ -17,7 +17,7 @@ describe("useEspnLiveScores", () => {
     mockFetch.mockRejectedValueOnce(new Error("Network error"));
     const { result } = renderHook(() => useEspnLiveScores());
     await waitFor(() => {
-      expect(result.current).toEqual([]);
+      expect(result.current.matches).toEqual([]);
     });
   });
 
@@ -28,7 +28,7 @@ describe("useEspnLiveScores", () => {
     });
     const { result } = renderHook(() => useEspnLiveScores());
     await waitFor(() => {
-      expect(result.current).toEqual([]);
+      expect(result.current.matches).toEqual([]);
     });
   });
 
@@ -42,7 +42,11 @@ describe("useEspnLiveScores", () => {
             {
               status: {
                 displayClock: "45:00",
-                type: { name: "STATUS_HALFTIME", state: "in", shortDetail: "HT" },
+                type: {
+                  name: "STATUS_HALFTIME",
+                  state: "in",
+                  shortDetail: "HT",
+                },
               },
               competitors: [
                 { homeAway: "home", score: "2", team: { id: "arg" } },
@@ -59,11 +63,11 @@ describe("useEspnLiveScores", () => {
     });
     const { result } = renderHook(() => useEspnLiveScores());
     await waitFor(() => {
-      expect(result.current).toHaveLength(1);
-      expect(result.current[0].id).toBe("123");
-      expect(result.current[0].homeScore).toBe("2");
-      expect(result.current[0].awayScore).toBe("1");
-      expect(result.current[0].state).toBe("in");
+      expect(result.current.matches).toHaveLength(1);
+      expect(result.current.matches[0].id).toBe("123");
+      expect(result.current.matches[0].homeScore).toBe("2");
+      expect(result.current.matches[0].awayScore).toBe("1");
+      expect(result.current.matches[0].state).toBe("in");
     });
   });
 });

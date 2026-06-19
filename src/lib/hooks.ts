@@ -17,11 +17,13 @@ export function useStoreHydrated() {
   useEffect(() => {
     const api = useSimulation.persist;
     if (!api) {
-      setHydrated(true);
+      Promise.resolve().then(() => setHydrated(true));
       return;
     }
     const unsub = api.onFinishHydration(() => setHydrated(true));
-    if (api.hasHydrated()) setHydrated(true);
+    if (api.hasHydrated()) {
+      Promise.resolve().then(() => setHydrated(true));
+    }
     return unsub;
   }, []);
 

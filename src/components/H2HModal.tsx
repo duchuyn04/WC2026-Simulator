@@ -17,8 +17,10 @@ export function H2HModal({ teamA, teamB, onClose }: H2HModalProps) {
 
   useEffect(() => {
     if (!teamA || !teamB) return;
-    setMatches(null);
-    setError(null);
+    Promise.resolve().then(() => {
+      setMatches(null);
+      setError(null);
+    });
     let mounted = true;
     fetchH2HMatches(teamA.id, teamB.id)
       .then((data) => {
