@@ -124,7 +124,7 @@ export const useSimulation = create<SimulationStore>()(
       favoriteTeams: [],
       scheduleMockResults: {},
       activeTab: "groups",
-      scrollPositions: { groups: 0, schedule: 0, "fav-matches": 0, "fav-teams": 0, third: 0 },
+      scrollPositions: { live: 0, groups: 0, schedule: 0, "fav-matches": 0, "fav-teams": 0, third: 0 },
       bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
       tournamentStats: null,
       statsFetchedAt: null,
