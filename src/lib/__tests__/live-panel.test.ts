@@ -1,17 +1,9 @@
 import { describe, it, expect } from "vitest";
+import { isTodayOrTomorrow } from "../espn-match";
 
-// isTodayOrTomorrow logic (test the pure functions)
-function isTodayOrTomorrow(date: Date): boolean {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  const target = new Date(date);
-  target.setHours(0, 0, 0, 0);
-  return target.getTime() === today.getTime() || target.getTime() === tomorrow.getTime();
-}
-
-describe("Live panel date filtering", () => {
+// Test hàm isTodayOrTomorrow thật (export từ espn-match.ts), không copy-paste logic.
+// Trước đây file này tái định nghĩa lại hàm → test không bắt được regression nếu logic đổi.
+describe("Live panel date filtering — isTodayOrTomorrow", () => {
   it("returns true for today", () => {
     expect(isTodayOrTomorrow(new Date())).toBe(true);
   });
@@ -39,5 +31,17 @@ describe("Live panel date filtering", () => {
     const lateTonight = new Date(now);
     lateTonight.setHours(23, 59, 59, 999);
     expect(isTodayOrTomorrow(lateTonight)).toBe(true);
+  });
+
+  it("treats two calendar dates as equal regardless of time-of-day", () => {
+    const morning = new Date();
+    morning.setHours(9, 0, 0, 0);
+    const evening = new Date();
+    evening.setHours(21, 0, 0, 0);
+    expect(isTodayOrTomorrow(morning)).toBe(isTodayOrTomorrow(evening));
+  });
+
+  it("returns false for invalid date", () => {
+    expect(isTodayOrTomorrow(new Date("not-a-date"))).toBe(false);
   });
 });

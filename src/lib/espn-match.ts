@@ -131,3 +131,66 @@ export function findEspnMatch(
     );
   });
 }
+
+/** Categorization result for an entry in the Live tab. */
+export type LiveCategory = "live" | "upcoming" | "none";
+
+/**
+ * Live tab ngày giới hạn hôm nay + ngày mai (theo giờ địa phương).
+ * Dời logic inline từ LivePanel ra đây để test trực tiếp.
+ * `now` inject được để test — mặc định lấy thời gian hiện tại.
+ */
+export function isTodayOrTomorrow(date: Date, now: number = Date.now()): boolean {
+  const today = new Date(now);
+  today.setHours(0, 0, 0, 0);
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const target = new Date(date);
+  target.setHours(0, 0, 0, 0);
+  return target.getTime() === today.getTime() || target.getTime() === tomorrow.getTime();
+}
+
+/**
+ * Phán đoán trận đã kết thúc khi ESPN chưa trả data — kickoff >3h.
+ * `now` inject được để test. Chỉ là fallback an toàn khi ESPN chưa load.
+ */
+export function hasProbablyEnded(kickoff: Date, now: number = Date.now()): boolean {
+  return now - kickoff.getTime() > 3 * 60 * 60 * 1000;
+}
+
+/**
+ * Quyết định một schedule entry thuộc nhóm nào trên Live tab.
+ *
+ * Nguyên tắc: khi ESPN đã load (`espnLoaded=true`) → tin tưởng `state` thật của server,
+ * KHÔNG dùng heuristic `hasProbablyEnded`. Điều này tránh bug: trận đang đá hiệp phụ
+ * (state="in" nhưng >3h do ET/penalty) bị biến mất khỏi UI. Heuristic chỉ còn là
+ * fallback cho cửa sổ ngắn khi ESPN chưa trả data lần đầu.
+ *
+ * - "live"     : ESPN báo đang đá (không halftime)
+ * - "upcoming" : ESPN chưa load + chưa đến 3h; HOẶC ESPN đã load + state "pre" + trong 2 ngày
+ * - "none"     : còn lại (đặc biệt ESPN loaded + state "post" → đã xong thật)
+ */
+export function categorizeLiveEntry(args: {
+  eventDate: Date;
+  espnMatch?: EspnScoreboardMatch;
+  espnLoaded: boolean;
+  now?: number;
+}): LiveCategory {
+  const { eventDate, espnMatch, espnLoaded, now = Date.now() } = args;
+  if (Number.isNaN(eventDate.getTime())) return "none";
+
+  if (espnMatch && isEspnMatchLive(espnMatch)) return "live";
+
+  if (!isTodayOrTomorrow(eventDate, now)) return "none";
+
+  if (espnLoaded) {
+    // ESPN đã phản hồi — tin tưởng state thật, không phán đoán.
+    // Trận đã post (kể cả ET/penalty) → bỏ khỏi upcoming.
+    if (!espnMatch || espnMatch.state === "pre") return "upcoming";
+    return "none";
+  }
+
+  // ESPN chưa load — fallback heuristic trong cửa sổ chờ.
+  if (!hasProbablyEnded(eventDate, now)) return "upcoming";
+  return "none";
+}
