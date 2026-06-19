@@ -4,15 +4,15 @@
     "squadUrlTemplate": "https://api.fifa.com/api/v3/teams/{teamId}/squad?idCompetition=17&idSeason=285023&language=en",
     "wikipediaSquadsUrl": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads"
   },
-  "fetchedAt": "2026-06-18T03:53:06.756Z",
+  "fetchedAt": "2026-06-19T04:12:25.795Z",
   "seasonId": "285023",
   "competitionId": "17",
   "count": 48,
   "enrichment": {
     "wikipediaTeams": 48,
     "imageSources": {
-      "fifa": 1243,
-      "none": 5
+      "fifa": 1245,
+      "none": 3
     }
   },
   "teams": [
@@ -25,7 +25,7 @@
       "flagUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/CAN",
       "confederationId": "CONCACAF",
       "group": "B",
-      "stage": "#2 - Group B",
+      "stage": "#1 - Group B",
       "worldRanking": 30,
       "appearances": 2,
       "hostTeam": true,
@@ -2790,8 +2790,8 @@
           "heightCm": 185,
           "weightKg": 80,
           "countryCode": "ARG",
-          "pictureUrl": null,
-          "pictureSource": null,
+          "pictureUrl": "https://digitalhub.fifa.com/transform/6e675b37-0a1a-4b1e-8ec8-34425ac08d86/MARCOS-SENESI_402934",
+          "pictureSource": "fifa",
           "caps": 3,
           "goals": 0,
           "wikiTitle": "Marcos Senesi",
@@ -5371,7 +5371,7 @@
       "flagUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/BIH",
       "confederationId": "UEFA",
       "group": "B",
-      "stage": "#4 - Group B",
+      "stage": "#3 - Group B",
       "worldRanking": 64,
       "appearances": 1,
       "hostTeam": false,
@@ -16938,8 +16938,8 @@
           "pictureSource": "fifa",
           "caps": 34,
           "goals": 1,
-          "wikiTitle": "Manaf Younis",
-          "wikiName": "Manaf Younis",
+          "wikiTitle": "Munaf Younis",
+          "wikiName": "Munaf Younis",
           "club": {
             "name": "Al-Shorta",
             "wikiTitle": "Al-Shorta SC",
@@ -21039,8 +21039,8 @@
           "heightCm": 182,
           "weightKg": 75,
           "countryCode": "NZL",
-          "pictureUrl": null,
-          "pictureSource": null,
+          "pictureUrl": "https://digitalhub.fifa.com/transform/009066e3-bc4c-48e9-af6c-1a7065946bd5/LOGAN-ROGERSON_390205",
+          "pictureSource": "fifa",
           "caps": 18,
           "goals": 2,
           "wikiTitle": "Logan Rogerson",
@@ -24177,7 +24177,7 @@
       "flagUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/QAT",
       "confederationId": "AFC",
       "group": "B",
-      "stage": "#3 - Group B",
+      "stage": "#4 - Group B",
       "worldRanking": 57,
       "appearances": 1,
       "hostTeam": false,
@@ -28831,7 +28831,7 @@
       "flagUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/SUI",
       "confederationId": "UEFA",
       "group": "B",
-      "stage": "#1 - Group B",
+      "stage": "#2 - Group B",
       "worldRanking": 19,
       "appearances": 12,
       "hostTeam": false,
@@ -29501,7 +29501,7 @@
         "roleLabel": "Head coach",
         "birthDate": "1968-09-30T00:00:00Z",
         "countryCode": "FRA",
-        "pictureUrl": null
+        "pictureUrl": "https://digitalhub.fifa.com/transform/64342747-ab85-4fe0-a761-c4c7615ec438/HERVE-RENARD_296787"
       },
       "officials": [
         {
@@ -29522,7 +29522,7 @@
           "roleLabel": "Head coach",
           "birthDate": "1968-09-30T00:00:00Z",
           "countryCode": "FRA",
-          "pictureUrl": null
+          "pictureUrl": "https://digitalhub.fifa.com/transform/64342747-ab85-4fe0-a761-c4c7615ec438/HERVE-RENARD_296787"
         }
       ],
       "squad": [
@@ -32059,7 +32059,7 @@
           "pictureUrl": "https://digitalhub.fifa.com/transform/184c6d22-8ce0-4701-8582-39e1653b77f8/FAYZULLAEV-Abbosbek_464933",
           "pictureSource": "fifa",
           "caps": 32,
-          "goals": 8,
+          "goals": 9,
           "wikiTitle": "Abbosbek Fayzullaev",
           "wikiName": "Abbosbek Fayzullaev",
           "club": {
