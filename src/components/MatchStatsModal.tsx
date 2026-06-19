@@ -146,6 +146,14 @@ function isKickoffString(value?: string) {
     /(AM|PM|EDT|EST|CDT|CST|MDT|MST|PDT|PST|BST|GMT|UTC)/i.test(value);
 }
 
+const FINISHED_PATTERN = /\b(final|full.time|ft|aet|pen)\b/i;
+
+function isLiveStatus(status?: string) {
+  if (!status) return false;
+  if (isKickoffString(status)) return false;
+  return !FINISHED_PATTERN.test(status);
+}
+
 interface LocalPlayer {
   name?: string;
   shortName?: string;
@@ -205,86 +213,73 @@ function findLocalPlayerPicture(localTeam: LocalTeam | undefined, espnPlayerName
   return undefined;
 }
 
-function PlayerAvatar({ src, fallbackSrc }: { src?: string; fallbackSrc?: string }) {
-  const [prevSrc, setPrevSrc] = useState(src);
-  const [currentSrc, setCurrentSrc] = useState(src);
-  const [triedFallback, setTriedFallback] = useState(false);
 
-  if (src !== prevSrc) {
-    setPrevSrc(src);
-    setCurrentSrc(src);
-    setTriedFallback(false);
-  }
-
-  const handleError = () => {
-    if (!triedFallback && fallbackSrc) {
-      setCurrentSrc(fallbackSrc);
-      setTriedFallback(true);
-    } else {
-      setCurrentSrc(undefined);
-    }
-  };
-
-  if (!currentSrc) {
-    return (
-      <div className="h-10 w-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-sm text-zinc-500 shrink-0">
-        👤
-      </div>
-    );
-  }
-
-  // eslint-disable-next-line @next/next/no-img-element
-  return (
-    <div className="h-10 w-10 rounded-full bg-zinc-800 border border-zinc-700 shrink-0 overflow-hidden">
-      <img
-        src={currentSrc}
-        alt=""
-        onError={handleError}
-        loading="lazy"
-        decoding="async"
-        className={`h-full w-full object-cover object-top${triedFallback ? " scale-150 origin-top" : ""}`}
-      />
-    </div>
-  );
-}
+const summaryCache = new Map<string, { data: EspnSummary; timestamp: number }>();
+const CACHE_TTL = 30_000;
 
 export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalProps) {
-  const [prevGameId, setPrevGameId] = useState(gameId);
   const [activeTab, setActiveTab] = useState<"stats" | "timeline" | "lineup">("stats");
   const [response, setResponse] = useState<{
     gameId: string;
     data: EspnSummary | null;
     error: string | null;
-  } | null>(null);
+  } | null>(() => {
+    if (!gameId) return null;
+    const cached = summaryCache.get(gameId);
+    if (cached) return { gameId, data: cached.data, error: null };
+    return null;
+  });
 
-  if (gameId !== prevGameId) {
-    setPrevGameId(gameId);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveTab("stats");
-  }
+  }, [gameId]);
 
   useEffect(() => {
     if (!gameId) return;
 
+    const cached = summaryCache.get(gameId);
+    if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setResponse({ gameId, data: cached.data, error: null });
+      if (!isLiveStatus(cached.data.header?.competitions?.[0]?.status?.type?.shortDetail)) return;
+    }
+
     const controller = new AbortController();
+    let livePoll: ReturnType<typeof setInterval> | null = null;
 
-    fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event=${gameId}`, {
-      signal: controller.signal,
-    })
-      .then((response) => {
-        if (!response.ok) throw new Error(`ESPN trả về lỗi ${response.status}`);
-        return response.json() as Promise<EspnSummary>;
+    const fetchSummary = () => {
+      fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event=${gameId}`, {
+        signal: controller.signal,
       })
-      .then((data) => setResponse({ gameId, data, error: null }))
-      .catch((reason: unknown) => {
-        if (reason instanceof DOMException && reason.name === "AbortError") return;
-        setResponse({
-          gameId,
-          data: null,
-          error: reason instanceof Error ? reason.message : "Không thể tải dữ liệu trận đấu",
+        .then((response) => {
+          if (!response.ok) throw new Error(`ESPN tr\u1EA3 v\u1EC1 l\u1ED7i ${response.status}`);
+          return response.json() as Promise<EspnSummary>;
+        })
+        .then((data) => {
+          summaryCache.set(gameId, { data, timestamp: Date.now() });
+          setResponse({ gameId, data, error: null });
+          if (!isLiveStatus(data.header?.competitions?.[0]?.status?.type?.shortDetail) && livePoll) {
+            clearInterval(livePoll);
+            livePoll = null;
+          }
+        })
+        .catch((reason: unknown) => {
+          if (reason instanceof DOMException && reason.name === "AbortError") return;
+          setResponse({ gameId, data: null, error: reason instanceof Error ? reason.message : "Kh\u00F4ng th\u1EC3 t\u1EA3i d\u1EEF li\u1EC7u tr\u1EADn \u0111\u1EA5u" });
         });
-      });
+    };
 
-    return () => controller.abort();
+    fetchSummary();
+
+    if (isLiveStatus(cached?.data.header?.competitions?.[0]?.status?.type?.shortDetail)) {
+      livePoll = setInterval(fetchSummary, 15_000);
+    }
+
+    return () => {
+      controller.abort();
+      if (livePoll) clearInterval(livePoll);
+    };
   }, [gameId]);
 
   useEffect(() => {
@@ -598,7 +593,7 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
           </button>
         </header>
 
-        <div className="overflow-y-auto p-4 sm:p-6">
+        <div className="overflow-y-auto p-4 sm:p-6 transform-gpu">
           {loading ? (
             <SoccerSkeleton variant="match-detail" />
           ) : error ? (
@@ -830,15 +825,14 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                         )}
                         <div className="relative flex items-start gap-3 py-1.5">
                           <div className={`flex flex-1 items-center justify-end gap-2 ${isHome ? "" : "invisible"}`}>
-                            {isHome && (
-                              <>
-                                <span className="shrink-0 text-xs text-zinc-500">{event.detail}</span>
-                                <span className="truncate text-right text-xs font-medium text-zinc-200">
-                                  {event.playerName}
-                                </span>
-                                <PlayerAvatar src={event.playerImage} fallbackSrc={event.fallbackImage} />
-                              </>
-                            )}
+                              {isHome && (
+                                <>
+                                  <span className="shrink-0 text-xs text-zinc-500">{event.detail}</span>
+                                  <span className="truncate text-right text-xs font-medium text-zinc-200">
+                                    {event.playerName}
+                                  </span>
+                                </>
+                              )}
                           </div>
 
                           <div className="flex shrink-0 flex-col items-center">
@@ -851,15 +845,14 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                           </div>
 
                           <div className={`flex flex-1 items-center gap-2 ${!isHome ? "" : "invisible"}`}>
-                            {!isHome && (
-                              <>
-                                <PlayerAvatar src={event.playerImage} fallbackSrc={event.fallbackImage} />
-                                <span className="truncate text-xs font-medium text-zinc-200">
-                                  {event.playerName}
-                                </span>
-                                <span className="shrink-0 text-xs text-zinc-500">{event.detail}</span>
-                              </>
-                            )}
+                              {!isHome && (
+                                <>
+                                  <span className="truncate text-xs font-medium text-zinc-200">
+                                    {event.playerName}
+                                  </span>
+                                  <span className="shrink-0 text-xs text-zinc-500">{event.detail}</span>
+                                </>
+                              )}
                           </div>
                         </div>
                       </div>
@@ -930,13 +923,10 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                           isHome: boolean
                         ) => (
                           <div key={p.id} className="flex flex-col items-center text-center w-14 z-10">
-                <div className="relative px-1">
-                              <PlayerAvatar src={p.playerImage} fallbackSrc={p.fallbackImage} />
-                              {!p.playerImage && (
-                                <div className={`absolute inset-0 rounded-full flex items-center justify-center text-[10px] font-bold text-white border border-white/50 ${isHome ? 'bg-blue-600' : 'bg-rose-600'}`}>
-                                  {p.jersey}
-                                </div>
-                              )}
+                            <div className="relative">
+                              <div className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold text-white border border-white/50 ${isHome ? 'bg-blue-600' : 'bg-rose-600'}`}>
+                                {p.jersey}
+                              </div>
 
                               {/* Cards Overlay (Top-Right) */}
                               {(p.yellowCards > 0 || p.redCards > 0) && (

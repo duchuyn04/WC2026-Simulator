@@ -144,7 +144,8 @@ export function useLiveSquadSync<
     return () => {
       active = false;
     };
-  }, [team.id, staticFetchedAt, team.squad]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [team.id, staticFetchedAt]);
 
   return liveSquad ?? team.squad;
 }

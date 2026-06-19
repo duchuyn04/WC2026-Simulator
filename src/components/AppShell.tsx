@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useMemo } from "react";
 import { useSimulation } from "@/lib/store";
 import Link from "next/link";
 import { useGroupStandings, useStoreHydrated } from "@/lib/hooks";
@@ -26,7 +26,7 @@ export function AppShell() {
   usePersistedScroll(activeTab);
   const setActiveTab = useSimulation((s) => s.setActiveTab);
   const knockoutSyncNotice = useSimulation((s) => s.knockoutSyncNotice);
-  const { matches: espnMatches, loading: espnLoading } = useEspnLiveScores();
+  const { matches: espnMatches } = useEspnLiveScores();
   const standings = useGroupStandings();
   const groupInputMode = useSimulation((s) => s.groupInputMode);
   const resetAll = useSimulation((s) => s.resetAll);
@@ -54,11 +54,14 @@ export function AppShell() {
     { id: "knockout", label: "Knockout" },
   ];
 
-  const SCHEDULE_TABS: { id: TabId; label: string }[] = [
-    { id: "schedule", label: "Tất cả lịch thi đấu" },
-    { id: "fav-matches", label: `Trận yêu thích (${favoriteMatches.length})` },
-    { id: "fav-teams", label: `Đội yêu thích (${favoriteTeams.length})` },
-  ];
+  const SCHEDULE_TABS = useMemo(
+    () => [
+      { id: "schedule" as TabId, label: "Tất cả lịch thi đấu" },
+      { id: "fav-matches" as TabId, label: `Trận yêu thích (${favoriteMatches.length})` },
+      { id: "fav-teams" as TabId, label: `Đội yêu thích (${favoriteTeams.length})` },
+    ],
+    [favoriteMatches.length, favoriteTeams.length],
+  );
 
   const isSimulatorMode =
     activeTab === "groups" || activeTab === "third" || activeTab === "knockout";
@@ -69,8 +72,11 @@ export function AppShell() {
         ? SIMULATOR_TABS
         : SCHEDULE_TABS;
 
-  const standingMap = new Map(standings.map((s) => [s.letter, s]));
-  const fifaRankMeta = getFifaRankingsMeta();
+  const standingMap = useMemo(
+    () => new Map(standings.map((s) => [s.letter, s])),
+    [standings],
+  );
+  const fifaRankMeta = useMemo(() => getFifaRankingsMeta(), []);
 
   if (!hydrated) {
     return (
@@ -264,15 +270,15 @@ export function AppShell() {
             </div>
           </div>
         )}
-        {activeTab === "schedule" && <SchedulePanel />}
+        {activeTab === "schedule" && <SchedulePanel espnMatches={espnMatches} />}
         {activeTab === "fav-matches" && (
-          <SchedulePanel filterMode="fav-matches" />
+          <SchedulePanel filterMode="fav-matches" espnMatches={espnMatches} />
         )}
-        {activeTab === "fav-teams" && <SchedulePanel filterMode="fav-teams" />}
+        {activeTab === "fav-teams" && <SchedulePanel filterMode="fav-teams" espnMatches={espnMatches} />}
         {activeTab === "third" && <ThirdPlacePanel />}
         {activeTab === "knockout" && <KnockoutBracket />}
         {activeTab === "live" && (
-          <LivePanel espnMatches={espnMatches} espnLoading={espnLoading} />
+          <LivePanel espnMatches={espnMatches} />
         )}
       </main>
 

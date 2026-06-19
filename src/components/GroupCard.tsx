@@ -3,14 +3,14 @@
 import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { useSimulation } from "@/lib/store";
-import { GroupDetailModal } from "./GroupDetailModal";
 import { TeamBadge } from "./TeamBadge";
+import { StandingsDnD } from "./lazy-standings";
 import type { GroupData, GroupStanding } from "@/lib/fifa/types";
 
-const StandingsDnD = dynamic(() => import("./StandingsDnD").then((m) => m.StandingsDnD), {
-  ssr: false,
-  loading: () => <p className="text-sm text-zinc-600 px-3 py-4">Đang tải...</p>,
-});
+const GroupDetailModal = dynamic(
+  () => import("./GroupDetailModal").then((m) => m.GroupDetailModal),
+  { ssr: false },
+);
 
 type Props = {
   group: GroupData;

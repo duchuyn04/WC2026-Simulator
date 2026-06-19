@@ -51,10 +51,9 @@ type FilterMode = "live" | "upcoming";
 
 type LivePanelProps = {
   espnMatches: EspnScoreboardMatch[];
-  espnLoading: boolean;
 };
 
-export function LivePanel({ espnMatches, espnLoading }: LivePanelProps) {
+export function LivePanel({ espnMatches }: LivePanelProps) {
   const [filterMode, setFilterMode] = useState<FilterMode | "all">("all");
   const allEntries = useSchedule();
 
@@ -93,6 +92,27 @@ export function LivePanel({ espnMatches, espnLoading }: LivePanelProps) {
 
   const showLive = filterMode === "all" || filterMode === "live";
   const showUpcoming = filterMode === "all" || filterMode === "upcoming";
+
+  const dateGroups = useMemo(() => {
+    const groups: { label: string; entries: typeof upcomingEntries }[] = [];
+    let currentLabel = "";
+    let currentGroup: typeof upcomingEntries = [];
+    for (const entry of upcomingEntries) {
+      const label = formatDateLabel(new Date(entry.date!));
+      if (label !== currentLabel) {
+        if (currentGroup.length > 0) {
+          groups.push({ label: currentLabel, entries: currentGroup });
+        }
+        currentLabel = label;
+        currentGroup = [];
+      }
+      currentGroup.push(entry);
+    }
+    if (currentGroup.length > 0) {
+      groups.push({ label: currentLabel, entries: currentGroup });
+    }
+    return groups;
+  }, [upcomingEntries]);
 
   const hasContent =
     (showLive && liveEntries.length > 0) ||
@@ -225,28 +245,7 @@ export function LivePanel({ espnMatches, espnLoading }: LivePanelProps) {
         {showUpcoming && upcomingEntries.length > 0 && (
           <div>
             {/* Group by date */}
-            {(() => {
-              const groups: {
-                label: string;
-                entries: typeof upcomingEntries;
-              }[] = [];
-              let currentLabel = "";
-              let currentGroup: typeof upcomingEntries = [];
-              for (const entry of upcomingEntries) {
-                const label = formatDateLabel(new Date(entry.date!));
-                if (label !== currentLabel) {
-                  if (currentGroup.length > 0) {
-                    groups.push({ label: currentLabel, entries: currentGroup });
-                  }
-                  currentLabel = label;
-                  currentGroup = [];
-                }
-                currentGroup.push(entry);
-              }
-              if (currentGroup.length > 0) {
-                groups.push({ label: currentLabel, entries: currentGroup });
-              }
-              return groups.map((group) => (
+            {dateGroups.map((group) => (
                 <div key={group.label} className="mb-4">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs font-semibold text-amber-400">
@@ -275,8 +274,7 @@ export function LivePanel({ espnMatches, espnLoading }: LivePanelProps) {
                     })}
                   </div>
                 </div>
-              ));
-            })()}
+              ))}
           </div>
         )}
       </div>

@@ -26,7 +26,6 @@ import {
   isEspnMatchLive,
   type EspnScoreboardMatch,
 } from "@/lib/espn-match";
-import { useEspnLiveScores } from "@/lib/use-espn-live-scores";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce(
   (acc, [localId, espnId]) => {
@@ -734,11 +733,12 @@ function ScheduleMobileCard({
 
 export function SchedulePanel({
   filterMode = "all",
+  espnMatches,
 }: {
   filterMode?: "all" | "fav-matches" | "fav-teams";
+  espnMatches: EspnScoreboardMatch[];
 }) {
   const allEntries = useSchedule();
-  const { matches: espnMatches } = useEspnLiveScores();
   const [selectedFilter, setFilter] = useState<SchedulePanelFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedGroup, setSelectedGroup] = useState<string>("all");

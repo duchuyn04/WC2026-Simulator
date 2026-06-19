@@ -1,15 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { StandingsDnD } from "./lazy-standings";
 import { ScoreInput } from "./ScoreInput";
-
 import type { GroupData, GroupStanding, MatchResult } from "@/lib/fifa/types";
 import type { GroupInputMode } from "@/lib/store";
-
-const StandingsDnD = dynamic(() => import("./StandingsDnD").then((m) => m.StandingsDnD), {
-  ssr: false,
-  loading: () => <p className="text-sm text-zinc-600">Đang tải bảng xếp hạng...</p>,
-});
 
 type Props = {
   group: GroupData;
