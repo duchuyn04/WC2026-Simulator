@@ -227,7 +227,7 @@ function PlayerAvatar({ src, fallbackSrc }: { src?: string; fallbackSrc?: string
 
   if (!currentSrc) {
     return (
-      <div className="h-6 w-6 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-[10px] text-zinc-500 shrink-0">
+      <div className="h-10 w-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-sm text-zinc-500 shrink-0">
         👤
       </div>
     );
@@ -235,14 +235,16 @@ function PlayerAvatar({ src, fallbackSrc }: { src?: string; fallbackSrc?: string
 
   // eslint-disable-next-line @next/next/no-img-element
   return (
-    <img
-      src={currentSrc}
-      alt=""
-      onError={handleError}
-      loading="lazy"
-      decoding="async"
-      className="h-6 w-6 rounded-full bg-zinc-800 object-cover border border-zinc-700 shrink-0"
-    />
+    <div className="h-10 w-10 rounded-full bg-zinc-800 border border-zinc-700 shrink-0 overflow-hidden">
+      <img
+        src={currentSrc}
+        alt=""
+        onError={handleError}
+        loading="lazy"
+        decoding="async"
+        className={`h-full w-full object-cover object-top${triedFallback ? " scale-150 origin-top" : ""}`}
+      />
+    </div>
   );
 }
 
@@ -840,7 +842,7 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                           </div>
 
                           <div className="flex shrink-0 flex-col items-center">
-                            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-800 text-[11px] leading-none">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800 text-sm leading-none">
                               {icon}
                             </div>
                             <div className="mt-0.5 text-[10px] font-bold tabular-nums text-zinc-500">
@@ -928,7 +930,7 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
                           isHome: boolean
                         ) => (
                           <div key={p.id} className="flex flex-col items-center text-center w-14 z-10">
-                            <div className="relative">
+                <div className="relative px-1">
                               <PlayerAvatar src={p.playerImage} fallbackSrc={p.fallbackImage} />
                               {!p.playerImage && (
                                 <div className={`absolute inset-0 rounded-full flex items-center justify-center text-[10px] font-bold text-white border border-white/50 ${isHome ? 'bg-blue-600' : 'bg-rose-600'}`}>
