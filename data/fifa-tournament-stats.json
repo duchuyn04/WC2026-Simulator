@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-19T05:22:20.802Z",
-  "completedMatches": 28,
+  "fetchedAt": "2026-06-19T23:13:02.583Z",
+  "completedMatches": 29,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -444,6 +444,19 @@
         "value": 1
       },
       {
+        "playerId": "448014",
+        "name": "Alessandro CIRCATI",
+        "shortName": "CIRCATI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/0bbf6585-1c6b-4416-8a3f-31a1d8d1625b/CIRCATI-Alessandro_448014",
+        "team": {
+          "id": "43976",
+          "name": "Australia",
+          "code": "AUS",
+          "flagUrl": "/flags/AUS.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "485802",
         "name": "Alex ARCE",
         "shortName": "Alex ARCE",
@@ -479,19 +492,6 @@
           "name": "Bosnia and Herzegovina",
           "code": "BIH",
           "flagUrl": "/flags/BIH.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "395205",
-        "name": "BERNARDO SILVA",
-        "shortName": "BERNARDO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/97535989-5b6f-414b-a582-54a0c48df12a/BERNARDO-SILVA_395205",
-        "team": {
-          "id": "43963",
-          "name": "Portugal",
-          "code": "POR",
-          "flagUrl": "/flags/POR.png"
         },
         "value": 1
       }
@@ -587,6 +587,19 @@
           "name": "Iraq",
           "code": "IRQ",
           "flagUrl": "/flags/IRQ.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "382312",
+        "name": "Cameron BURGESS",
+        "shortName": "Cameron BURGESS",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/75870c29-917d-4ad0-984c-c7ba4e85953c/BURGESS-Cameron_382312",
+        "team": {
+          "id": "43976",
+          "name": "Australia",
+          "code": "AUS",
+          "flagUrl": "/flags/AUS.png"
         },
         "value": 1
       },
