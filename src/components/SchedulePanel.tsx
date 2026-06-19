@@ -19,53 +19,20 @@ import { TournamentStatsBoard } from "./TournamentStatsBoard";
 import { MatchStatsModal } from "./MatchStatsModal";
 import { H2HModal } from "./H2HModal";
 import {
-  ESPN_SCOREBOARD_URL,
   findEspnMatch,
   getEspnLiveClock,
   hasEspnMatchScore,
   isEspnMatchHalftime,
   isEspnMatchLive,
-  parseEspnScoreboard,
   type EspnScoreboardMatch,
 } from "@/lib/espn-match";
+import { useEspnLiveScores } from "@/lib/use-espn-live-scores";
 
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnId]) => {
   acc[espnId] = localId;
   return acc;
 }, {} as Record<string, string>);
-
-function useEspnLiveScores() {
-  const [matches, setMatches] = useState<EspnScoreboardMatch[]>([]);
-
-  useEffect(() => {
-    let mounted = true;
-    const fetchScores = async () => {
-      try {
-        const res = await fetch(ESPN_SCOREBOARD_URL);
-        if (!res.ok) return;
-        const data = await res.json();
-        
-        const parsedMatches = parseEspnScoreboard(data);
-
-        if (mounted && parsedMatches.length > 0) {
-          setMatches(parsedMatches);
-        }
-      } catch {
-        // Keep the local schedule usable when ESPN is temporarily unavailable.
-      }
-    };
-
-    fetchScores();
-    const interval = setInterval(fetchScores, 30000); // 30s
-    return () => {
-      mounted = false;
-      clearInterval(interval);
-    };
-  }, []);
-
-  return matches;
-}
 
 type SchedulePanelFilter = ScheduleFilter | "espn-standings" | "stats";
 
