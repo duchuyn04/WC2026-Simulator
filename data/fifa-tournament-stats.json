@@ -4,11 +4,24 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-18T23:59:35.527Z",
-  "completedMatches": 26,
+  "fetchedAt": "2026-06-19T05:22:20.802Z",
+  "completedMatches": 28,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
+      {
+        "playerId": "441257",
+        "name": "Jonathan DAVID",
+        "shortName": "Jonathan DAVID",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/97ad628a-b97d-4657-ac41-f2a667c534e6/DAVID-Jonathan_441257",
+        "team": {
+          "id": "43899",
+          "name": "Canada",
+          "code": "CAN",
+          "flagUrl": "/flags/CAN.png"
+        },
+        "value": 3
+      },
       {
         "playerId": "229397",
         "name": "Lionel MESSI",
@@ -21,6 +34,19 @@
           "flagUrl": "/flags/ARG.png"
         },
         "value": 3
+      },
+      {
+        "playerId": "390670",
+        "name": "Cyle LARIN",
+        "shortName": "Cyle LARIN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/21086aea-3ec5-47b2-a81f-f7316489183a/LARIN-Cyle_390670",
+        "team": {
+          "id": "43899",
+          "name": "Canada",
+          "code": "CAN",
+          "flagUrl": "/flags/CAN.png"
+        },
+        "value": 2
       },
       {
         "playerId": "405454",
@@ -112,32 +138,6 @@
           "flagUrl": "/flags/FRA.png"
         },
         "value": 2
-      },
-      {
-        "playerId": "489688",
-        "name": "Yasin AYARI",
-        "shortName": "Yasin AYARI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/ac9ed8a6-7b39-4962-8245-b80556224ca0/AYARI-Yasin_489688",
-        "team": {
-          "id": "43970",
-          "name": "Sweden",
-          "code": "SWE",
-          "flagUrl": "/flags/SWE.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "464933",
-        "name": "Abbosbek FAYZULLAEV",
-        "shortName": "Abbosbek FAYZULLAEV",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/184c6d22-8ce0-4701-8582-39e1653b77f8/FAYZULLAEV-Abbosbek_464933",
-        "team": {
-          "id": "44005",
-          "name": "Uzbekistan",
-          "code": "UZB",
-          "flagUrl": "/flags/UZB.png"
-        },
-        "value": 1
       }
     ],
     "assists": [
@@ -418,6 +418,19 @@
         "value": 1
       },
       {
+        "playerId": "433394",
+        "name": "AHMED FATHY",
+        "shortName": "AHMED FATHY",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/f465c1f2-aa85-4bc7-bf8d-4d5805b19cd9/AHMED-FATHY_433394",
+        "team": {
+          "id": "43834",
+          "name": "Qatar",
+          "code": "QAT",
+          "flagUrl": "/flags/QAT.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "430477",
         "name": "AHMED FATOUH",
         "shortName": "AHMED FATOUH",
@@ -481,22 +494,22 @@
           "flagUrl": "/flags/POR.png"
         },
         "value": 1
-      },
-      {
-        "playerId": "464533",
-        "name": "Brian GUTIERREZ",
-        "shortName": "Brian GUTIERREZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/dbca9708-0922-4d1d-97cb-1aa53696d6bd/GUTIERREZ-Brian_464533",
-        "team": {
-          "id": "43911",
-          "name": "Mexico",
-          "code": "MEX",
-          "flagUrl": "/flags/MEX.png"
-        },
-        "value": 1
       }
     ],
     "redCards": [
+      {
+        "playerId": "386348",
+        "name": "ASSIM MADIBO",
+        "shortName": "A. MADIBO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2b2c6d70-e76e-41d8-baff-36ba0965fca3/ASSIM-MADIBO_386348",
+        "team": {
+          "id": "43834",
+          "name": "Qatar",
+          "code": "QAT",
+          "flagUrl": "/flags/QAT.png"
+        },
+        "value": 1
+      },
       {
         "playerId": "395516",
         "name": "Cesar MONTES",
@@ -507,6 +520,19 @@
           "name": "Mexico",
           "code": "MEX",
           "flagUrl": "/flags/MEX.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "419441",
+        "name": "HOMAM AHMED",
+        "shortName": "HOMAM AHMED",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/5a182a95-d4c3-4618-838e-d374bbc576ba/HOMAM-AHMED_419441",
+        "team": {
+          "id": "43834",
+          "name": "Qatar",
+          "code": "QAT",
+          "flagUrl": "/flags/QAT.png"
         },
         "value": 1
       },
@@ -600,6 +626,19 @@
           "name": "Egypt",
           "code": "EGY",
           "flagUrl": "/flags/EGY.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "498458",
+        "name": "MOHAMED MANAI",
+        "shortName": "MOHAMED MANAI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/67e02103-4569-4a5c-a7a2-1f9b42cab1a5/MOHAMED-MANAI_498458",
+        "team": {
+          "id": "43834",
+          "name": "Qatar",
+          "code": "QAT",
+          "flagUrl": "/flags/QAT.png"
         },
         "value": 1
       },
