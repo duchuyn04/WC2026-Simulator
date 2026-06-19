@@ -39,6 +39,14 @@ export function TeamsHeader() {
                 Lịch thi đấu & Yêu thích
               </Link>
               <Link
+                href="/"
+                onClick={() => setActiveTab("live")}
+                className="rounded-md px-3 py-1.5 text-sm font-medium text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-200 sm:px-4"
+              >
+                <span className="hidden sm:inline">Trực tiếp</span>
+                <span className="sm:hidden">Live</span>
+              </Link>
+              <Link
                 href="/teams"
                 className="rounded-md bg-[#6a041f] px-3 py-1.5 text-sm font-medium text-white transition-colors sm:px-4"
               >

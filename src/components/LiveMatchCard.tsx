@@ -9,38 +9,48 @@ type LiveMatchCardProps = {
   awayName: string;
   homeCode: string;
   awayCode: string;
+  onOpenDetail?: (gameId: string, matchDate: string) => void;
 };
 
-export function LiveMatchCard({ espnMatch, homeName, awayName, homeCode, awayCode }: LiveMatchCardProps) {
+export function LiveMatchCard({ espnMatch, homeName, awayName, homeCode, awayCode, onOpenDetail }: LiveMatchCardProps) {
   const liveClock = `${espnMatch.displayClock || espnMatch.shortDetail}`;
 
+  const handleClick = onOpenDetail ? () => onOpenDetail(espnMatch.id, espnMatch.date) : undefined;
+
   return (
-    <div className="bg-gradient-to-br from-[#1a0a0a] to-[#2d0a0a] border border-red-500/25 rounded-xl p-4">
-      <div className="flex items-center justify-between">
+    <div
+      onClick={handleClick}
+      className={`bg-zinc-950/80 border border-zinc-800 border-l-2 border-l-red-500/60 rounded-xl p-3 sm:p-4 transition-colors ${
+        handleClick ? "cursor-pointer hover:border-zinc-600 hover:bg-zinc-900/80 active:scale-[0.99]" : ""
+      }`}
+    >
+      <div className="flex items-center gap-2 sm:gap-4">
         {/* Home team */}
-        <div className="flex-1 text-center">
-          <div className="inline-flex justify-center">
-            <FlagIcon code={homeCode} size="lg" title={homeName} />
-          </div>
-          <div className="font-bold text-sm mt-1">{homeName}</div>
+        <div className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3 justify-end">
+          <span className="font-semibold text-xs sm:text-sm truncate text-right leading-tight">{homeName}</span>
+          <FlagIcon code={homeCode} size="md" title={homeName} />
         </div>
 
-        {/* Score + clock */}
-        <div className="flex-[0.6] text-center">
-          <div className="text-4xl font-black text-emerald-500 tracking-wider tabular-nums">
+        {/* Score + live clock */}
+        <div className="flex-shrink-0 text-center px-1 sm:px-2">
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-emerald-400 tracking-wider tabular-nums">
             {espnMatch.homeScore} - {espnMatch.awayScore}
           </div>
-          <div className="text-xs font-semibold text-rose-500 mt-1">
-            <span className="animate-pulse mr-1">🔴</span>LIVE · {liveClock}
+          <div className="flex items-center justify-center gap-1 mt-0.5 sm:mt-1">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
+            </span>
+            <span className="text-[10px] sm:text-[11px] font-semibold text-red-400 uppercase tracking-wide">
+              Live · {liveClock}
+            </span>
           </div>
         </div>
 
         {/* Away team */}
-        <div className="flex-1 text-center">
-          <div className="inline-flex justify-center">
-            <FlagIcon code={awayCode} size="lg" title={awayName} />
-          </div>
-          <div className="font-bold text-sm mt-1">{awayName}</div>
+        <div className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3">
+          <FlagIcon code={awayCode} size="md" title={awayName} />
+          <span className="font-semibold text-xs sm:text-sm truncate text-left leading-tight">{awayName}</span>
         </div>
       </div>
     </div>

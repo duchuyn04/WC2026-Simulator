@@ -1,10 +1,10 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { flagUrl } from "@/lib/data";
 import { RecentMatches } from "@/components/RecentMatches";
 import { TeamStatsBoard } from "@/components/TeamStatsBoard";
 import { TeamRoster } from "@/components/TeamRoster";
 import { FloatingBackButton } from "@/components/FloatingBackButton";
+import { BackToTeamsButton } from "@/components/BackToTeamsButton";
 import { fetchTeamMatches } from "@/lib/espn";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import teamsData from "../../../../data/fifa-teams-squads.json";
@@ -66,13 +66,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
       >
         <div className="mx-auto max-w-7xl px-3 py-4 sm:px-4 sm:py-8">
           <div className="flex flex-wrap gap-3 text-sm font-semibold">
-            <Link
-              href="/teams"
-              className="group flex w-fit items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/50 px-3 py-1.5 text-xs font-semibold text-amber-400 backdrop-blur-md transition-all hover:border-amber-500 hover:bg-amber-500/10 hover:text-amber-300 sm:px-4 sm:py-2 sm:text-sm"
-            >
-              <span className="transition-transform group-hover:-translate-x-1">←</span>
-              Đội tuyển
-            </Link>
+            <BackToTeamsButton />
           </div>
 
           <div className="mt-4 sm:mt-8">
