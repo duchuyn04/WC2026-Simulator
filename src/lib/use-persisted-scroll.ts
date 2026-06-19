@@ -42,7 +42,7 @@ export function usePersistedScroll(activeTab: TabId) {
 
   useEffect(() => {
     if (!hydrated) return;
-    if (activeTab !== "groups" && activeTab !== "schedule" && activeTab !== "third") return;
+    if (activeTab !== "groups" && activeTab !== "schedule" && activeTab !== "third" && activeTab !== "live") return;
 
     let ticking = false;
     const onScroll = () => {
