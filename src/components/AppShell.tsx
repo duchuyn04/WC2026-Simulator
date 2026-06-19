@@ -16,6 +16,7 @@ import type { TabId } from "@/lib/tabs";
 import { SyncLiveResultsButton } from "./SyncLiveResultsButton";
 import SoccerSkeleton from "./SoccerSkeleton";
 import { useLiveSync } from "../lib/use-live-sync";
+import { LivePanel } from "./LivePanel";
 
 export function AppShell() {
   const hydrated = useStoreHydrated();
@@ -57,8 +58,8 @@ export function AppShell() {
     { id: "fav-teams", label: `Đội yêu thích (${favoriteTeams.length})` },
   ];
 
-  const isSimulatorMode = SIMULATOR_TABS.some(t => t.id === activeTab);
-  const currentTabs = isSimulatorMode ? SIMULATOR_TABS : SCHEDULE_TABS;
+  const isSimulatorMode = activeTab === "groups" || activeTab === "third" || activeTab === "knockout";
+  const currentTabs = activeTab === "live" ? [] : (isSimulatorMode ? SIMULATOR_TABS : SCHEDULE_TABS);
 
   const standingMap = new Map(standings.map((s) => [s.letter, s]));
   const fifaRankMeta = getFifaRankingsMeta();
@@ -162,6 +163,18 @@ export function AppShell() {
                   <span className="hidden sm:inline">Lịch thi đấu &amp; Yêu thích</span>
                   <span className="sm:hidden">Lịch &amp; YT</span>
                 </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("live")}
+                  className={`px-2 sm:px-3 py-1 sm:py-1.5 font-medium rounded-md transition-colors ${
+                    activeTab === "live"
+                      ? "bg-[#6a041f] text-white"
+                      : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800"
+                  }`}
+                >
+                  <span className="hidden sm:inline">Trực tiếp</span>
+                  <span className="sm:hidden">Live</span>
+                </button>
                 <Link
                   href="/teams"
                   className="px-2 sm:px-3 py-1 sm:py-1.5 font-medium rounded-md text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 transition-colors"
@@ -172,6 +185,7 @@ export function AppShell() {
             </div>
           </div>
 
+          {currentTabs.length > 0 && (
           <nav
             className={`grid grid-cols-3 sm:flex sm:flex-wrap gap-1 p-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs sm:text-sm ${
               activeTab === "knockout" ? "mt-2" : "mt-2 sm:mt-4"
@@ -208,6 +222,7 @@ export function AppShell() {
               );
             })}
           </nav>
+          )}
         </div>
       </header>
 
@@ -237,6 +252,7 @@ export function AppShell() {
         {activeTab === "fav-teams" && <SchedulePanel filterMode="fav-teams" />}
         {activeTab === "third" && <ThirdPlacePanel />}
         {activeTab === "knockout" && <KnockoutBracket />}
+        {activeTab === "live" && <LivePanel />}
       </main>
 
       {activeTab !== "knockout" && (
