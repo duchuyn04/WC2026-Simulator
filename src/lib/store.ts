@@ -432,6 +432,7 @@ export const useSimulation = create<SimulationStore>()(
         knockoutWinners: state.knockoutWinners,
         favoriteMatches: state.favoriteMatches,
         favoriteTeams: state.favoriteTeams,
+        scheduleMockResults: state.scheduleMockResults,
         activeTab: state.activeTab,
         scrollPositions: state.scrollPositions,
         bracketView: state.bracketView,

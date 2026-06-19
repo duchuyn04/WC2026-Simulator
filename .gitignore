@@ -45,3 +45,22 @@ next-env.d.ts
 
 # superpowers brainstorming
 /.superpowers/
+
+# scratch data / debug dumps
+/espn-data.json
+/espn-match-summary.json
+/espn-teams-raw.json
+/espn-teams.json
+/page-snapshot.yml
+/page-with-boxes.yml
+/croatia-*.json
+/croatia-*.txt
+/check.mjs
+/scratch/
+
+# local tool config & caches
+/agent-tools/
+/mcps/
+/.claude/
+/.reasonix/
+/.playwright-mcp/
