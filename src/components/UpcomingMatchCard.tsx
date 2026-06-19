@@ -49,14 +49,16 @@ export function UpcomingMatchCard({ entry, gameId, onOpenDetail }: UpcomingMatch
     >
       {/* Home side */}
       {entry.home ? (
-        <Link
-          href={`/teams/${getTeamSlug(entry.home.name)}`}
-          onClick={(e) => e.stopPropagation()}
-          className="flex items-center gap-2 min-w-0 flex-1 justify-end hover:opacity-80 transition-opacity"
-        >
+        <div className="flex items-center gap-2 min-w-0 flex-1 justify-end">
           <span className="font-semibold text-xs sm:text-sm truncate">{entry.home.name}</span>
-          <FlagIcon code={entry.home.code} size="sm" title={entry.home.name} />
-        </Link>
+          <Link
+            href={`/teams/${getTeamSlug(entry.home.name)}`}
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center hover:opacity-80 transition-opacity"
+          >
+            <FlagIcon code={entry.home.code} size="sm" title={entry.home.name} />
+          </Link>
+        </div>
       ) : (
         <div className="flex items-center gap-2 flex-1 justify-end">
           <span className="text-xs sm:text-sm text-zinc-500">{entry.homePlaceholder}</span>
@@ -77,14 +79,16 @@ export function UpcomingMatchCard({ entry, gameId, onOpenDetail }: UpcomingMatch
 
       {/* Away side */}
       {entry.away ? (
-        <Link
-          href={`/teams/${getTeamSlug(entry.away.name)}`}
-          onClick={(e) => e.stopPropagation()}
-          className="flex items-center gap-2 min-w-0 flex-1 hover:opacity-80 transition-opacity"
-        >
-          <FlagIcon code={entry.away.code} size="sm" title={entry.away.name} />
+        <div className="flex items-center gap-2 min-w-0 flex-1">
+          <Link
+            href={`/teams/${getTeamSlug(entry.away.name)}`}
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center hover:opacity-80 transition-opacity"
+          >
+            <FlagIcon code={entry.away.code} size="sm" title={entry.away.name} />
+          </Link>
           <span className="font-semibold text-xs sm:text-sm truncate">{entry.away.name}</span>
-        </Link>
+        </div>
       ) : (
         <div className="flex items-center gap-2 flex-1">
           <span className="text-xs sm:text-sm text-zinc-500">{entry.awayPlaceholder}</span>

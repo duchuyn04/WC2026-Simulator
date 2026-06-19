@@ -88,21 +88,21 @@ function MatchSide({
 
   if (side === "home") {
     return (
-      <Link
-        href={`/teams/${getTeamSlug(team.name)}`}
-        className={`flex items-center justify-end gap-2 min-w-0 ${tone} hover:underline decoration-zinc-500`}
-        title={team.name}
-      >
-        <span className="text-sm font-semibold truncate leading-none">
+      <div className="flex items-center justify-end gap-2 min-w-0">
+        <Link
+          href={`/teams/${getTeamSlug(team.name)}`}
+          className={`text-sm font-semibold truncate leading-none min-w-0 ${tone} hover:underline decoration-zinc-500`}
+          title={team.name}
+        >
           {team.name}
-        </span>
+        </Link>
         <button
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
             toggleFavoriteTeam(team.id);
           }}
-          className="hover:opacity-80 transition-opacity relative"
+          className="hover:opacity-80 transition-opacity relative flex-shrink-0"
           title="Yêu thích đội"
         >
           <FlagIcon code={team.code} size="sm" title={team.name} />
@@ -110,23 +110,19 @@ function MatchSide({
             <span className="absolute -top-1 -right-1 text-[8px]">⭐</span>
           )}
         </button>
-      </Link>
+      </div>
     );
   }
 
   return (
-    <Link
-      href={`/teams/${getTeamSlug(team.name)}`}
-      className={`flex items-center gap-2 min-w-0 ${tone} hover:underline decoration-zinc-500`}
-      title={team.name}
-    >
+    <div className="flex items-center gap-2 min-w-0">
       <button
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
           toggleFavoriteTeam(team.id);
         }}
-        className="hover:opacity-80 transition-opacity relative"
+        className="hover:opacity-80 transition-opacity relative flex-shrink-0"
         title="Yêu thích đội"
       >
         <FlagIcon code={team.code} size="sm" title={team.name} />
@@ -134,10 +130,14 @@ function MatchSide({
           <span className="absolute -top-1 -right-1 text-[8px]">⭐</span>
         )}
       </button>
-      <span className="text-sm font-semibold truncate leading-none">
+      <Link
+        href={`/teams/${getTeamSlug(team.name)}`}
+        className={`text-sm font-semibold truncate leading-none min-w-0 ${tone} hover:underline decoration-zinc-500`}
+        title={team.name}
+      >
         {team.name}
-      </span>
-    </Link>
+      </Link>
+    </div>
   );
 }
 
