@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useEspnLiveScores } from "@/lib/use-espn-live-scores";
 import { useSchedule } from "@/lib/hooks";
-import { findEspnMatch, isEspnMatchLive, hasEspnMatchScore } from "@/lib/espn-match";
+import { findEspnMatch, categorizeLiveEntry } from "@/lib/espn-match";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { LiveMatchCard } from "./LiveMatchCard";
 import { UpcomingMatchCard } from "./UpcomingMatchCard";
@@ -28,21 +28,6 @@ function formatDateLabel(date: Date): string {
   return date.toLocaleDateString("vi-VN", { weekday: "long", day: "numeric", month: "numeric" });
 }
 
-function isTodayOrTomorrow(date: Date): boolean {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  const target = new Date(date);
-  target.setHours(0, 0, 0, 0);
-  return target.getTime() === today.getTime() || target.getTime() === tomorrow.getTime();
-}
-
-/** Match likely finished if kickoff was >3h ago — used when ESPN data not yet loaded. */
-function hasProbablyEnded(kickoff: Date): boolean {
-  return Date.now() - kickoff.getTime() > 3 * 60 * 60 * 1000;
-}
-
 type FilterMode = "live" | "upcoming";
 
 export function LivePanel() {
@@ -57,26 +42,16 @@ export function LivePanel() {
   const { liveEntries, upcomingEntries } = useMemo(() => {
     const live: typeof allEntries = [];
     const upcoming: typeof allEntries = [];
+    const espnLoaded = espnMatches.length > 0;
 
     for (const entry of allEntries) {
       if (!entry.date) continue;
       const eventDate = new Date(entry.date);
-      if (Number.isNaN(eventDate.getTime())) continue;
-
       const espnMatch = findEspnMatch(entry, espnMatches, ESPN_TO_LOCAL);
 
-      // Live matches
-      if (espnMatch && isEspnMatchLive(espnMatch)) {
-        live.push(entry);
-        continue;
-      }
-
-      // Upcoming: today or tomorrow, not started yet, not already finished
-      if (isTodayOrTomorrow(eventDate) && !hasProbablyEnded(eventDate)) {
-        if (!espnMatch || !hasEspnMatchScore(espnMatch)) {
-          upcoming.push(entry);
-        }
-      }
+      const category = categorizeLiveEntry({ eventDate, espnMatch, espnLoaded });
+      if (category === "live") live.push(entry);
+      else if (category === "upcoming") upcoming.push(entry);
     }
 
     // Sort upcoming by date
