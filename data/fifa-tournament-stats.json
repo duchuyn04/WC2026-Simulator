@@ -4,7 +4,7 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-20T05:43:07.476Z",
+  "fetchedAt": "2026-06-20T09:36:48.541Z",
   "completedMatches": 32,
   "skippedMatches": 0,
   "leaderboards": {
@@ -25,7 +25,7 @@
       {
         "playerId": "229397",
         "name": "Lionel MESSI",
-        "shortName": "MESSI",
+        "shortName": "Lionel MESSI",
         "pictureUrl": "https://digitalhub.fifa.com/transform/19823774-fac0-485a-8a8f-572e7324c6c2/MESSI-Lionel_229397",
         "team": {
           "id": "43922",
@@ -51,7 +51,7 @@
       {
         "playerId": "405454",
         "name": "Elijah JUST",
-        "shortName": "JUST",
+        "shortName": "Elijah JUST",
         "pictureUrl": "https://digitalhub.fifa.com/transform/fe32736f-5d5f-4870-8db3-5b4560835f53/JUST-Elijah_405454",
         "team": {
           "id": "43978",
@@ -64,7 +64,7 @@
       {
         "playerId": "419652",
         "name": "Erling HAALAND",
-        "shortName": "HAALAND",
+        "shortName": "Erling HAALAND",
         "pictureUrl": "https://digitalhub.fifa.com/transform/ee269811-9f84-401f-99b8-e953a2704ebb/HAALAND-Erling_419652",
         "team": {
           "id": "43961",
@@ -90,7 +90,7 @@
       {
         "playerId": "369419",
         "name": "Harry KANE",
-        "shortName": "KANE",
+        "shortName": "Harry KANE",
         "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
         "team": {
           "id": "43942",
@@ -103,7 +103,7 @@
       {
         "playerId": "448598",
         "name": "Ismael SAIBARI",
-        "shortName": "SAIBARI",
+        "shortName": "Ismael SAIBARI",
         "pictureUrl": "https://digitalhub.fifa.com/transform/250526c6-26b5-4425-8a21-231c7952e34d/SAIBARI-Ismael_448598",
         "team": {
           "id": "43872",
@@ -129,7 +129,7 @@
       {
         "playerId": "411367",
         "name": "Kai HAVERTZ",
-        "shortName": "HAVERTZ",
+        "shortName": "Kai HAVERTZ",
         "pictureUrl": "https://digitalhub.fifa.com/transform/1fdd4d11-97d1-4392-b345-5a5eecc54839/HAVERTZ-Kai_411367",
         "team": {
           "id": "43948",
@@ -157,7 +157,7 @@
       {
         "playerId": "430740",
         "name": "Brahim DIAZ",
-        "shortName": "BRAHIM",
+        "shortName": "Brahim DIAZ",
         "pictureUrl": "https://digitalhub.fifa.com/transform/b05c2233-cb0a-4abc-9413-e56ad25f0899/DIAZ-Brahim_430740",
         "team": {
           "id": "43872",
@@ -196,7 +196,7 @@
       {
         "playerId": "386413",
         "name": "Joshua KIMMICH",
-        "shortName": "KIMMICH",
+        "shortName": "Joshua KIMMICH",
         "pictureUrl": "https://digitalhub.fifa.com/transform/ada33dfd-5b01-4792-88f4-14c06641509e/KIMMICH-Joshua_386413",
         "team": {
           "id": "43948",
@@ -276,7 +276,7 @@
       {
         "playerId": "393480",
         "name": "Breel EMBOLO",
-        "shortName": "EMBOLO",
+        "shortName": "Breel EMBOLO",
         "pictureUrl": "https://digitalhub.fifa.com/transform/b2483096-041c-489b-a1c5-6d930f380909/EMBOLO-Breel_393480",
         "team": {
           "id": "43971",
@@ -291,7 +291,7 @@
       {
         "playerId": "311558",
         "name": "Granit XHAKA",
-        "shortName": "XHAKA",
+        "shortName": "Granit XHAKA",
         "pictureUrl": "https://digitalhub.fifa.com/transform/a6c333cc-3042-4094-9ec0-094479b8ca3a/XHAKA-Granit_311558",
         "team": {
           "id": "43971",
@@ -306,7 +306,7 @@
       {
         "playerId": "369419",
         "name": "Harry KANE",
-        "shortName": "KANE",
+        "shortName": "Harry KANE",
         "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
         "team": {
           "id": "43942",
@@ -321,7 +321,7 @@
       {
         "playerId": "411367",
         "name": "Kai HAVERTZ",
-        "shortName": "HAVERTZ",
+        "shortName": "Kai HAVERTZ",
         "pictureUrl": "https://digitalhub.fifa.com/transform/1fdd4d11-97d1-4392-b345-5a5eecc54839/HAVERTZ-Kai_411367",
         "team": {
           "id": "43948",
@@ -336,7 +336,7 @@
       {
         "playerId": "299200",
         "name": "Marko ARNAUTOVIC",
-        "shortName": "ARNAUTOVIC",
+        "shortName": "Marko ARNAUTOVIC",
         "pictureUrl": "https://digitalhub.fifa.com/transform/8bc6e66f-1f5a-4f1d-813d-41c4ab04c6ac/ARNAUTOVIC-Marko_299200",
         "team": {
           "id": "43934",
@@ -351,7 +351,7 @@
       {
         "playerId": "403616",
         "name": "Teboho MOKOENA",
-        "shortName": "MOKOENA",
+        "shortName": "Teboho MOKOENA",
         "pictureUrl": "https://digitalhub.fifa.com/transform/bf36679b-73eb-4813-a99d-b9673439dd05/MOKOENA-Teboho_403616",
         "team": {
           "id": "43883",
@@ -368,7 +368,7 @@
       {
         "playerId": "403616",
         "name": "Teboho MOKOENA",
-        "shortName": "MOKOENA",
+        "shortName": "Teboho MOKOENA",
         "pictureUrl": "https://digitalhub.fifa.com/transform/bf36679b-73eb-4813-a99d-b9673439dd05/MOKOENA-Teboho_403616",
         "team": {
           "id": "43883",
@@ -394,7 +394,7 @@
       {
         "playerId": "464924",
         "name": "Abdukodir KHUSANOV",
-        "shortName": "KHUSANOV",
+        "shortName": "Abdukodir KHUSANOV",
         "pictureUrl": null,
         "team": {
           "id": "44005",
@@ -407,7 +407,7 @@
       {
         "playerId": "403312",
         "name": "Abdulelah ALAMRI",
-        "shortName": "ALAMRI",
+        "shortName": "ABDULELAH ALAMRI",
         "pictureUrl": "https://digitalhub.fifa.com/transform/3ec8a8ea-beb5-4f8b-b8f6-66030bda5c4e/ABDULELAH-ALAMRI_403312",
         "team": {
           "id": "43835",
@@ -446,7 +446,7 @@
       {
         "playerId": "448014",
         "name": "Alessandro CIRCATI",
-        "shortName": "CIRCATI",
+        "shortName": "Alessandro CIRCATI",
         "pictureUrl": "https://digitalhub.fifa.com/transform/0bbf6585-1c6b-4416-8a3f-31a1d8d1625b/CIRCATI-Alessandro_448014",
         "team": {
           "id": "43976",
@@ -500,7 +500,7 @@
       {
         "playerId": "386348",
         "name": "ASSIM MADIBO",
-        "shortName": "A. MADIBO",
+        "shortName": "ASSIM MADIBO",
         "pictureUrl": "https://digitalhub.fifa.com/transform/2b2c6d70-e76e-41d8-baff-36ba0965fca3/ASSIM-MADIBO_386348",
         "team": {
           "id": "43834",
@@ -552,7 +552,7 @@
       {
         "playerId": "390475",
         "name": "Sphephelo SITHOLE",
-        "shortName": "SITHOLE",
+        "shortName": "Sphephelo SITHOLE",
         "pictureUrl": "https://digitalhub.fifa.com/transform/200f1c50-a60a-4c33-ad94-b4dabd605f35/SITHOLE-Sphephelo_390475",
         "team": {
           "id": "43883",
@@ -578,7 +578,7 @@
       {
         "playerId": "395984",
         "name": "Themba ZWANE",
-        "shortName": "ZWANE",
+        "shortName": "Themba ZWANE",
         "pictureUrl": "https://digitalhub.fifa.com/transform/8d294899-e656-4484-91b7-99d646bc590c/ZWANE-Themba_395984",
         "team": {
           "id": "43883",
@@ -593,7 +593,7 @@
       {
         "playerId": "395186",
         "name": "AYMEN HUSSEIN",
-        "shortName": "HUSSEIN",
+        "shortName": "AYMEN HUSSEIN",
         "pictureUrl": "https://digitalhub.fifa.com/transform/388e5207-980c-407a-828c-270fbd4fdff6/AYMEN-HUSSEIN_395186",
         "team": {
           "id": "43818",
@@ -645,7 +645,7 @@
       {
         "playerId": "408950",
         "name": "MOHAMED HANY",
-        "shortName": "M.HANY",
+        "shortName": "MOHAMED HANY",
         "pictureUrl": "https://digitalhub.fifa.com/transform/04f8ef57-e16f-49de-b7d4-ad430c4c430c/MOHAMED-HANY_408950",
         "team": {
           "id": "43855",
