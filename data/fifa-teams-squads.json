@@ -4,15 +4,15 @@
     "squadUrlTemplate": "https://api.fifa.com/api/v3/teams/{teamId}/squad?idCompetition=17&idSeason=285023&language=en",
     "wikipediaSquadsUrl": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads"
   },
-  "fetchedAt": "2026-06-19T04:12:25.795Z",
+  "fetchedAt": "2026-06-20T03:34:56.595Z",
   "seasonId": "285023",
   "competitionId": "17",
   "count": 48,
   "enrichment": {
     "wikipediaTeams": 48,
     "imageSources": {
-      "fifa": 1245,
-      "none": 3
+      "fifa": 1246,
+      "none": 2
     }
   },
   "teams": [
@@ -185,7 +185,7 @@
           "wikiTitle": "Luc de Fougerolles",
           "wikiName": "Luc de Fougerolles",
           "club": {
-            "name": "Dender",
+            "name": "Dender EH",
             "wikiTitle": "FCV Dender EH",
             "countryCode": "BEL"
           }
@@ -216,7 +216,7 @@
         {
           "id": "448390",
           "name": "Mathieu CHOINIERE",
-          "shortName": "Mathieu CHOINIERE",
+          "shortName": "CHOINIÈRE",
           "jerseyNumber": 6,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -239,7 +239,7 @@
         {
           "id": "433635",
           "name": "Stephen EUSTAQUIO",
-          "shortName": "EUSTAQUIO",
+          "shortName": "EUSTÁQUIO",
           "jerseyNumber": 7,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -446,7 +446,7 @@
         {
           "id": "331732",
           "name": "Maxime CREPEAU",
-          "shortName": "Crépeau",
+          "shortName": "CRÉPEAU",
           "jerseyNumber": 16,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -786,7 +786,7 @@
         {
           "id": "403596",
           "name": "Jorge SANCHEZ",
-          "shortName": "Jorge SANCHEZ",
+          "shortName": "J. SÁNCHEZ",
           "jerseyNumber": 2,
           "position": "Defender",
           "realPosition": "Defender",
@@ -809,7 +809,7 @@
         {
           "id": "395516",
           "name": "Cesar MONTES",
-          "shortName": "Cesar MONTES",
+          "shortName": "C. MONTES",
           "jerseyNumber": 3,
           "position": "Defender",
           "realPosition": "Defender",
@@ -855,7 +855,7 @@
         {
           "id": "425701",
           "name": "Johan VASQUEZ",
-          "shortName": "Johan VASQUEZ",
+          "shortName": "J. VÁSQUEZ",
           "jerseyNumber": 5,
           "position": "Defender",
           "realPosition": "Defender",
@@ -901,7 +901,7 @@
         {
           "id": "430763",
           "name": "Luis ROMO",
-          "shortName": "Luis ROMO",
+          "shortName": "L. ROMO",
           "jerseyNumber": 7,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -970,7 +970,7 @@
         {
           "id": "430766",
           "name": "Alexis VEGA",
-          "shortName": "Alexis VEGA",
+          "shortName": "A. VEGA",
           "jerseyNumber": 10,
           "position": "Forward",
           "realPosition": "Forward",
@@ -1108,7 +1108,7 @@
         {
           "id": "429157",
           "name": "Julian QUINONES",
-          "shortName": "Julian QUINONES",
+          "shortName": "J. QUIÑONES",
           "jerseyNumber": 16,
           "position": "Forward",
           "realPosition": "Forward",
@@ -1154,7 +1154,7 @@
         {
           "id": "461177",
           "name": "Obed VARGAS",
-          "shortName": "VARGAS",
+          "shortName": "O. VARGAS",
           "jerseyNumber": 18,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -1246,7 +1246,7 @@
         {
           "id": "386339",
           "name": "Guillermo MARTINEZ",
-          "shortName": "G. MARTINEZ",
+          "shortName": "G. MARTÍNEZ",
           "jerseyNumber": 22,
           "position": "Forward",
           "realPosition": "Forward",
@@ -1292,7 +1292,7 @@
         {
           "id": "448051",
           "name": "Luis CHAVEZ",
-          "shortName": "L.CHAVEZ",
+          "shortName": "L. CHÁVEZ",
           "jerseyNumber": 24,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -1315,7 +1315,7 @@
         {
           "id": "403585",
           "name": "Roberto ALVARADO",
-          "shortName": "Roberto ALVARADO",
+          "shortName": "R. ALVARADO",
           "jerseyNumber": 25,
           "position": "Forward",
           "realPosition": "Forward",
@@ -1494,7 +1494,7 @@
         {
           "id": "390238",
           "name": "Tyler ADAMS",
-          "shortName": "Tyler ADAMS",
+          "shortName": "ADAMS",
           "jerseyNumber": 4,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -1632,7 +1632,7 @@
         {
           "id": "390267",
           "name": "Christian PULISIC",
-          "shortName": "Christian PULISIC",
+          "shortName": "PULISIC",
           "jerseyNumber": 10,
           "position": "Forward",
           "realPosition": "Forward",
@@ -1885,7 +1885,7 @@
         {
           "id": "406304",
           "name": "Timothy WEAH",
-          "shortName": "T. WEAH",
+          "shortName": "WEAH",
           "jerseyNumber": 21,
           "position": "Forward",
           "realPosition": "Forward",
@@ -2133,7 +2133,7 @@
         {
           "id": "512127",
           "name": "Achref ABADA",
-          "shortName": "Achref ABADA",
+          "shortName": "ABADA",
           "jerseyNumber": 3,
           "position": "Defender",
           "realPosition": "Defender",
@@ -2225,7 +2225,7 @@
         {
           "id": "379942",
           "name": "Riyad Mahrez",
-          "shortName": "Mahrez",
+          "shortName": "MAHREZ",
           "jerseyNumber": 7,
           "position": "Forward",
           "realPosition": "Forward",
@@ -2593,7 +2593,7 @@
         {
           "id": "389879",
           "name": "Luca ZIDANE",
-          "shortName": "LUCA",
+          "shortName": "ZIDANE",
           "jerseyNumber": 23,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -2616,7 +2616,7 @@
         {
           "id": "433631",
           "name": "Yassine TITRAOUI",
-          "shortName": "Yassine TITRAOUI",
+          "shortName": "TITRAOUI",
           "jerseyNumber": 24,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -2759,7 +2759,7 @@
         {
           "id": "430624",
           "name": "Juan MUSSO",
-          "shortName": "J. MUSSO",
+          "shortName": "MUSSO",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -2874,7 +2874,7 @@
         {
           "id": "402921",
           "name": "Lisandro MARTINEZ",
-          "shortName": "MARTINEZ",
+          "shortName": "MARTÍNEZ",
           "jerseyNumber": 6,
           "position": "Defender",
           "realPosition": "Defender",
@@ -2897,7 +2897,7 @@
         {
           "id": "428882",
           "name": "Rodrigo DE PAUL",
-          "shortName": "R. DE PAUL",
+          "shortName": "DE PAUL",
           "jerseyNumber": 7,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -3104,7 +3104,7 @@
         {
           "id": "418975",
           "name": "Thiago ALMADA",
-          "shortName": "Thiago ALMADA",
+          "shortName": "ALMADA",
           "jerseyNumber": 16,
           "position": "Forward",
           "realPosition": "Forward",
@@ -3127,7 +3127,7 @@
         {
           "id": "485595",
           "name": "Giuliano SIMEONE",
-          "shortName": "GIULIANO",
+          "shortName": "SIMEONE",
           "jerseyNumber": 17,
           "position": "Forward",
           "realPosition": "Forward",
@@ -3150,7 +3150,7 @@
         {
           "id": "441422",
           "name": "Nico PAZ",
-          "shortName": "Nico PAZ",
+          "shortName": "NICO PAZ",
           "jerseyNumber": 18,
           "position": "Forward",
           "realPosition": "Forward",
@@ -3196,7 +3196,7 @@
         {
           "id": "430628",
           "name": "Alexis MAC ALLISTER",
-          "shortName": "Alexis MAC ALLISTER",
+          "shortName": "MAC ALLISTER",
           "jerseyNumber": 20,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -3219,7 +3219,7 @@
         {
           "id": "495054",
           "name": "Jose Manuel LOPEZ",
-          "shortName": "LÓPEZ",
+          "shortName": "LOPEZ",
           "jerseyNumber": 21,
           "position": "Forward",
           "realPosition": "Forward",
@@ -3242,7 +3242,7 @@
         {
           "id": "402920",
           "name": "Lautaro MARTINEZ",
-          "shortName": "LAUTARO",
+          "shortName": "L. MARTINEZ",
           "jerseyNumber": 22,
           "position": "Forward",
           "realPosition": "Forward",
@@ -3265,7 +3265,7 @@
         {
           "id": "308300",
           "name": "Emiliano MARTINEZ",
-          "shortName": "MARTINEZ E.",
+          "shortName": "E. MARTINEZ",
           "jerseyNumber": 23,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -3288,7 +3288,7 @@
         {
           "id": "448252",
           "name": "Enzo FERNANDEZ",
-          "shortName": "ENZO",
+          "shortName": "E. FERNANDEZ",
           "jerseyNumber": 24,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -3311,7 +3311,7 @@
         {
           "id": "418963",
           "name": "Facundo MEDINA",
-          "shortName": "Facundo MEDINA",
+          "shortName": "MEDINA",
           "jerseyNumber": 25,
           "position": "Defender",
           "realPosition": "Defender",
@@ -3500,7 +3500,7 @@
         {
           "id": "430450",
           "name": "Jacob ITALIANO",
-          "shortName": "Jacob ITALIANO",
+          "shortName": "ITALIANO",
           "jerseyNumber": 4,
           "position": "Defender",
           "realPosition": "Defender",
@@ -3546,7 +3546,7 @@
         {
           "id": "339112",
           "name": "Jason GERIA",
-          "shortName": "Geria",
+          "shortName": "GERIA",
           "jerseyNumber": 6,
           "position": "Defender",
           "realPosition": "Defender",
@@ -3592,7 +3592,7 @@
         {
           "id": "430452",
           "name": "Connor METCALFE",
-          "shortName": "Connor METCALFE",
+          "shortName": "METCALFE",
           "jerseyNumber": 8,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -3707,7 +3707,7 @@
         {
           "id": "430440",
           "name": "Aiden ONEILL",
-          "shortName": "Aiden ONEILL",
+          "shortName": "O'NEILL",
           "jerseyNumber": 13,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -3730,7 +3730,7 @@
         {
           "id": "430437",
           "name": "Cameron DEVLIN",
-          "shortName": "Cameron DEVLIN",
+          "shortName": "DEVLIN",
           "jerseyNumber": 14,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -3845,7 +3845,7 @@
         {
           "id": "430442",
           "name": "Harry SOUTTAR",
-          "shortName": "Harry SOUTTAR",
+          "shortName": "SOUTTAR",
           "jerseyNumber": 19,
           "position": "Defender",
           "realPosition": "Defender",
@@ -3891,7 +3891,7 @@
         {
           "id": "382312",
           "name": "Cameron BURGESS",
-          "shortName": "Cameron BURGESS",
+          "shortName": "BURGESS",
           "jerseyNumber": 21,
           "position": "Defender",
           "realPosition": "Defender",
@@ -4333,7 +4333,7 @@
         {
           "id": "401131",
           "name": "Michael Gregoritsch",
-          "shortName": "Gregoritsch",
+          "shortName": "GREGORITSCH",
           "jerseyNumber": 11,
           "position": "Forward",
           "realPosition": "Forward",
@@ -4678,7 +4678,7 @@
         {
           "id": "375600",
           "name": "Alessandro SCHOEPF",
-          "shortName": "Alessandro Schöpf",
+          "shortName": "SCHÖPF",
           "jerseyNumber": 26,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -4949,7 +4949,7 @@
         {
           "id": "358112",
           "name": "Romelu LUKAKU",
-          "shortName": "R. LUKAKU",
+          "shortName": "LUKAKU",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -5133,7 +5133,7 @@
         {
           "id": "448362",
           "name": "Charles DE KETELAERE",
-          "shortName": "Charles DE KETELAERE",
+          "shortName": "DE KETELAERE",
           "jerseyNumber": 17,
           "position": "Forward",
           "realPosition": "Forward",
@@ -5815,7 +5815,7 @@
         {
           "id": "389886",
           "name": "Dzenis BURNIC",
-          "shortName": "BURNIC",
+          "shortName": "BURNIĆ",
           "jerseyNumber": 17,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -6053,7 +6053,7 @@
       "flagUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/BRA",
       "confederationId": "CONMEBOL",
       "group": "C",
-      "stage": "#3 - Group C",
+      "stage": "#1 - Group C",
       "worldRanking": 6,
       "appearances": 22,
       "hostTeam": false,
@@ -6152,7 +6152,7 @@
         {
           "id": "485069",
           "name": "EDERSON SILVA",
-          "shortName": "EDERSON SILVA",
+          "shortName": "ÉDERSON S.",
           "jerseyNumber": 2,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -6175,7 +6175,7 @@
         {
           "id": "430601",
           "name": "GABRIEL MAGALHAES",
-          "shortName": "GABRIEL MAGALHAES",
+          "shortName": "GABRIEL",
           "jerseyNumber": 3,
           "position": "Defender",
           "realPosition": "Defender",
@@ -6290,7 +6290,7 @@
         {
           "id": "430605",
           "name": "BRUNO GUIMARAES",
-          "shortName": "BRUNO GUIMARAES",
+          "shortName": "BRUNO G.",
           "jerseyNumber": 8,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -6313,7 +6313,7 @@
         {
           "id": "430609",
           "name": "MATHEUS CUNHA",
-          "shortName": "MATHEUS CUNHA",
+          "shortName": "CUNHA",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -6520,7 +6520,7 @@
         {
           "id": "429392",
           "name": "DANILO SANTOS",
-          "shortName": "DANILO SANTOS",
+          "shortName": "DANILO S.",
           "jerseyNumber": 18,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -6566,7 +6566,7 @@
         {
           "id": "411726",
           "name": "LUCAS PAQUETA",
-          "shortName": "L.PAQUETÁ",
+          "shortName": "L. PAQUETÁ",
           "jerseyNumber": 20,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -6589,7 +6589,7 @@
         {
           "id": "448420",
           "name": "LUIZ HENRIQUE",
-          "shortName": "L.HENRIQUE",
+          "shortName": "L. HENRIQUE",
           "jerseyNumber": 21,
           "position": "Forward",
           "realPosition": "Forward",
@@ -6612,7 +6612,7 @@
         {
           "id": "430597",
           "name": "GABRIEL MARTINELLI",
-          "shortName": "GABRIEL MARTINELLI",
+          "shortName": "MARTINELLI",
           "jerseyNumber": 22,
           "position": "Forward",
           "realPosition": "Forward",
@@ -6658,7 +6658,7 @@
         {
           "id": "430594",
           "name": "ROGER IBANEZ",
-          "shortName": "ROGER IBANEZ",
+          "shortName": "IBAÑEZ",
           "jerseyNumber": 24,
           "position": "Defender",
           "realPosition": "Defender",
@@ -6837,7 +6837,7 @@
         {
           "id": "409241",
           "name": "DINEY BORGES",
-          "shortName": "DINEY BORGES",
+          "shortName": "BORGES",
           "jerseyNumber": 3,
           "position": "Defender",
           "realPosition": "Defender",
@@ -7021,7 +7021,7 @@
         {
           "id": "373344",
           "name": "GARRY RODRIGUES",
-          "shortName": "Rodrigues",
+          "shortName": "RODRIGUES",
           "jerseyNumber": 11,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -7044,7 +7044,7 @@
         {
           "id": "407114",
           "name": "MARCIO ROSA",
-          "shortName": "Márcio Rosa",
+          "shortName": "MARCIO",
           "jerseyNumber": 12,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -7228,7 +7228,7 @@
         {
           "id": "355642",
           "name": "RYAN MENDES",
-          "shortName": "Ryan Mendes Da Graça",
+          "shortName": "RYAN",
           "jerseyNumber": 20,
           "position": "Forward",
           "realPosition": "Forward",
@@ -7251,7 +7251,7 @@
         {
           "id": "401893",
           "name": "NUNO DA COSTA",
-          "shortName": "Da Costa",
+          "shortName": "DA COSTA",
           "jerseyNumber": 21,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -7297,7 +7297,7 @@
         {
           "id": "406281",
           "name": "CJ DOS SANTOS",
-          "shortName": "CJ DOS SANTOS",
+          "shortName": "DOS SANTOS",
           "jerseyNumber": 23,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -7647,7 +7647,7 @@
         {
           "id": "369530",
           "name": "Jhon CORDOBA",
-          "shortName": "Jhon CORDOBA",
+          "shortName": "CORDOBA",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -7808,7 +7808,7 @@
         {
           "id": "395550",
           "name": "Jefferson LERMA",
-          "shortName": "Jefferson LERMA",
+          "shortName": "J. LERMA",
           "jerseyNumber": 16,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -7877,7 +7877,7 @@
         {
           "id": "418881",
           "name": "Cucho HERNANDEZ",
-          "shortName": "Cucho HERNANDEZ",
+          "shortName": "C. HERNANDEZ",
           "jerseyNumber": 19,
           "position": "Forward",
           "realPosition": "Forward",
@@ -7923,7 +7923,7 @@
         {
           "id": "405755",
           "name": "Jaminton CAMPAZ",
-          "shortName": "Jaminton CAMPAZ",
+          "shortName": "CAMPAZ",
           "jerseyNumber": 21,
           "position": "Forward",
           "realPosition": "Forward",
@@ -7946,7 +7946,7 @@
         {
           "id": "394376",
           "name": "Deiver MACHADO",
-          "shortName": "Machado",
+          "shortName": "MACHADO",
           "jerseyNumber": 22,
           "position": "Defender",
           "realPosition": "Defender",
@@ -7969,7 +7969,7 @@
         {
           "id": "386013",
           "name": "Davinson SANCHEZ",
-          "shortName": "D. SANCHEZ",
+          "shortName": "SANCHEZ",
           "jerseyNumber": 23,
           "position": "Defender",
           "realPosition": "Defender",
@@ -7992,7 +7992,7 @@
         {
           "id": "385998",
           "name": "Alvaro MONTERO",
-          "shortName": "A. MONTERO",
+          "shortName": "MONTERO",
           "jerseyNumber": 24,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -8263,7 +8263,7 @@
         {
           "id": "424119",
           "name": "Nathanael MBUKU",
-          "shortName": "Nathanael MBUKU",
+          "shortName": "MBUKU",
           "jerseyNumber": 7,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -8493,7 +8493,7 @@
         {
           "id": "336425",
           "name": "Cedric BAKAMBU",
-          "shortName": "Bakambu",
+          "shortName": "BAKAMBU",
           "jerseyNumber": 17,
           "position": "Forward",
           "realPosition": "Forward",
@@ -8562,7 +8562,7 @@
         {
           "id": "441316",
           "name": "Yoane WISSA",
-          "shortName": "Yoane WISSA",
+          "shortName": "WISSA",
           "jerseyNumber": 20,
           "position": "Forward",
           "realPosition": "Forward",
@@ -8787,7 +8787,7 @@
         {
           "id": "405873",
           "name": "Yahia Fofana",
-          "shortName": "FOFANA",
+          "shortName": "Y. FOFANA",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -8856,7 +8856,7 @@
         {
           "id": "335807",
           "name": "Jean Michael SERI",
-          "shortName": "Jean SERI",
+          "shortName": "SERI",
           "jerseyNumber": 4,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -8879,7 +8879,7 @@
         {
           "id": "430854",
           "name": "Wilfried SINGO",
-          "shortName": "Wilfried SINGO",
+          "shortName": "SINGO",
           "jerseyNumber": 5,
           "position": "Defender",
           "realPosition": "Defender",
@@ -9109,7 +9109,7 @@
         {
           "id": "430822",
           "name": "Amad DIALLO",
-          "shortName": "Amad DIALLO",
+          "shortName": "AMAD",
           "jerseyNumber": 15,
           "position": "Forward",
           "realPosition": "Forward",
@@ -9201,7 +9201,7 @@
         {
           "id": "402261",
           "name": "Nicolas PEPE",
-          "shortName": "Pépé",
+          "shortName": "PEPE",
           "jerseyNumber": 19,
           "position": "Forward",
           "realPosition": "Forward",
@@ -9339,7 +9339,7 @@
         {
           "id": "430834",
           "name": "Parfait GUIAGON",
-          "shortName": "Parfait GUIAGON",
+          "shortName": "GUIAGON",
           "jerseyNumber": 25,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -9620,7 +9620,7 @@
         {
           "id": "339987",
           "name": "Mateo KOVACIC",
-          "shortName": "KOVACIC",
+          "shortName": "KOVAČIĆ",
           "jerseyNumber": 8,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -10568,7 +10568,7 @@
         {
           "id": "401023",
           "name": "Joshua BRENET",
-          "shortName": "Brenet",
+          "shortName": "BRENET",
           "jerseyNumber": 20,
           "position": "Defender",
           "realPosition": "Defender",
@@ -10637,7 +10637,7 @@
         {
           "id": "398569",
           "name": "Riechedly Bazoer",
-          "shortName": "Bazoer",
+          "shortName": "BAZOER",
           "jerseyNumber": 23,
           "position": "Defender",
           "realPosition": "Defender",
@@ -11286,7 +11286,7 @@
         {
           "id": "404885",
           "name": "Tomas SOUCEK",
-          "shortName": "Soucek",
+          "shortName": "SOUČEK",
           "jerseyNumber": 22,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -11626,7 +11626,7 @@
         {
           "id": "448299",
           "name": "Anthony VALENCIA",
-          "shortName": "VALENCIA",
+          "shortName": "A. VALENCIA",
           "jerseyNumber": 8,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -11649,7 +11649,7 @@
         {
           "id": "405920",
           "name": "John YEBOAH",
-          "shortName": "YEBOAH",
+          "shortName": "YEBOAH ZAMORA",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -11695,7 +11695,7 @@
         {
           "id": "448310",
           "name": "Kevin RODRIGUEZ",
-          "shortName": "K. RODRIGUEZ",
+          "shortName": "RODRIGUEZ",
           "jerseyNumber": 11,
           "position": "Forward",
           "realPosition": "Forward",
@@ -11810,7 +11810,7 @@
         {
           "id": "402985",
           "name": "Jordy CAICEDO",
-          "shortName": "CAICEDO",
+          "shortName": "J. CAICEDO",
           "jerseyNumber": 16,
           "position": "Forward",
           "realPosition": "Forward",
@@ -11971,7 +11971,7 @@
         {
           "id": "428885",
           "name": "Moises CAICEDO",
-          "shortName": "CAICEDO",
+          "shortName": "M. CAICEDO",
           "jerseyNumber": 23,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -12127,7 +12127,7 @@
         {
           "id": "408948",
           "name": "MOHAMED ELSHENAWY",
-          "shortName": "M.ELSHENAWY",
+          "shortName": "M. ELSHENAWY",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -12173,7 +12173,7 @@
         {
           "id": "408950",
           "name": "MOHAMED HANY",
-          "shortName": "M.HANY",
+          "shortName": "M. HANY",
           "jerseyNumber": 3,
           "position": "Defender",
           "realPosition": "Defender",
@@ -12219,7 +12219,7 @@
         {
           "id": "344661",
           "name": "RAMY RABIA",
-          "shortName": "R.RABIA",
+          "shortName": "R. RABIAA",
           "jerseyNumber": 5,
           "position": "Defender",
           "realPosition": "Defender",
@@ -12288,7 +12288,7 @@
         {
           "id": "430482",
           "name": "EMAM ASHOUR",
-          "shortName": "E.ASHOUR",
+          "shortName": "E. ASHOUR",
           "jerseyNumber": 8,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -12311,7 +12311,7 @@
         {
           "id": "495488",
           "name": "HAMZA ABDELKARIM",
-          "shortName": "H.ABDELKARIM",
+          "shortName": "ABDELKARIM",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -12334,7 +12334,7 @@
         {
           "id": "344654",
           "name": "MOHAMED SALAH",
-          "shortName": "M SALAH",
+          "shortName": "M. SALAH",
           "jerseyNumber": 10,
           "position": "Forward",
           "realPosition": "Forward",
@@ -12472,7 +12472,7 @@
         {
           "id": "395860",
           "name": "MAHDY SOLIMAN",
-          "shortName": "MAHDY SOLIMAN",
+          "shortName": "M. SOLIMAN",
           "jerseyNumber": 16,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -12495,7 +12495,7 @@
         {
           "id": "433469",
           "name": "MOHANAD LASHIN",
-          "shortName": "MOHANAD LASHIN",
+          "shortName": "M. LASHIN",
           "jerseyNumber": 17,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -12518,7 +12518,7 @@
         {
           "id": "433466",
           "name": "NABIL DONGA",
-          "shortName": "NABIL DONGA",
+          "shortName": "DONGA",
           "jerseyNumber": 18,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -12541,7 +12541,7 @@
         {
           "id": "461788",
           "name": "MARAWAN ATTIA",
-          "shortName": "M.ATTIA",
+          "shortName": "M. ATTIA",
           "jerseyNumber": 19,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -12564,7 +12564,7 @@
         {
           "id": "430465",
           "name": "IBRAHIM ADEL",
-          "shortName": "IBRAHIM ADEL",
+          "shortName": "I. ADEL",
           "jerseyNumber": 20,
           "position": "Forward",
           "realPosition": "Forward",
@@ -13050,8 +13050,8 @@
           "heightCm": 192,
           "weightKg": 86,
           "countryCode": "ENG",
-          "pictureUrl": null,
-          "pictureSource": null,
+          "pictureUrl": "https://digitalhub.fifa.com/transform/7fa89d9b-c648-4789-ab66-f00a2fbf56df/CHALOBAH-Trevoh_439691",
+          "pictureSource": "fifa",
           "caps": 1,
           "goals": 0,
           "wikiTitle": "Trevoh Chalobah",
@@ -13065,7 +13065,7 @@
         {
           "id": "403046",
           "name": "Dean Henderson",
-          "shortName": "HENDERSON",
+          "shortName": "D. HENDERSON",
           "jerseyNumber": 13,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -13579,7 +13579,7 @@
         {
           "id": "398680",
           "name": "Ousmane DEMBELE",
-          "shortName": "O. DEMBÉLÉ",
+          "shortName": "DEMBELE",
           "jerseyNumber": 7,
           "position": "Forward",
           "realPosition": "Forward",
@@ -13648,7 +13648,7 @@
         {
           "id": "389867",
           "name": "Kylian MBAPPE",
-          "shortName": "MBAPPÉ",
+          "shortName": "MBAPPE",
           "jerseyNumber": 10,
           "position": "Forward",
           "realPosition": "Forward",
@@ -13832,7 +13832,7 @@
         {
           "id": "483549",
           "name": "Warren ZAIRE-EMERY",
-          "shortName": "ZAÏRE-EMERY",
+          "shortName": "ZAIRE-EMERY",
           "jerseyNumber": 18,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -13855,7 +13855,7 @@
         {
           "id": "408042",
           "name": "Theo HERNANDEZ",
-          "shortName": "THEO",
+          "shortName": "T. HERNANDEZ",
           "jerseyNumber": 19,
           "position": "Defender",
           "realPosition": "Defender",
@@ -13878,7 +13878,7 @@
         {
           "id": "464114",
           "name": "Desire DOUE",
-          "shortName": "D. DOUÉ",
+          "shortName": "DOUE",
           "jerseyNumber": 20,
           "position": "Forward",
           "realPosition": "Forward",
@@ -14215,7 +14215,7 @@
         {
           "id": "484849",
           "name": "Aleksandar PAVLOVIC",
-          "shortName": "PAVLOVIC",
+          "shortName": "PAVLOVIĆ",
           "jerseyNumber": 5,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -14491,7 +14491,7 @@
         {
           "id": "430669",
           "name": "Florian WIRTZ",
-          "shortName": "Florian WIRTZ",
+          "shortName": "WIRTZ",
           "jerseyNumber": 17,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -14583,7 +14583,7 @@
         {
           "id": "429639",
           "name": "Alexander NUEBEL",
-          "shortName": "Alexander NUEBEL",
+          "shortName": "NÜBEL",
           "jerseyNumber": 21,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -14606,7 +14606,7 @@
         {
           "id": "430657",
           "name": "David RAUM",
-          "shortName": "David RAUM",
+          "shortName": "RAUM",
           "jerseyNumber": 22,
           "position": "Defender",
           "realPosition": "Defender",
@@ -14815,7 +14815,7 @@
         {
           "id": "386473",
           "name": "Lawrence Ati ZIGI",
-          "shortName": "ATI",
+          "shortName": "ZIGI",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -14838,7 +14838,7 @@
         {
           "id": "448522",
           "name": "Alidu SEIDU",
-          "shortName": "Alidu SEIDU",
+          "shortName": "ALIDU SEIDU",
           "jerseyNumber": 2,
           "position": "Defender",
           "realPosition": "Defender",
@@ -14953,7 +14953,7 @@
         {
           "id": "441342",
           "name": "Abdul FATAWU",
-          "shortName": "Abdul FATAWU",
+          "shortName": "A. FATAWU",
           "jerseyNumber": 7,
           "position": "Forward",
           "realPosition": "Forward",
@@ -15183,7 +15183,7 @@
         {
           "id": "367536",
           "name": "Baba RAHMAN",
-          "shortName": "BABA RAHMAN",
+          "shortName": "BABA",
           "jerseyNumber": 17,
           "position": "Defender",
           "realPosition": "Defender",
@@ -15298,7 +15298,7 @@
         {
           "id": "448523",
           "name": "Kamaldeen SULEMANA",
-          "shortName": "SULEMANA",
+          "shortName": "KAMALDEEN",
           "jerseyNumber": 22,
           "position": "Forward",
           "realPosition": "Forward",
@@ -15467,7 +15467,7 @@
         {
           "id": "295922",
           "name": "Johny Placide",
-          "shortName": "Placide",
+          "shortName": "PLACIDE",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -15490,7 +15490,7 @@
         {
           "id": "397775",
           "name": "Carlens ARCUS",
-          "shortName": "Arcus",
+          "shortName": "ARCUS",
           "jerseyNumber": 2,
           "position": "Defender",
           "realPosition": "Defender",
@@ -15536,7 +15536,7 @@
         {
           "id": "275917",
           "name": "Ricardo Ade",
-          "shortName": "Ricardo Adé",
+          "shortName": "ADE",
           "jerseyNumber": 4,
           "position": "Defender",
           "realPosition": "Defender",
@@ -15651,7 +15651,7 @@
         {
           "id": "394993",
           "name": "Duckens NAZON",
-          "shortName": "Nazon",
+          "shortName": "NAZON",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -15950,7 +15950,7 @@
         {
           "id": "431781",
           "name": "Jean-Kevin DUVERNE",
-          "shortName": "Jean-Kevin DUVERNE",
+          "shortName": "DUVERNE",
           "jerseyNumber": 22,
           "position": "Defender",
           "realPosition": "Defender",
@@ -16149,7 +16149,7 @@
         {
           "id": "380007",
           "name": "Alireza BEIRANVAND",
-          "shortName": "Alireza BEIRANVAND",
+          "shortName": "BEIRANVAND",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -16172,7 +16172,7 @@
         {
           "id": "448505",
           "name": "Saleh HARDANI",
-          "shortName": "S.HARDANI",
+          "shortName": "SALEH",
           "jerseyNumber": 2,
           "position": "Defender",
           "realPosition": "Defender",
@@ -16195,7 +16195,7 @@
         {
           "id": "288961",
           "name": "Ehsan HAJISAFI",
-          "shortName": "Ehsan HAJISAFI",
+          "shortName": "E. HAJISAFI",
           "jerseyNumber": 3,
           "position": "Defender",
           "realPosition": "Defender",
@@ -16218,7 +16218,7 @@
         {
           "id": "346743",
           "name": "Shoja KHALILZADEH",
-          "shortName": "Shoja KHALILZADEH",
+          "shortName": "SHOJA",
           "jerseyNumber": 4,
           "position": "Defender",
           "realPosition": "Defender",
@@ -16302,7 +16302,7 @@
           "wikiTitle": "Alireza Jahanbakhsh",
           "wikiName": "Alireza Jahanbakhsh",
           "club": {
-            "name": "Dender",
+            "name": "Dender EH",
             "wikiTitle": "FCV Dender EH",
             "countryCode": "BEL"
           }
@@ -16310,7 +16310,7 @@
         {
           "id": "448497",
           "name": "Mohammad MOHEBBI",
-          "shortName": "M.MOHEBBI",
+          "shortName": "M. MOHEBBI",
           "jerseyNumber": 8,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -16356,7 +16356,7 @@
         {
           "id": "403236",
           "name": "Mehdi GHAYEDI",
-          "shortName": "M.GHAYEDI",
+          "shortName": "MEHDI GHAYEDI",
           "jerseyNumber": 10,
           "position": "Forward",
           "realPosition": "Forward",
@@ -16402,7 +16402,7 @@
         {
           "id": "448507",
           "name": "Payam NIAZMAND",
-          "shortName": "P. NIAZMAND",
+          "shortName": "PAYAM",
           "jerseyNumber": 12,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -16425,7 +16425,7 @@
         {
           "id": "390534",
           "name": "Hossein KANANI",
-          "shortName": "Hossein KANANI",
+          "shortName": "KANANI",
           "jerseyNumber": 13,
           "position": "Defender",
           "realPosition": "Defender",
@@ -16471,7 +16471,7 @@
         {
           "id": "406595",
           "name": "Roozbeh CHESHMI",
-          "shortName": "R. CHESHMI",
+          "shortName": "ROOZBEH",
           "jerseyNumber": 15,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -16494,7 +16494,7 @@
         {
           "id": "390535",
           "name": "Mehdi TORABI",
-          "shortName": "Mehdi TORABI",
+          "shortName": "M. TORABI",
           "jerseyNumber": 16,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -16540,7 +16540,7 @@
         {
           "id": "405639",
           "name": "Amirhossein Hosseinzadeh",
-          "shortName": "A.HOSSEIN ZADEH",
+          "shortName": "AMIRHOSSEIN",
           "jerseyNumber": 18,
           "position": "Forward",
           "realPosition": "Forward",
@@ -16632,7 +16632,7 @@
         {
           "id": "314255",
           "name": "Hossein HOSSEINI",
-          "shortName": "H.HOSSEINI",
+          "shortName": "HOSSEINI",
           "jerseyNumber": 22,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -16811,7 +16811,7 @@
         {
           "id": "368744",
           "name": "FAHAD TALIB",
-          "shortName": "F. TALIB",
+          "shortName": "FAHAD",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -16834,7 +16834,7 @@
         {
           "id": "396158",
           "name": "REBIN SULAKA",
-          "shortName": "REBIN SULAKA",
+          "shortName": "REBIN",
           "jerseyNumber": 2,
           "position": "Defender",
           "realPosition": "Defender",
@@ -16995,7 +16995,7 @@
         {
           "id": "436628",
           "name": "ALI ALHAMADI",
-          "shortName": "ALI ALHAMADI",
+          "shortName": "AL-HAMADI",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -17041,7 +17041,7 @@
         {
           "id": "523236",
           "name": "AHMED QASEM",
-          "shortName": "AHMED QASEM",
+          "shortName": "AHMED Q.",
           "jerseyNumber": 11,
           "position": "Forward",
           "realPosition": "Forward",
@@ -17064,7 +17064,7 @@
         {
           "id": "347085",
           "name": "JALAL HASSAN",
-          "shortName": "Hassan",
+          "shortName": "JALAL",
           "jerseyNumber": 12,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -17156,7 +17156,7 @@
         {
           "id": "433074",
           "name": "AMIR ALAMMARI",
-          "shortName": "AMIR ALAMMARI",
+          "shortName": "AL-AMMARI",
           "jerseyNumber": 16,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -17202,7 +17202,7 @@
         {
           "id": "395186",
           "name": "AYMEN HUSSEIN",
-          "shortName": "HUSSEIN",
+          "shortName": "AYMEN",
           "jerseyNumber": 18,
           "position": "Forward",
           "realPosition": "Forward",
@@ -17503,7 +17503,7 @@
         {
           "id": "405530",
           "name": "Zion Suzuki",
-          "shortName": "Z.SUZUKI",
+          "shortName": "SUZUKI",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -17641,7 +17641,7 @@
         {
           "id": "400514",
           "name": "Ao TANAKA",
-          "shortName": "Ao TANAKA",
+          "shortName": "TANAKA",
           "jerseyNumber": 7,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -17733,7 +17733,7 @@
         {
           "id": "430407",
           "name": "Daizen MAEDA",
-          "shortName": "Daizen MAEDA",
+          "shortName": "DAIZEN",
           "jerseyNumber": 11,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -17756,7 +17756,7 @@
         {
           "id": "403305",
           "name": "Keisuke OSAKO",
-          "shortName": "Keisuke OSAKO",
+          "shortName": "OSAKO",
           "jerseyNumber": 12,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -17894,7 +17894,7 @@
         {
           "id": "430413",
           "name": "Ayase UEDA",
-          "shortName": "Ayase UEDA",
+          "shortName": "AYASE",
           "jerseyNumber": 18,
           "position": "Forward",
           "realPosition": "Forward",
@@ -17940,7 +17940,7 @@
         {
           "id": "405527",
           "name": "Ayumu SEKO",
-          "shortName": "Ayumu SEKO",
+          "shortName": "SEKO",
           "jerseyNumber": 20,
           "position": "Defender",
           "realPosition": "Defender",
@@ -18323,7 +18323,7 @@
         {
           "id": "431208",
           "name": "MOHAMMAD ABUZRAIQ",
-          "shortName": "MOHAMMAD ABUZRAIQ",
+          "shortName": "ABU ZRAIQ",
           "jerseyNumber": 7,
           "position": "Forward",
           "realPosition": "Forward",
@@ -18392,7 +18392,7 @@
         {
           "id": "431211",
           "name": "MOUSA ALTAMARI",
-          "shortName": "MOUSA ALTAMARI",
+          "shortName": "ALTAMARI",
           "jerseyNumber": 10,
           "position": "Forward",
           "realPosition": "Forward",
@@ -18461,7 +18461,7 @@
         {
           "id": "396950",
           "name": "MAHMOUD ALMARDI",
-          "shortName": "Mahmoud Mardi",
+          "shortName": "ALMARDI",
           "jerseyNumber": 13,
           "position": "Forward",
           "realPosition": "Forward",
@@ -18645,7 +18645,7 @@
         {
           "id": "433534",
           "name": "NIZAR ALRASHDAN",
-          "shortName": "NIZAR ALRASHDAN",
+          "shortName": "NIZAR",
           "jerseyNumber": 21,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -18737,7 +18737,7 @@
         {
           "id": "45191",
           "name": "MOHAMMAD ALDAOUD",
-          "shortName": "MOHAMMAD ALDAOUD",
+          "shortName": "ALDAOUD",
           "jerseyNumber": 25,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -18887,7 +18887,7 @@
         {
           "id": "274281",
           "name": "KIM Seunggyu",
-          "shortName": "S G KIM",
+          "shortName": "SEUNGGYU",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -18956,7 +18956,7 @@
         {
           "id": "395088",
           "name": "KIM Minjae",
-          "shortName": "KIM",
+          "shortName": "MINJAE",
           "jerseyNumber": 4,
           "position": "Defender",
           "realPosition": "Defender",
@@ -19025,7 +19025,7 @@
         {
           "id": "307849",
           "name": "SON Heungmin",
-          "shortName": "H M SON",
+          "shortName": "HEUNGMIN",
           "jerseyNumber": 7,
           "position": "Forward",
           "realPosition": "Forward",
@@ -19094,7 +19094,7 @@
         {
           "id": "390525",
           "name": "LEE Jaesung",
-          "shortName": "J S LEE",
+          "shortName": "JAESUNG",
           "jerseyNumber": 10,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -19117,7 +19117,7 @@
         {
           "id": "395083",
           "name": "HWANG Heechan",
-          "shortName": "H C HWANG",
+          "shortName": "HEECHAN",
           "jerseyNumber": 11,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -19209,7 +19209,7 @@
         {
           "id": "448580",
           "name": "KIM Moonhwan ",
-          "shortName": "M H KIM",
+          "shortName": "MOONHWAN",
           "jerseyNumber": 15,
           "position": "Defender",
           "realPosition": "Defender",
@@ -19278,7 +19278,7 @@
         {
           "id": "448586",
           "name": "OH Hyeongyu",
-          "shortName": "H G OH",
+          "shortName": "HYEONGYU",
           "jerseyNumber": 18,
           "position": "Forward",
           "realPosition": "Forward",
@@ -19301,7 +19301,7 @@
         {
           "id": "418490",
           "name": "LEE Kangin",
-          "shortName": "LEE KANG IN",
+          "shortName": "KANGIN",
           "jerseyNumber": 19,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -19324,7 +19324,7 @@
         {
           "id": "448585",
           "name": "YANG Hyunjun ",
-          "shortName": "H J YANG",
+          "shortName": "HYUNJUN",
           "jerseyNumber": 20,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -19416,7 +19416,7 @@
         {
           "id": "430385",
           "name": "KIM Jingyu",
-          "shortName": "KIM Jingyu",
+          "shortName": "JINGYU",
           "jerseyNumber": 24,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -19462,7 +19462,7 @@
         {
           "id": "429600",
           "name": "LEE Donggyeong",
-          "shortName": "LEE Donggyeong",
+          "shortName": "DONGGYEONG",
           "jerseyNumber": 26,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -19618,7 +19618,7 @@
         {
           "id": "372266",
           "name": "Sofyan AMRABAT",
-          "shortName": "S. AMRABAT",
+          "shortName": "AMRABAT",
           "jerseyNumber": 4,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -19641,7 +19641,7 @@
         {
           "id": "395760",
           "name": "Marwane SAADANE",
-          "shortName": "Marwane SAADANE",
+          "shortName": "SAADANE",
           "jerseyNumber": 5,
           "position": "Defender",
           "realPosition": "Defender",
@@ -19733,7 +19733,7 @@
         {
           "id": "433426",
           "name": "Soufiane RAHIMI",
-          "shortName": "S. RAHIMI",
+          "shortName": "RAHIMI",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -19802,7 +19802,7 @@
         {
           "id": "395755",
           "name": "Munir EL KAJOUI",
-          "shortName": "Munir EL KAJOUI",
+          "shortName": "EL KAJOUI",
           "jerseyNumber": 12,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -19848,7 +19848,7 @@
         {
           "id": "403083",
           "name": "Issa Diop",
-          "shortName": "DIOP",
+          "shortName": "ISSA",
           "jerseyNumber": 14,
           "position": "Defender",
           "realPosition": "Defender",
@@ -20009,7 +20009,7 @@
         {
           "id": "523288",
           "name": "Ayoube AMAIMOUNI",
-          "shortName": "Ayoube AMAIMOUNI",
+          "shortName": "AMAIMOUNI",
           "jerseyNumber": 21,
           "position": "Forward",
           "realPosition": "Forward",
@@ -20032,7 +20032,7 @@
         {
           "id": "371553",
           "name": "Ahmed Reda TAGNAOUTI",
-          "shortName": "Ahmed Reda TAGNAOUTI",
+          "shortName": "TAGNAOUTI",
           "jerseyNumber": 22,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -20336,7 +20336,7 @@
         {
           "id": "489517",
           "name": "Jan Paul VAN HECKE",
-          "shortName": "Jan Paul VAN HECKE",
+          "shortName": "VAN HECKE",
           "jerseyNumber": 6,
           "position": "Defender",
           "realPosition": "Defender",
@@ -20893,7 +20893,7 @@
         {
           "id": "368535",
           "name": "Max CROCOMBE",
-          "shortName": "Max CROCOMBE",
+          "shortName": "CROCOMBE",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -21054,7 +21054,7 @@
         {
           "id": "423595",
           "name": "Marko STAMENIC",
-          "shortName": "Marko STAMENIC",
+          "shortName": "STAMENIC",
           "jerseyNumber": 8,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -21146,7 +21146,7 @@
         {
           "id": "423574",
           "name": "Alex PAULSEN",
-          "shortName": "Alex PAULSEN",
+          "shortName": "PAULSEN",
           "jerseyNumber": 12,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -21215,7 +21215,7 @@
         {
           "id": "419572",
           "name": "Nando PIJNAKER",
-          "shortName": "Nando PIJNAKER",
+          "shortName": "PIJNAKER",
           "jerseyNumber": 15,
           "position": "Defender",
           "realPosition": "Defender",
@@ -21284,7 +21284,7 @@
         {
           "id": "419577",
           "name": "Ben WAINE",
-          "shortName": "Ben WAINE",
+          "shortName": "WAINE",
           "jerseyNumber": 18,
           "position": "Forward",
           "realPosition": "Forward",
@@ -21307,7 +21307,7 @@
         {
           "id": "423575",
           "name": "Ben OLD",
-          "shortName": "Ben OLD",
+          "shortName": "OLD",
           "jerseyNumber": 19,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -21399,7 +21399,7 @@
         {
           "id": "336641",
           "name": "Ryan THOMAS",
-          "shortName": "Thomas",
+          "shortName": "THOMAS",
           "jerseyNumber": 23,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -21422,7 +21422,7 @@
         {
           "id": "419567",
           "name": "Callan ELLIOT",
-          "shortName": "Callan ELLIOT",
+          "shortName": "ELLIOT",
           "jerseyNumber": 24,
           "position": "Defender",
           "realPosition": "Defender",
@@ -21555,7 +21555,7 @@
         {
           "id": "373235",
           "name": "Orjan NYLAND",
-          "shortName": "Nyland",
+          "shortName": "NYLAND",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -21739,7 +21739,7 @@
         {
           "id": "419652",
           "name": "Erling HAALAND",
-          "shortName": "HAALAND",
+          "shortName": "BRAUT HAALAND",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -21762,7 +21762,7 @@
         {
           "id": "400716",
           "name": "Martin ODEGAARD",
-          "shortName": "ODEGAARD",
+          "shortName": "ØDEGAARD",
           "jerseyNumber": 10,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -21785,7 +21785,7 @@
         {
           "id": "419662",
           "name": "Jorgen STRAND LARSEN",
-          "shortName": "Jorgen STRAND LARSEN",
+          "shortName": "STRAND LARSEN",
           "jerseyNumber": 11,
           "position": "Forward",
           "realPosition": "Forward",
@@ -22061,7 +22061,7 @@
         {
           "id": "419654",
           "name": "Jens Petter HAUGE",
-          "shortName": "Jens Petter HAUGE",
+          "shortName": "HAUGE",
           "jerseyNumber": 23,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -22217,7 +22217,7 @@
         {
           "id": "267702",
           "name": "Luis MEJIA",
-          "shortName": "Mejia",
+          "shortName": "MEJIA",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -22286,7 +22286,7 @@
         {
           "id": "385030",
           "name": "Fidel ESCOBAR",
-          "shortName": "ESCOBAR",
+          "shortName": "F. ESCOBAR",
           "jerseyNumber": 4,
           "position": "Defender",
           "realPosition": "Defender",
@@ -22332,7 +22332,7 @@
         {
           "id": "395581",
           "name": "Cristian MARTINEZ",
-          "shortName": "Cristian Martínez",
+          "shortName": "MARTÍNEZ",
           "jerseyNumber": 6,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -22355,7 +22355,7 @@
         {
           "id": "411176",
           "name": "Jose Luis RODRIGUEZ",
-          "shortName": "J. RODRIGUEZ",
+          "shortName": "J.L. RODRÍGUEZ",
           "jerseyNumber": 7,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -22424,7 +22424,7 @@
         {
           "id": "372342",
           "name": "Ismael DIAZ",
-          "shortName": "DIAZ",
+          "shortName": "ISMAEL",
           "jerseyNumber": 10,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -22447,7 +22447,7 @@
         {
           "id": "400416",
           "name": "Edgar Yoel BARCENAS",
-          "shortName": "Edgar Yoel BARCENAS",
+          "shortName": "BÁRCENAS",
           "jerseyNumber": 11,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -22723,7 +22723,7 @@
         {
           "id": "385031",
           "name": "Amir MURILLO",
-          "shortName": "Amir MURILLO",
+          "shortName": "A. MURILLO",
           "jerseyNumber": 23,
           "position": "Defender",
           "realPosition": "Defender",
@@ -22823,7 +22823,7 @@
       "flagUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/PAR",
       "confederationId": "CONMEBOL",
       "group": "D",
-      "stage": "#4 - Group D",
+      "stage": "#3 - Group D",
       "worldRanking": 40,
       "appearances": 8,
       "hostTeam": false,
@@ -22889,7 +22889,7 @@
         {
           "id": "318647",
           "name": "Gatito FERNANDEZ",
-          "shortName": "Gatito FERNANDEZ",
+          "shortName": "FERNÁNDEZ",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -22981,7 +22981,7 @@
         {
           "id": "394829",
           "name": "Fabian BALBUENA",
-          "shortName": "Fabían Balbuena",
+          "shortName": "BALBUENA",
           "jerseyNumber": 5,
           "position": "Defender",
           "realPosition": "Defender",
@@ -23073,7 +23073,7 @@
         {
           "id": "369768",
           "name": "Antonio SANABRIA",
-          "shortName": "Sanabria",
+          "shortName": "SANABRIA",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -23188,7 +23188,7 @@
         {
           "id": "385306",
           "name": "Andres CUBAS",
-          "shortName": "Andres CUBAS",
+          "shortName": "CUBAS",
           "jerseyNumber": 14,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -23211,7 +23211,7 @@
         {
           "id": "369744",
           "name": "Gustavo GOMEZ",
-          "shortName": "G. GOMEZ",
+          "shortName": "G. GÓMEZ",
           "jerseyNumber": 15,
           "position": "Defender",
           "realPosition": "Defender",
@@ -23257,7 +23257,7 @@
         {
           "id": "386458",
           "name": "Alejandro ROMERO GAMARRA",
-          "shortName": "Alejandro ROMERO GAMARRA",
+          "shortName": "R. GAMARRA",
           "jerseyNumber": 17,
           "position": "Forward",
           "realPosition": "Forward",
@@ -23326,7 +23326,7 @@
         {
           "id": "406205",
           "name": "Braian OJEDA",
-          "shortName": "B.OJEDA",
+          "shortName": "OJEDA",
           "jerseyNumber": 20,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -23372,7 +23372,7 @@
         {
           "id": "447991",
           "name": "Gaston OLVEIRA",
-          "shortName": "G. OLVEIRA",
+          "shortName": "OLVEIRA",
           "jerseyNumber": 22,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -23571,7 +23571,7 @@
         {
           "id": "403001",
           "name": "DIOGO COSTA",
-          "shortName": "D. COSTA",
+          "shortName": "DIOGO COSTA",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -23594,7 +23594,7 @@
         {
           "id": "395212",
           "name": "NELSON SEMEDO",
-          "shortName": "Semedo",
+          "shortName": "N. SEMEDO",
           "jerseyNumber": 2,
           "position": "Defender",
           "realPosition": "Defender",
@@ -23617,7 +23617,7 @@
         {
           "id": "384752",
           "name": "RUBEN DIAS",
-          "shortName": "RÚBEN",
+          "shortName": "RÚBEN DIAS",
           "jerseyNumber": 3,
           "position": "Defender",
           "realPosition": "Defender",
@@ -23870,7 +23870,7 @@
         {
           "id": "441146",
           "name": "GONCALO INACIO",
-          "shortName": "GONCALO INACIO",
+          "shortName": "G. INÁCIO",
           "jerseyNumber": 14,
           "position": "Defender",
           "realPosition": "Defender",
@@ -23916,7 +23916,7 @@
         {
           "id": "418561",
           "name": "FRANCISCO TRINCAO",
-          "shortName": "FRANCISCO TRINCAO",
+          "shortName": "TRINCÃO",
           "jerseyNumber": 16,
           "position": "Forward",
           "realPosition": "Forward",
@@ -24031,7 +24031,7 @@
         {
           "id": "395216",
           "name": "RUBEN NEVES",
-          "shortName": "NEVES",
+          "shortName": "R. NEVES",
           "jerseyNumber": 21,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -24243,7 +24243,7 @@
         {
           "id": "419459",
           "name": "MAHMOUD ABUNADA",
-          "shortName": "MAHMOUD ABUNADA",
+          "shortName": "ABUNADA",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -24289,7 +24289,7 @@
         {
           "id": "356673",
           "name": "LUCAS MENDES",
-          "shortName": "LUCAS MENDES",
+          "shortName": "L.MENDES",
           "jerseyNumber": 3,
           "position": "Defender",
           "realPosition": "Defender",
@@ -24381,7 +24381,7 @@
         {
           "id": "353251",
           "name": "AHMED ALAAELDIN",
-          "shortName": "Alaaeldin",
+          "shortName": "ALAAELDIN",
           "jerseyNumber": 7,
           "position": "Forward",
           "realPosition": "Forward",
@@ -24634,7 +24634,7 @@
         {
           "id": "386387",
           "name": "SULTAN ALBRAKE",
-          "shortName": "SULTAN ALBRAKE",
+          "shortName": "SULTAN",
           "jerseyNumber": 18,
           "position": "Defender",
           "realPosition": "Defender",
@@ -24749,7 +24749,7 @@
         {
           "id": "386348",
           "name": "ASSIM MADIBO",
-          "shortName": "A. MADIBO",
+          "shortName": "MADIBO",
           "jerseyNumber": 23,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -24772,7 +24772,7 @@
         {
           "id": "486639",
           "name": "TAHSIN MOHAMMED",
-          "shortName": "TAHSIN MOHAMMED",
+          "shortName": "TAHSIN",
           "jerseyNumber": 24,
           "position": "Forward",
           "realPosition": "Forward",
@@ -25020,7 +25020,7 @@
         {
           "id": "403319",
           "name": "NASSER ALDAWSARI",
-          "shortName": "NASSER D.",
+          "shortName": "NASSER",
           "jerseyNumber": 6,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -25066,7 +25066,7 @@
         {
           "id": "430512",
           "name": "AIMAN YAHYA",
-          "shortName": "AIMAN YAHYA",
+          "shortName": "AIMAN",
           "jerseyNumber": 8,
           "position": "Forward",
           "realPosition": "Forward",
@@ -25204,7 +25204,7 @@
         {
           "id": "401924",
           "name": "HASSAN KADISH",
-          "shortName": "HASSAN KADESH",
+          "shortName": "KADISH",
           "jerseyNumber": 14,
           "position": "Defender",
           "realPosition": "Defender",
@@ -25319,7 +25319,7 @@
         {
           "id": "419302",
           "name": "ABDULLAH ALHAMDDAN",
-          "shortName": "A. HAMDDAN",
+          "shortName": "ALHAMDDAN",
           "jerseyNumber": 19,
           "position": "Forward",
           "realPosition": "Forward",
@@ -25388,7 +25388,7 @@
         {
           "id": "339746",
           "name": "AHMED ALKASSAR",
-          "shortName": "Ahmed Al-Kassar",
+          "shortName": "ALKASSAR",
           "jerseyNumber": 22,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -25511,7 +25511,7 @@
       "flagUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/SCO",
       "confederationId": "UEFA",
       "group": "C",
-      "stage": "#1 - Group C",
+      "stage": "#3 - Group C",
       "worldRanking": 42,
       "appearances": 7,
       "hostTeam": false,
@@ -25623,7 +25623,7 @@
         {
           "id": "401339",
           "name": "Andy ROBERTSON",
-          "shortName": "Andy ROBERTSON",
+          "shortName": "ROBERTSON",
           "jerseyNumber": 3,
           "position": "Defender",
           "realPosition": "Defender",
@@ -25692,7 +25692,7 @@
         {
           "id": "401712",
           "name": "Kieran Tierney",
-          "shortName": "Tierney",
+          "shortName": "TIERNEY",
           "jerseyNumber": 6,
           "position": "Defender",
           "realPosition": "Defender",
@@ -26354,7 +26354,7 @@
         {
           "id": "448825",
           "name": "Pathe CISS",
-          "shortName": "PATHE",
+          "shortName": "P.I. CISS",
           "jerseyNumber": 6,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -26423,7 +26423,7 @@
         {
           "id": "418781",
           "name": "Bamba DIENG",
-          "shortName": "Bamba DIENG",
+          "shortName": "BAMBA",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -26446,7 +26446,7 @@
         {
           "id": "353790",
           "name": "Sadio MANE",
-          "shortName": "MANE",
+          "shortName": "MANÉ",
           "jerseyNumber": 10,
           "position": "Forward",
           "realPosition": "Forward",
@@ -26469,7 +26469,7 @@
         {
           "id": "418795",
           "name": "Nicolas JACKSON",
-          "shortName": "N.JACKSON",
+          "shortName": "N. JACKSON",
           "jerseyNumber": 11,
           "position": "Forward",
           "realPosition": "Forward",
@@ -26515,7 +26515,7 @@
         {
           "id": "448815",
           "name": "Iliman NDIAYE",
-          "shortName": "ILIMAN",
+          "shortName": "NDIAYE",
           "jerseyNumber": 13,
           "position": "Forward",
           "realPosition": "Forward",
@@ -26538,7 +26538,7 @@
         {
           "id": "430671",
           "name": "Ismail JAKOBS",
-          "shortName": "Ismail JAKOBS",
+          "shortName": "JAKOBS",
           "jerseyNumber": 14,
           "position": "Defender",
           "realPosition": "Defender",
@@ -26561,7 +26561,7 @@
         {
           "id": "403642",
           "name": "Krepin DIATTA",
-          "shortName": "KREPIN",
+          "shortName": "DIATTA",
           "jerseyNumber": 15,
           "position": "Defender",
           "realPosition": "Defender",
@@ -26607,7 +26607,7 @@
         {
           "id": "418798",
           "name": "Pape Matar SARR",
-          "shortName": "Pape Matar SARR",
+          "shortName": "P.M. SARR",
           "jerseyNumber": 17,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -26676,7 +26676,7 @@
         {
           "id": "496358",
           "name": "Ibrahim MBAYE",
-          "shortName": "MBAYE",
+          "shortName": "I. MBAYE",
           "jerseyNumber": 20,
           "position": "Forward",
           "realPosition": "Forward",
@@ -26745,7 +26745,7 @@
         {
           "id": "448821",
           "name": "Mory DIAW",
-          "shortName": "MORY",
+          "shortName": "DIAW",
           "jerseyNumber": 23,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -27259,7 +27259,7 @@
         {
           "id": "430917",
           "name": "Evidence MAKGOPA",
-          "shortName": "Evidence MAKGOPA",
+          "shortName": "MAKGPA",
           "jerseyNumber": 17,
           "position": "Forward",
           "realPosition": "Forward",
@@ -27282,7 +27282,7 @@
         {
           "id": "504200",
           "name": "Samukele KABINI",
-          "shortName": "Samukele KABINI",
+          "shortName": "KABINI",
           "jerseyNumber": 18,
           "position": "Defender",
           "realPosition": "Defender",
@@ -27374,7 +27374,7 @@
         {
           "id": "395059",
           "name": "Ricardo GOSS",
-          "shortName": "Ricardo GOSS",
+          "shortName": "GOSS",
           "jerseyNumber": 22,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -27599,7 +27599,7 @@
         {
           "id": "391297",
           "name": "Alex GRIMALDO",
-          "shortName": "Alex GRIMALDO",
+          "shortName": "GRIMALDO",
           "jerseyNumber": 3,
           "position": "Defender",
           "realPosition": "Defender",
@@ -27668,7 +27668,7 @@
         {
           "id": "430733",
           "name": "Mikel MERINO",
-          "shortName": "Mikel MERINO",
+          "shortName": "MERINO",
           "jerseyNumber": 6,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -27714,7 +27714,7 @@
         {
           "id": "430718",
           "name": "Fabian RUIZ",
-          "shortName": "FABIAN",
+          "shortName": "FABIÁN",
           "jerseyNumber": 8,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -27760,7 +27760,7 @@
         {
           "id": "430750",
           "name": "Dani OLMO",
-          "shortName": "Dani OLMO",
+          "shortName": "OLMO",
           "jerseyNumber": 10,
           "position": "Forward",
           "realPosition": "Forward",
@@ -27875,7 +27875,7 @@
         {
           "id": "447860",
           "name": "Alex BAENA",
-          "shortName": "ÁLEX B.",
+          "shortName": "ALEX B.",
           "jerseyNumber": 15,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -27944,7 +27944,7 @@
         {
           "id": "430754",
           "name": "Martin ZUBIMENDI",
-          "shortName": "Martin ZUBIMENDI",
+          "shortName": "ZUBIMENDI",
           "jerseyNumber": 18,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -28013,7 +28013,7 @@
         {
           "id": "430751",
           "name": "Mikel OYARZABAL",
-          "shortName": "Mikel OYARZABAL",
+          "shortName": "OYARZABAL",
           "jerseyNumber": 21,
           "position": "Forward",
           "realPosition": "Forward",
@@ -28059,7 +28059,7 @@
         {
           "id": "430753",
           "name": "Unai SIMON",
-          "shortName": "Unai SIMON",
+          "shortName": "UNAI SIMÓN",
           "jerseyNumber": 23,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -28105,7 +28105,7 @@
         {
           "id": "492859",
           "name": "Victor MUNOZ",
-          "shortName": "VÍCTOR MUÑOZ",
+          "shortName": "VICTOR M.V.",
           "jerseyNumber": 25,
           "position": "Forward",
           "realPosition": "Forward",
@@ -28570,7 +28570,7 @@
         {
           "id": "441135",
           "name": "Jesper KARLSTROM",
-          "shortName": "Jesper KARLSTROM",
+          "shortName": "KARLSTRÖM",
           "jerseyNumber": 16,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -29199,7 +29199,7 @@
         {
           "id": "411226",
           "name": "Djibril SOW",
-          "shortName": "Djibril SOW",
+          "shortName": "SOW",
           "jerseyNumber": 15,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -29268,7 +29268,7 @@
         {
           "id": "448136",
           "name": "Eray COEMERT",
-          "shortName": "Eray COEMERT",
+          "shortName": "CÖMERT",
           "jerseyNumber": 18,
           "position": "Defender",
           "realPosition": "Defender",
@@ -29782,7 +29782,7 @@
         {
           "id": "441362",
           "name": "Mortadha BEN OUANES",
-          "shortName": "Mortadha BEN OUANES",
+          "shortName": "BEN OUANES",
           "jerseyNumber": 12,
           "position": "Defender",
           "realPosition": "Defender",
@@ -30135,7 +30135,7 @@
       "flagUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/TUR",
       "confederationId": "UEFA",
       "group": "D",
-      "stage": "#3 - Group D",
+      "stage": "#4 - Group D",
       "worldRanking": 22,
       "appearances": 2,
       "hostTeam": false,
@@ -30201,7 +30201,7 @@
         {
           "id": "360498",
           "name": "Mert GUNOK",
-          "shortName": "Mert GUNOK",
+          "shortName": "MERT",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -30270,7 +30270,7 @@
         {
           "id": "401167",
           "name": "Caglar SOYUNCU",
-          "shortName": "Söyüncü",
+          "shortName": "ÇAĞLAR",
           "jerseyNumber": 4,
           "position": "Defender",
           "realPosition": "Defender",
@@ -30316,7 +30316,7 @@
         {
           "id": "433118",
           "name": "Orkun KOKCU",
-          "shortName": "KÖKCÜ",
+          "shortName": "ORKUN KÖKÇÜ",
           "jerseyNumber": 6,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -30385,7 +30385,7 @@
         {
           "id": "495347",
           "name": "Deniz GUL",
-          "shortName": "GUL",
+          "shortName": "DENİZ GÜL",
           "jerseyNumber": 9,
           "position": "Forward",
           "realPosition": "Forward",
@@ -30408,7 +30408,7 @@
         {
           "id": "369304",
           "name": "Hakan CALHANOGLU",
-          "shortName": "CALHANOGLU",
+          "shortName": "ÇALHANOĞLU",
           "jerseyNumber": 10,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -30523,7 +30523,7 @@
         {
           "id": "406249",
           "name": "Ozan KABAK",
-          "shortName": "OZAN",
+          "shortName": "OZAN KABAK",
           "jerseyNumber": 15,
           "position": "Defender",
           "realPosition": "Defender",
@@ -30684,7 +30684,7 @@
         {
           "id": "336170",
           "name": "Kaan Ayhan",
-          "shortName": "Ayhan",
+          "shortName": "KAAN",
           "jerseyNumber": 22,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -30883,7 +30883,7 @@
         {
           "id": "368664",
           "name": "Sergio ROCHET",
-          "shortName": "ROCHET",
+          "shortName": "S. ROCHET",
           "jerseyNumber": 1,
           "position": "Goalkeeper",
           "realPosition": "Goalkeeper",
@@ -31021,7 +31021,7 @@
         {
           "id": "402898",
           "name": "Nicolas DE LA CRUZ",
-          "shortName": "DE LA CRUZ",
+          "shortName": "N. DE LA CRUZ",
           "jerseyNumber": 7,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -31044,7 +31044,7 @@
         {
           "id": "402884",
           "name": "Federico VALVERDE",
-          "shortName": "VALVERDE",
+          "shortName": "F. VALVERDE",
           "jerseyNumber": 8,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -31090,7 +31090,7 @@
         {
           "id": "368652",
           "name": "Giorgian DE ARRASCAETA",
-          "shortName": "DE ARRASCAETA",
+          "shortName": "G. DE ARRASCAETA",
           "jerseyNumber": 10,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -31182,7 +31182,7 @@
         {
           "id": "402876",
           "name": "Agustin CANOBBIO",
-          "shortName": "A. CANNOBIO",
+          "shortName": "A. CANOBBIO",
           "jerseyNumber": 14,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -31251,7 +31251,7 @@
         {
           "id": "402895",
           "name": "Matias VINA",
-          "shortName": "VIÑA",
+          "shortName": "M. VIÑA",
           "jerseyNumber": 17,
           "position": "Defender",
           "realPosition": "Defender",
@@ -31297,7 +31297,7 @@
         {
           "id": "332897",
           "name": "Rodrigo AGUIRRE",
-          "shortName": "AGUIRRE",
+          "shortName": "R. AGUIRRE",
           "jerseyNumber": 19,
           "position": "Forward",
           "realPosition": "Forward",
@@ -31320,7 +31320,7 @@
         {
           "id": "419100",
           "name": "Maxi ARAUJO",
-          "shortName": "Maxi ARAUJO",
+          "shortName": "M. ARAUJO",
           "jerseyNumber": 20,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -31366,7 +31366,7 @@
         {
           "id": "439538",
           "name": "Joaquin PIQUEREZ",
-          "shortName": "PIQUEREZ",
+          "shortName": "J. PIQUEREZ",
           "jerseyNumber": 22,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -31435,7 +31435,7 @@
         {
           "id": "419134",
           "name": "Juan Manuel SANABRIA",
-          "shortName": "Juan Manuel SANABRIA",
+          "shortName": "J.M. SANABRIA",
           "jerseyNumber": 25,
           "position": "Midfielder",
           "realPosition": "Midfielder",
@@ -31634,7 +31634,7 @@
         {
           "id": "385139",
           "name": "Farrukh SAYFIEV",
-          "shortName": "Sayfiev",
+          "shortName": "SAYFIEV",
           "jerseyNumber": 4,
           "position": "Defender",
           "realPosition": "Defender",
@@ -31657,7 +31657,7 @@
         {
           "id": "371415",
           "name": "Rustam ASHURMATOV",
-          "shortName": "Rustam ASHURMATOV",
+          "shortName": "ASHURMATOV",
           "jerseyNumber": 5,
           "position": "Defender",
           "realPosition": "Defender",
@@ -31749,7 +31749,7 @@
         {
           "id": "371345",
           "name": "Odiljon XAMROBEKOV",
-          "shortName": "Odiljon XAMROBEKOV",
+          "shortName": "XAMROBEKOV",
           "jerseyNumber": 9,
           "position": "Midfielder",
           "realPosition": "Midfielder",
