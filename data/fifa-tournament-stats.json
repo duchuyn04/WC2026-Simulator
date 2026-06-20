@@ -4,7 +4,7 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-20T20:40:34.705Z",
+  "fetchedAt": "2026-06-20T22:21:43.970Z",
   "completedMatches": 33,
   "skippedMatches": 0,
   "leaderboards": {
@@ -194,6 +194,19 @@
         "value": 2
       },
       {
+        "playerId": "436612",
+        "name": "Denzel DUMFRIES",
+        "shortName": "Denzel DUMFRIES",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/f2a2746b-7691-40c4-a052-60db3219a856/DUMFRIES-Denzel_436612",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "386413",
         "name": "Joshua KIMMICH",
         "shortName": "Joshua KIMMICH",
@@ -255,19 +268,6 @@
           "name": "USA",
           "code": "USA",
           "flagUrl": "/flags/USA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "523097",
-        "name": "Alexandr SOJKA",
-        "shortName": "Alexandr SOJKA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/f8e5df75-7de8-4950-bb53-b1d950621d33/SOJKA-Alexandr_523097",
-        "team": {
-          "id": "43995",
-          "name": "Czechia",
-          "code": "CZE",
-          "flagUrl": "/flags/CZE.png"
         },
         "value": 1
       }
