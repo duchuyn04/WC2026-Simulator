@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-20T09:36:48.541Z",
-  "completedMatches": 32,
+  "fetchedAt": "2026-06-20T20:40:34.705Z",
+  "completedMatches": 33,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -34,6 +34,45 @@
           "flagUrl": "/flags/ARG.png"
         },
         "value": 3
+      },
+      {
+        "playerId": "424051",
+        "name": "Brian BROBBEY",
+        "shortName": "Brian BROBBEY",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/15246275-ff97-404c-bac3-ce793d98c744/BROBBEY-Brian_424051",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "448152",
+        "name": "Cody GAKPO",
+        "shortName": "Cody GAKPO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bbb5637f-0587-4ddd-8a82-604c0d921bb3/GAKPO-Cody_448152",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "489518",
+        "name": "Crysencio SUMMERVILLE",
+        "shortName": "Crysencio SUMMERVILLE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/86e9f724-fc5f-4969-92e3-ac658dafacdd/SUMMERVILLE-Crysencio_489518",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 2
       },
       {
         "playerId": "390670",
@@ -99,45 +138,6 @@
           "flagUrl": "/flags/ENG.png"
         },
         "value": 2
-      },
-      {
-        "playerId": "448598",
-        "name": "Ismael SAIBARI",
-        "shortName": "Ismael SAIBARI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/250526c6-26b5-4425-8a21-231c7952e34d/SAIBARI-Ismael_448598",
-        "team": {
-          "id": "43872",
-          "name": "Morocco",
-          "code": "MAR",
-          "flagUrl": "/flags/MAR.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "502727",
-        "name": "Johan MANZAMBI",
-        "shortName": "Johan MANZAMBI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/a0cb9413-32ea-4b8f-9801-55474cb12b77/MANZAMBI-Johan_502727",
-        "team": {
-          "id": "43971",
-          "name": "Switzerland",
-          "code": "SUI",
-          "flagUrl": "/flags/SUI.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "411367",
-        "name": "Kai HAVERTZ",
-        "shortName": "Kai HAVERTZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/1fdd4d11-97d1-4392-b345-5a5eecc54839/HAVERTZ-Kai_411367",
-        "team": {
-          "id": "43948",
-          "name": "Germany",
-          "code": "GER",
-          "flagUrl": "/flags/GER.png"
-        },
-        "value": 2
       }
     ],
     "assists": [
@@ -152,7 +152,7 @@
           "code": "SWE",
           "flagUrl": "/flags/SWE.png"
         },
-        "value": 2
+        "value": 3
       },
       {
         "playerId": "430740",
