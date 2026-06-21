@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-21T06:17:37.845Z",
-  "completedMatches": 35,
+  "fetchedAt": "2026-06-21T10:44:31.252Z",
+  "completedMatches": 36,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -47,6 +47,19 @@
           "flagUrl": "/flags/ARG.png"
         },
         "value": 3
+      },
+      {
+        "playerId": "430413",
+        "name": "Ayase UEDA",
+        "shortName": "Ayase UEDA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/1b05e82f-94e8-470d-9c12-f9bdf1a0e080/UEDA-Ayase_430413",
+        "team": {
+          "id": "43819",
+          "name": "Japan",
+          "code": "JPN",
+          "flagUrl": "/flags/JPN.png"
+        },
+        "value": 2
       },
       {
         "playerId": "424051",
@@ -101,6 +114,19 @@
         "value": 2
       },
       {
+        "playerId": "448557",
+        "name": "Daichi KAMADA",
+        "shortName": "Daichi KAMADA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/40432f8c-1b4a-444e-b3a4-709164e708d6/KAMADA-Daichi_448557",
+        "team": {
+          "id": "43819",
+          "name": "Japan",
+          "code": "JPN",
+          "flagUrl": "/flags/JPN.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "405454",
         "name": "Elijah JUST",
         "shortName": "Elijah JUST",
@@ -110,32 +136,6 @@
           "name": "New Zealand",
           "code": "NZL",
           "flagUrl": "/flags/NZL.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "419652",
-        "name": "Erling HAALAND",
-        "shortName": "Erling HAALAND",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/ee269811-9f84-401f-99b8-e953a2704ebb/HAALAND-Erling_419652",
-        "team": {
-          "id": "43961",
-          "name": "Norway",
-          "code": "NOR",
-          "flagUrl": "/flags/NOR.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "466624",
-        "name": "Folarin BALOGUN",
-        "shortName": "Folarin BALOGUN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/bd47db79-966e-4eba-a8da-f6ba01148f27/BALOGUN-Folarin_466624",
-        "team": {
-          "id": "43921",
-          "name": "USA",
-          "code": "USA",
-          "flagUrl": "/flags/USA.png"
         },
         "value": 2
       }
