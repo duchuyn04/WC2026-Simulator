@@ -2,20 +2,22 @@
 
 import { FlagIcon } from "./FlagIcon";
 import type { EspnScoreboardMatch } from "@/lib/espn-match";
+import type { ScheduleEntry } from "@/lib/schedule";
 
 type LiveMatchCardProps = {
+  entry: ScheduleEntry;
   espnMatch: EspnScoreboardMatch;
   homeName: string;
   awayName: string;
   homeCode: string;
   awayCode: string;
-  onOpenDetail?: (gameId: string, matchDate: string) => void;
+  onOpenDetail?: (entry: ScheduleEntry, gameId: string, matchDate: string) => void;
 };
 
-export function LiveMatchCard({ espnMatch, homeName, awayName, homeCode, awayCode, onOpenDetail }: LiveMatchCardProps) {
+export function LiveMatchCard({ entry, espnMatch, homeName, awayName, homeCode, awayCode, onOpenDetail }: LiveMatchCardProps) {
   const liveClock = `${espnMatch.displayClock || espnMatch.shortDetail}`;
 
-  const handleClick = onOpenDetail ? () => onOpenDetail(espnMatch.id, espnMatch.date) : undefined;
+  const handleClick = onOpenDetail ? () => onOpenDetail(entry, espnMatch.id, espnMatch.date) : undefined;
 
   return (
     <div

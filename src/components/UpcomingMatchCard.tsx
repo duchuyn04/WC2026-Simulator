@@ -7,7 +7,7 @@ import type { ScheduleEntry } from "@/lib/schedule";
 type UpcomingMatchCardProps = {
   entry: ScheduleEntry;
   gameId?: string;
-  onOpenDetail?: (gameId: string, matchDate: string) => void;
+  onOpenDetail?: (entry: ScheduleEntry, gameId: string, matchDate: string) => void;
 };
 
 function getTeamSlug(name: string) {
@@ -37,7 +37,7 @@ export function UpcomingMatchCard({ entry, gameId, onOpenDetail }: UpcomingMatch
   const stadiumStr = entry.stadium ? entry.stadium : entry.city ?? "";
 
   const handleClick = onOpenDetail && gameId && entry.date
-    ? () => onOpenDetail(gameId, entry.date!)
+    ? () => onOpenDetail(entry, gameId, entry.date!)
     : undefined;
 
   return (

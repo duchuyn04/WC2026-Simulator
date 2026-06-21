@@ -7,6 +7,7 @@ import teamsData from "../../data/fifa-teams-squads.json";
 import { ESPN_TEAM_MAP } from "../lib/espn-mapping";
 
 interface MatchStatsModalProps {
+  entry?: import("@/lib/schedule").ScheduleEntry;
   gameId: string | null;
   matchDate?: string | null;
   onClose: () => void;

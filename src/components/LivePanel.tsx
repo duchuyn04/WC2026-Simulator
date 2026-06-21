@@ -11,6 +11,9 @@ import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { LiveMatchCard } from "./LiveMatchCard";
 import { UpcomingMatchCard } from "./UpcomingMatchCard";
 import { MatchStatsModal } from "./MatchStatsModal";
+import { RecentMatchesPanel } from "./RecentMatchesPanel";
+import { getDoneEntries } from "@/lib/recent-matches";
+import type { ScheduleEntry } from "@/lib/schedule";
 import { formatDateLabel } from "@/lib/date-label";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce(
@@ -21,7 +24,7 @@ const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce(
   {} as Record<string, string>,
 );
 
-type FilterMode = "live" | "upcoming";
+type FilterMode = "live" | "upcoming" | "done";
 
 type LivePanelProps = {
   espnMatches: EspnScoreboardMatch[];
@@ -36,6 +39,7 @@ export function LivePanel({ espnMatches }: LivePanelProps) {
   const [selectedMatchDate, setSelectedMatchDate] = useState<string | null>(
     null,
   );
+  const [selectedEntry, setSelectedEntry] = useState<ScheduleEntry | null>(null);
 
   const { liveEntries, upcomingEntries } = useMemo(() => {
     const live: typeof allEntries = [];
@@ -64,8 +68,14 @@ export function LivePanel({ espnMatches }: LivePanelProps) {
     return { liveEntries: live, upcomingEntries: upcoming };
   }, [allEntries, espnMatches]);
 
+  const doneEntries = useMemo(
+    () => getDoneEntries(allEntries, espnMatches, ESPN_TO_LOCAL),
+    [allEntries, espnMatches],
+  );
+
   const showLive = filterMode === "all" || filterMode === "live";
   const showUpcoming = filterMode === "all" || filterMode === "upcoming";
+  const showDone = filterMode === "all" || filterMode === "done";
 
   const dateGroups = useMemo(() => {
     const groups: { label: string; entries: typeof upcomingEntries }[] = [];
@@ -90,7 +100,8 @@ export function LivePanel({ espnMatches }: LivePanelProps) {
 
   const hasContent =
     (showLive && liveEntries.length > 0) ||
-    (showUpcoming && upcomingEntries.length > 0);
+    (showUpcoming && upcomingEntries.length > 0) ||
+    (showDone && doneEntries.length > 0);
 
   if (!hasContent) {
     return (
@@ -127,6 +138,19 @@ export function LivePanel({ espnMatches }: LivePanelProps) {
           >
             ⏰ Sắp đá{" "}
             {upcomingEntries.length > 0 && `(${upcomingEntries.length})`}
+          </button>
+          <button
+            type="button"
+            onClick={() =>
+              setFilterMode(filterMode === "done" ? "all" : "done")
+            }
+            className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors sm:text-sm ${
+              showDone
+                ? "border-emerald-500/20 bg-emerald-950/30 text-emerald-400"
+                : "border-zinc-800 bg-zinc-900 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-300"
+            }`}
+          >
+            ✅ Đã đá {doneEntries.length > 0 && `(${doneEntries.length})`}
           </button>
         </div>
 
@@ -176,9 +200,36 @@ export function LivePanel({ espnMatches }: LivePanelProps) {
           ⏰ Sắp đá{" "}
           {upcomingEntries.length > 0 && `(${upcomingEntries.length})`}
         </button>
+        <button
+          type="button"
+          onClick={() =>
+            setFilterMode(filterMode === "done" ? "all" : "done")
+          }
+          className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors sm:text-sm ${
+            showDone
+              ? "border-emerald-500/20 bg-emerald-950/30 text-emerald-400"
+              : "border-zinc-800 bg-zinc-900 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-300"
+          }`}
+        >
+          ✅ Đã đá {doneEntries.length > 0 && `(${doneEntries.length})`}
+        </button>
       </div>
 
       <div className="space-y-4">
+        {/* Recent matches / done section */}
+        {showDone && (
+          <RecentMatchesPanel
+            espnMatches={espnMatches}
+            mode={filterMode === "done" ? "all-done" : "recent-5"}
+            showSyncAll
+            onOpenDetail={(entry, gameId, matchDate) => {
+              setSelectedEntry(entry);
+              setSelectedGameId(gameId);
+              setSelectedMatchDate(matchDate);
+            }}
+          />
+        )}
+
         {/* Live section */}
         {showLive && liveEntries.length > 0 && (
           <div>
@@ -199,12 +250,14 @@ export function LivePanel({ espnMatches }: LivePanelProps) {
                 return (
                   <LiveMatchCard
                     key={entry.id}
+                    entry={entry}
                     espnMatch={espnMatch}
                     homeName={entry.home?.name ?? entry.homePlaceholder}
                     awayName={entry.away?.name ?? entry.awayPlaceholder}
                     homeCode={entry.home?.code ?? ""}
                     awayCode={entry.away?.code ?? ""}
-                    onOpenDetail={(gameId, matchDate) => {
+                    onOpenDetail={(entry, gameId, matchDate) => {
+                      setSelectedEntry(entry);
                       setSelectedGameId(gameId);
                       setSelectedMatchDate(matchDate);
                     }}
@@ -239,7 +292,8 @@ export function LivePanel({ espnMatches }: LivePanelProps) {
                           key={entry.id}
                           entry={entry}
                           gameId={espnMatch?.id}
-                          onOpenDetail={(gameId, matchDate) => {
+                          onOpenDetail={(entry, gameId, matchDate) => {
+                            setSelectedEntry(entry);
                             setSelectedGameId(gameId);
                             setSelectedMatchDate(matchDate);
                           }}
@@ -256,9 +310,11 @@ export function LivePanel({ espnMatches }: LivePanelProps) {
       <MatchStatsModal
         gameId={selectedGameId}
         matchDate={selectedMatchDate}
+        entry={selectedEntry ?? undefined}
         onClose={() => {
           setSelectedGameId(null);
           setSelectedMatchDate(null);
+          setSelectedEntry(null);
         }}
       />
     </div>
