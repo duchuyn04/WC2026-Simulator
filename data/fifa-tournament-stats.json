@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-21T20:00:15.961Z",
-  "completedMatches": 37,
+  "fetchedAt": "2026-06-21T23:43:14.087Z",
+  "completedMatches": 38,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -546,6 +546,19 @@
           "name": "Paraguay",
           "code": "PAR",
           "flagUrl": "/flags/PAR.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "514166",
+        "name": "Nathan NGOY",
+        "shortName": "Nathan NGOY",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/77bea513-328c-4af6-a1b6-89efdfeb03ae/NGOY-Nathan_514166",
+        "team": {
+          "id": "43935",
+          "name": "Belgium",
+          "code": "BEL",
+          "flagUrl": "/flags/BEL.png"
         },
         "value": 1
       },
