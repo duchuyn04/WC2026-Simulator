@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-21T10:44:31.252Z",
-  "completedMatches": 36,
+  "fetchedAt": "2026-06-21T20:00:15.961Z",
+  "completedMatches": 37,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -626,6 +626,19 @@
           "name": "Paraguay",
           "code": "PAR",
           "flagUrl": "/flags/PAR.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "403335",
+        "name": "HASSAN ALTAMBAKTI",
+        "shortName": "HASSAN ALTAMBAKTI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/e64a0c6b-4cc6-4ffb-bc98-b4af95bed8bf/ALTAMBAKTI-Hassan_403335",
+        "team": {
+          "id": "43835",
+          "name": "Saudi Arabia",
+          "code": "KSA",
+          "flagUrl": "/flags/KSA.png"
         },
         "value": 1
       },
