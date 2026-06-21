@@ -11,6 +11,7 @@ import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { LiveMatchCard } from "./LiveMatchCard";
 import { UpcomingMatchCard } from "./UpcomingMatchCard";
 import { MatchStatsModal } from "./MatchStatsModal";
+import { formatDateLabel } from "@/lib/date-label";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce(
   (acc, [localId, espnId]) => {
@@ -19,33 +20,6 @@ const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce(
   },
   {} as Record<string, string>,
 );
-
-function formatDateLabel(date: Date): string {
-  const today = new Date();
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-
-  const dStr = new Intl.DateTimeFormat("vi-VN", {
-    day: "2-digit",
-    month: "2-digit",
-  }).format(date);
-  const todayStr = new Intl.DateTimeFormat("vi-VN", {
-    day: "2-digit",
-    month: "2-digit",
-  }).format(today);
-  const tomorrowStr = new Intl.DateTimeFormat("vi-VN", {
-    day: "2-digit",
-    month: "2-digit",
-  }).format(tomorrow);
-
-  if (dStr === todayStr) return `HÔM NAY · ${dStr}`;
-  if (dStr === tomorrowStr) return `NGÀY MAI · ${dStr}`;
-  return date.toLocaleDateString("vi-VN", {
-    weekday: "long",
-    day: "numeric",
-    month: "numeric",
-  });
-}
 
 type FilterMode = "live" | "upcoming";
 
