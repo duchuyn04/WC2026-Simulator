@@ -216,20 +216,6 @@ export function LivePanel({ espnMatches }: LivePanelProps) {
       </div>
 
       <div className="space-y-4">
-        {/* Recent matches / done section */}
-        {showDone && (
-          <RecentMatchesPanel
-            espnMatches={espnMatches}
-            mode={filterMode === "done" ? "all-done" : "recent-5"}
-            showSyncAll
-            onOpenDetail={(entry, gameId, matchDate) => {
-              setSelectedEntry(entry);
-              setSelectedGameId(gameId);
-              setSelectedMatchDate(matchDate);
-            }}
-          />
-        )}
-
         {/* Live section */}
         {showLive && liveEntries.length > 0 && (
           <div>
@@ -268,41 +254,55 @@ export function LivePanel({ espnMatches }: LivePanelProps) {
           </div>
         )}
 
+        {/* Recent matches / done section */}
+        {showDone && (
+          <RecentMatchesPanel
+            espnMatches={espnMatches}
+            mode={filterMode === "done" ? "all-done" : "recent-5"}
+            showSyncAll
+            onOpenDetail={(entry, gameId, matchDate) => {
+              setSelectedEntry(entry);
+              setSelectedGameId(gameId);
+              setSelectedMatchDate(matchDate);
+            }}
+          />
+        )}
+
         {/* Upcoming section */}
         {showUpcoming && upcomingEntries.length > 0 && (
           <div>
             {/* Group by date */}
             {dateGroups.map((group) => (
-                <div key={group.label} className="mb-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-semibold text-amber-400">
-                      {group.label}
-                    </span>
-                    <div className="h-px flex-1 bg-zinc-800/50" />
-                  </div>
-                  <div className="space-y-2">
-                    {group.entries.map((entry) => {
-                      const espnMatch = findEspnMatch(
-                        entry,
-                        espnMatches,
-                        ESPN_TO_LOCAL,
-                      );
-                      return (
-                        <UpcomingMatchCard
-                          key={entry.id}
-                          entry={entry}
-                          gameId={espnMatch?.id}
-                          onOpenDetail={(entry, gameId, matchDate) => {
-                            setSelectedEntry(entry);
-                            setSelectedGameId(gameId);
-                            setSelectedMatchDate(matchDate);
-                          }}
-                        />
-                      );
-                    })}
-                  </div>
+              <div key={group.label} className="mb-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-semibold text-amber-400">
+                    {group.label}
+                  </span>
+                  <div className="h-px flex-1 bg-zinc-800/50" />
                 </div>
-              ))}
+                <div className="space-y-2">
+                  {group.entries.map((entry) => {
+                    const espnMatch = findEspnMatch(
+                      entry,
+                      espnMatches,
+                      ESPN_TO_LOCAL,
+                    );
+                    return (
+                      <UpcomingMatchCard
+                        key={entry.id}
+                        entry={entry}
+                        gameId={espnMatch?.id}
+                        onOpenDetail={(entry, gameId, matchDate) => {
+                          setSelectedEntry(entry);
+                          setSelectedGameId(gameId);
+                          setSelectedMatchDate(matchDate);
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>
