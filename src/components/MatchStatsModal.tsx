@@ -5,6 +5,8 @@ import SoccerSkeleton from "./SoccerSkeleton";
 import { useEffect, useMemo, useState } from "react";
 import teamsData from "../../data/fifa-teams-squads.json";
 import { ESPN_TEAM_MAP } from "../lib/espn-mapping";
+import { useSimulation } from "../lib/store";
+import { espnScoresToResult } from "../lib/espn-match";
 
 interface MatchStatsModalProps {
   entry?: import("@/lib/schedule").ScheduleEntry;
@@ -74,7 +76,7 @@ type EspnSummary = {
     competitions?: Array<{
       date?: string;
       venue?: { fullName?: string; address?: { city?: string } };
-      status?: { type?: { shortDetail?: string; description?: string } };
+      status?: { type?: { name?: string; shortDetail?: string; description?: string } };
       competitors?: Array<{
         id?: string;
         homeAway?: "home" | "away";
@@ -218,7 +220,7 @@ function findLocalPlayerPicture(localTeam: LocalTeam | undefined, espnPlayerName
 const summaryCache = new Map<string, { data: EspnSummary; timestamp: number }>();
 const CACHE_TTL = 30_000;
 
-export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalProps) {
+export function MatchStatsModal({ gameId, matchDate, entry, onClose }: MatchStatsModalProps) {
   const [activeTab, setActiveTab] = useState<"stats" | "timeline" | "lineup">("stats");
   const [response, setResponse] = useState<{
     gameId: string;
@@ -336,6 +338,43 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
       details,
     };
   }, [data]);
+
+  const applyLiveResults = useSimulation((s) => s.applyLiveResults);
+
+  const canApply =
+    entry?.kind === "group" &&
+    view.home?.score != null &&
+    view.away?.score != null;
+
+  const handleApply = () => {
+    if (!entry || !canApply || !view.home || !view.away) return;
+
+    const espnToLocal = Object.entries(ESPN_TEAM_MAP).reduce(
+      (acc, [localId, espnId]) => {
+        acc[espnId] = localId;
+        return acc;
+      },
+      {} as Record<string, string>
+    );
+
+    const espn: import("../lib/espn-match").EspnScoreboardMatch = {
+      id: gameId ?? "",
+      date: matchDate ?? view.competition?.date ?? "",
+      status: view.competition?.status?.type?.name ?? "",
+      state: "post",
+      shortDetail: view.competition?.status?.type?.shortDetail ?? "",
+      displayClock: view.competition?.status?.type?.shortDetail ?? "",
+      homeId: view.home.id,
+      awayId: view.away.id,
+      homeScore: view.home.score,
+      awayScore: view.away.score,
+    };
+
+    const result = espnScoresToResult(entry, espn, espnToLocal);
+    if (result) {
+      applyLiveResults({ [entry.id]: result });
+    }
+  };
 
   const details = view.details;
 
@@ -584,14 +623,25 @@ export function MatchStatsModal({ gameId, matchDate, onClose }: MatchStatsModalP
             </h2>
             <p className="text-xs text-zinc-500">Dữ liệu trực tiếp từ ESPN</p>
           </div>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Đóng chi tiết trận đấu"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-zinc-800 text-xl text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-white"
-          >
-            ×
-          </button>
+          <div className="flex items-center gap-2">
+            {canApply && (
+              <button
+                type="button"
+                onClick={handleApply}
+                className="rounded-lg border border-emerald-500/20 bg-emerald-950/30 px-3 py-1.5 text-xs font-semibold text-emerald-400 transition-colors hover:bg-emerald-950/50"
+              >
+                Áp dụng vào mô phỏng
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Đóng chi tiết trận đấu"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-zinc-800 text-xl text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-white"
+            >
+              ×
+            </button>
+          </div>
         </header>
 
         <div className="overflow-y-auto p-4 sm:p-6 transform-gpu">
