@@ -2,7 +2,7 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
-import { RecentMatchesPanel } from "../RecentMatchesPanel";
+import { RecentMatchesPanel } from "../matches/RecentMatchesPanel";
 import type { EspnScoreboardMatch } from "@/lib/espn-match";
 import * as hooks from "@/lib/hooks";
 import * as store from "@/lib/store";

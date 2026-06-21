@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import defaultStatsData from "../../data/fifa-tournament-stats.json";
-import { FlagIcon } from "./FlagIcon";
+import defaultStatsData from "../../../data/fifa-tournament-stats.json";
+import { FlagIcon } from "@/components/ui/FlagIcon";
 import { fetchTournamentStatsFromFifa } from "@/lib/tournament-stats-fetch";
-import { useSimulation } from "../lib/store";
+import { useSimulation } from "@/lib/store";
 
 
 type CategoryId =

@@ -1,6 +1,6 @@
 "use client";
 
-import { FlagIcon } from "./FlagIcon";
+import { FlagIcon } from "@/components/ui/FlagIcon";
 import type { EspnScoreboardMatch } from "@/lib/espn-match";
 import type { ScheduleEntry } from "@/lib/schedule";
 

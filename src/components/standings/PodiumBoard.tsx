@@ -3,8 +3,8 @@
 import type { ReactNode } from "react";
 import { getPodiumFromMatches } from "@/lib/fifa/podium";
 import type { ResolvedKnockoutMatch, Team } from "@/lib/fifa/types";
-import { FlagIcon } from "./FlagIcon";
-import { BronzeMedalIcon, TrophyIcon } from "./BracketIcons";
+import { FlagIcon } from "@/components/ui/FlagIcon";
+import { BronzeMedalIcon, TrophyIcon } from "@/components/bracket/BracketIcons";
 
 type Props = {
   matches: Map<number, ResolvedKnockoutMatch>;

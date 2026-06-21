@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import SoccerSkeleton from "./SoccerSkeleton";
+import SoccerSkeleton from "@/components/ui/SoccerSkeleton";
 import { useEffect, useMemo, useState } from "react";
-import teamsData from "../../data/fifa-teams-squads.json";
-import { ESPN_TEAM_MAP } from "../lib/espn-mapping";
-import { useSimulation } from "../lib/store";
-import { espnScoresToResult } from "../lib/espn-match";
+import teamsData from "../../../data/fifa-teams-squads.json";
+import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
+import { useSimulation } from "@/lib/store";
+import { espnScoresToResult } from "@/lib/espn-match";
 
 interface MatchStatsModalProps {
   entry?: import("@/lib/schedule").ScheduleEntry;
@@ -357,7 +357,7 @@ export function MatchStatsModal({ gameId, matchDate, entry, onClose }: MatchStat
       {} as Record<string, string>
     );
 
-    const espn: import("../lib/espn-match").EspnScoreboardMatch = {
+    const espn: import("@/lib/espn-match").EspnScoreboardMatch = {
       id: gameId ?? "",
       date: matchDate ?? view.competition?.date ?? "",
       status: view.competition?.status?.type?.name ?? "",
@@ -931,14 +931,14 @@ export function MatchStatsModal({ gameId, matchDate, entry, onClose }: MatchStat
                     <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border-2 border-white/20 bg-emerald-950 p-6 flex flex-col justify-between shadow-inner">
                       {/* Pitch lines */}
                       <div className="absolute top-1/2 left-0 right-0 border-t-2 border-white/20 -translate-y-1/2" />
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border-2 border-white/20 rounded-full" />
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 border-2 border-white/20 rounded-full" />
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white/30 rounded-full" />
                       
                       {/* Penalty boxes */}
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-36 h-14 border-2 border-white/20 border-t-0" />
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-5 border-2 border-white/20 border-t-0" />
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-36 h-14 border-2 border-white/20 border-b-0" />
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-5 border-2 border-white/20 border-b-0" />
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 sm:w-36 h-10 sm:h-14 border-2 border-white/20 border-t-0" />
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 sm:w-16 h-4 sm:h-5 border-2 border-white/20 border-t-0" />
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-28 sm:w-36 h-10 sm:h-14 border-2 border-white/20 border-b-0" />
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 sm:w-16 h-4 sm:h-5 border-2 border-white/20 border-b-0" />
 
                       {/* Team Labels */}
                       <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-bold text-zinc-100 border border-white/10 select-none z-20">
@@ -973,27 +973,27 @@ export function MatchStatsModal({ gameId, matchDate, entry, onClose }: MatchStat
                           },
                           isHome: boolean
                         ) => (
-                          <div key={p.id} className="flex flex-col items-center text-center w-14 z-10">
+                          <div key={p.id} className="flex flex-col items-center text-center w-8 sm:w-10 z-10">
                             <div className="relative">
-                              <div className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold text-white border border-white/50 ${isHome ? 'bg-blue-600' : 'bg-rose-600'}`}>
+                              <div className={`flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full text-[9px] sm:text-[10px] font-bold text-white border border-white/50 ${isHome ? 'bg-blue-600' : 'bg-rose-600'}`}>
                                 {p.jersey}
                               </div>
 
                               {/* Cards Overlay (Top-Right) */}
                               {(p.yellowCards > 0 || p.redCards > 0) && (
-                                <div className="absolute -top-1 -right-1 flex items-center justify-center bg-black/80 rounded-full w-3.5 h-3.5 text-[8px] border border-white/30" title={p.redCards > 0 ? "Thẻ đỏ" : "Thẻ vàng"}>
+                                <div className="absolute -top-0.5 -right-0.5 sm:-top-0.5 sm:-right-0.5 flex items-center justify-center bg-black/80 rounded-full w-2 h-2 sm:w-2.5 sm:h-2.5 text-[5px] sm:text-[6px] border border-white/30" title={p.redCards > 0 ? "Thẻ đỏ" : "Thẻ vàng"}>
                                   {p.redCards > 0 ? "🟥" : "🟨"}
                                 </div>
                               )}
 
                               {/* Goals Overlay (Bottom-Right) */}
                               {p.goals > 0 && (
-                                <div className="absolute -bottom-1 -right-1 flex items-center justify-center bg-black/80 rounded-full px-0.5 min-w-[14px] h-3.5 text-[8px] text-white font-bold border border-white/30" title={`${p.goals} bàn thắng`}>
+                                <div className="absolute -bottom-0.5 -right-0.5 sm:-bottom-0.5 sm:-right-0.5 flex items-center justify-center bg-black/80 rounded-full px-0.5 min-w-[8px] sm:min-w-[10px] h-2 sm:h-2.5 text-[5px] sm:text-[6px] text-white font-bold border border-white/30" title={`${p.goals} bàn thắng`}>
                                   ⚽{p.goals > 1 && <span className="ml-[1px] text-[7px]">{p.goals}</span>}
                                 </div>
                               )}
                             </div>
-                            <span className="mt-1 text-[9px] font-bold text-white truncate w-full drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.8)]">
+                            <span className="mt-0.5 text-[6px] sm:text-[7px] font-bold text-white truncate w-full drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.8)]">
                               {p.name}
                             </span>
                           </div>

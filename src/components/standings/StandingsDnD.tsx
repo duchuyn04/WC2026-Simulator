@@ -17,7 +17,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { TeamBadge } from "./TeamBadge";
+import { TeamBadge } from "@/components/ui/TeamBadge";
 import { useRankChanges } from "@/lib/use-rank-changes";
 import type { TeamStats } from "@/lib/fifa/types";
 

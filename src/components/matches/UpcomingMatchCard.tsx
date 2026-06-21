@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FlagIcon } from "./FlagIcon";
+import { FlagIcon } from "@/components/ui/FlagIcon";
 import type { ScheduleEntry } from "@/lib/schedule";
 
 type UpcomingMatchCardProps = {

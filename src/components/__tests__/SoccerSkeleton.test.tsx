@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import SoccerSkeleton from "../SoccerSkeleton";
+import SoccerSkeleton from "../ui/SoccerSkeleton";
 
 describe("SoccerSkeleton", () => {
   it("renders standings variant with soccer ball SVG", () => {

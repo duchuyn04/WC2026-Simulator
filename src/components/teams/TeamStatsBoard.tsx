@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import SoccerSkeleton from "./SoccerSkeleton";
+import SoccerSkeleton from "@/components/ui/SoccerSkeleton";
 
 type Leader = {
   displayValue: string;

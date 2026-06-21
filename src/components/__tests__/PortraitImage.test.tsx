@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { PortraitImage, PortraitPlaceholder, initialsFromName } from "../PortraitImage";
+import { PortraitImage, PortraitPlaceholder, initialsFromName } from "../ui/PortraitImage";
 
 describe("initialsFromName", () => {
   it("returns initials from full name", () => {

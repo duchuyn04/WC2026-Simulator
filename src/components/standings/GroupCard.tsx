@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { useSimulation } from "@/lib/store";
-import { TeamBadge } from "./TeamBadge";
+import { TeamBadge } from "@/components/ui/TeamBadge";
 import { StandingsDnD } from "./lazy-standings";
 import type { GroupData, GroupStanding } from "@/lib/fifa/types";
 

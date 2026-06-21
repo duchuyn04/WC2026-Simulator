@@ -1,7 +1,7 @@
 "use client";
 
 import { StandingsDnD } from "./lazy-standings";
-import { ScoreInput } from "./ScoreInput";
+import { ScoreInput } from "@/components/ui/ScoreInput";
 import type { GroupData, GroupStanding, MatchResult } from "@/lib/fifa/types";
 import type { GroupInputMode } from "@/lib/store";
 

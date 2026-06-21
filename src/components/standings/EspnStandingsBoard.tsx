@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { FlagIcon } from "./FlagIcon";
+import { FlagIcon } from "@/components/ui/FlagIcon";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { seed } from "@/lib/data";
 import { parseEspnScoreboard } from "@/lib/espn-match";
@@ -11,7 +11,7 @@ import {
   type EspnStandingGroup,
 } from "@/lib/espn-standings";
 import type { Team } from "@/lib/fifa/types";
-import SoccerSkeleton from "./SoccerSkeleton";
+import SoccerSkeleton from "@/components/ui/SoccerSkeleton";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnId]) => {
   acc[espnId] = localId;

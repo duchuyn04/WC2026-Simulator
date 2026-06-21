@@ -6,18 +6,18 @@ import Link from "next/link";
 import { useGroupStandings, useStoreHydrated } from "@/lib/hooks";
 import { usePersistedScroll } from "@/lib/use-persisted-scroll";
 import { seed } from "@/lib/data";
-import { GroupCard } from "./GroupCard";
-import { GroupInputModeToggle } from "./GroupInputModeToggle";
-import { ThirdPlacePanel } from "./ThirdPlacePanel";
-import { KnockoutBracket } from "./KnockoutBracket";
-import { SchedulePanel } from "./SchedulePanel";
+import { GroupCard } from "@/components/standings/GroupCard";
+import { GroupInputModeToggle } from "@/components/standings/GroupInputModeToggle";
+import { ThirdPlacePanel } from "@/components/standings/ThirdPlacePanel";
+import { KnockoutBracket } from "@/components/bracket/KnockoutBracket";
+import { SchedulePanel } from "@/components/matches/SchedulePanel";
 import { getFifaRankingsMeta } from "@/lib/fifa/rankings";
 import type { TabId } from "@/lib/tabs";
-import { SyncLiveResultsButton } from "./SyncLiveResultsButton";
-import SoccerSkeleton from "./SoccerSkeleton";
-import { useLiveSync } from "../lib/use-live-sync";
-import { LivePanel } from "./LivePanel";
+import { SyncLiveResultsButton } from "@/components/matches/SyncLiveResultsButton";
+import SoccerSkeleton from "@/components/ui/SoccerSkeleton";
+import { useLiveSync } from "@/lib/use-live-sync";
 import { useEspnLiveScores } from "@/lib/use-espn-live-scores";
+import { LivePanel } from "@/components/matches/LivePanel";
 
 export function AppShell() {
   const hydrated = useStoreHydrated();

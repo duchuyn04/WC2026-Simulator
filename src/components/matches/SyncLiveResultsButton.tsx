@@ -6,8 +6,8 @@ import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { ESPN_SCOREBOARD_URL, parseEspnScoreboard } from "@/lib/espn-match";
 import { groupMatchToEntry } from "@/lib/schedule";
 import { buildLiveGroupResults } from "@/lib/sync-live-results";
-import { useSimulation } from "../lib/store";
-import { fetchTournamentStatsFromFifa } from "../lib/tournament-stats-fetch";
+import { useSimulation } from "@/lib/store";
+import { fetchTournamentStatsFromFifa } from "@/lib/tournament-stats-fetch";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce<Record<string, string>>(
   (acc, [localId, espnId]) => {

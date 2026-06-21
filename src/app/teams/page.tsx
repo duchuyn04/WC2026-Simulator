@@ -1,5 +1,5 @@
-import { TeamsDirectory } from "@/components/TeamsDirectory";
-import { TeamsHeader } from "@/components/TeamsHeader";
+import { TeamsDirectory } from "@/components/teams/TeamsDirectory";
+import { TeamsHeader } from "@/components/teams/TeamsHeader";
 import teamsData from "../../../data/fifa-teams-squads.json";
 
 export default function TeamsPage() {

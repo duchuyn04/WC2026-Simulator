@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import { flagUrl } from "@/lib/data";
-import { RecentMatches } from "@/components/RecentMatches";
-import { TeamStatsBoard } from "@/components/TeamStatsBoard";
-import { TeamRoster } from "@/components/TeamRoster";
-import { FloatingBackButton } from "@/components/FloatingBackButton";
-import { BackToTeamsButton } from "@/components/BackToTeamsButton";
+import { RecentMatches } from "@/components/matches/RecentMatches";
+import { TeamStatsBoard } from "@/components/teams/TeamStatsBoard";
+import { TeamRoster } from "@/components/teams/TeamRoster";
+import { FloatingBackButton } from "@/components/layout/FloatingBackButton";
+import { BackToTeamsButton } from "@/components/layout/BackToTeamsButton";
 import { fetchTeamMatches } from "@/lib/espn";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import teamsData from "../../../../data/fifa-teams-squads.json";

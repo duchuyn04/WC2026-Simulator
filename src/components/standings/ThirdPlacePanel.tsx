@@ -4,8 +4,8 @@ import { useMemo } from "react";
 import { useThirdPlace } from "@/lib/hooks";
 import { useSimulation } from "@/lib/store";
 import { getFifaRankingsMeta } from "@/lib/fifa/rankings";
-import { TeamBadge } from "./TeamBadge";
-import { SortableTeamList } from "./SortableTeamList";
+import { TeamBadge } from "@/components/ui/TeamBadge";
+import { SortableTeamList } from "@/components/standings/SortableTeamList";
 
 export function ThirdPlacePanel() {
   const third = useThirdPlace();

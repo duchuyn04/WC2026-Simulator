@@ -20,7 +20,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { TeamBadge } from "./TeamBadge";
+import { TeamBadge } from "@/components/ui/TeamBadge";
 import type { Team } from "@/lib/fifa/types";
 
 export type SortableTeamRow = {

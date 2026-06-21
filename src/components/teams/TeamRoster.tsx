@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { PortraitLightbox } from "@/components/PortraitLightbox";
+import { PortraitLightbox } from "@/components/ui/PortraitLightbox";
 import { useLiveSquadSync } from "@/lib/hooks";
 
 type TeamColors = {

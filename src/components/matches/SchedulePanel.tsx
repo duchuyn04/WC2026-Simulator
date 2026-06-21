@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { FlagIcon } from "./FlagIcon";
+import { FlagIcon } from "@/components/ui/FlagIcon";
 import { useSchedule } from "@/lib/hooks";
 import { useSimulation } from "@/lib/store";
 import {
@@ -14,10 +14,10 @@ import {
 import { isPlayedResult } from "@/lib/fifa/types";
 import type { Team } from "@/lib/fifa/types";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
-import { EspnStandingsBoard } from "./EspnStandingsBoard";
-import { TournamentStatsBoard } from "./TournamentStatsBoard";
-import { MatchStatsModal } from "./MatchStatsModal";
-import { H2HModal } from "./H2HModal";
+import { EspnStandingsBoard } from "@/components/standings/EspnStandingsBoard";
+import { TournamentStatsBoard } from "@/components/standings/TournamentStatsBoard";
+import { MatchStatsModal } from "@/components/matches/MatchStatsModal";
+import { H2HModal } from "@/components/matches/H2HModal";
 import {
   findEspnMatch,
   getEspnLiveClock,

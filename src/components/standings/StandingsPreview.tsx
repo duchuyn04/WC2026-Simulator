@@ -1,6 +1,6 @@
 "use client";
 
-import { TeamBadge } from "./TeamBadge";
+import { TeamBadge } from "@/components/ui/TeamBadge";
 import type { TeamStats } from "@/lib/fifa/types";
 
 type Props = {

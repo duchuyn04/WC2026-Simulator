@@ -27,9 +27,9 @@ import {
   type BracketLayoutSlot,
 } from "@/lib/fifa/bracket-tree";
 import type { ResolvedKnockoutMatch } from "@/lib/fifa/types";
-import { BronzeMedalIcon, TrophyIcon } from "./BracketIcons";
-import { PodiumBoard } from "./PodiumBoard";
-import { TeamBadge } from "./TeamBadge";
+import { BronzeMedalIcon, TrophyIcon } from "@/components/bracket/BracketIcons";
+import { PodiumBoard } from "@/components/standings/PodiumBoard";
+import { TeamBadge } from "@/components/ui/TeamBadge";
 
 const ROW_HEIGHT = 112;
 const MATCH_WIDTH = 240;
