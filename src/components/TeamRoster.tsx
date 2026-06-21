@@ -169,8 +169,8 @@ export function TeamRoster({ team, headCoach, groupedPlayers, fetchedAt }: Props
               {headCoach.countryCode}
             </span>
           </div>
-          <article className="flex items-center gap-3 rounded-2xl border border-zinc-800 bg-[#11151d] p-2 sm:block sm:max-w-sm sm:rounded-[1.5rem] sm:p-3">
-            <div className="relative h-[86px] w-[72px] shrink-0 overflow-hidden rounded-xl bg-zinc-800 sm:h-64 sm:w-full sm:rounded-2xl [&>div]:h-full [&>img]:h-full sm:[&>div]:h-64 sm:[&>img]:h-64">
+          <article className="flex items-center gap-2 rounded-2xl border border-zinc-800 bg-[#11151d] p-1.5 sm:block sm:max-w-sm sm:rounded-[1.5rem] sm:p-3">
+            <div className="relative h-[64px] w-[52px] shrink-0 overflow-hidden rounded-xl bg-zinc-800 sm:h-64 sm:w-full sm:rounded-2xl [&>div]:h-full [&>img]:h-full sm:[&>div]:h-64 sm:[&>img]:h-64">
               <PortraitLightbox
                 src={headCoach.pictureUrl}
                 alt={headCoach.name ?? "HLV trưởng"}
@@ -212,8 +212,8 @@ export function TeamRoster({ team, headCoach, groupedPlayers, fetchedAt }: Props
           </div>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
             {players.map((player) => (
-              <article key={player.id} className="flex items-center gap-2 rounded-2xl border border-zinc-800 bg-[#11151d] p-2 sm:block sm:rounded-[1.5rem] sm:p-3">
-                <div className="relative h-[72px] w-[56px] shrink-0 overflow-hidden rounded-xl bg-zinc-800 sm:h-64 sm:w-full sm:rounded-2xl [&>div]:h-full [&>img]:h-full sm:[&>div]:h-64 sm:[&>img]:h-64">
+              <article key={player.id} className="flex items-center gap-1.5 rounded-2xl border border-zinc-800 bg-[#11151d] p-1.5 sm:block sm:rounded-[1.5rem] sm:p-3">
+                <div className="relative h-[56px] w-[44px] shrink-0 overflow-hidden rounded-xl bg-zinc-800 sm:h-64 sm:w-full sm:rounded-2xl [&>div]:h-full [&>img]:h-full sm:[&>div]:h-64 sm:[&>img]:h-64">
                   <PortraitLightbox
                     src={player.pictureUrl}
                     fallbackSrc={player.wikiPictureUrl}
@@ -238,13 +238,13 @@ export function TeamRoster({ team, headCoach, groupedPlayers, fetchedAt }: Props
                     <span className="shrink-0 rounded-full bg-amber-500 px-1.5 py-0.5 text-[10px] font-black leading-none text-zinc-950 sm:hidden">
                       {player.jerseyNumber ?? "-"}
                     </span>
-                    <h3 className="truncate text-sm font-black leading-tight sm:text-lg">{player.name}</h3>
+                    <h3 className="truncate text-xs font-black leading-tight sm:text-lg">{player.name}</h3>
                   </div>
                   <div className="mt-2 h-px w-4/5 bg-zinc-800 sm:mx-auto sm:mt-3" />
                   <p className="mt-1 truncate text-[10px] font-bold uppercase tracking-[0.12em] text-zinc-500 sm:mt-2 sm:text-[11px] sm:tracking-[0.16em]">
                     {translatePosition(player.realPosition ?? player.position)}
                   </p>
-                  <p className="mt-0.5 truncate text-[11px] font-semibold text-amber-300 sm:mt-1 sm:text-sm">
+                  <p className="mt-0.5 truncate text-[10px] font-semibold text-amber-300 sm:mt-1 sm:text-sm">
                     {player.club?.name ?? "Chưa có CLB"}
                   </p>
                   <p className="mt-0.5 text-[10px] font-medium text-zinc-500 sm:hidden">
