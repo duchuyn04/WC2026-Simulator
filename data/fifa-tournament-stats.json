@@ -4,11 +4,24 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-20T22:21:43.970Z",
-  "completedMatches": 33,
+  "fetchedAt": "2026-06-21T00:20:20.453Z",
+  "completedMatches": 34,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
+      {
+        "playerId": "484851",
+        "name": "Deniz UNDAV",
+        "shortName": "Deniz UNDAV",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/3ec30e08-a7eb-4781-aea8-0e9ff86ebef1/UNDAV-Deniz_484851",
+        "team": {
+          "id": "43948",
+          "name": "Germany",
+          "code": "GER",
+          "flagUrl": "/flags/GER.png"
+        },
+        "value": 3
+      },
       {
         "playerId": "441257",
         "name": "Jonathan DAVID",
@@ -123,19 +136,6 @@
           "name": "USA",
           "code": "USA",
           "flagUrl": "/flags/USA.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "369419",
-        "name": "Harry KANE",
-        "shortName": "Harry KANE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
-        "team": {
-          "id": "43942",
-          "name": "England",
-          "code": "ENG",
-          "flagUrl": "/flags/ENG.png"
         },
         "value": 2
       }
