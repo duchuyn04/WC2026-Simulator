@@ -30,32 +30,32 @@ export function RecentMatchCard({
   return (
     <div
       onClick={handleClick}
-      className={`rounded-xl border border-zinc-800 bg-zinc-950/60 p-3 transition-colors sm:p-4 ${
+      className={`rounded-xl border border-zinc-800 bg-zinc-950/60 p-2 transition-colors sm:p-2.5 ${
         handleClick
           ? "cursor-pointer hover:border-zinc-600 hover:bg-zinc-900/80 active:scale-[0.99]"
           : ""
       }`}
     >
-      <div className="flex items-center gap-2 sm:gap-4">
-        <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:gap-3">
-          <span className="truncate text-right text-xs font-semibold leading-tight sm:text-sm">
+      <div className="flex items-center gap-3">
+        <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
+          <span className="truncate text-right text-xs font-semibold text-white">
             {homeName}
           </span>
-          <FlagIcon code={homeCode} size="md" title={homeName} />
+          <FlagIcon code={homeCode} size="sm" title={homeName} />
         </div>
 
-        <div className="flex-shrink-0 px-1 text-center sm:px-2">
-          <div className="text-2xl font-black tracking-wider text-emerald-400 tabular-nums sm:text-3xl lg:text-4xl">
+        <div className="flex-shrink-0 px-1 text-center min-w-[70px]">
+          <div className="text-lg font-black tracking-wider text-emerald-400 tabular-nums sm:text-xl">
             {espnMatch.homeScore} - {espnMatch.awayScore}
           </div>
-          <div className="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-zinc-500 sm:mt-1">
+          <div className="text-[9px] font-semibold uppercase tracking-wide text-zinc-500">
             {espnMatch.shortDetail || "Đã kết thúc"}
           </div>
         </div>
 
-        <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3">
-          <FlagIcon code={awayCode} size="md" title={awayName} />
-          <span className="truncate text-left text-xs font-semibold leading-tight sm:text-sm">
+        <div className="flex min-w-0 flex-1 items-center gap-2">
+          <FlagIcon code={awayCode} size="sm" title={awayName} />
+          <span className="truncate text-left text-xs font-semibold text-white">
             {awayName}
           </span>
         </div>
