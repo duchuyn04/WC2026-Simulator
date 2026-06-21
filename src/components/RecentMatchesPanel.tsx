@@ -10,6 +10,7 @@ import {
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { useSimulation } from "@/lib/store";
 import { RecentMatchCard } from "./RecentMatchCard";
+import type { ScheduleEntry } from "@/lib/schedule";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce(
   (acc, [localId, espnId]) => {
@@ -24,7 +25,7 @@ type RecentMatchesPanelProps = {
   mode: "recent-5" | "all-done";
   title?: string;
   showSyncAll?: boolean;
-  onOpenDetail?: (gameId: string, matchDate: string) => void;
+  onOpenDetail?: (entry: ScheduleEntry, gameId: string, matchDate: string) => void;
 };
 
 export function RecentMatchesPanel({
@@ -109,6 +110,7 @@ export function RecentMatchesPanel({
                 {group.entries.map(({ entry, espn }) => (
                   <RecentMatchCard
                     key={entry.id}
+                    entry={entry}
                     espnMatch={espn}
                     homeName={entry.home?.name ?? entry.homePlaceholder}
                     awayName={entry.away?.name ?? entry.awayPlaceholder}

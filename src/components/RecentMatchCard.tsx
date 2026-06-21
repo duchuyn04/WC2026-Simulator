@@ -2,17 +2,20 @@
 
 import { FlagIcon } from "./FlagIcon";
 import type { EspnScoreboardMatch } from "@/lib/espn-match";
+import type { ScheduleEntry } from "@/lib/schedule";
 
 type RecentMatchCardProps = {
+  entry: ScheduleEntry;
   espnMatch: EspnScoreboardMatch;
   homeName: string;
   awayName: string;
   homeCode: string;
   awayCode: string;
-  onOpenDetail?: (gameId: string, matchDate: string) => void;
+  onOpenDetail?: (entry: ScheduleEntry, gameId: string, matchDate: string) => void;
 };
 
 export function RecentMatchCard({
+  entry,
   espnMatch,
   homeName,
   awayName,
@@ -21,7 +24,7 @@ export function RecentMatchCard({
   onOpenDetail,
 }: RecentMatchCardProps) {
   const handleClick = onOpenDetail
-    ? () => onOpenDetail(espnMatch.id, espnMatch.date)
+    ? () => onOpenDetail(entry, espnMatch.id, espnMatch.date)
     : undefined;
 
   return (
