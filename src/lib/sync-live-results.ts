@@ -1,39 +1,6 @@
-import { findEspnMatch, hasEspnMatchScore, type EspnScoreboardMatch } from "./espn-match";
+import { findEspnMatch, espnScoresToResult, type EspnScoreboardMatch } from "./espn-match";
 import type { MatchResult } from "./fifa/types";
 import type { ScheduleEntry } from "./schedule";
-
-function parseEspnScore(value?: string): number | null {
-  const parsed = Number.parseInt(value ?? "", 10);
-  return Number.isFinite(parsed) ? parsed : null;
-}
-
-function espnScoresToResult(
-  entry: ScheduleEntry,
-  espn: EspnScoreboardMatch,
-  espnToLocal: Record<string, string>,
-): MatchResult | null {
-  if (!hasEspnMatchScore(espn)) return null;
-
-  const espnHomeScore = parseEspnScore(espn.homeScore);
-  const espnAwayScore = parseEspnScore(espn.awayScore);
-  if (espnHomeScore === null || espnAwayScore === null) return null;
-
-  const espnHomeLocal = espn.homeId ? espnToLocal[espn.homeId] : undefined;
-  const espnAwayLocal = espn.awayId ? espnToLocal[espn.awayId] : undefined;
-
-  if (espnHomeLocal === entry.home?.id && espnAwayLocal === entry.away?.id) {
-    return { home: espnHomeScore, away: espnAwayScore };
-  }
-  if (espnHomeLocal === entry.away?.id && espnAwayLocal === entry.home?.id) {
-    return { home: espnAwayScore, away: espnHomeScore };
-  }
-
-  if (!espn.homeId || !espn.awayId) {
-    return { home: espnHomeScore, away: espnAwayScore };
-  }
-
-  return null;
-}
 
 export function buildLiveGroupResults(
   groupEntries: ScheduleEntry[],

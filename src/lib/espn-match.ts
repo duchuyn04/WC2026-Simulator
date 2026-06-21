@@ -1,4 +1,5 @@
 import type { ScheduleEntry } from "./schedule";
+import type { MatchResult } from "./fifa/types";
 
 export const ESPN_SCOREBOARD_URL =
   "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=1000";
@@ -130,6 +131,39 @@ export function findEspnMatch(
       (espnHome === entry.away?.id && espnAway === entry.home?.id)
     );
   });
+}
+
+function parseEspnScore(value?: string): number | null {
+  const parsed = Number.parseInt(value ?? "", 10);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+export function espnScoresToResult(
+  entry: ScheduleEntry,
+  espn: EspnScoreboardMatch,
+  espnToLocal: Record<string, string>
+): MatchResult | null {
+  if (!hasEspnMatchScore(espn)) return null;
+
+  const espnHomeScore = parseEspnScore(espn.homeScore);
+  const espnAwayScore = parseEspnScore(espn.awayScore);
+  if (espnHomeScore === null || espnAwayScore === null) return null;
+
+  const espnHomeLocal = espn.homeId ? espnToLocal[espn.homeId] : undefined;
+  const espnAwayLocal = espn.awayId ? espnToLocal[espn.awayId] : undefined;
+
+  if (espnHomeLocal === entry.home?.id && espnAwayLocal === entry.away?.id) {
+    return { home: espnHomeScore, away: espnAwayScore };
+  }
+  if (espnHomeLocal === entry.away?.id && espnAwayLocal === entry.home?.id) {
+    return { home: espnAwayScore, away: espnHomeScore };
+  }
+
+  if (!espn.homeId || !espn.awayId) {
+    return { home: espnHomeScore, away: espnAwayScore };
+  }
+
+  return null;
 }
 
 /** Categorization result for an entry in the Live tab. */
