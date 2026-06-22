@@ -4,11 +4,24 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-22T05:28:09.019Z",
-  "completedMatches": 40,
+  "fetchedAt": "2026-06-22T21:12:34.956Z",
+  "completedMatches": 41,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
+      {
+        "playerId": "229397",
+        "name": "Lionel MESSI",
+        "shortName": "Lionel MESSI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/19823774-fac0-485a-8a8f-572e7324c6c2/MESSI-Lionel_229397",
+        "team": {
+          "id": "43922",
+          "name": "Argentina",
+          "code": "ARG",
+          "flagUrl": "/flags/ARG.png"
+        },
+        "value": 5
+      },
       {
         "playerId": "484851",
         "name": "Deniz UNDAV",
@@ -32,19 +45,6 @@
           "name": "Canada",
           "code": "CAN",
           "flagUrl": "/flags/CAN.png"
-        },
-        "value": 3
-      },
-      {
-        "playerId": "229397",
-        "name": "Lionel MESSI",
-        "shortName": "Lionel MESSI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/19823774-fac0-485a-8a8f-572e7324c6c2/MESSI-Lionel_229397",
-        "team": {
-          "id": "43922",
-          "name": "Argentina",
-          "code": "ARG",
-          "flagUrl": "/flags/ARG.png"
         },
         "value": 3
       },
@@ -362,6 +362,21 @@
         "value": 1,
         "scored": 1,
         "successRate": 100
+      },
+      {
+        "playerId": "229397",
+        "name": "Lionel MESSI",
+        "shortName": "Lionel MESSI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/19823774-fac0-485a-8a8f-572e7324c6c2/MESSI-Lionel_229397",
+        "team": {
+          "id": "43922",
+          "name": "Argentina",
+          "code": "ARG",
+          "flagUrl": "/flags/ARG.png"
+        },
+        "value": 1,
+        "scored": 0,
+        "successRate": 0
       }
     ],
     "yellowCards": [
