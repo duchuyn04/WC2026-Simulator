@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-21T23:43:14.087Z",
-  "completedMatches": 38,
+  "fetchedAt": "2026-06-22T05:28:09.019Z",
+  "completedMatches": 40,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -233,6 +233,19 @@
         "value": 2
       },
       {
+        "playerId": "344654",
+        "name": "MOHAMED SALAH",
+        "shortName": "MOHAMED SALAH",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/8d5236b8-acac-4946-af8e-5b007bcfa284/MOHAMED-SALAH_344654",
+        "team": {
+          "id": "43855",
+          "name": "Egypt",
+          "code": "EGY",
+          "flagUrl": "/flags/EGY.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "430176",
         "name": "Ryan GRAVENBERCH",
         "shortName": "Ryan GRAVENBERCH",
@@ -255,19 +268,6 @@
           "name": "France",
           "code": "FRA",
           "flagUrl": "/flags/FRA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "464542",
-        "name": "Alex FREEMAN",
-        "shortName": "Alex FREEMAN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/554008b5-0520-4b67-8cab-c72ba087471f/FREEMAN-Alex_464542",
-        "team": {
-          "id": "43921",
-          "name": "USA",
-          "code": "USA",
-          "flagUrl": "/flags/USA.png"
         },
         "value": 1
       }
@@ -365,6 +365,19 @@
       }
     ],
     "yellowCards": [
+      {
+        "playerId": "477832",
+        "name": "SIDNY LOPES CABRAL",
+        "shortName": "SIDNY LOPES CABRAL",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/4fd8eea9-a8fe-4571-8bbc-fe728f6160e7/SIDNY-LOPES-CABRAL_477832",
+        "team": {
+          "id": "43850",
+          "name": "Cabo Verde",
+          "code": "CPV",
+          "flagUrl": "/flags/CPV.png"
+        },
+        "value": 2
+      },
       {
         "playerId": "403616",
         "name": "Teboho MOKOENA",
@@ -479,19 +492,6 @@
           "name": "Canada",
           "code": "CAN",
           "flagUrl": "/flags/CAN.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "482976",
-        "name": "Amar DEDIC",
-        "shortName": "Amar DEDIC",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/87dcec5a-fbf4-45d7-8f1e-26e00140cce7/DEDIC-Amar_482976",
-        "team": {
-          "id": "44037",
-          "name": "Bosnia and Herzegovina",
-          "code": "BIH",
-          "flagUrl": "/flags/BIH.png"
         },
         "value": 1
       }
