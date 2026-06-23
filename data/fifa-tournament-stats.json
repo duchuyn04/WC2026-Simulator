@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-22T21:12:34.956Z",
-  "completedMatches": 41,
+  "fetchedAt": "2026-06-23T05:13:55.657Z",
+  "completedMatches": 43,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -21,6 +21,32 @@
           "flagUrl": "/flags/ARG.png"
         },
         "value": 5
+      },
+      {
+        "playerId": "419652",
+        "name": "Erling HAALAND",
+        "shortName": "Erling HAALAND",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ee269811-9f84-401f-99b8-e953a2704ebb/HAALAND-Erling_419652",
+        "team": {
+          "id": "43961",
+          "name": "Norway",
+          "code": "NOR",
+          "flagUrl": "/flags/NOR.png"
+        },
+        "value": 4
+      },
+      {
+        "playerId": "389867",
+        "name": "Kylian MBAPPE",
+        "shortName": "Kylian MBAPPE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
+        },
+        "value": 4
       },
       {
         "playerId": "484851",
@@ -112,32 +138,6 @@
           "flagUrl": "/flags/CAN.png"
         },
         "value": 2
-      },
-      {
-        "playerId": "448557",
-        "name": "Daichi KAMADA",
-        "shortName": "Daichi KAMADA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/40432f8c-1b4a-444e-b3a4-709164e708d6/KAMADA-Daichi_448557",
-        "team": {
-          "id": "43819",
-          "name": "Japan",
-          "code": "JPN",
-          "flagUrl": "/flags/JPN.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "405454",
-        "name": "Elijah JUST",
-        "shortName": "Elijah JUST",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/fe32736f-5d5f-4870-8db3-5b4560835f53/JUST-Elijah_405454",
-        "team": {
-          "id": "43978",
-          "name": "New Zealand",
-          "code": "NZL",
-          "flagUrl": "/flags/NZL.png"
-        },
-        "value": 2
       }
     ],
     "assists": [
@@ -151,6 +151,19 @@
           "name": "Sweden",
           "code": "SWE",
           "flagUrl": "/flags/SWE.png"
+        },
+        "value": 3
+      },
+      {
+        "playerId": "485655",
+        "name": "Michael OLISE",
+        "shortName": "Michael OLISE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/979cc206-e23b-4b21-8d40-843607ba8964/OLISE-Michael_485655",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
         },
         "value": 3
       },
@@ -233,6 +246,19 @@
         "value": 2
       },
       {
+        "playerId": "400716",
+        "name": "Martin ODEGAARD",
+        "shortName": "Martin ODEGAARD",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2b895db6-7f67-4436-b8da-54bdf0dd2e2b/ODEGAARD-Martin_400716",
+        "team": {
+          "id": "43961",
+          "name": "Norway",
+          "code": "NOR",
+          "flagUrl": "/flags/NOR.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "344654",
         "name": "MOHAMED SALAH",
         "shortName": "MOHAMED SALAH",
@@ -244,32 +270,6 @@
           "flagUrl": "/flags/EGY.png"
         },
         "value": 2
-      },
-      {
-        "playerId": "430176",
-        "name": "Ryan GRAVENBERCH",
-        "shortName": "Ryan GRAVENBERCH",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/ad5fe14f-b29c-4c20-8477-b00bf14c413f/GRAVENBERCH-Ryan_430176",
-        "team": {
-          "id": "43960",
-          "name": "Netherlands",
-          "code": "NED",
-          "flagUrl": "/flags/NED.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "402047",
-        "name": "Adrien RABIOT",
-        "shortName": "Adrien RABIOT",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/2daab6cd-9fc6-4a46-acd6-82974aab8415/RABIOT-Adrien_402047",
-        "team": {
-          "id": "43946",
-          "name": "France",
-          "code": "FRA",
-          "flagUrl": "/flags/FRA.png"
-        },
-        "value": 1
       }
     ],
     "penalties": [
