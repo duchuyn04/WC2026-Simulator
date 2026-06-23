@@ -4,7 +4,6 @@ import { useRef, useEffect, useMemo } from "react";
 import { useSimulation } from "@/lib/store";
 import Link from "next/link";
 import { useGroupStandings, useStoreHydrated } from "@/lib/hooks";
-import { usePersistedScroll } from "@/lib/use-persisted-scroll";
 import { seed } from "@/lib/data";
 import { GroupCard } from "@/components/standings/GroupCard";
 import { GroupInputModeToggle } from "@/components/standings/GroupInputModeToggle";
@@ -23,7 +22,6 @@ export function AppShell() {
   const hydrated = useStoreHydrated();
   const { isSyncing } = useLiveSync();
   const activeTab = useSimulation((s) => s.activeTab);
-  usePersistedScroll(activeTab);
   const setActiveTab = useSimulation((s) => s.setActiveTab);
   const knockoutSyncNotice = useSimulation((s) => s.knockoutSyncNotice);
   const { matches: espnMatches } = useEspnLiveScores();

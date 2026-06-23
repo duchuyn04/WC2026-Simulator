@@ -12,7 +12,7 @@ import {
 } from "./fifa/knockout-sync";
 import { seed } from "./data";
 import { calculateFairPlayScore } from "./fair-play";
-import type { ScrollableTabId, TabId } from "./tabs";
+import type { TabId } from "./tabs";
 import type { FairPlayData, GroupStanding, MatchResult, Team } from "./fifa/types";
 import type { TournamentStatsSnapshot } from "./tournament-stats-fetch";
 
@@ -20,8 +20,6 @@ export type KnockoutSyncNotice = {
   pending: boolean;
   picksRemoved: number;
 };
-
-export type ScrollPositions = Record<ScrollableTabId, number>;
 
 export type BracketView = {
   userZoom: number;
@@ -38,7 +36,6 @@ export type SimulationStore = {
   knockoutWinners: Record<number, string>;
   knockoutSyncNotice: KnockoutSyncNotice | null;
   activeTab: TabId;
-  scrollPositions: ScrollPositions;
   bracketView: BracketView;
   favoriteMatches: string[];
   favoriteTeams: string[];
@@ -49,7 +46,6 @@ export type SimulationStore = {
   completedMatches: number | null;
   setActiveTab: (tab: TabId) => void;
   setTournamentStats: (stats: TournamentStatsSnapshot | null) => void;
-  setScrollPosition: (tab: ScrollableTabId, y: number) => void;
   setBracketView: (view: BracketView) => void;
   setGroupInputMode: (mode: GroupInputMode) => void;
   setThirdPlaceOrder: (teamIds: string[]) => void;
@@ -132,28 +128,17 @@ export const useSimulation = create<SimulationStore>()(
       scheduleMockResults: {},
       fairPlayData: {},
       activeTab: "groups",
-      scrollPositions: { live: 0, groups: 0, schedule: 0, "fav-matches": 0, "fav-teams": 0, third: 0 },
       bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
       tournamentStats: null,
       statsFetchedAt: null,
       completedMatches: null,
 
-      setActiveTab: (tab) =>
-        set((s) => {
-          const scrollPositions = { ...s.scrollPositions };
-          if (
-            typeof window !== "undefined" &&
-            (s.activeTab === "groups" || s.activeTab === "schedule" || s.activeTab === "third")
-          ) {
-            scrollPositions[s.activeTab] = window.scrollY;
-          }
-          return { activeTab: tab, scrollPositions };
-        }),
-
-      setScrollPosition: (tab, y) =>
-        set((s) => ({
-          scrollPositions: { ...s.scrollPositions, [tab]: y },
-        })),
+      setActiveTab: (tab) => {
+        set({ activeTab: tab });
+        if (typeof window !== "undefined") {
+          window.scrollTo(0, 0);
+        }
+      },
 
       setBracketView: (view) => set({ bracketView: view }),
 
@@ -446,7 +431,6 @@ export const useSimulation = create<SimulationStore>()(
         scheduleMockResults: state.scheduleMockResults,
         fairPlayData: state.fairPlayData,
         activeTab: state.activeTab,
-        scrollPositions: state.scrollPositions,
         bracketView: state.bracketView,
         tournamentStats: state.tournamentStats,
         statsFetchedAt: state.statsFetchedAt,
