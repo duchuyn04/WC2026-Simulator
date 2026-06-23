@@ -53,6 +53,7 @@ describe("parseEspnScoreboard", () => {
       awayId: "467",
       homeScore: "2",
       awayScore: "0",
+      cards: [],
     });
   });
 });

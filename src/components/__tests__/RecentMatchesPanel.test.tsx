@@ -42,7 +42,7 @@ const mockEntries = [
     away: { id: "43883", code: "RSA", name: "South Africa", flagUrl: "" },
     homePlaceholder: "A1",
     awayPlaceholder: "A2",
-  },
+  } satisfies import("@/lib/schedule").ScheduleEntry,
 ];
 
 const mockEspnMatches: EspnScoreboardMatch[] = [
@@ -65,7 +65,7 @@ describe("RecentMatchesPanel", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    hooks.useSchedule.mockReturnValue(mockEntries);
+    vi.mocked(hooks.useSchedule).mockReturnValue(mockEntries);
   });
 
   it("renders empty state when no finished matches", () => {

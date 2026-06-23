@@ -15,7 +15,15 @@ export type EspnScoreboardMatch = {
   awayId?: string;
   homeScore?: string;
   awayScore?: string;
+  cards?: EspnCardEvent[];
 };
+
+export type EspnCardEvent = {
+  teamId: string;
+  type: "yellow-card" | "red-card";
+};
+
+export const ESPN_SUMMARY_URL = "https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary";
 
 type EspnScoreboardResponse = {
   events?: Array<{
@@ -35,6 +43,11 @@ type EspnScoreboardResponse = {
         score?: string;
         team?: { id?: string };
       }>;
+      details?: Array<{
+        redCard?: boolean;
+        yellowCard?: boolean;
+        team?: { id?: string };
+      }>;
     }>;
   }>;
 };
@@ -47,6 +60,16 @@ export function parseEspnScoreboard(data: EspnScoreboardResponse): EspnScoreboar
 
     if (!event.id || !event.date || !competition) return [];
 
+    const cards: EspnCardEvent[] = [];
+    if (competition.details) {
+      for (const d of competition.details) {
+        if (d.team?.id) {
+          if (d.yellowCard) cards.push({ teamId: d.team.id, type: "yellow-card" });
+          else if (d.redCard) cards.push({ teamId: d.team.id, type: "red-card" });
+        }
+      }
+    }
+
     return [{
       id: event.id,
       date: event.date,
@@ -58,6 +81,7 @@ export function parseEspnScoreboard(data: EspnScoreboardResponse): EspnScoreboar
       awayId: away?.team?.id,
       homeScore: home?.score,
       awayScore: away?.score,
+      cards,
     }];
   });
 }

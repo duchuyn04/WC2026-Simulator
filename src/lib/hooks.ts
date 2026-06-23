@@ -33,9 +33,10 @@ export function useStoreHydrated() {
 export function useGroupStandings() {
   const matchResults = useSimulation((s) => s.matchResults);
   const manualOrder = useSimulation((s) => s.manualOrder);
+  const fairPlayData = useSimulation((s) => s.fairPlayData);
   return useMemo(
-    () => computeStandings(matchResults, manualOrder),
-    [matchResults, manualOrder]
+    () => computeStandings(matchResults, manualOrder, fairPlayData),
+    [matchResults, manualOrder, fairPlayData]
   );
 }
 

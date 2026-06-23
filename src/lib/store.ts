@@ -11,8 +11,9 @@ import {
   pruneKnockoutWinners,
 } from "./fifa/knockout-sync";
 import { seed } from "./data";
+import { calculateFairPlayScore } from "./fair-play";
 import type { ScrollableTabId, TabId } from "./tabs";
-import type { GroupStanding, MatchResult, Team } from "./fifa/types";
+import type { FairPlayData, GroupStanding, MatchResult, Team } from "./fifa/types";
 import type { TournamentStatsSnapshot } from "./tournament-stats-fetch";
 
 export type KnockoutSyncNotice = {
@@ -29,7 +30,7 @@ export type BracketView = {
 
 export type GroupInputMode = "scores" | "ranks";
 
-type SimulationStore = {
+export type SimulationStore = {
   matchResults: Record<string, MatchResult>;
   manualOrder: Record<string, string[] | null>;
   groupInputMode: GroupInputMode;
@@ -42,6 +43,7 @@ type SimulationStore = {
   favoriteMatches: string[];
   favoriteTeams: string[];
   scheduleMockResults: Record<string, MatchResult>;
+  fairPlayData: Record<string, FairPlayData>;
   tournamentStats: TournamentStatsSnapshot["leaderboards"] | null;
   statsFetchedAt: string | null;
   completedMatches: number | null;
@@ -61,7 +63,7 @@ type SimulationStore = {
   setManualOrder: (group: string, teamIds: string[]) => void;
   clearManualOrder: (group: string) => void;
   setKnockoutWinner: (matchNumber: number, teamId: string | null) => void;
-  applyLiveResults: (updates: Record<string, MatchResult>) => void;
+  applyLiveResults: (updates: Record<string, MatchResult>, fairPlay?: Record<string, FairPlayData>) => void;
   resetAll: () => void;
   getGroupStandings: () => GroupStanding[];
   getThirdPlace: () => ReturnType<typeof rankThirdPlaceTeams>;
@@ -70,12 +72,17 @@ type SimulationStore = {
 
 function seedManualOrdersFromStandings(
   matchResults: Record<string, MatchResult>,
-  manualOrder: Record<string, string[] | null>
+  manualOrder: Record<string, string[] | null>,
+  fairPlayData: Record<string, FairPlayData> = {},
 ): Record<string, string[] | null> {
+  const fairPlayOverrides: Record<string, number> = {};
+  for (const [teamId, data] of Object.entries(fairPlayData)) {
+    fairPlayOverrides[teamId] = calculateFairPlayScore(data);
+  }
   const next = { ...manualOrder };
   for (const group of seed.groups) {
     if (next[group.letter]) continue;
-    const standing = calculateGroupStandings(group, matchResults);
+    const standing = calculateGroupStandings(group, matchResults, fairPlayOverrides);
     next[group.letter] = standing.ranked.map((row) => row.team.id);
   }
   return next;
@@ -123,6 +130,7 @@ export const useSimulation = create<SimulationStore>()(
       favoriteMatches: [],
       favoriteTeams: [],
       scheduleMockResults: {},
+      fairPlayData: {},
       activeTab: "groups",
       scrollPositions: { live: 0, groups: 0, schedule: 0, "fav-matches": 0, "fav-teams": 0, third: 0 },
       bracketView: { userZoom: 1, pan: { x: 0, y: 0 } },
@@ -153,8 +161,8 @@ export const useSimulation = create<SimulationStore>()(
         set((s) => {
           if (mode === s.groupInputMode) return {};
           if (mode === "ranks") {
-            const manualOrder = seedManualOrdersFromStandings(s.matchResults, s.manualOrder);
-            const standings = computeStandings(s.matchResults, manualOrder);
+            const manualOrder = seedManualOrdersFromStandings(s.matchResults, s.manualOrder, s.fairPlayData);
+            const standings = computeStandings(s.matchResults, manualOrder, s.fairPlayData);
             const thirdPlaceOrder = seedThirdPlaceOrder(standings);
             return {
               groupInputMode: mode,
@@ -190,7 +198,7 @@ export const useSimulation = create<SimulationStore>()(
 
       clearThirdPlaceOrder: () =>
         set((s) => {
-          const standings = computeStandings(s.matchResults, s.manualOrder);
+          const standings = computeStandings(s.matchResults, s.manualOrder, s.fairPlayData);
           const thirdPlaceOrder = seedThirdPlaceOrder(standings);
           return {
             thirdPlaceOrder,
@@ -328,12 +336,13 @@ export const useSimulation = create<SimulationStore>()(
           return { knockoutWinners };
         }),
 
-      applyLiveResults: (updates) =>
+      applyLiveResults: (updates, fairPlay) =>
         set((s) => {
-          if (Object.keys(updates).length === 0) return {};
+          if (Object.keys(updates).length === 0 && (!fairPlay || Object.keys(fairPlay).length === 0)) return {};
 
           const matchResults = { ...s.matchResults, ...updates };
           const manualOrder = { ...s.manualOrder };
+          const fairPlayData = fairPlay ? { ...s.fairPlayData, ...fairPlay } : s.fairPlayData;
 
           for (const matchId of Object.keys(updates)) {
             const groupLetter = seed.groups.find((group) =>
@@ -342,12 +351,13 @@ export const useSimulation = create<SimulationStore>()(
             if (groupLetter) manualOrder[groupLetter] = null;
           }
 
-          const standings = computeStandings(matchResults, manualOrder);
+          const standings = computeStandings(matchResults, manualOrder, fairPlayData);
           const thirdPlaceOrder = seedThirdPlaceOrder(standings);
 
           return {
             matchResults,
             manualOrder,
+            fairPlayData,
             groupInputMode: "scores",
             thirdPlaceOrder,
             ...syncKnockoutFromGroups(
@@ -369,6 +379,7 @@ export const useSimulation = create<SimulationStore>()(
           knockoutWinners: {},
           knockoutSyncNotice: null,
           scheduleMockResults: {},
+          fairPlayData: {},
           completedMatches: null,
         }),
 
@@ -379,7 +390,7 @@ export const useSimulation = create<SimulationStore>()(
           completedMatches: stats?.completedMatches || null,
         }),
 
-      getGroupStandings: () => computeStandings(get().matchResults, get().manualOrder),
+      getGroupStandings: () => computeStandings(get().matchResults, get().manualOrder, get().fairPlayData),
 
       getThirdPlace: () => {
         const state = get();
@@ -433,6 +444,7 @@ export const useSimulation = create<SimulationStore>()(
         favoriteMatches: state.favoriteMatches,
         favoriteTeams: state.favoriteTeams,
         scheduleMockResults: state.scheduleMockResults,
+        fairPlayData: state.fairPlayData,
         activeTab: state.activeTab,
         scrollPositions: state.scrollPositions,
         bracketView: state.bracketView,

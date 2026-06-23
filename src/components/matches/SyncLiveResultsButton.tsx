@@ -5,9 +5,10 @@ import { seed } from "@/lib/data";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { ESPN_SCOREBOARD_URL, parseEspnScoreboard } from "@/lib/espn-match";
 import { groupMatchToEntry } from "@/lib/schedule";
-import { buildLiveGroupResults } from "@/lib/sync-live-results";
+import { buildLiveGroupResults, buildFairPlayFromEspn } from "@/lib/sync-live-results";
 import { useSimulation } from "@/lib/store";
 import { fetchTournamentStatsFromFifa } from "@/lib/tournament-stats-fetch";
+import type { FairPlayData } from "@/lib/fifa/types";
 
 const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce<Record<string, string>>(
   (acc, [localId, espnId]) => {
@@ -25,62 +26,44 @@ export function SyncLiveResultsButton() {
 
   const handleSync = async () => {
     setLoading(true);
-    let succeeded = false;
     try {
-      // 1. Fetch and apply ESPN Scoreboard
-      try {
-        const response = await fetch(ESPN_SCOREBOARD_URL);
-        if (response.ok) {
-          const data = await response.json();
-          const espnMatches = parseEspnScoreboard(data);
-          const groupEntries = seed.groups.flatMap((group) =>
-            group.matches.map((match, idx) => groupMatchToEntry(match, group.letter, {}, idx)),
-          );
-          const { updates } = buildLiveGroupResults(
-            groupEntries,
-            espnMatches,
-            ESPN_TO_LOCAL,
-          );
-          applyLiveResults(updates);
-          succeeded = true;
-        }
-      } catch (error) {
-        console.warn("ESPN live sync failed:", error);
-      }
+      const response = await fetch(ESPN_SCOREBOARD_URL);
+      if (response.ok) {
+        const data = await response.json();
+        const espnMatches = parseEspnScoreboard(data);
+        const groupEntries = seed.groups.flatMap((group) =>
+          group.matches.map((match, idx) => groupMatchToEntry(match, group.letter, {}, idx)),
+        );
 
-      // 2. Fetch tournament stats
-      try {
-        const statsResponse = await fetch("/api/tournament-stats");
-        if (statsResponse.ok) {
-          const statsData = await statsResponse.json();
-          setTournamentStats(statsData);
-          succeeded = true;
-        } else {
-          // Fallback
-          const fallbackStats = await fetchTournamentStatsFromFifa();
-          setTournamentStats(fallbackStats);
-          succeeded = true;
-        }
-      } catch (statsError) {
-        console.warn("Failed to fetch tournament stats, trying fallback:", statsError);
+        // 1. Apply scores immediately
+        const { updates } = buildLiveGroupResults(groupEntries, espnMatches, ESPN_TO_LOCAL);
+
+        // 2. Fetch fair play then apply scores + fair play atomically
+        let fairPlay: Record<string, FairPlayData> = {};
         try {
-          const fallbackStats = await fetchTournamentStatsFromFifa();
-          setTournamentStats(fallbackStats);
-          succeeded = true;
-        } catch (fallbackError) {
-          console.error("Failed to fetch fallback tournament stats:", fallbackError);
+          fairPlay = await buildFairPlayFromEspn(groupEntries, espnMatches, ESPN_TO_LOCAL);
+        } catch (err) {
+          console.warn("Fair play sync failed:", err);
         }
+        applyLiveResults(updates, Object.keys(fairPlay).length > 0 ? fairPlay : undefined);
       }
-
-      if (succeeded) {
-        setIsSuccess(true);
-        setTimeout(() => {
-          setIsSuccess(false);
-        }, 2000);
-      }
-    } finally {
-      setLoading(false);
+    } catch (error) {
+      console.warn("ESPN live sync failed:", error);
     }
+
+    // 3. Fetch tournament stats (fire-and-forget)
+    Promise.allSettled([
+      fetch("/api/tournament-stats").then((r) => (r.ok ? r.json() : Promise.reject())),
+      fetchTournamentStatsFromFifa(),
+    ]).then(([apiResult, fallbackResult]) => {
+      const data =
+        apiResult.status === "fulfilled" ? apiResult.value : fallbackResult.status === "fulfilled" ? fallbackResult.value : null;
+      if (data) setTournamentStats(data);
+    }).catch(() => {});
+
+    setIsSuccess(true);
+    setTimeout(() => setIsSuccess(false), 2000);
+    setLoading(false);
   };
 
   return (

@@ -5,9 +5,16 @@ export type Team = {
   flagUrl: string;
 };
 
+export type FairPlayData = {
+  yellowCards: number;
+  redCards: number;
+};
+
 export type MatchResult = {
   home?: number;
   away?: number;
+  homeFairPlay?: FairPlayData;
+  awayFairPlay?: FairPlayData;
 };
 
 export function isPlayedResult(r?: MatchResult): r is { home: number; away: number } {
