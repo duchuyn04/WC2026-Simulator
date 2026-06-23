@@ -420,6 +420,15 @@ export const useSimulation = create<SimulationStore>()(
     }),
     {
       name: "wc2026-simulation",
+      version: 2,
+      migrate: (persisted: unknown, version: number) => {
+        if (version < 2) {
+          // Xóa scrollPositions cũ khỏi localStorage
+          const { scrollPositions: _, ...rest } = persisted as Record<string, unknown>;
+          return rest;
+        }
+        return persisted;
+      },
       partialize: (state) => ({
         matchResults: state.matchResults,
         manualOrder: state.manualOrder,
