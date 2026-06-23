@@ -194,19 +194,25 @@ export function espnScoresToResult(
 export type LiveCategory = "live" | "upcoming" | "none";
 
 /**
- * Live tab ngày giới hạn hôm nay + ngày mai (theo giờ địa phương).
- * Dời logic inline từ LivePanel ra đây để test trực tiếp.
+ * Live tab ngày giới hạn hôm qua + hôm nay + ngày mai (theo giờ địa phương).
+ * Mở rộng từ 2 ngày lên 3 ngày để hiển thị trận đã kết thúc gần đây.
  * `now` inject được để test — mặc định lấy thời gian hiện tại.
  */
-export function isTodayOrTomorrow(date: Date, now: number = Date.now()): boolean {
-  const today = new Date(now);
-  today.setHours(0, 0, 0, 0);
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
+export function isWithinThreeDays(date: Date, now: number = Date.now()): boolean {
   const target = new Date(date);
   target.setHours(0, 0, 0, 0);
-  return target.getTime() === today.getTime() || target.getTime() === tomorrow.getTime();
+
+  for (let offset = -1; offset <= 1; offset++) {
+    const day = new Date(now);
+    day.setHours(0, 0, 0, 0);
+    day.setDate(day.getDate() + offset);
+    if (target.getTime() === day.getTime()) return true;
+  }
+  return false;
 }
+
+/** @deprecated Dùng isWithinThreeDays thay thế */
+export const isTodayOrTomorrow = isWithinThreeDays;
 
 /**
  * Phán đoán trận đã kết thúc khi ESPN chưa trả data — kickoff >3h.
@@ -239,7 +245,7 @@ export function categorizeLiveEntry(args: {
 
   if (espnMatch && isEspnMatchLive(espnMatch)) return "live";
 
-  if (!isTodayOrTomorrow(eventDate, now)) return "none";
+  if (!isWithinThreeDays(eventDate, now)) return "none";
 
   if (espnLoaded) {
     // ESPN đã phản hồi — tin tưởng state thật, không phán đoán.
