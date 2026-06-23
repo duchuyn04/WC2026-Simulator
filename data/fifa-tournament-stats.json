@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-23T08:38:32.335Z",
-  "completedMatches": 44,
+  "fetchedAt": "2026-06-23T20:21:36.259Z",
+  "completedMatches": 45,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -114,6 +114,19 @@
         "value": 2
       },
       {
+        "playerId": "201200",
+        "name": "CRISTIANO RONALDO",
+        "shortName": "CRISTIANO RONALDO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/7b63f223-fda2-4d56-b218-f143f0abd2d8/CRISTIANO-RONALDO_201200",
+        "team": {
+          "id": "43963",
+          "name": "Portugal",
+          "code": "POR",
+          "flagUrl": "/flags/POR.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "489518",
         "name": "Crysencio SUMMERVILLE",
         "shortName": "Crysencio SUMMERVILLE",
@@ -123,19 +136,6 @@
           "name": "Netherlands",
           "code": "NED",
           "flagUrl": "/flags/NED.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "390670",
-        "name": "Cyle LARIN",
-        "shortName": "Cyle LARIN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/21086aea-3ec5-47b2-a81f-f7316489183a/LARIN-Cyle_390670",
-        "team": {
-          "id": "43899",
-          "name": "Canada",
-          "code": "CAN",
-          "flagUrl": "/flags/CAN.png"
         },
         "value": 2
       }
@@ -618,6 +618,19 @@
       }
     ],
     "ownGoals": [
+      {
+        "playerId": "479110",
+        "name": "Abduvohid NEMATOV",
+        "shortName": "Abduvohid NEMATOV",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/1f1bfea3-5228-4270-ad8d-c1c8f08ef522/NEMATOV-Abduvohid_479110",
+        "team": {
+          "id": "44005",
+          "name": "Uzbekistan",
+          "code": "UZB",
+          "flagUrl": "/flags/UZB.png"
+        },
+        "value": 1
+      },
       {
         "playerId": "395186",
         "name": "AYMEN HUSSEIN",
