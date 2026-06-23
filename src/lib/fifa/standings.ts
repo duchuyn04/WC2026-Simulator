@@ -67,98 +67,81 @@ function rankTeams(
   if (teams.length <= 1) return teams;
 
   const ranked: TeamStats[] = [];
+
+  // Group by overall points
+  const pointsGroups = new Map<number, TeamStats[]>();
+  for (const t of teams) {
+    const group = pointsGroups.get(t.points) ?? [];
+    group.push(t);
+    pointsGroups.set(t.points, group);
+  }
+
+  const sortedPoints = Array.from(pointsGroups.keys()).sort((a, b) => b - a);
+
+  for (const pts of sortedPoints) {
+    const group = pointsGroups.get(pts)!;
+    if (group.length === 1) {
+      ranked.push(group[0]);
+    } else {
+      const resolved = resolveTies(group, results);
+      ranked.push(...resolved);
+    }
+  }
+
+  return ranked;
+}
+
+function resolveTies(teams: TeamStats[], results: PlayedMatch[]): TeamStats[] {
+  if (teams.length <= 1) return teams;
+
+  const h2h = getHeadToHeadStats(teams, results);
+
   const sorted = [...teams].sort((a, b) => {
-    if (b.points !== a.points) return b.points - a.points;
+    const ha = h2h.find((t) => t.team.id === a.team.id)!;
+    const hb = h2h.find((t) => t.team.id === b.team.id)!;
+
+    if (hb.points !== ha.points) return hb.points - ha.points;
+    if (hb.gd !== ha.gd) return hb.gd - ha.gd;
+    if (hb.gf !== ha.gf) return hb.gf - ha.gf;
+
     if (b.gd !== a.gd) return b.gd - a.gd;
-    return b.gf - a.gf;
+    if (b.gf !== a.gf) return b.gf - a.gf;
+    if (b.fairPlay !== a.fairPlay) return b.fairPlay - a.fairPlay;
+    return a.fifaRanking - b.fifaRanking;
   });
 
+  const ranked: TeamStats[] = [];
   let i = 0;
   while (i < sorted.length) {
     const current = sorted[i];
+    const hc = h2h.find((t) => t.team.id === current.team.id)!;
     const tied = [current];
     let j = i + 1;
-    while (
-      j < sorted.length &&
-      sorted[j].points === current.points &&
-      sorted[j].gd === current.gd &&
-      sorted[j].gf === current.gf
-    ) {
-      tied.push(sorted[j]);
-      j++;
-    }
-    i = j;
-
-    if (tied.length === 1) {
-      ranked.push(tied[0]);
-      continue;
-    }
-
-    let remaining = [...tied];
-    while (remaining.length > 1) {
-      const h2h = getHeadToHeadStats(remaining, results);
-      const h2hSorted = [...h2h].sort(compareStats);
-
-      const top = h2hSorted[0];
-      const sameAsTop = h2hSorted.filter(
-        (s) =>
-          s.points === top.points &&
-          s.gd === top.gd &&
-          s.gf === top.gf &&
-          s.fairPlay === top.fairPlay &&
-          s.fifaRanking === top.fifaRanking
-      );
-
-      if (sameAsTop.length < remaining.length) {
-        let changed = false;
-        for (const s of h2hSorted) {
-          if (!ranked.find((r) => r.team.id === s.team.id)) {
-            const done = h2hSorted.filter(
-              (x) =>
-                x.points === s.points &&
-                x.gd === s.gd &&
-                x.gf === s.gf &&
-                x.fairPlay === s.fairPlay &&
-                x.fifaRanking === s.fifaRanking
-            );
-            if (done.length === 1) {
-              ranked.push(teams.find((t) => t.team.id === s.team.id)!);
-              remaining = remaining.filter((r) => r.team.id !== s.team.id);
-              changed = true;
-            }
-          }
-        }
-        const unresolved = remaining.filter((r) => !ranked.find((x) => x.team.id === r.team.id));
-        if (unresolved.length > 1) {
-          const sortedSubset = [...unresolved].sort(compareStats);
-          const best = sortedSubset[0];
-          const tiedBest = sortedSubset.filter(
-            (s) =>
-              s.points === best.points &&
-              s.gd === best.gd &&
-              s.gf === best.gf &&
-              s.fairPlay === best.fairPlay &&
-              s.fifaRanking === best.fifaRanking
-          );
-          if (tiedBest.length === 1) {
-            ranked.push(teams.find((t) => t.team.id === best.team.id)!);
-            remaining = remaining.filter((r) => r.team.id !== best.team.id);
-            changed = true;
-          } else if (!changed) {
-            break;
-          }
-        }
+    while (j < sorted.length) {
+      const next = sorted[j];
+      const hn = h2h.find((t) => t.team.id === next.team.id)!;
+      if (hn.points === hc.points && hn.gd === hc.gd && hn.gf === hc.gf) {
+        tied.push(next);
+        j++;
       } else {
         break;
       }
     }
 
-    if (remaining.length > 0) {
-      remaining.sort(compareStats);
-      for (const r of remaining) {
-        ranked.push(teams.find((t) => t.team.id === r.team.id)!);
-      }
+    if (tied.length === 1) {
+      ranked.push(tied[0]);
+    } else if (tied.length < teams.length) {
+      ranked.push(...resolveTies(tied, results));
+    } else {
+      const fullyResolved = [...tied].sort((a, b) => {
+        if (b.gd !== a.gd) return b.gd - a.gd;
+        if (b.gf !== a.gf) return b.gf - a.gf;
+        if (b.fairPlay !== a.fairPlay) return b.fairPlay - a.fairPlay;
+        return a.fifaRanking - b.fifaRanking;
+      });
+      ranked.push(...fullyResolved);
     }
+    i = j;
   }
 
   return ranked;
