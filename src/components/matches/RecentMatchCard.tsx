@@ -4,6 +4,8 @@ import { FlagIcon } from "@/components/ui/FlagIcon";
 import type { EspnScoreboardMatch } from "@/lib/espn-match";
 import type { ScheduleEntry } from "@/lib/schedule";
 
+import { prefetchMatchStats } from "./MatchStatsModal";
+
 type RecentMatchCardProps = {
   entry: ScheduleEntry;
   espnMatch: EspnScoreboardMatch;
@@ -26,10 +28,15 @@ export function RecentMatchCard({
   const handleClick = onOpenDetail
     ? () => onOpenDetail(entry, espnMatch.id, espnMatch.date)
     : undefined;
+    
+  const handlePointerEnter = onOpenDetail
+    ? () => prefetchMatchStats(espnMatch.id)
+    : undefined;
 
   return (
     <div
       onClick={handleClick}
+      onPointerEnter={handlePointerEnter}
       className={`rounded-xl border border-zinc-800 bg-zinc-950/60 p-2 transition-colors sm:p-2.5 ${
         handleClick
           ? "cursor-pointer hover:border-zinc-600 hover:bg-zinc-900/80 active:scale-[0.99]"

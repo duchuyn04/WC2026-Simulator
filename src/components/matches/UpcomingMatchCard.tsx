@@ -4,6 +4,8 @@ import Link from "next/link";
 import { FlagIcon } from "@/components/ui/FlagIcon";
 import type { ScheduleEntry } from "@/lib/schedule";
 
+import { prefetchMatchStats } from "./MatchStatsModal";
+
 type UpcomingMatchCardProps = {
   entry: ScheduleEntry;
   gameId?: string;
@@ -14,7 +16,7 @@ function getTeamSlug(name: string) {
   return name
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/-and-/g, "-")
     .replace(/(^-|-$)+/g, "");
@@ -39,10 +41,15 @@ export function UpcomingMatchCard({ entry, gameId, onOpenDetail }: UpcomingMatch
   const handleClick = onOpenDetail && gameId && entry.date
     ? () => onOpenDetail(entry, gameId, entry.date!)
     : undefined;
+    
+  const handlePointerEnter = onOpenDetail && gameId
+    ? () => prefetchMatchStats(gameId)
+    : undefined;
 
   return (
     <div
       onClick={handleClick}
+      onPointerEnter={handlePointerEnter}
       className={`bg-zinc-900/50 border border-zinc-800 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 flex items-center gap-3 transition-colors ${
         handleClick ? "cursor-pointer hover:border-zinc-600 hover:bg-zinc-900/70 active:scale-[0.99]" : "hover:border-zinc-700 hover:bg-zinc-900/70"
       }`}

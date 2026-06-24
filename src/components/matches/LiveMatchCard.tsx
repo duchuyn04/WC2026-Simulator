@@ -3,6 +3,7 @@
 import { FlagIcon } from "@/components/ui/FlagIcon";
 import type { EspnScoreboardMatch } from "@/lib/espn-match";
 import type { ScheduleEntry } from "@/lib/schedule";
+import { prefetchMatchStats } from "./MatchStatsModal";
 
 type LiveMatchCardProps = {
   entry: ScheduleEntry;
@@ -18,10 +19,12 @@ export function LiveMatchCard({ entry, espnMatch, homeName, awayName, homeCode, 
   const liveClock = `${espnMatch.displayClock || espnMatch.shortDetail}`;
 
   const handleClick = onOpenDetail ? () => onOpenDetail(entry, espnMatch.id, espnMatch.date) : undefined;
+  const handlePointerEnter = onOpenDetail ? () => prefetchMatchStats(espnMatch.id) : undefined;
 
   return (
     <div
       onClick={handleClick}
+      onPointerEnter={handlePointerEnter}
       className={`bg-zinc-950/80 border border-zinc-800 border-l-2 border-l-red-500/60 rounded-xl p-2 sm:p-2.5 transition-colors ${
         handleClick ? "cursor-pointer hover:border-zinc-600 hover:bg-zinc-900/80 active:scale-[0.99]" : ""
       }`}

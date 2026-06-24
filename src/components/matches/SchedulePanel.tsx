@@ -16,7 +16,7 @@ import type { Team } from "@/lib/fifa/types";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import { EspnStandingsBoard } from "@/components/standings/EspnStandingsBoard";
 import { TournamentStatsBoard } from "@/components/standings/TournamentStatsBoard";
-import { MatchStatsModal } from "@/components/matches/MatchStatsModal";
+import { MatchStatsModal, prefetchMatchStats } from "@/components/matches/MatchStatsModal";
 import { H2HModal } from "@/components/matches/H2HModal";
 import {
   findEspnMatch,
@@ -354,6 +354,7 @@ function ScheduleTableRow({
           {matchedEspn && (
             <button
               onClick={() => onOpenMatch(matchedEspn.id, entry.date)}
+              onPointerEnter={() => prefetchMatchStats(matchedEspn.id)}
               className="text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors bg-emerald-500/10 hover:bg-emerald-500/20 px-2 py-0.5 rounded whitespace-nowrap"
             >
               Chi tiết

@@ -218,7 +218,23 @@ function findLocalPlayerPicture(localTeam: LocalTeam | undefined, espnPlayerName
 
 
 const summaryCache = new Map<string, { data: EspnSummary; timestamp: number }>();
-const CACHE_TTL = 30_000;
+const CACHE_TTL = 300_000; // Tăng TTL lên 5 phút cho hiệu năng tốt hơn
+
+export function prefetchMatchStats(gameId: string) {
+  if (!gameId) return;
+  const cached = summaryCache.get(gameId);
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL) return;
+
+  fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event=${gameId}`)
+    .then((r) => {
+      if (r.ok) return r.json();
+      throw new Error("Prefetch failed");
+    })
+    .then((data) => {
+      summaryCache.set(gameId, { data, timestamp: Date.now() });
+    })
+    .catch(() => { /* ignore prefetch errors */ });
+}
 
 export function MatchStatsModal({ gameId, matchDate, entry, onClose }: MatchStatsModalProps) {
   const [activeTab, setActiveTab] = useState<"stats" | "timeline" | "lineup">("stats");
