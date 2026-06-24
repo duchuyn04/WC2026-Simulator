@@ -19,7 +19,6 @@ export function useLiveSync() {
         // BXH mô phỏng chỉ được cập nhật khi người dùng bấm nút "Đồng bộ kết quả thật".
         try {
           const statsUrl = new URL("/api/tournament-stats", window.location.origin);
-          statsUrl.searchParams.append("_t", Date.now().toString());
           const statsResponse = await fetch(statsUrl.toString(), { cache: "no-store" });
           if (statsResponse.ok) {
             const statsData = await statsResponse.json();
