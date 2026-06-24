@@ -24,124 +24,13 @@ function getOfflineFallback(): TournamentStatsSnapshot {
 
 
 export async function fetchTournamentStatsFromFifa(): Promise<TournamentStatsSnapshot> {
-  let calendar;
-  try {
-    calendar = await fetchJson<{ Results?: Array<Record<string, unknown>> }>(
-      TOURNAMENT_STATS_CALENDAR_URL,
-    );
-  } catch (error) {
-    console.warn("FIFA API is offline. Serving browser fallback stats.", error);
-    return getOfflineFallback();
-  }
-
-  try {
-    const completedMatches = (calendar.Results ?? []).filter(isLiveOrCompletedMatch);
-
-    let espnMatches: any[] = [];
-    try {
-      const espnUrl = new URL(ESPN_SCOREBOARD_URL);
-      espnUrl.searchParams.append("_t", Date.now().toString());
-      const espnData = await fetchJson<any>(espnUrl.toString());
-      espnMatches = espnData.events ?? [];
-    } catch (e) {
-      console.warn("Failed to fetch ESPN scoreboard", e);
-    }
-
-    const matchData = await mapWithConcurrency(completedMatches, 4, async (match: any) => {
-      const completedMatch = await fetchCompletedMatch(match);
-      
-      try {
-        const fifaHomeId = String(match.Home?.IdTeam ?? match.HomeTeam?.IdTeam);
-        const fifaAwayId = String(match.Away?.IdTeam ?? match.AwayTeam?.IdTeam);
-
-        const espnHomeId = fifaHomeId ? ESPN_TEAM_MAP[fifaHomeId] : undefined;
-        const espnAwayId = fifaAwayId ? ESPN_TEAM_MAP[fifaAwayId] : undefined;
-
-        const espnMatch = espnMatches.find((event: any) => {
-          const comp = event.competitions?.[0];
-          const home = comp?.competitors?.find((t: any) => t.homeAway === "home");
-          const away = comp?.competitors?.find((t: any) => t.homeAway === "away");
-          return (
-            (home?.team?.id === espnHomeId && away?.team?.id === espnAwayId) ||
-            (home?.team?.id === espnAwayId && away?.team?.id === espnHomeId)
-          );
-        });
-
-        if (espnMatch) {
-          const comp = espnMatch.competitions?.[0];
-          const homeScore = Number(comp?.competitors?.find((t: any) => t.homeAway === "home")?.score) || 0;
-          const awayScore = Number(comp?.competitors?.find((t: any) => t.homeAway === "away")?.score) || 0;
-
-          let fifaGoalsTotal = 0;
-          for (const playerRows of Object.values(completedMatch.playerStats ?? {})) {
-            const goals = (playerRows as any).find((r: any) => r[0] === "Goals")?.[1] ?? 0;
-            fifaGoalsTotal += goals;
-          }
-
-          // Compute own goals from FIFA playerStats
-          let fifaOwnGoalsTotal = 0;
-          for (const playerRows of Object.values(completedMatch.playerStats ?? {})) {
-            const ogs = (playerRows as any).find((r: any) => r[0] === "OwnGoals")?.[1] ?? 0;
-            fifaOwnGoalsTotal += ogs;
-          }
-
-          const summary = await fetchJson<any>(`https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event=${espnMatch.id}`);
-          const details = [
-            ...(summary.header?.competitions?.[0]?.details ?? []),
-            ...(summary.keyEvents ?? [])
-          ];
-
-          const ownGoals = detailsOwnGoals(details);
-          const totalEspnGoals = homeScore + awayScore - ownGoals;
-
-          if (fifaGoalsTotal < totalEspnGoals || fifaOwnGoalsTotal < ownGoals) {
-            if (fifaHomeId && espnHomeId) {
-              patchMatchPlayerStats(
-                completedMatch.liveMatch,
-                completedMatch.playerStats,
-                summary,
-                fifaHomeId,
-                espnHomeId
-              );
-            }
-            if (fifaAwayId && espnAwayId) {
-              patchMatchPlayerStats(
-                completedMatch.liveMatch,
-                completedMatch.playerStats,
-                summary,
-                fifaAwayId,
-                espnAwayId
-              );
-            }
-          }
-        }
-      } catch (e) {
-        console.warn("Failed to patch browser stats", e);
-      }
-
-      return completedMatch;
-    });
-
-    if (matchData.length === 0 && completedMatches.length > 0) {
-      console.warn("Fetched 0 matches details but calendar has completed matches. Serving browser fallback stats.");
-      return getOfflineFallback();
-    }
-
-    return {
-      source: {
-        provider: "FIFA",
-        seasonId: TOURNAMENT_STATS_SEASON_ID,
-        calendarUrl: TOURNAMENT_STATS_CALENDAR_URL,
-      },
-      fetchedAt: new Date().toISOString(),
-      completedMatches: matchData.length,
-      skippedMatches: completedMatches.length - matchData.length,
-      leaderboards: buildLeaderboards(matchData, 10),
-    };
-  } catch (error) {
-    console.error("Failed to fetch tournament stats from browser:", error);
-    return getOfflineFallback();
-  }
+  // Khắc phục triệt để lỗi Connection Starvation (mất 20s+ mới fetch xong score):
+  // Vì Next.js App được deploy lên GitHub Pages không có API Routes, fallback này sẽ bị kích hoạt.
+  // Thuật toán cũ tự động fetch song song 150+ requests (calendar, player stats, espn summary) 
+  // làm cạn kiệt connection pool của trình duyệt (giới hạn 6 connections/host).
+  // Vì CI đã tự động build tĩnh lại app mỗi 15 phút cùng file JSON mới nhất,
+  // chúng ta chỉ cần trả về file JSON tĩnh này là đã có dữ liệu đủ mới và mượt mà!
+  return getOfflineFallback();
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
