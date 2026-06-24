@@ -18,7 +18,9 @@ export function useEspnLiveScores(): {
     let mounted = true;
     const fetchScores = async () => {
       try {
-        const res = await fetch(ESPN_SCOREBOARD_URL);
+        const url = new URL(ESPN_SCOREBOARD_URL);
+        url.searchParams.append("_t", Date.now().toString());
+        const res = await fetch(url.toString(), { cache: "no-store" });
         if (!res.ok) return;
         const data = await res.json();
         const parsedMatches = parseEspnScoreboard(data);

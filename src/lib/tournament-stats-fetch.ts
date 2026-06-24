@@ -39,7 +39,9 @@ export async function fetchTournamentStatsFromFifa(): Promise<TournamentStatsSna
 
     let espnMatches: any[] = [];
     try {
-      const espnData = await fetchJson<any>(ESPN_SCOREBOARD_URL);
+      const espnUrl = new URL(ESPN_SCOREBOARD_URL);
+      espnUrl.searchParams.append("_t", Date.now().toString());
+      const espnData = await fetchJson<any>(espnUrl.toString());
       espnMatches = espnData.events ?? [];
     } catch (e) {
       console.warn("Failed to fetch ESPN scoreboard", e);
@@ -143,7 +145,10 @@ export async function fetchTournamentStatsFromFifa(): Promise<TournamentStatsSna
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
-  const response = await fetch(url, { headers: { Accept: "application/json" } });
+  const response = await fetch(url, { 
+    headers: { Accept: "application/json" },
+    cache: "no-store"
+  });
   if (!response.ok) {
     throw new Error(`${url} returned ${response.status}`);
   }
