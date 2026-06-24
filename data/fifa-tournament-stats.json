@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-24T08:32:37.327Z",
-  "completedMatches": 48,
+  "fetchedAt": "2026-06-24T21:43:13.309Z",
+  "completedMatches": 50,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -58,6 +58,19 @@
           "name": "Germany",
           "code": "GER",
           "flagUrl": "/flags/GER.png"
+        },
+        "value": 3
+      },
+      {
+        "playerId": "502727",
+        "name": "Johan MANZAMBI",
+        "shortName": "Johan MANZAMBI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a0cb9413-32ea-4b8f-9801-55474cb12b77/MANZAMBI-Johan_502727",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
         },
         "value": 3
       },
@@ -125,19 +138,6 @@
           "flagUrl": "/flags/POR.png"
         },
         "value": 2
-      },
-      {
-        "playerId": "489518",
-        "name": "Crysencio SUMMERVILLE",
-        "shortName": "Crysencio SUMMERVILLE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/86e9f724-fc5f-4969-92e3-ac658dafacdd/SUMMERVILLE-Crysencio_489518",
-        "team": {
-          "id": "43960",
-          "name": "Netherlands",
-          "code": "NED",
-          "flagUrl": "/flags/NED.png"
-        },
-        "value": 2
       }
     ],
     "assists": [
@@ -177,6 +177,19 @@
           "name": "Morocco",
           "code": "MAR",
           "flagUrl": "/flags/MAR.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "393480",
+        "name": "Breel EMBOLO",
+        "shortName": "Breel EMBOLO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b2483096-041c-489b-a1c5-6d930f380909/EMBOLO-Breel_393480",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
         },
         "value": 2
       },
@@ -255,19 +268,6 @@
           "name": "Norway",
           "code": "NOR",
           "flagUrl": "/flags/NOR.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "344654",
-        "name": "MOHAMED SALAH",
-        "shortName": "MOHAMED SALAH",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/8d5236b8-acac-4946-af8e-5b007bcfa284/MOHAMED-SALAH_344654",
-        "team": {
-          "id": "43855",
-          "name": "Egypt",
-          "code": "EGY",
-          "flagUrl": "/flags/EGY.png"
         },
         "value": 2
       }
@@ -381,6 +381,19 @@
     ],
     "yellowCards": [
       {
+        "playerId": "433394",
+        "name": "AHMED FATHY",
+        "shortName": "AHMED FATHY",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/f465c1f2-aa85-4bc7-bf8d-4d5805b19cd9/AHMED-FATHY_433394",
+        "team": {
+          "id": "43834",
+          "name": "Qatar",
+          "code": "QAT",
+          "flagUrl": "/flags/QAT.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "477832",
         "name": "SIDNY LOPES CABRAL",
         "shortName": "SIDNY LOPES CABRAL",
@@ -442,19 +455,6 @@
           "name": "Saudi Arabia",
           "code": "KSA",
           "flagUrl": "/flags/KSA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "433394",
-        "name": "AHMED FATHY",
-        "shortName": "AHMED FATHY",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/f465c1f2-aa85-4bc7-bf8d-4d5805b19cd9/AHMED-FATHY_433394",
-        "team": {
-          "id": "43834",
-          "name": "Qatar",
-          "code": "QAT",
-          "flagUrl": "/flags/QAT.png"
         },
         "value": 1
       },
@@ -680,6 +680,19 @@
           "name": "Saudi Arabia",
           "code": "KSA",
           "flagUrl": "/flags/KSA.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "419459",
+        "name": "MAHMOUD ABUNADA",
+        "shortName": "MAHMOUD ABUNADA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/86cd9af3-c09a-4bcd-9830-fed9d7b19ab6/MAHMOUD-ABUNADA_419459",
+        "team": {
+          "id": "43834",
+          "name": "Qatar",
+          "code": "QAT",
+          "flagUrl": "/flags/QAT.png"
         },
         "value": 1
       },
