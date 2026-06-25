@@ -4,15 +4,15 @@
     "squadUrlTemplate": "https://api.fifa.com/api/v3/teams/{teamId}/squad?idCompetition=17&idSeason=285023&language=en",
     "wikipediaSquadsUrl": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads"
   },
-  "fetchedAt": "2026-06-25T03:28:09.762Z",
+  "fetchedAt": "2026-06-25T16:44:09.328Z",
   "seasonId": "285023",
   "competitionId": "17",
   "count": 48,
   "enrichment": {
     "wikipediaTeams": 48,
     "imageSources": {
-      "fifa": 1247,
-      "none": 1
+      "fifa": 1248,
+      "none": 0
     }
   },
   "teams": [
@@ -31596,8 +31596,8 @@
           "heightCm": 186,
           "weightKg": 83,
           "countryCode": "UZB",
-          "pictureUrl": null,
-          "pictureSource": null,
+          "pictureUrl": "https://digitalhub.fifa.com/transform/de1f05c2-772c-4c3c-8410-b653f3e812c9/KHUSANOV-Abdukodir_479068",
+          "pictureSource": "fifa",
           "caps": 27,
           "goals": 0,
           "wikiTitle": "Abdukodir Khusanov",
