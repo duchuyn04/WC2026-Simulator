@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-24T21:43:13.309Z",
-  "completedMatches": 50,
+  "fetchedAt": "2026-06-25T04:22:02.088Z",
+  "completedMatches": 54,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -49,6 +49,19 @@
         "value": 4
       },
       {
+        "playerId": "405742",
+        "name": "VINICIUS JUNIOR",
+        "shortName": "VINICIUS JUNIOR",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/1c2722c3-a70b-49d8-bdb4-77109161f533/VINICIUS-JUNIOR_405742",
+        "team": {
+          "id": "43924",
+          "name": "Brazil",
+          "code": "BRA",
+          "flagUrl": "/flags/BRA.png"
+        },
+        "value": 4
+      },
+      {
         "playerId": "484851",
         "name": "Deniz UNDAV",
         "shortName": "Deniz UNDAV",
@@ -58,6 +71,19 @@
           "name": "Germany",
           "code": "GER",
           "flagUrl": "/flags/GER.png"
+        },
+        "value": 3
+      },
+      {
+        "playerId": "448598",
+        "name": "Ismael SAIBARI",
+        "shortName": "Ismael SAIBARI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/250526c6-26b5-4425-8a21-231c7952e34d/SAIBARI-Ismael_448598",
+        "team": {
+          "id": "43872",
+          "name": "Morocco",
+          "code": "MAR",
+          "flagUrl": "/flags/MAR.png"
         },
         "value": 3
       },
@@ -88,6 +114,19 @@
         "value": 3
       },
       {
+        "playerId": "430609",
+        "name": "MATHEUS CUNHA",
+        "shortName": "MATHEUS CUNHA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/9189da72-e1b5-4e7b-800d-7eeca119f08c/MATHEUS-CUNHA_430609",
+        "team": {
+          "id": "43924",
+          "name": "Brazil",
+          "code": "BRA",
+          "flagUrl": "/flags/BRA.png"
+        },
+        "value": 3
+      },
+      {
         "playerId": "430413",
         "name": "Ayase UEDA",
         "shortName": "Ayase UEDA",
@@ -97,45 +136,6 @@
           "name": "Japan",
           "code": "JPN",
           "flagUrl": "/flags/JPN.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "424051",
-        "name": "Brian BROBBEY",
-        "shortName": "Brian BROBBEY",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/15246275-ff97-404c-bac3-ce793d98c744/BROBBEY-Brian_424051",
-        "team": {
-          "id": "43960",
-          "name": "Netherlands",
-          "code": "NED",
-          "flagUrl": "/flags/NED.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "448152",
-        "name": "Cody GAKPO",
-        "shortName": "Cody GAKPO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/bbb5637f-0587-4ddd-8a82-604c0d921bb3/GAKPO-Cody_448152",
-        "team": {
-          "id": "43960",
-          "name": "Netherlands",
-          "code": "NED",
-          "flagUrl": "/flags/NED.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "201200",
-        "name": "CRISTIANO RONALDO",
-        "shortName": "CRISTIANO RONALDO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/7b63f223-fda2-4d56-b218-f143f0abd2d8/CRISTIANO-RONALDO_201200",
-        "team": {
-          "id": "43963",
-          "name": "Portugal",
-          "code": "POR",
-          "flagUrl": "/flags/POR.png"
         },
         "value": 2
       }
@@ -151,6 +151,19 @@
           "name": "Sweden",
           "code": "SWE",
           "flagUrl": "/flags/SWE.png"
+        },
+        "value": 3
+      },
+      {
+        "playerId": "430605",
+        "name": "BRUNO GUIMARAES",
+        "shortName": "BRUNO GUIMARAES",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/0215cb23-c389-4c5a-9bb0-c7044ae7059a/BRUNO-GUIMARAES_430605",
+        "team": {
+          "id": "43924",
+          "name": "Brazil",
+          "code": "BRA",
+          "flagUrl": "/flags/BRA.png"
         },
         "value": 3
       },
@@ -255,19 +268,6 @@
           "name": "Paraguay",
           "code": "PAR",
           "flagUrl": "/flags/PAR.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "400716",
-        "name": "Martin ODEGAARD",
-        "shortName": "Martin ODEGAARD",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/2b895db6-7f67-4436-b8da-54bdf0dd2e2b/ODEGAARD-Martin_400716",
-        "team": {
-          "id": "43961",
-          "name": "Norway",
-          "code": "NOR",
-          "flagUrl": "/flags/NOR.png"
         },
         "value": 2
       }
@@ -736,15 +736,15 @@
         "value": 1
       },
       {
-        "playerId": "431225",
-        "name": "YAZAN ALARAB",
-        "shortName": "YAZAN ALARAB",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/f69b7b80-4362-431e-9e25-32c7d0a92c88/YAZAN-ALARAB_431225",
+        "playerId": "356956",
+        "name": "Yassine BOUNOU",
+        "shortName": "Yassine BOUNOU",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/338ae8a7-8734-423e-ae54-2f783dba77ce/BOUNOU-Yassine_356956",
         "team": {
-          "id": "43820",
-          "name": "Jordan",
-          "code": "JOR",
-          "flagUrl": "/flags/JOR.png"
+          "id": "43872",
+          "name": "Morocco",
+          "code": "MAR",
+          "flagUrl": "/flags/MAR.png"
         },
         "value": 1
       }
