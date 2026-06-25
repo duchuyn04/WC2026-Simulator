@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-25T04:22:02.088Z",
-  "completedMatches": 54,
+  "fetchedAt": "2026-06-25T22:44:04.591Z",
+  "completedMatches": 56,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -246,10 +246,10 @@
         "value": 2
       },
       {
-        "playerId": "386413",
-        "name": "Joshua KIMMICH",
-        "shortName": "Joshua KIMMICH",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/ada33dfd-5b01-4792-88f4-14c06641509e/KIMMICH-Joshua_386413",
+        "playerId": "430669",
+        "name": "Florian WIRTZ",
+        "shortName": "Florian WIRTZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/3a120189-62cc-441f-b862-7fdd2a9abfa4/WIRTZ-Florian_430669",
         "team": {
           "id": "43948",
           "name": "Germany",
@@ -259,15 +259,15 @@
         "value": 2
       },
       {
-        "playerId": "441234",
-        "name": "Julio ENCISO",
-        "shortName": "Julio ENCISO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/aa8ef158-6636-46a9-a6fb-185a2f92ad95/ENCISO-Julio_441234",
+        "playerId": "386413",
+        "name": "Joshua KIMMICH",
+        "shortName": "Joshua KIMMICH",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ada33dfd-5b01-4792-88f4-14c06641509e/KIMMICH-Joshua_386413",
         "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
+          "id": "43948",
+          "name": "Germany",
+          "code": "GER",
+          "flagUrl": "/flags/GER.png"
         },
         "value": 2
       }
@@ -394,6 +394,32 @@
         "value": 2
       },
       {
+        "playerId": "466372",
+        "name": "Gervane KASTANEER",
+        "shortName": "Gervane KASTANEER",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/18bea3a9-68ef-4e35-ae04-2d494b39971e/KASTANEER-Gervane_466372",
+        "team": {
+          "id": "1895293",
+          "name": "Curaçao",
+          "code": "CUW",
+          "flagUrl": "/flags/CUW.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "466317",
+        "name": "Juninho BACUNA",
+        "shortName": "Juninho BACUNA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/804768d8-badb-4492-9aef-1e523440aed4/BACUNA-Juninho_466317",
+        "team": {
+          "id": "1895293",
+          "name": "Curaçao",
+          "code": "CUW",
+          "flagUrl": "/flags/CUW.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "477832",
         "name": "SIDNY LOPES CABRAL",
         "shortName": "SIDNY LOPES CABRAL",
@@ -472,41 +498,15 @@
         "value": 1
       },
       {
-        "playerId": "448014",
-        "name": "Alessandro CIRCATI",
-        "shortName": "Alessandro CIRCATI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/0bbf6585-1c6b-4416-8a3f-31a1d8d1625b/CIRCATI-Alessandro_448014",
+        "playerId": "389784",
+        "name": "Alan FRANCO",
+        "shortName": "Alan FRANCO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/59ffe3d1-0963-44f5-861e-9eb6590d8fce/FRANCO-Alan_389784",
         "team": {
-          "id": "43976",
-          "name": "Australia",
-          "code": "AUS",
-          "flagUrl": "/flags/AUS.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "485802",
-        "name": "Alex ARCE",
-        "shortName": "Alex ARCE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/14209263-2bf9-442b-8d6b-485492f712dd/ARCE-Alex_485802",
-        "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "441252",
-        "name": "Alistair JOHNSTON",
-        "shortName": "Alistair JOHNSTON",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/bd760593-4ed3-405e-b497-f508dbc8bbdf/JOHNSTON-Alistair_441252",
-        "team": {
-          "id": "43899",
-          "name": "Canada",
-          "code": "CAN",
-          "flagUrl": "/flags/CAN.png"
+          "id": "43927",
+          "name": "Ecuador",
+          "code": "ECU",
+          "flagUrl": "/flags/ECU.png"
         },
         "value": 1
       }
