@@ -4,7 +4,7 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-26T05:21:22.063Z",
+  "fetchedAt": "2026-06-26T09:50:22.400Z",
   "completedMatches": 60,
   "skippedMatches": 0,
   "leaderboards": {
@@ -475,7 +475,7 @@
         "playerId": "464924",
         "name": "Abdukodir KHUSANOV",
         "shortName": "Abdukodir KHUSANOV",
-        "pictureUrl": null,
+        "pictureUrl": "https://digitalhub.fifa.com/transform/de1f05c2-772c-4c3c-8410-b653f3e812c9/KHUSANOV-Abdukodir_479068",
         "team": {
           "id": "44005",
           "name": "Uzbekistan",
