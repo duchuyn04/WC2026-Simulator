@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-26T09:50:22.400Z",
-  "completedMatches": 60,
+  "fetchedAt": "2026-06-26T21:39:18.512Z",
+  "completedMatches": 62,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -40,6 +40,19 @@
         "name": "Kylian MBAPPE",
         "shortName": "Kylian MBAPPE",
         "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
+        },
+        "value": 4
+      },
+      {
+        "playerId": "398680",
+        "name": "Ousmane DEMBELE",
+        "shortName": "Ousmane DEMBELE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/e6eee717-fd8c-4f8f-a7e0-c4f978fe327f/DEMBELE-Ousmane_398680",
         "team": {
           "id": "43946",
           "name": "France",
@@ -101,6 +114,19 @@
         "value": 3
       },
       {
+        "playerId": "401889",
+        "name": "Ismaila SARR",
+        "shortName": "Ismaila SARR",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/695226c6-92b8-4aa6-995e-dcdd2d08eb96/SARR-Ismaila_401889",
+        "team": {
+          "id": "43879",
+          "name": "Senegal",
+          "code": "SEN",
+          "flagUrl": "/flags/SEN.png"
+        },
+        "value": 3
+      },
+      {
         "playerId": "502727",
         "name": "Johan MANZAMBI",
         "shortName": "Johan MANZAMBI",
@@ -110,32 +136,6 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
-        },
-        "value": 3
-      },
-      {
-        "playerId": "441257",
-        "name": "Jonathan DAVID",
-        "shortName": "Jonathan DAVID",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/97ad628a-b97d-4657-ac41-f2a667c534e6/DAVID-Jonathan_441257",
-        "team": {
-          "id": "43899",
-          "name": "Canada",
-          "code": "CAN",
-          "flagUrl": "/flags/CAN.png"
-        },
-        "value": 3
-      },
-      {
-        "playerId": "430609",
-        "name": "MATHEUS CUNHA",
-        "shortName": "MATHEUS CUNHA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/9189da72-e1b5-4e7b-800d-7eeca119f08c/MATHEUS-CUNHA_430609",
-        "team": {
-          "id": "43924",
-          "name": "Brazil",
-          "code": "BRA",
-          "flagUrl": "/flags/BRA.png"
         },
         "value": 3
       }
@@ -364,6 +364,21 @@
         "successRate": 100
       },
       {
+        "playerId": "419662",
+        "name": "Jorgen STRAND LARSEN",
+        "shortName": "Jorgen STRAND LARSEN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/116d01b5-9d0d-4456-a5a8-0e63a16b9862/STRAND-LARSEN-Jorgen_419662",
+        "team": {
+          "id": "43961",
+          "name": "Norway",
+          "code": "NOR",
+          "flagUrl": "/flags/NOR.png"
+        },
+        "value": 1,
+        "scored": 0,
+        "successRate": 0
+      },
+      {
         "playerId": "229397",
         "name": "Lionel MESSI",
         "shortName": "Lionel MESSI",
@@ -390,6 +405,19 @@
           "name": "Qatar",
           "code": "QAT",
           "flagUrl": "/flags/QAT.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "433074",
+        "name": "AMIR ALAMMARI",
+        "shortName": "AMIR ALAMMARI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/d80ff1d4-6bce-462b-bc11-6b4049fe9741/AMIR-ALAMMARI_433074",
+        "team": {
+          "id": "43818",
+          "name": "Iraq",
+          "code": "IRQ",
+          "flagUrl": "/flags/IRQ.png"
         },
         "value": 2
       },
@@ -472,6 +500,19 @@
         "value": 1
       },
       {
+        "playerId": "370171",
+        "name": "Abdoulaye Seck",
+        "shortName": "Abdoulaye SECK",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/d8107e3c-87b1-452f-9f6a-a704145d2d51/SECK-Abdoulaye_370171",
+        "team": {
+          "id": "43879",
+          "name": "Senegal",
+          "code": "SEN",
+          "flagUrl": "/flags/SEN.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "464924",
         "name": "Abdukodir KHUSANOV",
         "shortName": "Abdukodir KHUSANOV",
@@ -481,32 +522,6 @@
           "name": "Uzbekistan",
           "code": "UZB",
           "flagUrl": "/flags/UZB.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "403312",
-        "name": "Abdulelah ALAMRI",
-        "shortName": "ABDULELAH ALAMRI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/3ec8a8ea-beb5-4f8b-b8f6-66030bda5c4e/ABDULELAH-ALAMRI_403312",
-        "team": {
-          "id": "43835",
-          "name": "Saudi Arabia",
-          "code": "KSA",
-          "flagUrl": "/flags/KSA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "430477",
-        "name": "AHMED FATOUH",
-        "shortName": "AHMED FATOUH",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/c22759e9-6346-4cb7-8611-74074421be7f/AHMED-FATOUH_430477",
-        "team": {
-          "id": "43855",
-          "name": "Egypt",
-          "code": "EGY",
-          "flagUrl": "/flags/EGY.png"
         },
         "value": 1
       }
@@ -574,6 +589,19 @@
           "name": "Belgium",
           "code": "BEL",
           "flagUrl": "/flags/BEL.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "396158",
+        "name": "REBIN SULAKA",
+        "shortName": "REBIN SULAKA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/0e08174c-879f-4de0-9709-8fdc59357236/REBIN-GHAREEB_396158",
+        "team": {
+          "id": "43818",
+          "name": "Iraq",
+          "code": "IRQ",
+          "flagUrl": "/flags/IRQ.png"
         },
         "value": 1
       },
