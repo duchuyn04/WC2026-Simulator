@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-27T04:14:30.772Z",
-  "completedMatches": 64,
+  "fetchedAt": "2026-06-27T07:27:48.872Z",
+  "completedMatches": 66,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -101,6 +101,19 @@
         "value": 3
       },
       {
+        "playerId": "405454",
+        "name": "Elijah JUST",
+        "shortName": "Elijah JUST",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/fe32736f-5d5f-4870-8db3-5b4560835f53/JUST-Elijah_405454",
+        "team": {
+          "id": "43978",
+          "name": "New Zealand",
+          "code": "NZL",
+          "flagUrl": "/flags/NZL.png"
+        },
+        "value": 3
+      },
+      {
         "playerId": "448598",
         "name": "Ismael SAIBARI",
         "shortName": "Ismael SAIBARI",
@@ -123,19 +136,6 @@
           "name": "Senegal",
           "code": "SEN",
           "flagUrl": "/flags/SEN.png"
-        },
-        "value": 3
-      },
-      {
-        "playerId": "502727",
-        "name": "Johan MANZAMBI",
-        "shortName": "Johan MANZAMBI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/a0cb9413-32ea-4b8f-9801-55474cb12b77/MANZAMBI-Johan_502727",
-        "team": {
-          "id": "43971",
-          "name": "Switzerland",
-          "code": "SUI",
-          "flagUrl": "/flags/SUI.png"
         },
         "value": 3
       }
@@ -392,6 +392,21 @@
         "value": 1,
         "scored": 0,
         "successRate": 0
+      },
+      {
+        "playerId": "388475",
+        "name": "Mehdi TAREMI",
+        "shortName": "Mehdi TAREMI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/0d942331-39fb-421e-8a8d-d1f875958559/TAREMI-Mehdi_388475",
+        "team": {
+          "id": "43817",
+          "name": "IR Iran",
+          "code": "IRN",
+          "flagUrl": "/flags/IRN.png"
+        },
+        "value": 1,
+        "scored": 0,
+        "successRate": 0
       }
     ],
     "yellowCards": [
@@ -461,6 +476,32 @@
         "value": 2
       },
       {
+        "playerId": "433469",
+        "name": "MOHANAD LASHIN",
+        "shortName": "MOHANAD LASHIN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/55be7619-52f3-481a-8542-9832ba7c8e7d/MOHANAD-LASHIN_433469",
+        "team": {
+          "id": "43855",
+          "name": "Egypt",
+          "code": "EGY",
+          "flagUrl": "/flags/EGY.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "371736",
+        "name": "Saeid EZATOLAHI",
+        "shortName": "Saeid EZATOLAHI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a2e8983e-9596-49b3-8c5c-e398d66e27c5/EZATOLAHI-Saeid_371736",
+        "team": {
+          "id": "43817",
+          "name": "IR Iran",
+          "code": "IRN",
+          "flagUrl": "/flags/IRN.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "477832",
         "name": "SIDNY LOPES CABRAL",
         "shortName": "SIDNY LOPES CABRAL",
@@ -496,32 +537,6 @@
           "name": "Scotland",
           "code": "SCO",
           "flagUrl": "/flags/SCO.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "370171",
-        "name": "Abdoulaye Seck",
-        "shortName": "Abdoulaye SECK",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/d8107e3c-87b1-452f-9f6a-a704145d2d51/SECK-Abdoulaye_370171",
-        "team": {
-          "id": "43879",
-          "name": "Senegal",
-          "code": "SEN",
-          "flagUrl": "/flags/SEN.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "464924",
-        "name": "Abdukodir KHUSANOV",
-        "shortName": "Abdukodir KHUSANOV",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/de1f05c2-772c-4c3c-8410-b653f3e812c9/KHUSANOV-Abdukodir_479068",
-        "team": {
-          "id": "44005",
-          "name": "Uzbekistan",
-          "code": "UZB",
-          "flagUrl": "/flags/UZB.png"
         },
         "value": 1
       }
