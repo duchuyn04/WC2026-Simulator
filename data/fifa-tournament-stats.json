@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-26T21:39:18.512Z",
-  "completedMatches": 62,
+  "fetchedAt": "2026-06-27T04:14:30.772Z",
+  "completedMatches": 64,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -527,6 +527,19 @@
       }
     ],
     "redCards": [
+      {
+        "playerId": "402876",
+        "name": "Agustin CANOBBIO",
+        "shortName": "Agustin CANOBBIO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/5985fa52-e467-4c1c-95f2-355bd1cb3925/CANOBBIO-Agustin_402876",
+        "team": {
+          "id": "43930",
+          "name": "Uruguay",
+          "code": "URU",
+          "flagUrl": "/flags/URU.png"
+        },
+        "value": 1
+      },
       {
         "playerId": "386348",
         "name": "ASSIM MADIBO",
