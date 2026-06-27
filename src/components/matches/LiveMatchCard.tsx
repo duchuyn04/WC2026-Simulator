@@ -1,6 +1,7 @@
 "use client";
 
 import { FlagIcon } from "@/components/ui/FlagIcon";
+import { isEspnMatchHalftime } from "@/lib/espn-match";
 import type { EspnScoreboardMatch } from "@/lib/espn-match";
 import type { ScheduleEntry } from "@/lib/schedule";
 import { prefetchMatchStats } from "./MatchStatsModal";
@@ -16,6 +17,7 @@ type LiveMatchCardProps = {
 };
 
 export function LiveMatchCard({ entry, espnMatch, homeName, awayName, homeCode, awayCode, onOpenDetail }: LiveMatchCardProps) {
+  const isHT = isEspnMatchHalftime(espnMatch);
   const liveClock = `${espnMatch.displayClock || espnMatch.shortDetail}`;
 
   const handleClick = onOpenDetail ? () => onOpenDetail(entry, espnMatch.id, espnMatch.date) : undefined;
@@ -42,13 +44,21 @@ export function LiveMatchCard({ entry, espnMatch, homeName, awayName, homeCode, 
             {espnMatch.homeScore} - {espnMatch.awayScore}
           </div>
           <div className="flex items-center justify-center gap-1">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500" />
-            </span>
-            <span className="text-[9px] font-semibold text-rose-400 uppercase tracking-wide">
-              Live · {liveClock}
-            </span>
+            {isHT ? (
+              <span className="text-[9px] font-semibold text-amber-400 uppercase tracking-wide px-1 py-0.5 bg-amber-500/10 rounded">
+                HT
+              </span>
+            ) : (
+              <>
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500" />
+                </span>
+                <span className="text-[9px] font-semibold text-rose-400 uppercase tracking-wide">
+                  Live · {liveClock}
+                </span>
+              </>
+            )}
           </div>
         </div>
 

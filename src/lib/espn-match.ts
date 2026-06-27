@@ -243,7 +243,8 @@ export function categorizeLiveEntry(args: {
   const { eventDate, espnMatch, espnLoaded, now = Date.now() } = args;
   if (Number.isNaN(eventDate.getTime())) return "none";
 
-  if (espnMatch && isEspnMatchLive(espnMatch)) return "live";
+  // Cả trận đang đá lẫn đang nghỉ giữa hiệp (HT) đều là "live"
+  if (espnMatch && espnMatch.state === "in") return "live";
 
   if (!isWithinThreeDays(eventDate, now)) return "none";
 
