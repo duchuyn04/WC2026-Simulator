@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-27T07:27:48.872Z",
-  "completedMatches": 66,
+  "fetchedAt": "2026-06-28T04:47:44.019Z",
+  "completedMatches": 68,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -20,7 +20,7 @@
           "code": "ARG",
           "flagUrl": "/flags/ARG.png"
         },
-        "value": 5
+        "value": 6
       },
       {
         "playerId": "419652",
@@ -328,6 +328,21 @@
           "name": "Germany",
           "code": "GER",
           "flagUrl": "/flags/GER.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "402920",
+        "name": "Lautaro MARTINEZ",
+        "shortName": "Lautaro MARTINEZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2368bf53-1f73-427b-929e-557187d53ac7/MARTINEZ-Lautaro_402920",
+        "team": {
+          "id": "43922",
+          "name": "Argentina",
+          "code": "ARG",
+          "flagUrl": "/flags/ARG.png"
         },
         "value": 1,
         "scored": 1,
