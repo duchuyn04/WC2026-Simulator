@@ -1,9 +1,12 @@
 import { describe, expect, it } from "vitest";
 import {
   applyLiveMatchesToStandings,
+  espnGroupsToGroupStandings,
   type EspnStandingGroup,
 } from "../espn-standings";
 import type { EspnScoreboardMatch } from "../espn-match";
+import { ESPN_TEAM_MAP } from "../espn-mapping";
+import { seed } from "../data";
 
 function team(id: string, rank: number, points = 0) {
   return {
@@ -92,5 +95,33 @@ describe("applyLiveMatchesToStandings", () => {
       isLive: false,
     });
     expect(result.hasLiveMatch).toBe(false);
+  });
+});
+
+describe("espnGroupsToGroupStandings", () => {
+  it("converts ESPN ranks to local group standings", () => {
+    const groupA = seed.groups.find((item) => item.letter === "A")!;
+    const [first, second, third, fourth] = groupA.teams;
+    const localToEspn = new Map(Object.entries(ESPN_TEAM_MAP).map(([local, espn]) => [local, espn]));
+
+    const [standing] = espnGroupsToGroupStandings([
+      {
+        name: "Group A",
+        abbreviation: "Group A",
+        hasLiveMatch: false,
+        teams: [
+          team(localToEspn.get(second.id)!, 1, 6),
+          team(localToEspn.get(first.id)!, 2, 4),
+          team(localToEspn.get(fourth.id)!, 3, 2),
+          team(localToEspn.get(third.id)!, 4, 1),
+        ],
+      },
+    ]);
+
+    expect(standing.letter).toBe("A");
+    expect(standing.first.team.id).toBe(second.id);
+    expect(standing.second.team.id).toBe(first.id);
+    expect(standing.third.team.id).toBe(fourth.id);
+    expect(standing.fourth.team.id).toBe(third.id);
   });
 });

@@ -8,7 +8,14 @@ import { resolveKnockoutBracket, getMatchesByStage } from "./fifa/bracket";
 import { seed } from "./data";
 import { buildScheduleEntries } from "./schedule";
 import { fetchTeamSquadFromFifa } from "./fifa-squads-fetch";
-import type { Team } from "./fifa/types";
+import { ESPN_SCOREBOARD_URL, parseEspnScoreboard } from "./espn-match";
+import {
+  applyLiveMatchesToStandings,
+  ESPN_STANDINGS_URL,
+  espnGroupsToGroupStandings,
+  parseEspnStandings,
+} from "./espn-standings";
+import type { GroupStanding, ResolvedKnockoutMatch, Team } from "./fifa/types";
 
 /** Chờ localStorage hydrate xong trước khi render UI (tránh nhảy về tab đầu). */
 export function useStoreHydrated() {
@@ -60,26 +67,10 @@ function useResolvedKnockoutMatches() {
   const thirdPlaceOrder = useSimulation((s) => s.thirdPlaceOrder);
 
   return useMemo(() => {
-    const third =
-      groupInputMode === "ranks" && thirdPlaceOrder
-        ? rankThirdPlaceTeams(standings, thirdPlaceOrder)
-        : rankThirdPlaceTeams(standings);
-    const winners: Record<number, Team> = {};
-    const losers: Record<number, Team> = {};
-    const allTeams = new Map<string, Team>();
-    for (const g of seed.groups) {
-      for (const t of g.teams) allTeams.set(t.id, t);
-    }
-    for (const [num, teamId] of Object.entries(knockoutWinners)) {
-      const team = allTeams.get(teamId);
-      if (team) winners[Number(num)] = team;
-    }
-    return resolveKnockoutBracket(
-      seed.knockout,
+    return resolveKnockoutMatches(
       standings,
-      third.qualifyingGroups,
-      winners,
-      losers
+      knockoutWinners,
+      groupInputMode === "ranks" ? thirdPlaceOrder : null
     );
   }, [standings, knockoutWinners, groupInputMode, thirdPlaceOrder]);
 }
@@ -89,14 +80,91 @@ export function useKnockout() {
   return useMemo(() => getMatchesByStage(resolved), [resolved]);
 }
 
+function unresolvedKnockoutMatches(): ResolvedKnockoutMatch[] {
+  return seed.knockout.map((match) => ({
+    ...match,
+    resolvedHome: null,
+    resolvedAway: null,
+    winner: null,
+  }));
+}
+
+function resolveKnockoutMatches(
+  standings: GroupStanding[],
+  knockoutWinners: Record<number, string>,
+  thirdPlaceOrder: string[] | null = null
+) {
+  const third = thirdPlaceOrder
+    ? rankThirdPlaceTeams(standings, thirdPlaceOrder)
+    : rankThirdPlaceTeams(standings);
+  const winners: Record<number, Team> = {};
+  const losers: Record<number, Team> = {};
+  const allTeams = new Map(seed.groups.flatMap((group) => group.teams.map((team) => [team.id, team])));
+
+  for (const [num, teamId] of Object.entries(knockoutWinners)) {
+    const team = allTeams.get(teamId);
+    if (team) winners[Number(num)] = team;
+  }
+
+  return resolveKnockoutBracket(seed.knockout, standings, third.qualifyingGroups, winners, losers);
+}
+
+function useRealGroupStandings() {
+  const [standings, setStandings] = useState<GroupStanding[] | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+
+    const fetchStandings = async () => {
+      try {
+        const [standingsResponse, scoreboardResponse] = await Promise.all([
+          fetch(ESPN_STANDINGS_URL),
+          fetch(ESPN_SCOREBOARD_URL),
+        ]);
+        if (!standingsResponse.ok || !scoreboardResponse.ok) return;
+
+        const [standingsData, scoreboardData] = await Promise.all([
+          standingsResponse.json(),
+          scoreboardResponse.json(),
+        ]);
+        const realStandings = espnGroupsToGroupStandings(
+          applyLiveMatchesToStandings(
+            parseEspnStandings(standingsData),
+            parseEspnScoreboard(scoreboardData)
+          )
+        );
+
+        if (mounted && realStandings.length === seed.groups.length) setStandings(realStandings);
+      } catch {
+        // Keep placeholders when ESPN is unavailable.
+      }
+    };
+
+    fetchStandings();
+    const interval = setInterval(fetchStandings, 30000);
+    return () => {
+      mounted = false;
+      clearInterval(interval);
+    };
+  }, []);
+
+  return standings;
+}
+
 export function useSchedule() {
   // "Khớp thực tế": base dates/venues/placeholders/stages for all 104 entries come from seed inside buildScheduleEntries.
   // scheduleMockResults: separate from simulator matchResults so mocking in Lịch thi đấu does not affect Mô phỏng.
   const scheduleMockResults = useSimulation((s) => s.scheduleMockResults);
-  const knockoutMatches = useResolvedKnockoutMatches();
+  const knockoutWinners = useSimulation((s) => s.knockoutWinners);
+  const realStandings = useRealGroupStandings();
   return useMemo(() => {
-    return buildScheduleEntries(scheduleMockResults, knockoutMatches);
-  }, [scheduleMockResults, knockoutMatches]);
+    return buildScheduleEntries(
+      scheduleMockResults,
+      realStandings
+        ? resolveKnockoutMatches(realStandings, knockoutWinners)
+        : unresolvedKnockoutMatches()
+    );
+  }, [scheduleMockResults, realStandings, knockoutWinners]);
 }
 
 const TWENTY_FOUR_HOURS_MS = 24 * 60 * 60 * 1000;

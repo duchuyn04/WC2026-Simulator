@@ -1,4 +1,11 @@
 import type { EspnScoreboardMatch } from "./espn-match";
+import { ESPN_TEAM_MAP } from "./espn-mapping";
+import { seed } from "./data";
+import { getFifaRanking } from "./fifa/rankings";
+import type { GroupStanding, Team, TeamStats } from "./fifa/types";
+
+export const ESPN_STANDINGS_URL =
+  "https://site.api.espn.com/apis/v2/sports/soccer/fifa.world/standings";
 
 export type EspnStandingTeam = {
   espnTeamId: string;
@@ -44,6 +51,59 @@ type EspnStandingsResponse = {
 function getStat(stats: EspnStandingStat[], name: string) {
   const value = Number(stats.find((stat) => stat.name === name)?.value);
   return Number.isFinite(value) ? value : 0;
+}
+
+const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce((acc, [localId, espnId]) => {
+  acc[espnId] = localId;
+  return acc;
+}, {} as Record<string, string>);
+
+const LOCAL_TEAMS = new Map<string, Team>(
+  seed.groups.flatMap((group) => group.teams.map((team) => [team.id, team] as const))
+);
+
+function groupLetter(group: EspnStandingGroup): string | null {
+  return group.abbreviation.match(/[A-L]$/)?.[0] ?? group.name.match(/[A-L]$/)?.[0] ?? null;
+}
+
+function toTeamStats(team: EspnStandingTeam): TeamStats | null {
+  const localTeam = LOCAL_TEAMS.get(ESPN_TO_LOCAL[team.espnTeamId]);
+  if (!localTeam) return null;
+
+  return {
+    team: localTeam,
+    played: team.gamesPlayed,
+    won: team.wins,
+    drawn: team.ties,
+    lost: team.losses,
+    gf: team.pointsFor,
+    ga: team.pointsAgainst,
+    gd: team.pointDifferential,
+    points: team.points,
+    fairPlay: 0,
+    fifaRanking: getFifaRanking(localTeam.code),
+  };
+}
+
+export function espnGroupsToGroupStandings(groups: EspnStandingGroup[]): GroupStanding[] {
+  return groups.flatMap((group) => {
+    const letter = groupLetter(group);
+    if (!letter) return [];
+
+    const ranked = group.teams
+      .map(toTeamStats)
+      .filter((team): team is TeamStats => team !== null);
+    if (ranked.length < 4) return [];
+
+    return [{
+      letter,
+      ranked,
+      first: ranked[0]!,
+      second: ranked[1]!,
+      third: ranked[2]!,
+      fourth: ranked[3]!,
+    }];
+  });
 }
 
 export function parseEspnStandings(
