@@ -8,7 +8,7 @@ import { resolveKnockoutBracket, getMatchesByStage } from "./fifa/bracket";
 import { seed } from "./data";
 import { buildScheduleEntries } from "./schedule";
 import { fetchTeamSquadFromFifa } from "./fifa-squads-fetch";
-import type { GroupStanding, MatchResult, Team } from "./fifa/types";
+import type { Team } from "./fifa/types";
 
 /** Chờ localStorage hydrate xong trước khi render UI (tránh nhảy về tab đầu). */
 export function useStoreHydrated() {
@@ -93,15 +93,10 @@ export function useSchedule() {
   // "Khớp thực tế": base dates/venues/placeholders/stages for all 104 entries come from seed inside buildScheduleEntries.
   // scheduleMockResults: separate from simulator matchResults so mocking in Lịch thi đấu does not affect Mô phỏng.
   const scheduleMockResults = useSimulation((s) => s.scheduleMockResults);
+  const knockoutMatches = useResolvedKnockoutMatches();
   return useMemo(() => {
-    const actualKnockout = seed.knockout.map((m) => ({
-      ...m,
-      resolvedHome: m.home ? { team: m.home, label: m.placeholderA } : null,
-      resolvedAway: m.away ? { team: m.away, label: m.placeholderB } : null,
-      winner: null,
-    }));
-    return buildScheduleEntries(scheduleMockResults, actualKnockout);
-  }, [scheduleMockResults]);
+    return buildScheduleEntries(scheduleMockResults, knockoutMatches);
+  }, [scheduleMockResults, knockoutMatches]);
 }
 
 const TWENTY_FOUR_HOURS_MS = 24 * 60 * 60 * 1000;
