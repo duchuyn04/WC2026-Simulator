@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-28T23:16:44.105Z",
-  "completedMatches": 69,
+  "fetchedAt": "2026-06-29T20:14:42.527Z",
+  "completedMatches": 70,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -142,19 +142,6 @@
     ],
     "assists": [
       {
-        "playerId": "430150",
-        "name": "Alexander Isak",
-        "shortName": "Alexander ISAK",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/c6ffe63b-aefd-43b8-bd9d-3c6e31a8f418/ISAK-Alexander_430150",
-        "team": {
-          "id": "43970",
-          "name": "Sweden",
-          "code": "SWE",
-          "flagUrl": "/flags/SWE.png"
-        },
-        "value": 3
-      },
-      {
         "playerId": "430605",
         "name": "BRUNO GUIMARAES",
         "shortName": "BRUNO GUIMARAES",
@@ -164,6 +151,19 @@
           "name": "Brazil",
           "code": "BRA",
           "flagUrl": "/flags/BRA.png"
+        },
+        "value": 4
+      },
+      {
+        "playerId": "430150",
+        "name": "Alexander Isak",
+        "shortName": "Alexander ISAK",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/c6ffe63b-aefd-43b8-bd9d-3c6e31a8f418/ISAK-Alexander_430150",
+        "team": {
+          "id": "43970",
+          "name": "Sweden",
+          "code": "SWE",
+          "flagUrl": "/flags/SWE.png"
         },
         "value": 3
       },
@@ -452,6 +452,32 @@
         "value": 2
       },
       {
+        "playerId": "308386",
+        "name": "CASEMIRO",
+        "shortName": "CASEMIRO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/49558d20-3d5d-4afb-bf2a-9dc1ab60a6e6/CASEMIRO_308386",
+        "team": {
+          "id": "43924",
+          "name": "Brazil",
+          "code": "BRA",
+          "flagUrl": "/flags/BRA.png"
+        },
+        "value": 2
+      },
+      {
+        "playerId": "335656",
+        "name": "DANILO",
+        "shortName": "DANILO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/364f443f-83df-4e8e-803c-765feae146a3/DANILO_335656",
+        "team": {
+          "id": "43924",
+          "name": "Brazil",
+          "code": "BRA",
+          "flagUrl": "/flags/BRA.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "463128",
         "name": "Diego GOMEZ",
         "shortName": "Diego GOMEZ",
@@ -528,32 +554,6 @@
           "flagUrl": "/flags/CPV.png"
         },
         "value": 2
-      },
-      {
-        "playerId": "403616",
-        "name": "Teboho MOKOENA",
-        "shortName": "Teboho MOKOENA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/bf36679b-73eb-4813-a99d-b9673439dd05/MOKOENA-Teboho_403616",
-        "team": {
-          "id": "43883",
-          "name": "South Africa",
-          "code": "RSA",
-          "flagUrl": "/flags/RSA.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "442428",
-        "name": "Aaron HICKEY",
-        "shortName": "Aaron HICKEY",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/36ab73b9-b07c-48d7-a2c2-da34b149b0d2/HICKEY-Aaron_442428",
-        "team": {
-          "id": "43967",
-          "name": "Scotland",
-          "code": "SCO",
-          "flagUrl": "/flags/SCO.png"
-        },
-        "value": 1
       }
     ],
     "redCards": [
