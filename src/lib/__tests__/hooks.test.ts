@@ -125,6 +125,41 @@ describe("useSchedule", () => {
     });
   });
 
+  it("ignores ESPN knockout winners for future kickoffs", async () => {
+    const match73 = seed.knockout.find((match) => match.matchNumber === 73)!;
+    const groupA = seed.groups.find((group) => group.letter === "A")!;
+    const groupB = seed.groups.find((group) => group.letter === "B")!;
+    const home = groupA.teams[1]!;
+    const away = groupB.teams[1]!;
+    const now = vi.spyOn(Date, "now").mockReturnValue(new Date("2026-06-27T00:00:00Z").getTime());
+
+    mockEspnApis({
+      events: [{
+        id: "future-73",
+        date: match73.date,
+        competitions: [{
+          status: {
+            displayClock: "120'",
+            type: { name: "STATUS_FULL_TIME", state: "post", shortDetail: "FT" },
+          },
+          competitors: [
+            { homeAway: "home", score: "1", winner: true, team: { id: ESPN_TEAM_MAP[home.id] } },
+            { homeAway: "away", score: "0", winner: false, team: { id: ESPN_TEAM_MAP[away.id] } },
+          ],
+        }],
+      }],
+    });
+
+    const { result } = renderHook(() => useSchedule());
+
+    await waitFor(() => {
+      const match90 = result.current.find((entry) => entry.matchNumber === 90);
+      expect(match90?.home).toBeNull();
+      expect(match90?.homePlaceholder).toBe("W73");
+    });
+    now.mockRestore();
+  });
+
   it("does not use simulated knockout picks for real schedule rounds", async () => {
     mockEspnApis();
     useSimulation.setState({

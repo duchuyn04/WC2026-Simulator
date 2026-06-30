@@ -120,6 +120,11 @@ function sameKickoff(left?: string, right?: string) {
   return new Date(left).getTime() === new Date(right).getTime();
 }
 
+function hasKickedOff(value?: string) {
+  const time = value ? new Date(value).getTime() : Number.NaN;
+  return Number.isFinite(time) && time <= Date.now();
+}
+
 function realKnockoutWinners(
   standings: GroupStanding[],
   espnMatches: EspnScoreboardMatch[]
@@ -136,6 +141,7 @@ function realKnockoutWinners(
         const awayId = candidate.awayId ? ESPN_TO_LOCAL[candidate.awayId] : undefined;
         return (
           candidate.state === "post" &&
+          hasKickedOff(candidate.date) &&
           sameKickoff(candidate.date, match.date) &&
           homeId === match.resolvedHome?.team.id &&
           awayId === match.resolvedAway?.team.id
