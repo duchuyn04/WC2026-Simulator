@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-30T00:20:27.476Z",
-  "completedMatches": 71,
+  "fetchedAt": "2026-06-30T05:16:55.395Z",
+  "completedMatches": 72,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -88,6 +88,19 @@
         "value": 3
       },
       {
+        "playerId": "448152",
+        "name": "Cody GAKPO",
+        "shortName": "Cody GAKPO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bbb5637f-0587-4ddd-8a82-604c0d921bb3/GAKPO-Cody_448152",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 3
+      },
+      {
         "playerId": "484851",
         "name": "Deniz UNDAV",
         "shortName": "Deniz UNDAV",
@@ -123,19 +136,6 @@
           "name": "Morocco",
           "code": "MAR",
           "flagUrl": "/flags/MAR.png"
-        },
-        "value": 3
-      },
-      {
-        "playerId": "401889",
-        "name": "Ismaila SARR",
-        "shortName": "Ismaila SARR",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/695226c6-92b8-4aa6-995e-dcdd2d08eb96/SARR-Ismaila_401889",
-        "team": {
-          "id": "43879",
-          "name": "Senegal",
-          "code": "SEN",
-          "flagUrl": "/flags/SEN.png"
         },
         "value": 3
       }
@@ -233,6 +233,19 @@
         "value": 2
       },
       {
+        "playerId": "489518",
+        "name": "Crysencio SUMMERVILLE",
+        "shortName": "Crysencio SUMMERVILLE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/86e9f724-fc5f-4969-92e3-ac658dafacdd/SUMMERVILLE-Crysencio_489518",
+        "team": {
+          "id": "43960",
+          "name": "Netherlands",
+          "code": "NED",
+          "flagUrl": "/flags/NED.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "484851",
         "name": "Deniz UNDAV",
         "shortName": "Deniz UNDAV",
@@ -257,37 +270,9 @@
           "flagUrl": "/flags/NED.png"
         },
         "value": 2
-      },
-      {
-        "playerId": "433378",
-        "name": "Hannibal MEJBRI",
-        "shortName": "Hannibal MEJBRI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/856f0cc0-6dcc-48bc-a8db-f4fe26d8ae06/MEJBRI-Hannibal_433378",
-        "team": {
-          "id": "43888",
-          "name": "Tunisia",
-          "code": "TUN",
-          "flagUrl": "/flags/TUN.png"
-        },
-        "value": 2
       }
     ],
     "penalties": [
-      {
-        "playerId": "411367",
-        "name": "Kai HAVERTZ",
-        "shortName": "Kai HAVERTZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/1fdd4d11-97d1-4392-b345-5a5eecc54839/HAVERTZ-Kai_411367",
-        "team": {
-          "id": "43948",
-          "name": "Germany",
-          "code": "GER",
-          "flagUrl": "/flags/GER.png"
-        },
-        "value": 2,
-        "scored": 1,
-        "successRate": 50
-      },
       {
         "playerId": "393480",
         "name": "Breel EMBOLO",
@@ -298,6 +283,21 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "494293",
+        "name": "Chemsdine TALBI",
+        "shortName": "Chemsdine TALBI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b6d54dcf-25e8-4e0f-a155-60e051b4a86e/TALBI-Chemsdine_494293",
+        "team": {
+          "id": "43872",
+          "name": "Morocco",
+          "code": "MAR",
+          "flagUrl": "/flags/MAR.png"
         },
         "value": 1,
         "scored": 1,
@@ -319,21 +319,6 @@
         "successRate": 100
       },
       {
-        "playerId": "369744",
-        "name": "Gustavo GOMEZ",
-        "shortName": "Gustavo GOMEZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/d37c65ce-135e-4bd4-b870-2c2548b93e2d/GOMEZ-Gustavo_369744",
-        "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
         "playerId": "369419",
         "name": "Harry KANE",
         "shortName": "Harry KANE",
@@ -349,40 +334,25 @@
         "successRate": 100
       },
       {
-        "playerId": "429642",
-        "name": "Jamal MUSIALA",
-        "shortName": "Jamal MUSIALA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/05f50027-268f-43ff-ba75-1b477b37ca60/MUSIALA-Jamal_429642",
+        "playerId": "448598",
+        "name": "Ismael SAIBARI",
+        "shortName": "Ismael SAIBARI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/250526c6-26b5-4425-8a21-231c7952e34d/SAIBARI-Ismael_448598",
         "team": {
-          "id": "43948",
-          "name": "Germany",
-          "code": "GER",
-          "flagUrl": "/flags/GER.png"
+          "id": "43872",
+          "name": "Morocco",
+          "code": "MAR",
+          "flagUrl": "/flags/MAR.png"
         },
         "value": 1,
         "scored": 1,
         "successRate": 100
       },
       {
-        "playerId": "520066",
-        "name": "Jose CANALE",
-        "shortName": "Jose CANALE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/2039b54f-7036-444c-90d0-da1f89780077/CANALE-Jose_520066",
-        "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "386413",
-        "name": "Joshua KIMMICH",
-        "shortName": "Joshua KIMMICH",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/ada33dfd-5b01-4792-88f4-14c06641509e/KIMMICH-Joshua_386413",
+        "playerId": "411367",
+        "name": "Kai HAVERTZ",
+        "shortName": "Kai HAVERTZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/1fdd4d11-97d1-4392-b345-5a5eecc54839/HAVERTZ-Kai_411367",
         "team": {
           "id": "43948",
           "name": "Germany",
@@ -418,6 +388,36 @@
           "name": "Austria",
           "code": "AUT",
           "flagUrl": "/flags/AUT.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "433426",
+        "name": "Soufiane RAHIMI",
+        "shortName": "Soufiane RAHIMI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/7de765a2-f6c6-4d70-badd-a929c4cab547/RAHIMI-Soufiane_433426",
+        "team": {
+          "id": "43872",
+          "name": "Morocco",
+          "code": "MAR",
+          "flagUrl": "/flags/MAR.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "403616",
+        "name": "Teboho MOKOENA",
+        "shortName": "Teboho MOKOENA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bf36679b-73eb-4813-a99d-b9673439dd05/MOKOENA-Teboho_403616",
+        "team": {
+          "id": "43883",
+          "name": "South Africa",
+          "code": "RSA",
+          "flagUrl": "/flags/RSA.png"
         },
         "value": 1,
         "scored": 1,
@@ -504,6 +504,19 @@
         "value": 2
       },
       {
+        "playerId": "403083",
+        "name": "Issa Diop",
+        "shortName": "Issa DIOP",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a89dc777-6262-4c1e-8b22-a9a9e5bf7300/DIOP-Issa_403083",
+        "team": {
+          "id": "43872",
+          "name": "Morocco",
+          "code": "MAR",
+          "flagUrl": "/flags/MAR.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "466317",
         "name": "Juninho BACUNA",
         "shortName": "Juninho BACUNA",
@@ -539,19 +552,6 @@
           "name": "Egypt",
           "code": "EGY",
           "flagUrl": "/flags/EGY.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "371736",
-        "name": "Saeid EZATOLAHI",
-        "shortName": "Saeid EZATOLAHI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/a2e8983e-9596-49b3-8c5c-e398d66e27c5/EZATOLAHI-Saeid_371736",
-        "team": {
-          "id": "43817",
-          "name": "IR Iran",
-          "code": "IRN",
-          "flagUrl": "/flags/IRN.png"
         },
         "value": 2
       }
