@@ -122,6 +122,11 @@ describe("useSchedule", () => {
         groupF.teams[0]!.id,
         groupC.teams[1]!.id,
       ]);
+
+      const match97 = result.current.find((entry) => entry.matchNumber === 97);
+      expect(match97?.away).toBeNull();
+      expect(match97?.awayCandidates).toBeUndefined();
+      expect(match97?.awayPlaceholder).toBe("W90");
     });
   });
 

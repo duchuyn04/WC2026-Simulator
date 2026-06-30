@@ -75,10 +75,11 @@ function winnerCandidates(
 
   const match = matches.get(Number(sourceMatch[1]));
   if (!match || match.winner) return undefined;
+  if (!match.resolvedHome || !match.resolvedAway) return undefined;
 
   const candidates = [
-    match.resolvedHome?.team,
-    match.resolvedAway?.team,
+    match.resolvedHome.team,
+    match.resolvedAway.team,
   ].filter((team): team is Team => Boolean(team));
 
   return candidates.length > 0 ? candidates : undefined;
