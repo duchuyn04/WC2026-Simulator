@@ -55,13 +55,44 @@ function getTeamSlug(name: string) {
     .replace(/(^-|-$)+/g, "");
 }
 
+function CandidateTeams({
+  teams,
+  placeholder,
+  side,
+}: {
+  teams: Team[];
+  placeholder: string;
+  side: "home" | "away";
+}) {
+  return (
+    <div
+      className={`flex min-w-0 flex-col gap-1 ${side === "home" ? "items-end" : "items-start"}`}
+      title={`${placeholder}: ${teams.map((team) => team.name).join(" / ")}`}
+    >
+      {teams.map((team) => (
+        <div key={team.id} className="flex min-w-0 items-center gap-1.5">
+          {side === "home" && (
+            <span className="truncate text-xs font-semibold text-zinc-300">{team.name}</span>
+          )}
+          <FlagIcon code={team.code} size="xs" title={team.name} />
+          {side === "away" && (
+            <span className="truncate text-xs font-semibold text-zinc-300">{team.name}</span>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function MatchSide({
   team,
+  candidates,
   placeholder,
   winnerId,
   side,
 }: {
   team: Team | null;
+  candidates?: Team[];
   placeholder: string;
   winnerId?: string;
   side: "home" | "away";
@@ -70,6 +101,12 @@ function MatchSide({
   const isLoser = team && winnerId && winnerId !== team.id;
   const toggleFavoriteTeam = useSimulation((s) => s.toggleFavoriteTeam);
   const favoriteTeams = useSimulation((s) => s.favoriteTeams);
+
+  if (!team && candidates?.length) {
+    return (
+      <CandidateTeams teams={candidates} placeholder={placeholder} side={side} />
+    );
+  }
 
   if (!team) {
     return (
@@ -325,6 +362,7 @@ function ScheduleTableRow({
       <td className="px-2 py-3 text-right max-w-[140px] lg:max-w-[170px] xl:max-w-none overflow-hidden">
         <MatchSide
           team={entry.home}
+          candidates={entry.homeCandidates}
           placeholder={entry.homePlaceholder}
           winnerId={winnerId}
           side="home"
@@ -344,6 +382,7 @@ function ScheduleTableRow({
       <td className="px-2 py-3 text-left max-w-[140px] lg:max-w-[170px] xl:max-w-none overflow-hidden">
         <MatchSide
           team={entry.away}
+          candidates={entry.awayCandidates}
           placeholder={entry.awayPlaceholder}
           winnerId={winnerId}
           side="away"
@@ -583,6 +622,12 @@ function ScheduleMobileCard({
                     <span className="text-[10px]">⭐</span>
                   )}
                 </>
+              ) : entry.homeCandidates?.length ? (
+                <CandidateTeams
+                  teams={entry.homeCandidates}
+                  placeholder={entry.homePlaceholder}
+                  side="away"
+                />
               ) : (
                 <span className="text-sm text-zinc-500 italic">
                   {entry.homePlaceholder}
@@ -613,6 +658,12 @@ function ScheduleMobileCard({
                     <span className="text-[10px]">⭐</span>
                   )}
                 </>
+              ) : entry.awayCandidates?.length ? (
+                <CandidateTeams
+                  teams={entry.awayCandidates}
+                  placeholder={entry.awayPlaceholder}
+                  side="away"
+                />
               ) : (
                 <span className="text-sm text-zinc-500 italic">
                   {entry.awayPlaceholder}

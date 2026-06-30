@@ -89,6 +89,8 @@ describe("useSchedule", () => {
   it("uses real ESPN knockout winners for later schedule rounds", async () => {
     const groupA = seed.groups.find((group) => group.letter === "A")!;
     const groupB = seed.groups.find((group) => group.letter === "B")!;
+    const groupC = seed.groups.find((group) => group.letter === "C")!;
+    const groupF = seed.groups.find((group) => group.letter === "F")!;
     const match73 = seed.knockout.find((match) => match.matchNumber === 73)!;
     const home = groupA.teams[1]!;
     const away = groupB.teams[1]!;
@@ -116,6 +118,10 @@ describe("useSchedule", () => {
       const match90 = result.current.find((entry) => entry.matchNumber === 90);
       expect(match90?.home?.id).toBe(home.id);
       expect(match90?.away).toBeNull();
+      expect(match90?.awayCandidates?.map((team) => team.id)).toEqual([
+        groupF.teams[0]!.id,
+        groupC.teams[1]!.id,
+      ]);
     });
   });
 

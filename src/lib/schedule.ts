@@ -16,6 +16,8 @@ export type ScheduleEntry = {
   groupLetter?: string;
   home: Team | null;
   away: Team | null;
+  homeCandidates?: Team[];
+  awayCandidates?: Team[];
   homePlaceholder: string;
   awayPlaceholder: string;
   result?: MatchResult;
@@ -64,7 +66,28 @@ export function groupMatchToEntry(
   };
 }
 
-export function knockoutMatchToEntry(match: ResolvedKnockoutMatch): ScheduleEntry {
+function winnerCandidates(
+  placeholder: string,
+  matches: Map<number, ResolvedKnockoutMatch>
+): Team[] | undefined {
+  const sourceMatch = placeholder.match(/^W(\d+)$/);
+  if (!sourceMatch) return undefined;
+
+  const match = matches.get(Number(sourceMatch[1]));
+  if (!match || match.winner) return undefined;
+
+  const candidates = [
+    match.resolvedHome?.team,
+    match.resolvedAway?.team,
+  ].filter((team): team is Team => Boolean(team));
+
+  return candidates.length > 0 ? candidates : undefined;
+}
+
+export function knockoutMatchToEntry(
+  match: ResolvedKnockoutMatch,
+  matches = new Map<number, ResolvedKnockoutMatch>()
+): ScheduleEntry {
   return {
     id: match.id,
     matchNumber: match.matchNumber,
@@ -76,6 +99,8 @@ export function knockoutMatchToEntry(match: ResolvedKnockoutMatch): ScheduleEntr
     stageLabel: stageLabel(match.stage),
     home: match.resolvedHome?.team ?? null,
     away: match.resolvedAway?.team ?? null,
+    homeCandidates: winnerCandidates(match.placeholderA, matches),
+    awayCandidates: winnerCandidates(match.placeholderB, matches),
     homePlaceholder: match.placeholderA,
     awayPlaceholder: match.placeholderB,
     winner: match.winner,
@@ -91,7 +116,8 @@ export function buildScheduleEntries(
   const groupEntries = seed.groups.flatMap((group) =>
     group.matches.map((match, idx) => groupMatchToEntry(match, group.letter, matchResults, idx))
   );
-  const knockoutEntries = knockoutMatches.map(knockoutMatchToEntry);
+  const knockoutMap = new Map(knockoutMatches.map((match) => [match.matchNumber, match]));
+  const knockoutEntries = knockoutMatches.map((match) => knockoutMatchToEntry(match, knockoutMap));
   return sortScheduleEntries([...groupEntries, ...knockoutEntries]);
 }
 
