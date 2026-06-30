@@ -14,14 +14,11 @@
     "test:tester": "playwright test e2e/tester --reporter=list",
     "test:tester:report": "playwright test e2e/tester && playwright show-report",
     "test:all": "vitest run && playwright test",
-    "survey:fifa": "node scripts/survey-fifa.mjs",
     "fetch:tournament-stats": "node scripts/fetch-fifa-tournament-stats.mjs",
     "fetch:rankings": "node scripts/fetch-fifa-rankings.mjs",
     "generate:annex-c": "node scripts/generate-annex-c.mjs",
-    "survey:playwright": "node scripts/survey-fifa-playwright.mjs",
     "fetch:teams-squads": "node scripts/fetch-fifa-teams-squads.mjs",
     "test:e2e:ui": "playwright test --ui",
-    "mcp:playwright": "npx @playwright/mcp@latest --port 8931",
     "download:flags": "node scripts/download-flags.mjs"
   },
   "dependencies": {
@@ -45,7 +42,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
     "jsdom": "^29.1.1",
-    "playwright": "^1.60.0",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.8"

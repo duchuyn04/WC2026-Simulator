@@ -13,7 +13,6 @@ type Props = {
   matchResults: Record<string, MatchResult>;
   inputMode: GroupInputMode;
   isManual: boolean;
-  manualOrder: string[];
   onScore: (matchId: string, home?: number | null, away?: number | null) => void;
   onReorder: (teamIds: string[]) => void;
   onClearManual: () => void;
@@ -27,7 +26,6 @@ export function GroupDetailModal({
   matchResults,
   inputMode,
   isManual,
-  manualOrder,
   onScore,
   onReorder,
   onClearManual,
@@ -105,7 +103,6 @@ export function GroupDetailModal({
             matchResults={matchResults}
             inputMode={inputMode}
             isManual={isManual}
-            manualOrder={manualOrder}
             onScore={onScore}
             onReorder={onReorder}
             onClearManual={onClearManual}

@@ -1,10 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import { useSimulation } from "@/lib/store";
 import { TeamBadge } from "@/components/ui/TeamBadge";
-import { StandingsDnD } from "./lazy-standings";
+import { StandingsDnD } from "./StandingsDnD";
 import type { GroupData, GroupStanding } from "@/lib/fifa/types";
 
 const GroupDetailModal = dynamic(
@@ -33,12 +33,6 @@ export function GroupCard({ group, standing }: Props) {
     const r = matchResults[m.id];
     return r?.home !== undefined && r?.away !== undefined;
   }).length;
-
-  const orderForGroup = useMemo(() => {
-    const saved = manualOrder[group.letter];
-    if (saved && saved.length === 4) return saved;
-    return standing.ranked.map((row) => row.team.id);
-  }, [manualOrder, group.letter, standing.ranked]);
 
   return (
     <>
@@ -118,7 +112,6 @@ export function GroupCard({ group, standing }: Props) {
           matchResults={matchResults}
           inputMode={groupInputMode}
           isManual={isManual}
-          manualOrder={orderForGroup}
           onScore={setScore}
           onReorder={(ids) => setManualOrder(group.letter, ids)}
           onClearManual={() => clearManualOrder(group.letter)}

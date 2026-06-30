@@ -1,6 +1,6 @@
 "use client";
 
-import { StandingsDnD } from "./lazy-standings";
+import { StandingsDnD } from "./StandingsDnD";
 import { ScoreInput } from "@/components/ui/ScoreInput";
 import type { GroupData, GroupStanding, MatchResult } from "@/lib/fifa/types";
 import type { GroupInputMode } from "@/lib/store";
@@ -11,7 +11,6 @@ type Props = {
   matchResults: Record<string, MatchResult>;
   inputMode: GroupInputMode;
   isManual: boolean;
-  manualOrder: string[];
   onScore: (matchId: string, home?: number | null, away?: number | null) => void;
   onReorder: (teamIds: string[]) => void;
   onClearManual: () => void;
@@ -25,7 +24,6 @@ export function GroupPanel({
   matchResults,
   inputMode,
   isManual,
-  manualOrder,
   onScore,
   onReorder,
   onClearManual,
