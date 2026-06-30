@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-30T09:59:11.239Z",
-  "completedMatches": 72,
+  "fetchedAt": "2026-06-30T20:17:56.764Z",
+  "completedMatches": 73,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -33,7 +33,7 @@
           "code": "NOR",
           "flagUrl": "/flags/NOR.png"
         },
-        "value": 4
+        "value": 5
       },
       {
         "playerId": "389867",
@@ -181,6 +181,19 @@
         "value": 3
       },
       {
+        "playerId": "400716",
+        "name": "Martin ODEGAARD",
+        "shortName": "Martin ODEGAARD",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2b895db6-7f67-4436-b8da-54bdf0dd2e2b/ODEGAARD-Martin_400716",
+        "team": {
+          "id": "43961",
+          "name": "Norway",
+          "code": "NOR",
+          "flagUrl": "/flags/NOR.png"
+        },
+        "value": 3
+      },
+      {
         "playerId": "485655",
         "name": "Michael OLISE",
         "shortName": "Michael OLISE",
@@ -255,19 +268,6 @@
           "name": "Germany",
           "code": "GER",
           "flagUrl": "/flags/GER.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "436612",
-        "name": "Denzel DUMFRIES",
-        "shortName": "Denzel DUMFRIES",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/f2a2746b-7691-40c4-a052-60db3219a856/DUMFRIES-Denzel_436612",
-        "team": {
-          "id": "43960",
-          "name": "Netherlands",
-          "code": "NED",
-          "flagUrl": "/flags/NED.png"
         },
         "value": 2
       }
