@@ -4,7 +4,7 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-30T05:16:55.395Z",
+  "fetchedAt": "2026-06-30T09:59:11.239Z",
   "completedMatches": 72,
   "skippedMatches": 0,
   "leaderboards": {
@@ -289,21 +289,6 @@
         "successRate": 100
       },
       {
-        "playerId": "494293",
-        "name": "Chemsdine TALBI",
-        "shortName": "Chemsdine TALBI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b6d54dcf-25e8-4e0f-a155-60e051b4a86e/TALBI-Chemsdine_494293",
-        "team": {
-          "id": "43872",
-          "name": "Morocco",
-          "code": "MAR",
-          "flagUrl": "/flags/MAR.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
         "playerId": "311558",
         "name": "Granit XHAKA",
         "shortName": "Granit XHAKA",
@@ -328,21 +313,6 @@
           "name": "England",
           "code": "ENG",
           "flagUrl": "/flags/ENG.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "448598",
-        "name": "Ismael SAIBARI",
-        "shortName": "Ismael SAIBARI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/250526c6-26b5-4425-8a21-231c7952e34d/SAIBARI-Ismael_448598",
-        "team": {
-          "id": "43872",
-          "name": "Morocco",
-          "code": "MAR",
-          "flagUrl": "/flags/MAR.png"
         },
         "value": 1,
         "scored": 1,
@@ -394,21 +364,6 @@
         "successRate": 100
       },
       {
-        "playerId": "433426",
-        "name": "Soufiane RAHIMI",
-        "shortName": "Soufiane RAHIMI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/7de765a2-f6c6-4d70-badd-a929c4cab547/RAHIMI-Soufiane_433426",
-        "team": {
-          "id": "43872",
-          "name": "Morocco",
-          "code": "MAR",
-          "flagUrl": "/flags/MAR.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
         "playerId": "403616",
         "name": "Teboho MOKOENA",
         "shortName": "Teboho MOKOENA",
@@ -422,6 +377,51 @@
         "value": 1,
         "scored": 1,
         "successRate": 100
+      },
+      {
+        "playerId": "419662",
+        "name": "Jorgen STRAND LARSEN",
+        "shortName": "Jorgen STRAND LARSEN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/116d01b5-9d0d-4456-a5a8-0e63a16b9862/STRAND-LARSEN-Jorgen_419662",
+        "team": {
+          "id": "43961",
+          "name": "Norway",
+          "code": "NOR",
+          "flagUrl": "/flags/NOR.png"
+        },
+        "value": 1,
+        "scored": 0,
+        "successRate": 0
+      },
+      {
+        "playerId": "229397",
+        "name": "Lionel MESSI",
+        "shortName": "Lionel MESSI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/19823774-fac0-485a-8a8f-572e7324c6c2/MESSI-Lionel_229397",
+        "team": {
+          "id": "43922",
+          "name": "Argentina",
+          "code": "ARG",
+          "flagUrl": "/flags/ARG.png"
+        },
+        "value": 1,
+        "scored": 0,
+        "successRate": 0
+      },
+      {
+        "playerId": "388475",
+        "name": "Mehdi TAREMI",
+        "shortName": "Mehdi TAREMI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/0d942331-39fb-421e-8a8d-d1f875958559/TAREMI-Mehdi_388475",
+        "team": {
+          "id": "43817",
+          "name": "IR Iran",
+          "code": "IRN",
+          "flagUrl": "/flags/IRN.png"
+        },
+        "value": 1,
+        "scored": 0,
+        "successRate": 0
       }
     ],
     "yellowCards": [
