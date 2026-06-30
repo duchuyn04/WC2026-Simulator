@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-29T20:14:42.527Z",
-  "completedMatches": 70,
+  "fetchedAt": "2026-06-30T00:20:27.476Z",
+  "completedMatches": 71,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -168,6 +168,19 @@
         "value": 3
       },
       {
+        "playerId": "430669",
+        "name": "Florian WIRTZ",
+        "shortName": "Florian WIRTZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/3a120189-62cc-441f-b862-7fdd2a9abfa4/WIRTZ-Florian_430669",
+        "team": {
+          "id": "43948",
+          "name": "Germany",
+          "code": "GER",
+          "flagUrl": "/flags/GER.png"
+        },
+        "value": 3
+      },
+      {
         "playerId": "485655",
         "name": "Michael OLISE",
         "shortName": "Michael OLISE",
@@ -246,19 +259,6 @@
         "value": 2
       },
       {
-        "playerId": "430669",
-        "name": "Florian WIRTZ",
-        "shortName": "Florian WIRTZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/3a120189-62cc-441f-b862-7fdd2a9abfa4/WIRTZ-Florian_430669",
-        "team": {
-          "id": "43948",
-          "name": "Germany",
-          "code": "GER",
-          "flagUrl": "/flags/GER.png"
-        },
-        "value": 2
-      },
-      {
         "playerId": "433378",
         "name": "Hannibal MEJBRI",
         "shortName": "Hannibal MEJBRI",
@@ -273,6 +273,21 @@
       }
     ],
     "penalties": [
+      {
+        "playerId": "411367",
+        "name": "Kai HAVERTZ",
+        "shortName": "Kai HAVERTZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/1fdd4d11-97d1-4392-b345-5a5eecc54839/HAVERTZ-Kai_411367",
+        "team": {
+          "id": "43948",
+          "name": "Germany",
+          "code": "GER",
+          "flagUrl": "/flags/GER.png"
+        },
+        "value": 2,
+        "scored": 1,
+        "successRate": 50
+      },
       {
         "playerId": "393480",
         "name": "Breel EMBOLO",
@@ -304,6 +319,21 @@
         "successRate": 100
       },
       {
+        "playerId": "369744",
+        "name": "Gustavo GOMEZ",
+        "shortName": "Gustavo GOMEZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/d37c65ce-135e-4bd4-b870-2c2548b93e2d/GOMEZ-Gustavo_369744",
+        "team": {
+          "id": "43928",
+          "name": "Paraguay",
+          "code": "PAR",
+          "flagUrl": "/flags/PAR.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
         "playerId": "369419",
         "name": "Harry KANE",
         "shortName": "Harry KANE",
@@ -319,10 +349,40 @@
         "successRate": 100
       },
       {
-        "playerId": "411367",
-        "name": "Kai HAVERTZ",
-        "shortName": "Kai HAVERTZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/1fdd4d11-97d1-4392-b345-5a5eecc54839/HAVERTZ-Kai_411367",
+        "playerId": "429642",
+        "name": "Jamal MUSIALA",
+        "shortName": "Jamal MUSIALA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/05f50027-268f-43ff-ba75-1b477b37ca60/MUSIALA-Jamal_429642",
+        "team": {
+          "id": "43948",
+          "name": "Germany",
+          "code": "GER",
+          "flagUrl": "/flags/GER.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "520066",
+        "name": "Jose CANALE",
+        "shortName": "Jose CANALE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2039b54f-7036-444c-90d0-da1f89780077/CANALE-Jose_520066",
+        "team": {
+          "id": "43928",
+          "name": "Paraguay",
+          "code": "PAR",
+          "flagUrl": "/flags/PAR.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "386413",
+        "name": "Joshua KIMMICH",
+        "shortName": "Joshua KIMMICH",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ada33dfd-5b01-4792-88f4-14c06641509e/KIMMICH-Joshua_386413",
         "team": {
           "id": "43948",
           "name": "Germany",
@@ -362,66 +422,6 @@
         "value": 1,
         "scored": 1,
         "successRate": 100
-      },
-      {
-        "playerId": "403616",
-        "name": "Teboho MOKOENA",
-        "shortName": "Teboho MOKOENA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/bf36679b-73eb-4813-a99d-b9673439dd05/MOKOENA-Teboho_403616",
-        "team": {
-          "id": "43883",
-          "name": "South Africa",
-          "code": "RSA",
-          "flagUrl": "/flags/RSA.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "419662",
-        "name": "Jorgen STRAND LARSEN",
-        "shortName": "Jorgen STRAND LARSEN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/116d01b5-9d0d-4456-a5a8-0e63a16b9862/STRAND-LARSEN-Jorgen_419662",
-        "team": {
-          "id": "43961",
-          "name": "Norway",
-          "code": "NOR",
-          "flagUrl": "/flags/NOR.png"
-        },
-        "value": 1,
-        "scored": 0,
-        "successRate": 0
-      },
-      {
-        "playerId": "229397",
-        "name": "Lionel MESSI",
-        "shortName": "Lionel MESSI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/19823774-fac0-485a-8a8f-572e7324c6c2/MESSI-Lionel_229397",
-        "team": {
-          "id": "43922",
-          "name": "Argentina",
-          "code": "ARG",
-          "flagUrl": "/flags/ARG.png"
-        },
-        "value": 1,
-        "scored": 0,
-        "successRate": 0
-      },
-      {
-        "playerId": "388475",
-        "name": "Mehdi TAREMI",
-        "shortName": "Mehdi TAREMI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/0d942331-39fb-421e-8a8d-d1f875958559/TAREMI-Mehdi_388475",
-        "team": {
-          "id": "43817",
-          "name": "IR Iran",
-          "code": "IRN",
-          "flagUrl": "/flags/IRN.png"
-        },
-        "value": 1,
-        "scored": 0,
-        "successRate": 0
       }
     ],
     "yellowCards": [
@@ -517,6 +517,19 @@
         "value": 2
       },
       {
+        "playerId": "424422",
+        "name": "Matias GALARZA",
+        "shortName": "Matias GALARZA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ce774da7-eea7-475e-8526-8227b5068dc3/GALARZA-Matias_424422",
+        "team": {
+          "id": "43928",
+          "name": "Paraguay",
+          "code": "PAR",
+          "flagUrl": "/flags/PAR.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "433469",
         "name": "MOHANAD LASHIN",
         "shortName": "MOHANAD LASHIN",
@@ -539,19 +552,6 @@
           "name": "IR Iran",
           "code": "IRN",
           "flagUrl": "/flags/IRN.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "477832",
-        "name": "SIDNY LOPES CABRAL",
-        "shortName": "SIDNY LOPES CABRAL",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/4fd8eea9-a8fe-4571-8bbc-fe728f6160e7/SIDNY-LOPES-CABRAL_477832",
-        "team": {
-          "id": "43850",
-          "name": "Cabo Verde",
-          "code": "CPV",
-          "flagUrl": "/flags/CPV.png"
         },
         "value": 2
       }
