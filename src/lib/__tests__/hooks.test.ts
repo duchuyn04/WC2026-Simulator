@@ -125,6 +125,26 @@ describe("useSchedule", () => {
     });
   });
 
+  it("does not use simulated knockout picks for real schedule rounds", async () => {
+    mockEspnApis();
+    useSimulation.setState({
+      knockoutWinners: {
+        89: seed.groups[0]!.teams[0]!.id,
+        90: seed.groups[1]!.teams[0]!.id,
+      },
+    });
+
+    const { result } = renderHook(() => useSchedule());
+
+    await waitFor(() => {
+      const match97 = result.current.find((entry) => entry.matchNumber === 97);
+      expect(match97?.home).toBeNull();
+      expect(match97?.away).toBeNull();
+      expect(match97?.homePlaceholder).toBe("W89");
+      expect(match97?.awayPlaceholder).toBe("W90");
+    });
+  });
+
   it("ignores simulated standings for knockout schedule", () => {
     for (const group of seed.groups.filter((g) => ["A", "B"].includes(g.letter))) {
       for (const match of group.matches) {

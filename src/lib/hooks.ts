@@ -122,10 +122,9 @@ function sameKickoff(left?: string, right?: string) {
 
 function realKnockoutWinners(
   standings: GroupStanding[],
-  espnMatches: EspnScoreboardMatch[],
-  pickedWinners: Record<number, string>
+  espnMatches: EspnScoreboardMatch[]
 ) {
-  const winners = { ...pickedWinners };
+  const winners: Record<number, string> = {};
 
   for (let pass = 0; pass < seed.knockout.length; pass++) {
     let changed = false;
@@ -203,7 +202,6 @@ export function useSchedule() {
   // "Khớp thực tế": base dates/venues/placeholders/stages for all 104 entries come from seed inside buildScheduleEntries.
   // scheduleMockResults: separate from simulator matchResults so mocking in Lịch thi đấu does not affect Mô phỏng.
   const scheduleMockResults = useSimulation((s) => s.scheduleMockResults);
-  const knockoutWinners = useSimulation((s) => s.knockoutWinners);
   const realData = useRealTournamentData();
   return useMemo(() => {
     return buildScheduleEntries(
@@ -211,11 +209,11 @@ export function useSchedule() {
       realData
         ? resolveKnockoutMatches(
             realData.standings,
-            realKnockoutWinners(realData.standings, realData.espnMatches, knockoutWinners)
+            realKnockoutWinners(realData.standings, realData.espnMatches)
           )
         : unresolvedKnockoutMatches()
     );
-  }, [scheduleMockResults, realData, knockoutWinners]);
+  }, [scheduleMockResults, realData]);
 }
 
 const TWENTY_FOUR_HOURS_MS = 24 * 60 * 60 * 1000;
