@@ -86,6 +86,7 @@ type EspnSummary = {
           displayName?: string;
           logos?: Array<{ href?: string }>;
         };
+        shootoutScore?: number | string | null;
       }>;
       details?: EspnDetail[];
     }>;
@@ -337,6 +338,7 @@ export function MatchStatsModal({ gameId, matchDate, entry, onClose }: MatchStat
         name: header.team?.displayName ?? boxscore?.team.displayName ?? "TBD",
         logo: header.team?.logos?.[0]?.href ?? boxscore?.team.logo,
         score: header.score ?? "-",
+        shootoutScore: header.shootoutScore ?? null,
         statistics: boxscore?.statistics ?? [],
       };
     };
@@ -759,6 +761,11 @@ export function MatchStatsModal({ gameId, matchDate, entry, onClose }: MatchStat
                     <div className="font-mono text-3xl font-black leading-none text-emerald-400 sm:text-4xl">
                       {view.home.score} - {view.away.score}
                     </div>
+                    {view.home.shootoutScore != null && view.away.shootoutScore != null && (
+                      <div className="mt-1 font-mono text-sm font-bold text-zinc-400">
+                        pen {view.home.shootoutScore} - {view.away.shootoutScore}
+                      </div>
+                    )}
                     <div className="mt-2 rounded-full bg-zinc-800 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
                       {isKickoffString(view.competition?.status?.type?.shortDetail)
                         ? formatKickoffShort(matchDate ?? view.competition?.date)
