@@ -56,6 +56,27 @@ describe("parseEspnScoreboard", () => {
       cards: [],
     });
   });
+
+  it("keeps the ESPN winner team id", () => {
+    const [match] = parseEspnScoreboard({
+      events: [{
+        id: "760489",
+        date: "2026-06-29T20:30Z",
+        competitions: [{
+          status: {
+            displayClock: "120'",
+            type: { name: "STATUS_FULL_TIME", state: "post", shortDetail: "FT-Pens" },
+          },
+          competitors: [
+            { homeAway: "home", score: "1", winner: false, team: { id: "481" } },
+            { homeAway: "away", score: "1", winner: true, team: { id: "210" } },
+          ],
+        }],
+      }],
+    });
+
+    expect(match.winnerId).toBe("210");
+  });
 });
 
 describe("ESPN match state", () => {

@@ -15,6 +15,7 @@ export type EspnScoreboardMatch = {
   awayId?: string;
   homeScore?: string;
   awayScore?: string;
+  winnerId?: string;
   cards?: EspnCardEvent[];
 };
 
@@ -41,6 +42,7 @@ type EspnScoreboardResponse = {
       competitors?: Array<{
         homeAway?: "home" | "away";
         score?: string;
+        winner?: boolean;
         team?: { id?: string };
       }>;
       details?: Array<{
@@ -57,6 +59,7 @@ export function parseEspnScoreboard(data: EspnScoreboardResponse): EspnScoreboar
     const competition = event.competitions?.[0];
     const home = competition?.competitors?.find((team) => team.homeAway === "home");
     const away = competition?.competitors?.find((team) => team.homeAway === "away");
+    const winner = competition?.competitors?.find((team) => team.winner);
 
     if (!event.id || !event.date || !competition) return [];
 
@@ -81,6 +84,7 @@ export function parseEspnScoreboard(data: EspnScoreboardResponse): EspnScoreboar
       awayId: away?.team?.id,
       homeScore: home?.score,
       awayScore: away?.score,
+      ...(winner?.team?.id ? { winnerId: winner.team.id } : {}),
       cards,
     }];
   });

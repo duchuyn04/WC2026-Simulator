@@ -47,13 +47,13 @@ function espnStandingsResponse() {
   };
 }
 
-function mockEspnApis() {
+function mockEspnApis(scoreboard = { events: [] }) {
   mockFetch.mockImplementation((url: string) =>
     Promise.resolve({
       ok: true,
       json: () =>
         Promise.resolve(
-          url.includes("standings") ? espnStandingsResponse() : { events: [] }
+          url.includes("standings") ? espnStandingsResponse() : scoreboard
         ),
     })
   );
@@ -83,6 +83,39 @@ describe("useSchedule", () => {
       const match73 = result.current.find((entry) => entry.matchNumber === 73);
       expect(match73?.home?.id).toBe(groupA.teams[1]!.id);
       expect(match73?.away?.id).toBe(groupB.teams[1]!.id);
+    });
+  });
+
+  it("uses real ESPN knockout winners for later schedule rounds", async () => {
+    const groupA = seed.groups.find((group) => group.letter === "A")!;
+    const groupB = seed.groups.find((group) => group.letter === "B")!;
+    const match73 = seed.knockout.find((match) => match.matchNumber === 73)!;
+    const home = groupA.teams[1]!;
+    const away = groupB.teams[1]!;
+
+    mockEspnApis({
+      events: [{
+        id: "espn-73",
+        date: match73.date,
+        competitions: [{
+          status: {
+            displayClock: "120'",
+            type: { name: "STATUS_FULL_TIME", state: "post", shortDetail: "FT-Pens" },
+          },
+          competitors: [
+            { homeAway: "home", score: "1", winner: true, team: { id: ESPN_TEAM_MAP[home.id] } },
+            { homeAway: "away", score: "1", winner: false, team: { id: ESPN_TEAM_MAP[away.id] } },
+          ],
+        }],
+      }],
+    });
+
+    const { result } = renderHook(() => useSchedule());
+
+    await waitFor(() => {
+      const match90 = result.current.find((entry) => entry.matchNumber === 90);
+      expect(match90?.home?.id).toBe(home.id);
+      expect(match90?.away).toBeNull();
     });
   });
 
