@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useEffect } from "react";
 import { useSimulation } from "@/lib/store";
 import Link from "next/link";
 import { useGroupStandings, useStoreHydrated } from "@/lib/hooks";
@@ -52,14 +52,11 @@ export function AppShell() {
     { id: "knockout", label: "Knockout" },
   ];
 
-  const SCHEDULE_TABS = useMemo(
-    () => [
-      { id: "schedule" as TabId, label: "Tất cả lịch thi đấu" },
-      { id: "fav-matches" as TabId, label: `Trận yêu thích (${favoriteMatches.length})` },
-      { id: "fav-teams" as TabId, label: `Đội yêu thích (${favoriteTeams.length})` },
-    ],
-    [favoriteMatches.length, favoriteTeams.length],
-  );
+  const SCHEDULE_TABS = [
+    { id: "schedule" as TabId, label: "Tất cả lịch thi đấu" },
+    { id: "fav-matches" as TabId, label: `Trận yêu thích (${favoriteMatches.length})` },
+    { id: "fav-teams" as TabId, label: `Đội yêu thích (${favoriteTeams.length})` },
+  ];
 
   const isSimulatorMode =
     activeTab === "groups" || activeTab === "third" || activeTab === "knockout";
@@ -70,11 +67,8 @@ export function AppShell() {
         ? SIMULATOR_TABS
         : SCHEDULE_TABS;
 
-  const standingMap = useMemo(
-    () => new Map(standings.map((s) => [s.letter, s])),
-    [standings],
-  );
-  const fifaRankMeta = useMemo(() => getFifaRankingsMeta(), []);
+  const standingMap = new Map(standings.map((s) => [s.letter, s]));
+  const fifaRankMeta = getFifaRankingsMeta();
 
   if (!hydrated) {
     return (

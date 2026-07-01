@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { MatchStatsModal } from "./MatchStatsModal";
+import type { RecentTeamMatch } from "@/lib/espn";
 
 interface RecentMatchesProps {
-  recentMatches: any[];
+  recentMatches: RecentTeamMatch[];
 }
 
 export function RecentMatches({ recentMatches }: RecentMatchesProps) {

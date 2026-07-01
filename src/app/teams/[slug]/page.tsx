@@ -1,11 +1,10 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { flagUrl } from "@/lib/data";
 import { RecentMatches } from "@/components/matches/RecentMatches";
 import { TeamStatsBoard } from "@/components/teams/TeamStatsBoard";
 import { TeamRoster } from "@/components/teams/TeamRoster";
-import { FloatingBackButton } from "@/components/layout/FloatingBackButton";
-import { BackToTeamsButton } from "@/components/layout/BackToTeamsButton";
-import { fetchTeamMatches } from "@/lib/espn";
+import { fetchTeamMatches, type RecentTeamMatch } from "@/lib/espn";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
 import teamsData from "../../../../data/fifa-teams-squads.json";
 
@@ -45,7 +44,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
   const headCoach = team.headCoach;
 
   const espnId = ESPN_TEAM_MAP[team.id];
-  let recentMatches: any[] = [];
+  let recentMatches: RecentTeamMatch[] = [];
   if (espnId) {
     try {
       recentMatches = await fetchTeamMatches(espnId);
@@ -55,9 +54,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
   }
 
   return (
-    <>
-      <FloatingBackButton />
-      <main className="min-h-screen bg-[#0c0f14] text-zinc-100">
+    <main className="min-h-screen bg-[#0c0f14] text-zinc-100">
       <section
         className="border-b border-zinc-800"
         style={{
@@ -66,7 +63,13 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
       >
         <div className="mx-auto max-w-7xl px-3 py-4 sm:px-4 sm:py-8">
           <div className="flex flex-wrap gap-3 text-sm font-semibold">
-            <BackToTeamsButton />
+            <Link
+              href="/teams"
+              className="group flex w-fit items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/50 px-3 py-1.5 text-xs font-semibold text-amber-400 backdrop-blur-md transition-all hover:border-amber-500 hover:bg-amber-500/10 hover:text-amber-300 sm:px-4 sm:py-2 sm:text-sm"
+            >
+              <span className="transition-transform group-hover:-translate-x-1">←</span>
+              Đội tuyển
+            </Link>
           </div>
 
           <div className="mt-4 sm:mt-8">
@@ -132,7 +135,6 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
           <TeamStatsBoard espnId={espnId} />
         </section>
       )}
-      </main>
-    </>
+    </main>
   );
 }

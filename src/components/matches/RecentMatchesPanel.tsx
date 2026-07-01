@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useSchedule } from "@/lib/hooks";
 import {
   getDoneEntries,
@@ -40,20 +40,9 @@ export function RecentMatchesPanel({
   const [syncing, setSyncing] = useState(false);
   const [syncSuccess, setSyncSuccess] = useState(false);
 
-  const doneEntries = useMemo(
-    () => getDoneEntries(allEntries, espnMatches, ESPN_TO_LOCAL),
-    [allEntries, espnMatches]
-  );
-
-  const displayedEntries = useMemo(
-    () => (mode === "recent-5" ? doneEntries.slice(0, 5) : doneEntries),
-    [doneEntries, mode]
-  );
-
-  const groups = useMemo(
-    () => groupDoneEntriesByDate(displayedEntries),
-    [displayedEntries]
-  );
+  const doneEntries = getDoneEntries(allEntries, espnMatches, ESPN_TO_LOCAL);
+  const displayedEntries = mode === "recent-5" ? doneEntries.slice(0, 5) : doneEntries;
+  const groups = groupDoneEntriesByDate(displayedEntries);
 
   const groupCount = doneEntries.filter((d) => d.entry.kind === "group").length;
 
