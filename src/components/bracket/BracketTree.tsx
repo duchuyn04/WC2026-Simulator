@@ -117,7 +117,7 @@ function cursorFromEvent(el: HTMLElement, clientX: number, clientY: number): Pan
 
 type Props = {
   matches: Map<number, ResolvedKnockoutMatch>;
-  onPickWinner: (matchNumber: number, teamId: string | null) => void;
+  onPickWinner?: (matchNumber: number, teamId: string | null) => void;
 };
 
 function BracketMatchSlot({
@@ -127,13 +127,13 @@ function BracketMatchSlot({
   align = "left",
 }: {
   match: ResolvedKnockoutMatch;
-  onPickWinner: (teamId: string | null) => void;
+  onPickWinner?: (teamId: string | null) => void;
   onFocus?: (clientX: number, clientY: number) => void;
   align?: "left" | "right";
 }) {
   const home = match.resolvedHome;
   const away = match.resolvedAway;
-  const canPick = !!(home?.team && away?.team);
+  const canPick = !!(onPickWinner && home?.team && away?.team);
 
   return (
     <div
@@ -159,7 +159,7 @@ function BracketMatchSlot({
           onClick={
             canPick && home?.team
               ? () =>
-                  onPickWinner(match.winner?.id === home.team!.id ? null : home.team!.id)
+                  onPickWinner?.(match.winner?.id === home.team!.id ? null : home.team!.id)
               : undefined
           }
         />
@@ -172,7 +172,7 @@ function BracketMatchSlot({
           onClick={
             canPick && away?.team
               ? () =>
-                  onPickWinner(match.winner?.id === away.team!.id ? null : away.team!.id)
+                  onPickWinner?.(match.winner?.id === away.team!.id ? null : away.team!.id)
               : undefined
           }
         />
@@ -254,7 +254,7 @@ function BracketHalf({
   root: BracketTreeNode;
   side: "left" | "right";
   matches: Map<number, ResolvedKnockoutMatch>;
-  onPickWinner: (matchNumber: number, teamId: string | null) => void;
+  onPickWinner?: (matchNumber: number, teamId: string | null) => void;
   onFocusMatch: (clientX: number, clientY: number) => void;
 }) {
   const layout = useMemo(() => layoutBracketSubtree(root), [root]);
@@ -303,7 +303,7 @@ function BracketHalf({
             <BracketMatchSlot
               match={match}
               align={side === "right" ? "right" : "left"}
-              onPickWinner={(teamId) => onPickWinner(slot.matchNumber, teamId)}
+              onPickWinner={(teamId) => onPickWinner?.(slot.matchNumber, teamId)}
               onFocus={onFocusMatch}
             />
           </div>
@@ -435,7 +435,7 @@ function CenterMatches({
   final?: ResolvedKnockoutMatch;
   third?: ResolvedKnockoutMatch;
   centerRow: number;
-  onPickWinner: (matchNumber: number, teamId: string | null) => void;
+  onPickWinner?: (matchNumber: number, teamId: string | null) => void;
   onFocusMatch: (clientX: number, clientY: number) => void;
 }) {
   const finalTop = PODIUM_ABOVE + centerRow * ROW_HEIGHT - MATCH_HEIGHT / 2;
@@ -457,7 +457,7 @@ function CenterMatches({
           </p>
           <BracketMatchSlot
             match={final}
-            onPickWinner={(teamId) => onPickWinner(final.matchNumber, teamId)}
+            onPickWinner={(teamId) => onPickWinner?.(final.matchNumber, teamId)}
             onFocus={onFocusMatch}
           />
         </div>
@@ -470,7 +470,7 @@ function CenterMatches({
           </p>
           <BracketMatchSlot
             match={third}
-            onPickWinner={(teamId) => onPickWinner(third.matchNumber, teamId)}
+            onPickWinner={(teamId) => onPickWinner?.(third.matchNumber, teamId)}
             onFocus={onFocusMatch}
           />
         </div>
@@ -550,6 +550,7 @@ export function BracketTree({ matches, onPickWinner }: Props) {
 
   const scale = displayFitScale * userZoom;
   const zoomPercent = Math.round(userZoom * 100);
+  const isReadOnly = !onPickWinner;
 
   const applyView = useCallback(
     (nextZoom: number, nextPan: Pan) => {
@@ -589,17 +590,17 @@ export function BracketTree({ matches, onPickWinner }: Props) {
     if (!hydrated || viewRestoredRef.current || fitScale <= 0) return;
     viewRestoredRef.current = true;
     const initialZoom = resolveInitialBracketZoom(
-      bracketView.userZoom,
+      isReadOnly ? 1 : bracketView.userZoom,
       fitScale,
       isMobile
     );
-    applyView(initialZoom, bracketView.pan);
-  }, [hydrated, fitScale, isMobile, bracketView, applyView]);
+    applyView(initialZoom, isReadOnly ? { x: 0, y: 0 } : bracketView.pan);
+  }, [hydrated, fitScale, isMobile, bracketView, applyView, isReadOnly]);
 
   useEffect(() => {
-    if (!hydrated || !viewRestoredRef.current) return;
+    if (isReadOnly || !hydrated || !viewRestoredRef.current) return;
     setBracketView({ userZoom, pan });
-  }, [hydrated, userZoom, pan, setBracketView]);
+  }, [hydrated, isReadOnly, userZoom, pan, setBracketView]);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -853,11 +854,14 @@ export function BracketTree({ matches, onPickWinner }: Props) {
           className="pointer-events-none absolute inset-x-0 bottom-2 z-20 px-2 sm:px-3 text-center text-[10px] sm:text-xs text-zinc-500"
         >
           <span className="sm:hidden">
-            Bấm đội · Kéo xem các vòng · Chụm hoặc +/− phóng to ({zoomPercent}%)
+            {isReadOnly
+              ? `Bracket tự cập nhật từ ESPN · Kéo xem các vòng · Chụm hoặc +/− phóng to (${zoomPercent}%)`
+              : `Bấm đội · Kéo xem các vòng · Chụm hoặc +/− phóng to (${zoomPercent}%)`}
           </span>
           <span className="hidden sm:inline">
-            Bấm đội chọn người thắng · Lăn chuột phóng to (tối thiểu 100%) · Kéo nền di chuyển ·
-            Double-click trận phóng to ({zoomPercent}%)
+            {isReadOnly
+              ? `Bracket tự cập nhật từ ESPN · Lăn chuột phóng to · Kéo nền di chuyển · Double-click trận phóng to (${zoomPercent}%)`
+              : `Bấm đội chọn người thắng · Lăn chuột phóng to (tối thiểu 100%) · Kéo nền di chuyển · Double-click trận phóng to (${zoomPercent}%)`}
           </span>
         </div>
         <div className="absolute bottom-2 right-2 sm:right-3 z-30 flex items-center gap-1">

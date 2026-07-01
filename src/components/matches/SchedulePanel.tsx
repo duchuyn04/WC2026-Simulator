@@ -14,6 +14,7 @@ import {
 import { isPlayedResult } from "@/lib/fifa/types";
 import type { Team } from "@/lib/fifa/types";
 import { ESPN_TEAM_MAP } from "@/lib/espn-mapping";
+import { RealBracket } from "@/components/bracket/RealBracket";
 import { EspnStandingsBoard } from "@/components/standings/EspnStandingsBoard";
 import { TournamentStatsBoard } from "@/components/standings/TournamentStatsBoard";
 import { MatchStatsModal, prefetchMatchStats } from "@/components/matches/MatchStatsModal";
@@ -35,13 +36,14 @@ const ESPN_TO_LOCAL = Object.entries(ESPN_TEAM_MAP).reduce(
   {} as Record<string, string>,
 );
 
-type SchedulePanelFilter = ScheduleFilter | "espn-standings" | "stats";
+type SchedulePanelFilter = ScheduleFilter | "espn-standings" | "real-bracket" | "stats";
 
 const FILTERS: { id: SchedulePanelFilter; label: string }[] = [
   { id: "all", label: "Tất cả trận đấu" },
   { id: "group", label: "Vòng bảng" },
   { id: "knockout", label: "Nhánh Knockout" },
   { id: "espn-standings", label: "BXH Thực tế" },
+  { id: "real-bracket", label: "Bracket" },
   { id: "stats", label: "Thống kê" },
 ];
 
@@ -836,14 +838,17 @@ export function SchedulePanel({
     if (filterMode === "fav-matches" || filterMode === "fav-teams") {
       return FILTERS.filter(
         (f) =>
-          f.id !== "knockout" && f.id !== "espn-standings" && f.id !== "stats",
+          f.id !== "knockout" &&
+          f.id !== "espn-standings" &&
+          f.id !== "real-bracket" &&
+          f.id !== "stats",
       );
     }
     return FILTERS;
   }, [filterMode]);
 
   const filtered = useMemo(() => {
-    if (filter === "espn-standings" || filter === "stats") return []; // Not used for standings or stats
+    if (filter === "espn-standings" || filter === "real-bracket" || filter === "stats") return [];
     let list = filterScheduleEntries(allEntries, filter as ScheduleFilter);
 
     if (filterMode === "fav-matches") {
@@ -935,7 +940,7 @@ export function SchedulePanel({
           </div>
 
           {/* Actions / Toolbar */}
-          {filter !== "espn-standings" && filter !== "stats" && (
+          {filter !== "espn-standings" && filter !== "real-bracket" && filter !== "stats" && (
             <div className="flex items-center gap-1.5 shrink-0">
               {/* Mobile Toggle Icons */}
               {isMobile && (
@@ -1150,6 +1155,8 @@ export function SchedulePanel({
       <div className="mt-4">
         {filter === "stats" ? (
           <TournamentStatsBoard />
+        ) : filter === "real-bracket" ? (
+          <RealBracket entries={allEntries} />
         ) : filter === "espn-standings" ? (
           <div className="space-y-8">
             {/* Real external data */}

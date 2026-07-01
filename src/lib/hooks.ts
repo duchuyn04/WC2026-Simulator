@@ -115,14 +115,38 @@ function resolveKnockoutMatches(
   return resolveKnockoutBracket(seed.knockout, standings, third.qualifyingGroups, winners, losers);
 }
 
-function sameKickoff(left?: string, right?: string) {
+function sameMatchWindow(left?: string, right?: string) {
   if (!left || !right) return false;
-  return new Date(left).getTime() === new Date(right).getTime();
+  const leftTime = new Date(left).getTime();
+  const rightTime = new Date(right).getTime();
+  return (
+    Number.isFinite(leftTime) &&
+    Number.isFinite(rightTime) &&
+    Math.abs(leftTime - rightTime) <= 6 * 60 * 60 * 1000
+  );
 }
 
 function hasKickedOff(value?: string) {
   const time = value ? new Date(value).getTime() : Number.NaN;
   return Number.isFinite(time) && time <= Date.now();
+}
+
+function parseEspnScore(value?: string) {
+  const score = Number(value);
+  return Number.isFinite(score) ? score : null;
+}
+
+function resolveEspnWinnerId(match: EspnScoreboardMatch) {
+  const winnerId = match.winnerId ? ESPN_TO_LOCAL[match.winnerId] : undefined;
+  if (winnerId) return winnerId;
+
+  const homeScore = parseEspnScore(match.homeScore);
+  const awayScore = parseEspnScore(match.awayScore);
+  if (homeScore === null || awayScore === null || homeScore === awayScore) return undefined;
+
+  return homeScore > awayScore
+    ? match.homeId ? ESPN_TO_LOCAL[match.homeId] : undefined
+    : match.awayId ? ESPN_TO_LOCAL[match.awayId] : undefined;
 }
 
 function realKnockoutWinners(
@@ -139,15 +163,18 @@ function realKnockoutWinners(
       const espn = espnMatches.find((candidate) => {
         const homeId = candidate.homeId ? ESPN_TO_LOCAL[candidate.homeId] : undefined;
         const awayId = candidate.awayId ? ESPN_TO_LOCAL[candidate.awayId] : undefined;
+        const sameTeams =
+          (homeId === match.resolvedHome?.team.id && awayId === match.resolvedAway?.team.id) ||
+          (homeId === match.resolvedAway?.team.id && awayId === match.resolvedHome?.team.id);
+
         return (
           candidate.state === "post" &&
           hasKickedOff(candidate.date) &&
-          sameKickoff(candidate.date, match.date) &&
-          homeId === match.resolvedHome?.team.id &&
-          awayId === match.resolvedAway?.team.id
+          sameMatchWindow(candidate.date, match.date) &&
+          sameTeams
         );
       });
-      const winnerId = espn?.winnerId ? ESPN_TO_LOCAL[espn.winnerId] : undefined;
+      const winnerId = espn ? resolveEspnWinnerId(espn) : undefined;
       if (winnerId) {
         winners[match.matchNumber] = winnerId;
         changed = true;

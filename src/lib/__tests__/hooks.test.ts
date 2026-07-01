@@ -8,7 +8,7 @@ import { useSchedule } from "../hooks";
 import { useSimulation } from "../store";
 
 const mockFetch = vi.fn();
-global.fetch = mockFetch;
+global.fetch = mockFetch as unknown as typeof fetch;
 
 function resetStore() {
   mockFetch.mockReset();
@@ -47,7 +47,7 @@ function espnStandingsResponse() {
   };
 }
 
-function mockEspnApis(scoreboard = { events: [] }) {
+function mockEspnApis(scoreboard: unknown = { events: [] }) {
   mockFetch.mockImplementation((url: string) =>
     Promise.resolve({
       ok: true,
@@ -128,6 +128,46 @@ describe("useSchedule", () => {
       expect(match97?.awayCandidates).toBeUndefined();
       expect(match97?.awayPlaceholder).toBe("W90");
     });
+  });
+
+  it("uses delayed ESPN kickoff and score fallback for real knockout winners", async () => {
+    const groupA = seed.groups.find((group) => group.letter === "A")!;
+    const groupB = seed.groups.find((group) => group.letter === "B")!;
+    const match73 = seed.knockout.find((match) => match.matchNumber === 73)!;
+    const home = groupA.teams[1]!;
+    const away = groupB.teams[1]!;
+    const delayedDate = new Date(
+      new Date(match73.date!).getTime() + 60 * 60 * 1000,
+    ).toISOString();
+    const now = vi
+      .spyOn(Date, "now")
+      .mockReturnValue(new Date("2026-07-01T12:00:00Z").getTime());
+
+    mockEspnApis({
+      events: [{
+        id: "delayed-73",
+        date: delayedDate,
+        competitions: [{
+          status: {
+            displayClock: "90'",
+            type: { name: "STATUS_FULL_TIME", state: "post", shortDetail: "FT" },
+          },
+          competitors: [
+            { homeAway: "home", score: "2", team: { id: ESPN_TEAM_MAP[home.id] } },
+            { homeAway: "away", score: "1", team: { id: ESPN_TEAM_MAP[away.id] } },
+          ],
+        }],
+      }],
+    });
+
+    const { result } = renderHook(() => useSchedule());
+
+    await waitFor(() => {
+      const match90 = result.current.find((entry) => entry.matchNumber === 90);
+      expect(match90?.home?.id).toBe(home.id);
+    });
+
+    now.mockRestore();
   });
 
   it("ignores ESPN knockout winners for future kickoffs", async () => {
