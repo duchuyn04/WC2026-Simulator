@@ -848,6 +848,16 @@ export function SchedulePanel({
     if (selectedFilter !== "real-bracket") return;
     scrollBracketIntoView();
   }, [selectedFilter, scrollBracketIntoView]);
+
+  function handleFilterChange(nextFilter: SchedulePanelFilter) {
+    setFilter(nextFilter);
+    if (nextFilter === "real-bracket") {
+      scrollBracketIntoView();
+    } else {
+      window.scrollTo({ top: 0 });
+    }
+  }
+
   const filter =
     (filterMode === "fav-matches" || filterMode === "fav-teams") &&
     selectedFilter === "knockout"
@@ -947,10 +957,7 @@ export function SchedulePanel({
                   key={item.id}
                   type="button"
                   data-testid={`schedule-filter-${item.id}`}
-                  onClick={() => {
-                    setFilter(item.id);
-                    if (item.id === "real-bracket") scrollBracketIntoView();
-                  }}
+                  onClick={() => handleFilterChange(item.id)}
                   className={[
                     "pb-1 transition-colors whitespace-nowrap text-xs sm:text-sm",
                     filter === item.id

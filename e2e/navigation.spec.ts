@@ -44,6 +44,16 @@ test.describe("Điều hướng & tiện ích", () => {
     await expect(page.getByText("104 trận")).toBeVisible();
   });
 
+  test("đổi tab con lịch thi đấu reset scroll", async ({ page }) => {
+    await goToTab(page, "schedule");
+    await page.evaluate(() => window.scrollTo(0, 700));
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(200);
+
+    await page.getByTestId("schedule-filter-group").click();
+
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(80);
+  });
+
   test("vòng lặp đủ 4 tab", async ({ page }) => {
     await goToTab(page, "schedule");
     await expect(page.getByRole("heading", { name: "Lịch thi đấu" })).toBeVisible();
