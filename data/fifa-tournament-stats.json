@@ -4,11 +4,24 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-06-30T20:17:56.764Z",
-  "completedMatches": 73,
+  "fetchedAt": "2026-07-01T00:19:58.639Z",
+  "completedMatches": 74,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
+      {
+        "playerId": "389867",
+        "name": "Kylian MBAPPE",
+        "shortName": "Kylian MBAPPE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
+        },
+        "value": 6
+      },
       {
         "playerId": "229397",
         "name": "Lionel MESSI",
@@ -34,19 +47,6 @@
           "flagUrl": "/flags/NOR.png"
         },
         "value": 5
-      },
-      {
-        "playerId": "389867",
-        "name": "Kylian MBAPPE",
-        "shortName": "Kylian MBAPPE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
-        "team": {
-          "id": "43946",
-          "name": "France",
-          "code": "FRA",
-          "flagUrl": "/flags/FRA.png"
-        },
-        "value": 4
       },
       {
         "playerId": "398680",
@@ -142,6 +142,19 @@
     ],
     "assists": [
       {
+        "playerId": "485655",
+        "name": "Michael OLISE",
+        "shortName": "Michael OLISE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/979cc206-e23b-4b21-8d40-843607ba8964/OLISE-Michael_485655",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
+        },
+        "value": 5
+      },
+      {
         "playerId": "430605",
         "name": "BRUNO GUIMARAES",
         "shortName": "BRUNO GUIMARAES",
@@ -190,19 +203,6 @@
           "name": "Norway",
           "code": "NOR",
           "flagUrl": "/flags/NOR.png"
-        },
-        "value": 3
-      },
-      {
-        "playerId": "485655",
-        "name": "Michael OLISE",
-        "shortName": "Michael OLISE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/979cc206-e23b-4b21-8d40-843607ba8964/OLISE-Michael_485655",
-        "team": {
-          "id": "43946",
-          "name": "France",
-          "code": "FRA",
-          "flagUrl": "/flags/FRA.png"
         },
         "value": 3
       },
