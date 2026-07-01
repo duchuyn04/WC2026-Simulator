@@ -41,6 +41,7 @@ const FIT_PAD = 4;
 const ZOOM_FACTOR = 1.1;
 const DRAG_THRESHOLD = 5;
 const MATCH_FOCUS_ZOOM = 1.75;
+const READ_ONLY_FIT_SCALE = 0.94;
 
 type Pan = { x: number; y: number };
 
@@ -81,6 +82,8 @@ const EMPTY_DRAG: DragState = {
   lastX: 0,
   lastY: 0,
 };
+
+const READ_ONLY_INITIAL_PAN: Pan = { x: 0, y: 48 };
 
 function pointerDistance(a: PointerRecord, b: PointerRecord) {
   return Math.hypot(a.x - b.x, a.y - b.y);
@@ -538,7 +541,9 @@ export function BracketTree({ matches, onPickWinner }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const bracketSize = useMemo(() => computeBracketDimensions(centerRow), [centerRow]);
   const fitScale = useBracketFit(containerRef, bracketSize);
-  const displayFitScale = getDisplayFitScale(fitScale, isMobile);
+  const isReadOnly = !onPickWinner;
+  const displayFitScale =
+    getDisplayFitScale(fitScale, isMobile) * (isReadOnly ? READ_ONLY_FIT_SCALE : 1);
   const [userZoom, setUserZoom] = useState(1);
   const [pan, setPan] = useState<Pan>({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -550,7 +555,6 @@ export function BracketTree({ matches, onPickWinner }: Props) {
 
   const scale = displayFitScale * userZoom;
   const zoomPercent = Math.round(userZoom * 100);
-  const isReadOnly = !onPickWinner;
 
   const applyView = useCallback(
     (nextZoom: number, nextPan: Pan) => {
@@ -594,7 +598,7 @@ export function BracketTree({ matches, onPickWinner }: Props) {
       fitScale,
       isMobile
     );
-    applyView(initialZoom, isReadOnly ? { x: 0, y: 0 } : bracketView.pan);
+    applyView(initialZoom, isReadOnly ? READ_ONLY_INITIAL_PAN : bracketView.pan);
   }, [hydrated, fitScale, isMobile, bracketView, applyView, isReadOnly]);
 
   useEffect(() => {
@@ -786,7 +790,7 @@ export function BracketTree({ matches, onPickWinner }: Props) {
   );
 
   const fitToFrame = () => {
-    applyView(1, { x: 0, y: 0 });
+    applyView(1, isReadOnly ? READ_ONLY_INITIAL_PAN : { x: 0, y: 0 });
   };
 
   return (
@@ -849,22 +853,27 @@ export function BracketTree({ matches, onPickWinner }: Props) {
           />
           </div>
         </div>
-        <div
+        {!isReadOnly && (
+          <div
           data-testid="bracket-zoom-hint"
           className="pointer-events-none absolute inset-x-0 bottom-2 z-20 px-2 sm:px-3 text-center text-[10px] sm:text-xs text-zinc-500"
-        >
+          >
           <span className="sm:hidden">
-            {isReadOnly
-              ? `Bracket tự cập nhật từ ESPN · Kéo xem các vòng · Chụm hoặc +/− phóng to (${zoomPercent}%)`
-              : `Bấm đội · Kéo xem các vòng · Chụm hoặc +/− phóng to (${zoomPercent}%)`}
+            {`Bấm đội · Kéo xem các vòng · Chụm hoặc +/− phóng to (${zoomPercent}%)`}
           </span>
           <span className="hidden sm:inline">
-            {isReadOnly
-              ? `Bracket tự cập nhật từ ESPN · Lăn chuột phóng to · Kéo nền di chuyển · Double-click trận phóng to (${zoomPercent}%)`
-              : `Bấm đội chọn người thắng · Lăn chuột phóng to (tối thiểu 100%) · Kéo nền di chuyển · Double-click trận phóng to (${zoomPercent}%)`}
+            {`Bấm đội chọn người thắng · Lăn chuột phóng to (tối thiểu 100%) · Kéo nền di chuyển · Double-click trận phóng to (${zoomPercent}%)`}
           </span>
-        </div>
-        <div className="absolute bottom-2 right-2 sm:right-3 z-30 flex items-center gap-1">
+          </div>
+        )}
+        <div
+          className={[
+            "absolute bottom-2 z-30 flex items-center gap-1",
+            isReadOnly
+              ? "left-1/2 -translate-x-1/2"
+              : "right-2 sm:right-3",
+          ].join(" ")}
+        >
           <button
             type="button"
             data-testid="bracket-zoom-out"

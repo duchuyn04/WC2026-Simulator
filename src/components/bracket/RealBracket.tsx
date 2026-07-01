@@ -41,7 +41,7 @@ export function RealBracket({ entries }: Props) {
   return (
     <div
       data-testid="real-bracket"
-      className="h-[calc(100dvh-var(--navbar-height,0px)-140px)] min-h-[360px]"
+      className="relative left-1/2 mt-8 flex h-[calc(100dvh-var(--navbar-height,0px)+19px)] min-h-0 w-screen -translate-x-1/2 flex-col px-2 sm:px-3"
     >
       <BracketTree matches={matches} />
     </div>

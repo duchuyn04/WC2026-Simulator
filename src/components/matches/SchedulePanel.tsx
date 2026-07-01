@@ -812,6 +812,23 @@ export function SchedulePanel({
   const [mounted, setMounted] = useState(false);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const [isFiltersExpanded, setIsFiltersExpanded] = useState(false);
+  const filterBarRef = React.useRef<HTMLDivElement>(null);
+  const scrollBracketIntoView = React.useCallback(() => {
+    requestAnimationFrame(() => {
+      const bracket = document.querySelector<HTMLElement>(
+        '[data-testid="real-bracket"]',
+      );
+      const top =
+        bracket?.getBoundingClientRect().top ??
+        filterBarRef.current?.getBoundingClientRect().top;
+      if (top == null) return;
+      const targetTop = bracket
+        ? Math.max(0, window.innerHeight - bracket.offsetHeight - 3)
+        : 100;
+      if (top <= targetTop) return;
+      window.scrollTo({ top: Math.max(0, window.scrollY + top - targetTop) });
+    });
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -827,6 +844,10 @@ export function SchedulePanel({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  useEffect(() => {
+    if (selectedFilter !== "real-bracket") return;
+    scrollBracketIntoView();
+  }, [selectedFilter, scrollBracketIntoView]);
   const filter =
     (filterMode === "fav-matches" || filterMode === "fav-teams") &&
     selectedFilter === "knockout"
@@ -913,6 +934,7 @@ export function SchedulePanel({
 
       {/* Sticky container */}
       <div
+        ref={filterBarRef}
         className="sticky z-40 -mx-4 px-4 bg-[#0c0f14]/95 backdrop-blur-sm border-b border-zinc-800"
         style={{ top: "var(--navbar-height, 0px)" }}
       >
@@ -925,7 +947,10 @@ export function SchedulePanel({
                   key={item.id}
                   type="button"
                   data-testid={`schedule-filter-${item.id}`}
-                  onClick={() => setFilter(item.id)}
+                  onClick={() => {
+                    setFilter(item.id);
+                    if (item.id === "real-bracket") scrollBracketIntoView();
+                  }}
                   className={[
                     "pb-1 transition-colors whitespace-nowrap text-xs sm:text-sm",
                     filter === item.id
