@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-01T10:10:27.743Z",
-  "completedMatches": 75,
+  "fetchedAt": "2026-07-01T20:15:48.009Z",
+  "completedMatches": 76,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -47,6 +47,19 @@
           "flagUrl": "/flags/NOR.png"
         },
         "value": 5
+      },
+      {
+        "playerId": "369419",
+        "name": "Harry KANE",
+        "shortName": "Harry KANE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
+        "team": {
+          "id": "43942",
+          "name": "England",
+          "code": "ENG",
+          "flagUrl": "/flags/ENG.png"
+        },
+        "value": 4
       },
       {
         "playerId": "398680",
@@ -123,19 +136,6 @@
           "name": "New Zealand",
           "code": "NZL",
           "flagUrl": "/flags/NZL.png"
-        },
-        "value": 3
-      },
-      {
-        "playerId": "448598",
-        "name": "Ismael SAIBARI",
-        "shortName": "Ismael SAIBARI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/250526c6-26b5-4425-8a21-231c7952e34d/SAIBARI-Ismael_448598",
-        "team": {
-          "id": "43872",
-          "name": "Morocco",
-          "code": "MAR",
-          "flagUrl": "/flags/MAR.png"
         },
         "value": 3
       }
@@ -220,6 +220,19 @@
         "value": 3
       },
       {
+        "playerId": "448189",
+        "name": "Anthony GORDON",
+        "shortName": "Anthony GORDON",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bb7bbfe0-791d-408e-a2c2-f33156fce3e8/GORDON-Anthony_448189",
+        "team": {
+          "id": "43942",
+          "name": "England",
+          "code": "ENG",
+          "flagUrl": "/flags/ENG.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "430740",
         "name": "Brahim DIAZ",
         "shortName": "Brahim DIAZ",
@@ -255,19 +268,6 @@
           "name": "New Zealand",
           "code": "NZL",
           "flagUrl": "/flags/NZL.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "489518",
-        "name": "Crysencio SUMMERVILLE",
-        "shortName": "Crysencio SUMMERVILLE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/86e9f724-fc5f-4969-92e3-ac658dafacdd/SUMMERVILLE-Crysencio_489518",
-        "team": {
-          "id": "43960",
-          "name": "Netherlands",
-          "code": "NED",
-          "flagUrl": "/flags/NED.png"
         },
         "value": 2
       }
