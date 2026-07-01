@@ -167,6 +167,24 @@ describe("findEspnMatch", () => {
 
     expect(match?.id).toBe("760415");
   });
+
+  it("uses the team pair when ESPN kickoff shifts within the same match window", () => {
+    const match = findEspnMatch(entry, [{
+      id: "delayed",
+      date: "2026-06-11T20:00Z",
+      status: "STATUS_FIRST_HALF",
+      state: "in",
+      shortDetail: "12'",
+      displayClock: "12'",
+      homeId: "203",
+      awayId: "467",
+    }], {
+      "203": "mexico",
+      "467": "south-africa",
+    });
+
+    expect(match?.id).toBe("delayed");
+  });
 });
 
 describe("hasProbablyEnded", () => {
@@ -280,7 +298,7 @@ describe("categorizeLiveEntry", () => {
     ).toBe("none");
   });
 
-  it("returns 'none' when ESPN loaded but halftime (not live, not pre)", () => {
+  it("keeps halftime as 'live'", () => {
     const eventDate = new Date("2026-06-15T13:00:00Z"); // hôm nay
     const htMatch = liveMatch({
       state: "in",
@@ -290,7 +308,7 @@ describe("categorizeLiveEntry", () => {
     });
     expect(
       categorizeLiveEntry({ eventDate, espnMatch: htMatch, espnLoaded: true, now: NOW })
-    ).toBe("none");
+    ).toBe("live");
   });
 });
 

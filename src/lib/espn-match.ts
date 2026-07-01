@@ -150,13 +150,22 @@ export function findEspnMatch(
   if (sameKickoff.length === 1) return sameKickoff[0];
   if (!entry.home?.id || !entry.away?.id) return undefined;
 
-  return sameKickoff.find((match) => {
+  const hasSameTeams = (match: EspnScoreboardMatch) => {
     const espnHome = match.homeId ? espnToLocal[match.homeId] : undefined;
     const espnAway = match.awayId ? espnToLocal[match.awayId] : undefined;
 
     return (
       (espnHome === entry.home?.id && espnAway === entry.away?.id) ||
       (espnHome === entry.away?.id && espnAway === entry.home?.id)
+    );
+  };
+
+  return sameKickoff.find(hasSameTeams) ?? matches.find((match) => {
+    const matchTime = new Date(match.date).getTime();
+    return (
+      !Number.isNaN(matchTime) &&
+      Math.abs(matchTime - entryTime) <= 6 * 60 * 60 * 1000 &&
+      hasSameTeams(match)
     );
   });
 }
