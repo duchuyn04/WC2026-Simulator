@@ -4,7 +4,7 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-01T05:53:34.277Z",
+  "fetchedAt": "2026-07-01T10:10:27.743Z",
   "completedMatches": 75,
   "skippedMatches": 0,
   "leaderboards": {
@@ -636,6 +636,19 @@
         "value": 1
       },
       {
+        "playerId": "424031",
+        "name": "Piero HINCAPIE",
+        "shortName": "Piero HINCAPIE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b8f68e80-3057-4fbf-be1e-8cf885a713e1/HINCAPIE-Piero_424031",
+        "team": {
+          "id": "43927",
+          "name": "Ecuador",
+          "code": "ECU",
+          "flagUrl": "/flags/ECU.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "396158",
         "name": "REBIN SULAKA",
         "shortName": "REBIN SULAKA",
@@ -671,19 +684,6 @@
           "name": "Bosnia and Herzegovina",
           "code": "BIH",
           "flagUrl": "/flags/BIH.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "395984",
-        "name": "Themba ZWANE",
-        "shortName": "Themba ZWANE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/8d294899-e656-4484-91b7-99d646bc590c/ZWANE-Themba_395984",
-        "team": {
-          "id": "43883",
-          "name": "South Africa",
-          "code": "RSA",
-          "flagUrl": "/flags/RSA.png"
         },
         "value": 1
       }
