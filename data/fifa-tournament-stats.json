@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-01T00:19:58.639Z",
-  "completedMatches": 74,
+  "fetchedAt": "2026-07-01T05:53:34.277Z",
+  "completedMatches": 75,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -207,6 +207,19 @@
         "value": 3
       },
       {
+        "playerId": "403585",
+        "name": "Roberto ALVARADO",
+        "shortName": "Roberto ALVARADO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b1a8a14a-2a27-4524-a6ed-679aca39d35d/ALVARADO-Roberto_403585",
+        "team": {
+          "id": "43911",
+          "name": "Mexico",
+          "code": "MEX",
+          "flagUrl": "/flags/MEX.png"
+        },
+        "value": 3
+      },
+      {
         "playerId": "430740",
         "name": "Brahim DIAZ",
         "shortName": "Brahim DIAZ",
@@ -255,19 +268,6 @@
           "name": "Netherlands",
           "code": "NED",
           "flagUrl": "/flags/NED.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "484851",
-        "name": "Deniz UNDAV",
-        "shortName": "Deniz UNDAV",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/3ec30e08-a7eb-4781-aea8-0e9ff86ebef1/UNDAV-Deniz_484851",
-        "team": {
-          "id": "43948",
-          "name": "Germany",
-          "code": "GER",
-          "flagUrl": "/flags/GER.png"
         },
         "value": 2
       }
@@ -439,6 +439,19 @@
         "value": 2
       },
       {
+        "playerId": "389784",
+        "name": "Alan FRANCO",
+        "shortName": "Alan FRANCO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/59ffe3d1-0963-44f5-861e-9eb6590d8fce/FRANCO-Alan_389784",
+        "team": {
+          "id": "43927",
+          "name": "Ecuador",
+          "code": "ECU",
+          "flagUrl": "/flags/ECU.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "433074",
         "name": "AMIR ALAMMARI",
         "shortName": "AMIR ALAMMARI",
@@ -539,19 +552,6 @@
           "name": "Paraguay",
           "code": "PAR",
           "flagUrl": "/flags/PAR.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "433469",
-        "name": "MOHANAD LASHIN",
-        "shortName": "MOHANAD LASHIN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/55be7619-52f3-481a-8542-9832ba7c8e7d/MOHANAD-LASHIN_433469",
-        "team": {
-          "id": "43855",
-          "name": "Egypt",
-          "code": "EGY",
-          "flagUrl": "/flags/EGY.png"
         },
         "value": 2
       }
