@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-01T20:15:48.009Z",
-  "completedMatches": 76,
+  "fetchedAt": "2026-07-02T00:19:40.219Z",
+  "completedMatches": 77,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -58,6 +58,19 @@
           "name": "England",
           "code": "ENG",
           "flagUrl": "/flags/ENG.png"
+        },
+        "value": 4
+      },
+      {
+        "playerId": "401889",
+        "name": "Ismaila SARR",
+        "shortName": "Ismaila SARR",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/695226c6-92b8-4aa6-995e-dcdd2d08eb96/SARR-Ismaila_401889",
+        "team": {
+          "id": "43879",
+          "name": "Senegal",
+          "code": "SEN",
+          "flagUrl": "/flags/SEN.png"
         },
         "value": 4
       },
@@ -123,19 +136,6 @@
           "name": "Germany",
           "code": "GER",
           "flagUrl": "/flags/GER.png"
-        },
-        "value": 3
-      },
-      {
-        "playerId": "405454",
-        "name": "Elijah JUST",
-        "shortName": "Elijah JUST",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/fe32736f-5d5f-4870-8db3-5b4560835f53/JUST-Elijah_405454",
-        "team": {
-          "id": "43978",
-          "name": "New Zealand",
-          "code": "NZL",
-          "flagUrl": "/flags/NZL.png"
         },
         "value": 3
       }
@@ -379,6 +379,21 @@
         "successRate": 100
       },
       {
+        "playerId": "401444",
+        "name": "Youri TIELEMANS",
+        "shortName": "Youri TIELEMANS",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/158822ad-a0e9-406c-a84d-e79b0392409f/TIELEMANS-Youri_401444",
+        "team": {
+          "id": "43935",
+          "name": "Belgium",
+          "code": "BEL",
+          "flagUrl": "/flags/BEL.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
         "playerId": "419662",
         "name": "Jorgen STRAND LARSEN",
         "shortName": "Jorgen STRAND LARSEN",
@@ -403,21 +418,6 @@
           "name": "Argentina",
           "code": "ARG",
           "flagUrl": "/flags/ARG.png"
-        },
-        "value": 1,
-        "scored": 0,
-        "successRate": 0
-      },
-      {
-        "playerId": "388475",
-        "name": "Mehdi TAREMI",
-        "shortName": "Mehdi TAREMI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/0d942331-39fb-421e-8a8d-d1f875958559/TAREMI-Mehdi_388475",
-        "team": {
-          "id": "43817",
-          "name": "IR Iran",
-          "code": "IRN",
-          "flagUrl": "/flags/IRN.png"
         },
         "value": 1,
         "scored": 0,
