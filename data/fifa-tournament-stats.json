@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-02T00:19:40.219Z",
-  "completedMatches": 77,
+  "fetchedAt": "2026-07-02T05:09:04.487Z",
+  "completedMatches": 78,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -597,6 +597,19 @@
         "value": 1
       },
       {
+        "playerId": "466624",
+        "name": "Folarin BALOGUN",
+        "shortName": "Folarin BALOGUN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bd47db79-966e-4eba-a8da-f6ba01148f27/BALOGUN-Folarin_466624",
+        "team": {
+          "id": "43921",
+          "name": "USA",
+          "code": "USA",
+          "flagUrl": "/flags/USA.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "419441",
         "name": "HOMAM AHMED",
         "shortName": "HOMAM AHMED",
@@ -671,19 +684,6 @@
           "name": "South Africa",
           "code": "RSA",
           "flagUrl": "/flags/RSA.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "484022",
-        "name": "Tarik MUHAREMOVIC",
-        "shortName": "Tarik MUHAREMOVIC",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/a230cb00-997c-4a8c-9983-b03fa2dbe2ad/MUHAREMOVIC-Tarik_484022",
-        "team": {
-          "id": "44037",
-          "name": "Bosnia and Herzegovina",
-          "code": "BIH",
-          "flagUrl": "/flags/BIH.png"
         },
         "value": 1
       }
