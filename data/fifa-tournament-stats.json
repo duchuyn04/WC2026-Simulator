@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-02T05:09:04.487Z",
-  "completedMatches": 78,
+  "fetchedAt": "2026-07-02T22:17:46.271Z",
+  "completedMatches": 79,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -75,6 +75,19 @@
         "value": 4
       },
       {
+        "playerId": "430751",
+        "name": "Mikel OYARZABAL",
+        "shortName": "Mikel OYARZABAL",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2f46ed20-b155-4201-8b97-badbc3619450/OYARZABAL-Mikel_430751",
+        "team": {
+          "id": "43969",
+          "name": "Spain",
+          "code": "ESP",
+          "flagUrl": "/flags/ESP.png"
+        },
+        "value": 4
+      },
+      {
         "playerId": "398680",
         "name": "Ousmane DEMBELE",
         "shortName": "Ousmane DEMBELE",
@@ -123,19 +136,6 @@
           "name": "Netherlands",
           "code": "NED",
           "flagUrl": "/flags/NED.png"
-        },
-        "value": 3
-      },
-      {
-        "playerId": "484851",
-        "name": "Deniz UNDAV",
-        "shortName": "Deniz UNDAV",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/3ec30e08-a7eb-4781-aea8-0e9ff86ebef1/UNDAV-Deniz_484851",
-        "team": {
-          "id": "43948",
-          "name": "Germany",
-          "code": "GER",
-          "flagUrl": "/flags/GER.png"
         },
         "value": 3
       }
