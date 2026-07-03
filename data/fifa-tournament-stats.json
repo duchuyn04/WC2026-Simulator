@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-02T22:17:46.271Z",
-  "completedMatches": 79,
+  "fetchedAt": "2026-07-03T04:54:54.447Z",
+  "completedMatches": 80,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -289,6 +289,21 @@
         "successRate": 100
       },
       {
+        "playerId": "201200",
+        "name": "CRISTIANO RONALDO",
+        "shortName": "CRISTIANO RONALDO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/7b63f223-fda2-4d56-b218-f143f0abd2d8/CRISTIANO-RONALDO_201200",
+        "team": {
+          "id": "43963",
+          "name": "Portugal",
+          "code": "POR",
+          "flagUrl": "/flags/POR.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
         "playerId": "311558",
         "name": "Granit XHAKA",
         "shortName": "Granit XHAKA",
@@ -403,21 +418,6 @@
           "name": "Norway",
           "code": "NOR",
           "flagUrl": "/flags/NOR.png"
-        },
-        "value": 1,
-        "scored": 0,
-        "successRate": 0
-      },
-      {
-        "playerId": "229397",
-        "name": "Lionel MESSI",
-        "shortName": "Lionel MESSI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/19823774-fac0-485a-8a8f-572e7324c6c2/MESSI-Lionel_229397",
-        "team": {
-          "id": "43922",
-          "name": "Argentina",
-          "code": "ARG",
-          "flagUrl": "/flags/ARG.png"
         },
         "value": 1,
         "scored": 0,
