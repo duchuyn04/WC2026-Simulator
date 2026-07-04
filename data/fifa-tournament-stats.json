@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-04T03:58:56.684Z",
-  "completedMatches": 83,
+  "fetchedAt": "2026-07-04T07:12:46.436Z",
+  "completedMatches": 84,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -465,6 +465,19 @@
         "value": 2
       },
       {
+        "playerId": "506279",
+        "name": "Caleb YIRENKYI",
+        "shortName": "Caleb YIRENKYI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/3c283bda-a2ed-4c1d-9115-aef0cc7dac97/YIRENKYI-Caleb_506279",
+        "team": {
+          "id": "43860",
+          "name": "Ghana",
+          "code": "GHA",
+          "flagUrl": "/flags/GHA.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "308386",
         "name": "CASEMIRO",
         "shortName": "CASEMIRO",
@@ -539,19 +552,6 @@
           "name": "Curaçao",
           "code": "CUW",
           "flagUrl": "/flags/CUW.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "424422",
-        "name": "Matias GALARZA",
-        "shortName": "Matias GALARZA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/ce774da7-eea7-475e-8526-8227b5068dc3/GALARZA-Matias_424422",
-        "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
         },
         "value": 2
       }
