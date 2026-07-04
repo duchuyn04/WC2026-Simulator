@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-04T07:12:46.436Z",
-  "completedMatches": 84,
+  "fetchedAt": "2026-07-04T21:12:39.104Z",
+  "completedMatches": 85,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -155,6 +155,19 @@
         "value": 5
       },
       {
+        "playerId": "430740",
+        "name": "Brahim DIAZ",
+        "shortName": "Brahim DIAZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b05c2233-cb0a-4abc-9413-e56ad25f0899/DIAZ-Brahim_430740",
+        "team": {
+          "id": "43872",
+          "name": "Morocco",
+          "code": "MAR",
+          "flagUrl": "/flags/MAR.png"
+        },
+        "value": 4
+      },
+      {
         "playerId": "430605",
         "name": "BRUNO GUIMARAES",
         "shortName": "BRUNO GUIMARAES",
@@ -220,6 +233,19 @@
         "value": 3
       },
       {
+        "playerId": "400721",
+        "name": "Achraf HAKIMI",
+        "shortName": "Achraf HAKIMI",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/22c6ca49-7262-4799-8a9f-530e427321ac/HAKIMI-Achraf_400721",
+        "team": {
+          "id": "43872",
+          "name": "Morocco",
+          "code": "MAR",
+          "flagUrl": "/flags/MAR.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "448189",
         "name": "Anthony GORDON",
         "shortName": "Anthony GORDON",
@@ -233,19 +259,6 @@
         "value": 2
       },
       {
-        "playerId": "430740",
-        "name": "Brahim DIAZ",
-        "shortName": "Brahim DIAZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b05c2233-cb0a-4abc-9413-e56ad25f0899/DIAZ-Brahim_430740",
-        "team": {
-          "id": "43872",
-          "name": "Morocco",
-          "code": "MAR",
-          "flagUrl": "/flags/MAR.png"
-        },
-        "value": 2
-      },
-      {
         "playerId": "393480",
         "name": "Breel EMBOLO",
         "shortName": "Breel EMBOLO",
@@ -255,19 +268,6 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "274078",
-        "name": "Chris WOOD",
-        "shortName": "Chris WOOD",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/431bf921-6e73-469f-87bd-3fb2c010966e/WOOD-Chris_274078",
-        "team": {
-          "id": "43978",
-          "name": "New Zealand",
-          "code": "NZL",
-          "flagUrl": "/flags/NZL.png"
         },
         "value": 2
       }
@@ -491,6 +491,19 @@
         "value": 2
       },
       {
+        "playerId": "390670",
+        "name": "Cyle LARIN",
+        "shortName": "Cyle LARIN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/21086aea-3ec5-47b2-a81f-f7316489183a/LARIN-Cyle_390670",
+        "team": {
+          "id": "43899",
+          "name": "Canada",
+          "code": "CAN",
+          "flagUrl": "/flags/CAN.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "335656",
         "name": "DANILO",
         "shortName": "DANILO",
@@ -539,19 +552,6 @@
           "name": "Morocco",
           "code": "MAR",
           "flagUrl": "/flags/MAR.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "466317",
-        "name": "Juninho BACUNA",
-        "shortName": "Juninho BACUNA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/804768d8-badb-4492-9aef-1e523440aed4/BACUNA-Juninho_466317",
-        "team": {
-          "id": "1895293",
-          "name": "Curaçao",
-          "code": "CUW",
-          "flagUrl": "/flags/CUW.png"
         },
         "value": 2
       }
