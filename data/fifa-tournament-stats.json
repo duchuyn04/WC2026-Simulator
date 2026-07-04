@@ -4,24 +4,11 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-03T22:15:11.811Z",
-  "completedMatches": 82,
+  "fetchedAt": "2026-07-04T03:58:56.684Z",
+  "completedMatches": 83,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
-      {
-        "playerId": "389867",
-        "name": "Kylian MBAPPE",
-        "shortName": "Kylian MBAPPE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
-        "team": {
-          "id": "43946",
-          "name": "France",
-          "code": "FRA",
-          "flagUrl": "/flags/FRA.png"
-        },
-        "value": 6
-      },
       {
         "playerId": "229397",
         "name": "Lionel MESSI",
@@ -32,6 +19,19 @@
           "name": "Argentina",
           "code": "ARG",
           "flagUrl": "/flags/ARG.png"
+        },
+        "value": 7
+      },
+      {
+        "playerId": "389867",
+        "name": "Kylian MBAPPE",
+        "shortName": "Kylian MBAPPE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
         },
         "value": 6
       },
@@ -274,21 +274,6 @@
     ],
     "penalties": [
       {
-        "playerId": "406606",
-        "name": "Awer MABIL",
-        "shortName": "Awer MABIL",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/9beaa464-b945-4d89-b310-025eea682693/MABIL-Awer_406606",
-        "team": {
-          "id": "43976",
-          "name": "Australia",
-          "code": "AUS",
-          "flagUrl": "/flags/AUS.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
         "playerId": "393480",
         "name": "Breel EMBOLO",
         "shortName": "Breel EMBOLO",
@@ -349,36 +334,6 @@
         "successRate": 100
       },
       {
-        "playerId": "483182",
-        "name": "HOSSAM ABDELMAGUID",
-        "shortName": "HOSSAM ABDELMAGUID",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/406ef52d-c003-4108-b9c2-126b4ad8354b/HOSSAM-ABDELMAGUID_483182",
-        "team": {
-          "id": "43855",
-          "name": "Egypt",
-          "code": "EGY",
-          "flagUrl": "/flags/EGY.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "355775",
-        "name": "Jackson IRVINE",
-        "shortName": "Jackson IRVINE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/7726492b-0996-47a2-aafd-bd362844d9df/IRVINE-Jackson_355775",
-        "team": {
-          "id": "43976",
-          "name": "Australia",
-          "code": "AUS",
-          "flagUrl": "/flags/AUS.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
         "playerId": "411367",
         "name": "Kai HAVERTZ",
         "shortName": "Kai HAVERTZ",
@@ -409,19 +364,64 @@
         "successRate": 100
       },
       {
-        "playerId": "483183",
-        "name": "MAHMOUD SABER",
-        "shortName": "MAHMOUD SABER",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/f1c9f887-0fab-447c-9c91-33aba2c2dbe1/MAHMOUD-SABER_483183",
+        "playerId": "299200",
+        "name": "Marko ARNAUTOVIC",
+        "shortName": "Marko ARNAUTOVIC",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/8bc6e66f-1f5a-4f1d-813d-41c4ab04c6ac/ARNAUTOVIC-Marko_299200",
         "team": {
-          "id": "43855",
-          "name": "Egypt",
-          "code": "EGY",
-          "flagUrl": "/flags/EGY.png"
+          "id": "43934",
+          "name": "Austria",
+          "code": "AUT",
+          "flagUrl": "/flags/AUT.png"
         },
         "value": 1,
         "scored": 1,
         "successRate": 100
+      },
+      {
+        "playerId": "403616",
+        "name": "Teboho MOKOENA",
+        "shortName": "Teboho MOKOENA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bf36679b-73eb-4813-a99d-b9673439dd05/MOKOENA-Teboho_403616",
+        "team": {
+          "id": "43883",
+          "name": "South Africa",
+          "code": "RSA",
+          "flagUrl": "/flags/RSA.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "401444",
+        "name": "Youri TIELEMANS",
+        "shortName": "Youri TIELEMANS",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/158822ad-a0e9-406c-a84d-e79b0392409f/TIELEMANS-Youri_401444",
+        "team": {
+          "id": "43935",
+          "name": "Belgium",
+          "code": "BEL",
+          "flagUrl": "/flags/BEL.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "419662",
+        "name": "Jorgen STRAND LARSEN",
+        "shortName": "Jorgen STRAND LARSEN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/116d01b5-9d0d-4456-a5a8-0e63a16b9862/STRAND-LARSEN-Jorgen_419662",
+        "team": {
+          "id": "43961",
+          "name": "Norway",
+          "code": "NOR",
+          "flagUrl": "/flags/NOR.png"
+        },
+        "value": 1,
+        "scored": 0,
+        "successRate": 0
       }
     ],
     "yellowCards": [
@@ -755,6 +755,19 @@
         "value": 1
       },
       {
+        "playerId": "409241",
+        "name": "DINEY BORGES",
+        "shortName": "DINEY BORGES",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/9bffceda-d572-41b1-917b-06196bbffb3c/DINEY-BORGES_409241",
+        "team": {
+          "id": "43850",
+          "name": "Cabo Verde",
+          "code": "CPV",
+          "flagUrl": "/flags/CPV.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "411658",
         "name": "Ellyes SKHIRI",
         "shortName": "Ellyes SKHIRI",
@@ -803,19 +816,6 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "498458",
-        "name": "MOHAMED MANAI",
-        "shortName": "MOHAMED MANAI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/67e02103-4569-4a5c-a7a2-1f9b42cab1a5/MOHAMED-MANAI_498458",
-        "team": {
-          "id": "43834",
-          "name": "Qatar",
-          "code": "QAT",
-          "flagUrl": "/flags/QAT.png"
         },
         "value": 1
       }
