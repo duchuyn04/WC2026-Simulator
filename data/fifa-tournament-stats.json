@@ -4,11 +4,24 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-04T21:12:39.104Z",
-  "completedMatches": 85,
+  "fetchedAt": "2026-07-05T00:12:04.234Z",
+  "completedMatches": 86,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
+      {
+        "playerId": "389867",
+        "name": "Kylian MBAPPE",
+        "shortName": "Kylian MBAPPE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
+        },
+        "value": 7
+      },
       {
         "playerId": "229397",
         "name": "Lionel MESSI",
@@ -21,19 +34,6 @@
           "flagUrl": "/flags/ARG.png"
         },
         "value": 7
-      },
-      {
-        "playerId": "389867",
-        "name": "Kylian MBAPPE",
-        "shortName": "Kylian MBAPPE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
-        "team": {
-          "id": "43946",
-          "name": "France",
-          "code": "FRA",
-          "flagUrl": "/flags/FRA.png"
-        },
-        "value": 6
       },
       {
         "playerId": "419652",
@@ -349,6 +349,21 @@
         "successRate": 100
       },
       {
+        "playerId": "389867",
+        "name": "Kylian MBAPPE",
+        "shortName": "Kylian MBAPPE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
         "playerId": "402920",
         "name": "Lautaro MARTINEZ",
         "shortName": "Lautaro MARTINEZ",
@@ -407,21 +422,6 @@
         "value": 1,
         "scored": 1,
         "successRate": 100
-      },
-      {
-        "playerId": "419662",
-        "name": "Jorgen STRAND LARSEN",
-        "shortName": "Jorgen STRAND LARSEN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/116d01b5-9d0d-4456-a5a8-0e63a16b9862/STRAND-LARSEN-Jorgen_419662",
-        "team": {
-          "id": "43961",
-          "name": "Norway",
-          "code": "NOR",
-          "flagUrl": "/flags/NOR.png"
-        },
-        "value": 1,
-        "scored": 0,
-        "successRate": 0
       }
     ],
     "yellowCards": [
