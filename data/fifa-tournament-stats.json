@@ -4,11 +4,24 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-05T00:12:04.234Z",
-  "completedMatches": 86,
+  "fetchedAt": "2026-07-05T23:16:11.541Z",
+  "completedMatches": 87,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
+      {
+        "playerId": "419652",
+        "name": "Erling HAALAND",
+        "shortName": "Erling HAALAND",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ee269811-9f84-401f-99b8-e953a2704ebb/HAALAND-Erling_419652",
+        "team": {
+          "id": "43961",
+          "name": "Norway",
+          "code": "NOR",
+          "flagUrl": "/flags/NOR.png"
+        },
+        "value": 7
+      },
       {
         "playerId": "389867",
         "name": "Kylian MBAPPE",
@@ -34,19 +47,6 @@
           "flagUrl": "/flags/ARG.png"
         },
         "value": 7
-      },
-      {
-        "playerId": "419652",
-        "name": "Erling HAALAND",
-        "shortName": "Erling HAALAND",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/ee269811-9f84-401f-99b8-e953a2704ebb/HAALAND-Erling_419652",
-        "team": {
-          "id": "43961",
-          "name": "Norway",
-          "code": "NOR",
-          "flagUrl": "/flags/NOR.png"
-        },
-        "value": 5
       },
       {
         "playerId": "369419",
@@ -194,6 +194,19 @@
         "value": 3
       },
       {
+        "playerId": "494626",
+        "name": "Andreas SCHJELDERUP",
+        "shortName": "Andreas SCHJELDERUP",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/22f44194-f9c4-46c1-8621-f9680f7d73bc/SCHJELDERUP-Andreas_494626",
+        "team": {
+          "id": "43961",
+          "name": "Norway",
+          "code": "NOR",
+          "flagUrl": "/flags/NOR.png"
+        },
+        "value": 3
+      },
+      {
         "playerId": "430669",
         "name": "Florian WIRTZ",
         "shortName": "Florian WIRTZ",
@@ -255,19 +268,6 @@
           "name": "England",
           "code": "ENG",
           "flagUrl": "/flags/ENG.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "393480",
-        "name": "Breel EMBOLO",
-        "shortName": "Breel EMBOLO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b2483096-041c-489b-a1c5-6d930f380909/EMBOLO-Breel_393480",
-        "team": {
-          "id": "43971",
-          "name": "Switzerland",
-          "code": "SUI",
-          "flagUrl": "/flags/SUI.png"
         },
         "value": 2
       }
@@ -394,6 +394,21 @@
         "successRate": 100
       },
       {
+        "playerId": "314197",
+        "name": "NEYMAR JR",
+        "shortName": "NEYMAR JR",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/49424ad5-f8d5-485a-a55b-07c22b49bd07/NEYMAR_314197",
+        "team": {
+          "id": "43924",
+          "name": "Brazil",
+          "code": "BRA",
+          "flagUrl": "/flags/BRA.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
         "playerId": "403616",
         "name": "Teboho MOKOENA",
         "shortName": "Teboho MOKOENA",
@@ -403,21 +418,6 @@
           "name": "South Africa",
           "code": "RSA",
           "flagUrl": "/flags/RSA.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "401444",
-        "name": "Youri TIELEMANS",
-        "shortName": "Youri TIELEMANS",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/158822ad-a0e9-406c-a84d-e79b0392409f/TIELEMANS-Youri_401444",
-        "team": {
-          "id": "43935",
-          "name": "Belgium",
-          "code": "BEL",
-          "flagUrl": "/flags/BEL.png"
         },
         "value": 1,
         "scored": 1,
