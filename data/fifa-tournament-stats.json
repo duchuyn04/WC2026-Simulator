@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-06T04:36:52.638Z",
-  "completedMatches": 88,
+  "fetchedAt": "2026-07-06T22:35:25.940Z",
+  "completedMatches": 89,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -465,6 +465,19 @@
         "value": 2
       },
       {
+        "playerId": "395205",
+        "name": "BERNARDO SILVA",
+        "shortName": "BERNARDO SILVA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/97535989-5b6f-414b-a582-54a0c48df12a/BERNARDO-SILVA_395205",
+        "team": {
+          "id": "43963",
+          "name": "Portugal",
+          "code": "POR",
+          "flagUrl": "/flags/POR.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "506279",
         "name": "Caleb YIRENKYI",
         "shortName": "Caleb YIRENKYI",
@@ -539,19 +552,6 @@
           "name": "Paraguay",
           "code": "PAR",
           "flagUrl": "/flags/PAR.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "466372",
-        "name": "Gervane KASTANEER",
-        "shortName": "Gervane KASTANEER",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/18bea3a9-68ef-4e35-ae04-2d494b39971e/KASTANEER-Gervane_466372",
-        "team": {
-          "id": "1895293",
-          "name": "Curaçao",
-          "code": "CUW",
-          "flagUrl": "/flags/CUW.png"
         },
         "value": 2
       }
