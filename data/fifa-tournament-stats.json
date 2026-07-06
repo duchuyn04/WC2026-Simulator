@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-05T23:16:11.541Z",
-  "completedMatches": 87,
+  "fetchedAt": "2026-07-06T04:36:52.638Z",
+  "completedMatches": 88,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -59,7 +59,7 @@
           "code": "ENG",
           "flagUrl": "/flags/ENG.png"
         },
-        "value": 4
+        "value": 5
       },
       {
         "playerId": "401889",
@@ -71,6 +71,19 @@
           "name": "Senegal",
           "code": "SEN",
           "flagUrl": "/flags/SEN.png"
+        },
+        "value": 4
+      },
+      {
+        "playerId": "429157",
+        "name": "Julian QUINONES",
+        "shortName": "Julian QUINONES",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ea06becb-97b2-4f89-8464-5e0854cb7f81/QUINONES-Julian_429157",
+        "team": {
+          "id": "43911",
+          "name": "Mexico",
+          "code": "MEX",
+          "flagUrl": "/flags/MEX.png"
         },
         "value": 4
       },
@@ -118,19 +131,6 @@
         "name": "Brian BROBBEY",
         "shortName": "Brian BROBBEY",
         "pictureUrl": "https://digitalhub.fifa.com/transform/15246275-ff97-404c-bac3-ce793d98c744/BROBBEY-Brian_424051",
-        "team": {
-          "id": "43960",
-          "name": "Netherlands",
-          "code": "NED",
-          "flagUrl": "/flags/NED.png"
-        },
-        "value": 3
-      },
-      {
-        "playerId": "448152",
-        "name": "Cody GAKPO",
-        "shortName": "Cody GAKPO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/bbb5637f-0587-4ddd-8a82-604c0d921bb3/GAKPO-Cody_448152",
         "team": {
           "id": "43960",
           "name": "Netherlands",
@@ -274,6 +274,21 @@
     ],
     "penalties": [
       {
+        "playerId": "369419",
+        "name": "Harry KANE",
+        "shortName": "Harry KANE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
+        "team": {
+          "id": "43942",
+          "name": "England",
+          "code": "ENG",
+          "flagUrl": "/flags/ENG.png"
+        },
+        "value": 2,
+        "scored": 2,
+        "successRate": 100
+      },
+      {
         "playerId": "393480",
         "name": "Breel EMBOLO",
         "shortName": "Breel EMBOLO",
@@ -313,21 +328,6 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "369419",
-        "name": "Harry KANE",
-        "shortName": "Harry KANE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
-        "team": {
-          "id": "43942",
-          "name": "England",
-          "code": "ENG",
-          "flagUrl": "/flags/ENG.png"
         },
         "value": 1,
         "scored": 1,
@@ -409,15 +409,15 @@
         "successRate": 100
       },
       {
-        "playerId": "403616",
-        "name": "Teboho MOKOENA",
-        "shortName": "Teboho MOKOENA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/bf36679b-73eb-4813-a99d-b9673439dd05/MOKOENA-Teboho_403616",
+        "playerId": "356731",
+        "name": "Raul JIMENEZ",
+        "shortName": "Raul JIMENEZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ec48d7a7-0cf7-4fc8-b999-e3c15fee5e98/JIMENEZ-Raul_356731",
         "team": {
-          "id": "43883",
-          "name": "South Africa",
-          "code": "RSA",
-          "flagUrl": "/flags/RSA.png"
+          "id": "43911",
+          "name": "Mexico",
+          "code": "MEX",
+          "flagUrl": "/flags/MEX.png"
         },
         "value": 1,
         "scored": 1,
@@ -517,6 +517,19 @@
         "value": 2
       },
       {
+        "playerId": "433097",
+        "name": "Declan RICE",
+        "shortName": "Declan RICE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/acb98657-fa9b-4202-bc38-075a97b5bf78/RICE-Declan_433097",
+        "team": {
+          "id": "43942",
+          "name": "England",
+          "code": "ENG",
+          "flagUrl": "/flags/ENG.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "463128",
         "name": "Diego GOMEZ",
         "shortName": "Diego GOMEZ",
@@ -539,19 +552,6 @@
           "name": "Curaçao",
           "code": "CUW",
           "flagUrl": "/flags/CUW.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "403083",
-        "name": "Issa Diop",
-        "shortName": "Issa DIOP",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/a89dc777-6262-4c1e-8b22-a9a9e5bf7300/DIOP-Issa_403083",
-        "team": {
-          "id": "43872",
-          "name": "Morocco",
-          "code": "MAR",
-          "flagUrl": "/flags/MAR.png"
         },
         "value": 2
       }
@@ -623,6 +623,19 @@
         "value": 1
       },
       {
+        "playerId": "463809",
+        "name": "Jarell QUANSAH",
+        "shortName": "Jarell QUANSAH",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/60c5fb68-c640-45dc-a493-75e1d9f3450c/QUANSAH-Jarell_463809",
+        "team": {
+          "id": "43942",
+          "name": "England",
+          "code": "ENG",
+          "flagUrl": "/flags/ENG.png"
+        },
+        "value": 1
+      },
+      {
         "playerId": "369761",
         "name": "Miguel ALMIRON",
         "shortName": "Miguel ALMIRON",
@@ -671,19 +684,6 @@
           "name": "Iraq",
           "code": "IRQ",
           "flagUrl": "/flags/IRQ.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "390475",
-        "name": "Sphephelo SITHOLE",
-        "shortName": "Sphephelo SITHOLE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/200f1c50-a60a-4c33-ad94-b4dabd605f35/SITHOLE-Sphephelo_390475",
-        "team": {
-          "id": "43883",
-          "name": "South Africa",
-          "code": "RSA",
-          "flagUrl": "/flags/RSA.png"
         },
         "value": 1
       }
