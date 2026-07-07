@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-07T20:11:54.725Z",
-  "completedMatches": 91,
+  "fetchedAt": "2026-07-07T23:13:42.528Z",
+  "completedMatches": 92,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -274,6 +274,21 @@
     ],
     "penalties": [
       {
+        "playerId": "311558",
+        "name": "Granit XHAKA",
+        "shortName": "Granit XHAKA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a6c333cc-3042-4094-9ec0-094479b8ca3a/XHAKA-Granit_311558",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
+        },
+        "value": 2,
+        "scored": 2,
+        "successRate": 100
+      },
+      {
         "playerId": "369419",
         "name": "Harry KANE",
         "shortName": "Harry KANE",
@@ -334,15 +349,30 @@
         "successRate": 100
       },
       {
-        "playerId": "311558",
-        "name": "Granit XHAKA",
-        "shortName": "Granit XHAKA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/a6c333cc-3042-4094-9ec0-094479b8ca3a/XHAKA-Granit_311558",
+        "playerId": "405755",
+        "name": "Jaminton CAMPAZ",
+        "shortName": "Jaminton CAMPAZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/cd3d4afc-5780-444f-80ca-fc55b53a5329/CAMPAZ-Leandro_405755",
         "team": {
-          "id": "43971",
-          "name": "Switzerland",
-          "code": "SUI",
-          "flagUrl": "/flags/SUI.png"
+          "id": "43926",
+          "name": "Colombia",
+          "code": "COL",
+          "flagUrl": "/flags/COL.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "356704",
+        "name": "Juan QUINTERO",
+        "shortName": "Juan QUINTERO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/ab12e549-2406-4bbb-a420-0f9ccef2c09e/QUINTERO-Juan_356704",
+        "team": {
+          "id": "43926",
+          "name": "Colombia",
+          "code": "COL",
+          "flagUrl": "/flags/COL.png"
         },
         "value": 1,
         "scored": 1,
@@ -388,36 +418,6 @@
           "name": "Argentina",
           "code": "ARG",
           "flagUrl": "/flags/ARG.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "299200",
-        "name": "Marko ARNAUTOVIC",
-        "shortName": "Marko ARNAUTOVIC",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/8bc6e66f-1f5a-4f1d-813d-41c4ab04c6ac/ARNAUTOVIC-Marko_299200",
-        "team": {
-          "id": "43934",
-          "name": "Austria",
-          "code": "AUT",
-          "flagUrl": "/flags/AUT.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "314197",
-        "name": "NEYMAR JR",
-        "shortName": "NEYMAR JR",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/49424ad5-f8d5-485a-a55b-07c22b49bd07/NEYMAR_314197",
-        "team": {
-          "id": "43924",
-          "name": "Brazil",
-          "code": "BRA",
-          "flagUrl": "/flags/BRA.png"
         },
         "value": 1,
         "scored": 1,
@@ -543,15 +543,15 @@
         "value": 2
       },
       {
-        "playerId": "463128",
-        "name": "Diego GOMEZ",
-        "shortName": "Diego GOMEZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/88e45d01-241d-4d9d-8b40-3f2cb2963d4d/GOMEZ-Diego_463128",
+        "playerId": "401448",
+        "name": "Denis ZAKARIA",
+        "shortName": "Denis ZAKARIA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/e47d229b-d092-4759-82e0-0e5f88b2c894/ZAKARIA-Denis_401448",
         "team": {
-          "id": "43928",
-          "name": "Paraguay",
-          "code": "PAR",
-          "flagUrl": "/flags/PAR.png"
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
         },
         "value": 2
       }
