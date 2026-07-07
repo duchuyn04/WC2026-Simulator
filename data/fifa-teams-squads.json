@@ -4,7 +4,7 @@
     "squadUrlTemplate": "https://api.fifa.com/api/v3/teams/{teamId}/squad?idCompetition=17&idSeason=285023&language=en",
     "wikipediaSquadsUrl": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads"
   },
-  "fetchedAt": "2026-07-06T03:25:16.217Z",
+  "fetchedAt": "2026-07-07T02:58:16.094Z",
   "seasonId": "285023",
   "competitionId": "17",
   "count": 48,
