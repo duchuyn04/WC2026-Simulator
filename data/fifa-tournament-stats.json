@@ -4,7 +4,7 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-08T00:11:23.528Z",
+  "fetchedAt": "2026-07-08T06:37:24.693Z",
   "completedMatches": 92,
   "skippedMatches": 0,
   "leaderboards": {
@@ -274,21 +274,6 @@
     ],
     "penalties": [
       {
-        "playerId": "311558",
-        "name": "Granit XHAKA",
-        "shortName": "Granit XHAKA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/a6c333cc-3042-4094-9ec0-094479b8ca3a/XHAKA-Granit_311558",
-        "team": {
-          "id": "43971",
-          "name": "Switzerland",
-          "code": "SUI",
-          "flagUrl": "/flags/SUI.png"
-        },
-        "value": 2,
-        "scored": 2,
-        "successRate": 100
-      },
-      {
         "playerId": "369419",
         "name": "Harry KANE",
         "shortName": "Harry KANE",
@@ -334,21 +319,6 @@
         "successRate": 100
       },
       {
-        "playerId": "448104",
-        "name": "Cedric ITTEN",
-        "shortName": "Cedric ITTEN",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b9cc3593-aa7e-4f6f-b22b-2cdeae513a1e/ITTEN-Cedric_448104",
-        "team": {
-          "id": "43971",
-          "name": "Switzerland",
-          "code": "SUI",
-          "flagUrl": "/flags/SUI.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
         "playerId": "201200",
         "name": "CRISTIANO RONALDO",
         "shortName": "CRISTIANO RONALDO",
@@ -364,30 +334,15 @@
         "successRate": 100
       },
       {
-        "playerId": "405755",
-        "name": "Jaminton CAMPAZ",
-        "shortName": "Jaminton CAMPAZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/cd3d4afc-5780-444f-80ca-fc55b53a5329/CAMPAZ-Leandro_405755",
+        "playerId": "311558",
+        "name": "Granit XHAKA",
+        "shortName": "Granit XHAKA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/a6c333cc-3042-4094-9ec0-094479b8ca3a/XHAKA-Granit_311558",
         "team": {
-          "id": "43926",
-          "name": "Colombia",
-          "code": "COL",
-          "flagUrl": "/flags/COL.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "356704",
-        "name": "Juan QUINTERO",
-        "shortName": "Juan QUINTERO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/ab12e549-2406-4bbb-a420-0f9ccef2c09e/QUINTERO-Juan_356704",
-        "team": {
-          "id": "43926",
-          "name": "Colombia",
-          "code": "COL",
-          "flagUrl": "/flags/COL.png"
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
         },
         "value": 1,
         "scored": 1,
@@ -418,6 +373,51 @@
           "name": "France",
           "code": "FRA",
           "flagUrl": "/flags/FRA.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "402920",
+        "name": "Lautaro MARTINEZ",
+        "shortName": "Lautaro MARTINEZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2368bf53-1f73-427b-929e-557187d53ac7/MARTINEZ-Lautaro_402920",
+        "team": {
+          "id": "43922",
+          "name": "Argentina",
+          "code": "ARG",
+          "flagUrl": "/flags/ARG.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "299200",
+        "name": "Marko ARNAUTOVIC",
+        "shortName": "Marko ARNAUTOVIC",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/8bc6e66f-1f5a-4f1d-813d-41c4ab04c6ac/ARNAUTOVIC-Marko_299200",
+        "team": {
+          "id": "43934",
+          "name": "Austria",
+          "code": "AUT",
+          "flagUrl": "/flags/AUT.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "314197",
+        "name": "NEYMAR JR",
+        "shortName": "NEYMAR JR",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/49424ad5-f8d5-485a-a55b-07c22b49bd07/NEYMAR_314197",
+        "team": {
+          "id": "43924",
+          "name": "Brazil",
+          "code": "BRA",
+          "flagUrl": "/flags/BRA.png"
         },
         "value": 1,
         "scored": 1,
