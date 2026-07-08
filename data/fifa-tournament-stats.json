@@ -4,7 +4,7 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-07T23:13:42.528Z",
+  "fetchedAt": "2026-07-08T00:11:23.528Z",
   "completedMatches": 92,
   "skippedMatches": 0,
   "leaderboards": {
@@ -334,6 +334,21 @@
         "successRate": 100
       },
       {
+        "playerId": "448104",
+        "name": "Cedric ITTEN",
+        "shortName": "Cedric ITTEN",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b9cc3593-aa7e-4f6f-b22b-2cdeae513a1e/ITTEN-Cedric_448104",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
         "playerId": "201200",
         "name": "CRISTIANO RONALDO",
         "shortName": "CRISTIANO RONALDO",
@@ -403,21 +418,6 @@
           "name": "France",
           "code": "FRA",
           "flagUrl": "/flags/FRA.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "402920",
-        "name": "Lautaro MARTINEZ",
-        "shortName": "Lautaro MARTINEZ",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/2368bf53-1f73-427b-929e-557187d53ac7/MARTINEZ-Lautaro_402920",
-        "team": {
-          "id": "43922",
-          "name": "Argentina",
-          "code": "ARG",
-          "flagUrl": "/flags/ARG.png"
         },
         "value": 1,
         "scored": 1,
