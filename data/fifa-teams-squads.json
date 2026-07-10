@@ -4,7 +4,7 @@
     "squadUrlTemplate": "https://api.fifa.com/api/v3/teams/{teamId}/squad?idCompetition=17&idSeason=285023&language=en",
     "wikipediaSquadsUrl": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads"
   },
-  "fetchedAt": "2026-07-09T02:52:41.338Z",
+  "fetchedAt": "2026-07-10T02:54:53.911Z",
   "seasonId": "285023",
   "competitionId": "17",
   "count": 48,
@@ -26571,7 +26571,7 @@
           "countryCode": "SEN",
           "pictureUrl": "https://digitalhub.fifa.com/transform/29d66b6d-0e3d-4613-b399-d75741b2585d/DIATTA-Krepin_403642",
           "pictureSource": "fifa",
-          "caps": 61,
+          "caps": 62,
           "goals": 2,
           "wikiTitle": "Krépin Diatta",
           "wikiName": "Krépin Diatta",
