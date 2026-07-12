@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-10T22:14:11.144Z",
-  "completedMatches": 94,
+  "fetchedAt": "2026-07-12T00:08:39.656Z",
+  "completedMatches": 95,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -53,6 +53,19 @@
         "name": "Harry KANE",
         "shortName": "Harry KANE",
         "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
+        "team": {
+          "id": "43942",
+          "name": "England",
+          "code": "ENG",
+          "flagUrl": "/flags/ENG.png"
+        },
+        "value": 5
+      },
+      {
+        "playerId": "448202",
+        "name": "Jude BELLINGHAM",
+        "shortName": "Jude BELLINGHAM",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/d711b37f-ec06-4ea7-bb52-50ba0a42ef67/BELLINGHAM-Jude_448202",
         "team": {
           "id": "43942",
           "name": "England",
@@ -125,19 +138,6 @@
           "flagUrl": "/flags/BRA.png"
         },
         "value": 4
-      },
-      {
-        "playerId": "424051",
-        "name": "Brian BROBBEY",
-        "shortName": "Brian BROBBEY",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/15246275-ff97-404c-bac3-ce793d98c744/BROBBEY-Brian_424051",
-        "team": {
-          "id": "43960",
-          "name": "Netherlands",
-          "code": "NED",
-          "flagUrl": "/flags/NED.png"
-        },
-        "value": 3
       }
     ],
     "assists": [
@@ -181,6 +181,19 @@
         "value": 4
       },
       {
+        "playerId": "400716",
+        "name": "Martin ODEGAARD",
+        "shortName": "Martin ODEGAARD",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2b895db6-7f67-4436-b8da-54bdf0dd2e2b/ODEGAARD-Martin_400716",
+        "team": {
+          "id": "43961",
+          "name": "Norway",
+          "code": "NOR",
+          "flagUrl": "/flags/NOR.png"
+        },
+        "value": 4
+      },
+      {
         "playerId": "430150",
         "name": "Alexander Isak",
         "shortName": "Alexander ISAK",
@@ -203,6 +216,19 @@
           "name": "Norway",
           "code": "NOR",
           "flagUrl": "/flags/NOR.png"
+        },
+        "value": 3
+      },
+      {
+        "playerId": "448189",
+        "name": "Anthony GORDON",
+        "shortName": "Anthony GORDON",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/bb7bbfe0-791d-408e-a2c2-f33156fce3e8/GORDON-Anthony_448189",
+        "team": {
+          "id": "43942",
+          "name": "England",
+          "code": "ENG",
+          "flagUrl": "/flags/ENG.png"
         },
         "value": 3
       },
@@ -233,19 +259,6 @@
         "value": 3
       },
       {
-        "playerId": "400716",
-        "name": "Martin ODEGAARD",
-        "shortName": "Martin ODEGAARD",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/2b895db6-7f67-4436-b8da-54bdf0dd2e2b/ODEGAARD-Martin_400716",
-        "team": {
-          "id": "43961",
-          "name": "Norway",
-          "code": "NOR",
-          "flagUrl": "/flags/NOR.png"
-        },
-        "value": 3
-      },
-      {
         "playerId": "403585",
         "name": "Roberto ALVARADO",
         "shortName": "Roberto ALVARADO",
@@ -257,19 +270,6 @@
           "flagUrl": "/flags/MEX.png"
         },
         "value": 3
-      },
-      {
-        "playerId": "400721",
-        "name": "Achraf HAKIMI",
-        "shortName": "Achraf HAKIMI",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/22c6ca49-7262-4799-8a9f-530e427321ac/HAKIMI-Achraf_400721",
-        "team": {
-          "id": "43872",
-          "name": "Morocco",
-          "code": "MAR",
-          "flagUrl": "/flags/MAR.png"
-        },
-        "value": 2
       }
     ],
     "penalties": [
