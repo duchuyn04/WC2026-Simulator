@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-12T00:08:39.656Z",
-  "completedMatches": 95,
+  "fetchedAt": "2026-07-12T06:44:58.495Z",
+  "completedMatches": 96,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -491,6 +491,19 @@
         "value": 2
       },
       {
+        "playerId": "393480",
+        "name": "Breel EMBOLO",
+        "shortName": "Breel EMBOLO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b2483096-041c-489b-a1c5-6d930f380909/EMBOLO-Breel_393480",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "506279",
         "name": "Caleb YIRENKYI",
         "shortName": "Caleb YIRENKYI",
@@ -541,19 +554,6 @@
           "flagUrl": "/flags/BRA.png"
         },
         "value": 2
-      },
-      {
-        "playerId": "433097",
-        "name": "Declan RICE",
-        "shortName": "Declan RICE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/acb98657-fa9b-4202-bc38-075a97b5bf78/RICE-Declan_433097",
-        "team": {
-          "id": "43942",
-          "name": "England",
-          "code": "ENG",
-          "flagUrl": "/flags/ENG.png"
-        },
-        "value": 2
       }
     ],
     "redCards": [
@@ -580,6 +580,19 @@
           "name": "Qatar",
           "code": "QAT",
           "flagUrl": "/flags/QAT.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "393480",
+        "name": "Breel EMBOLO",
+        "shortName": "Breel EMBOLO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b2483096-041c-489b-a1c5-6d930f380909/EMBOLO-Breel_393480",
+        "team": {
+          "id": "43971",
+          "name": "Switzerland",
+          "code": "SUI",
+          "flagUrl": "/flags/SUI.png"
         },
         "value": 1
       },
@@ -671,19 +684,6 @@
           "name": "Ecuador",
           "code": "ECU",
           "flagUrl": "/flags/ECU.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "396158",
-        "name": "REBIN SULAKA",
-        "shortName": "REBIN SULAKA",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/0e08174c-879f-4de0-9709-8fdc59357236/REBIN-GHAREEB_396158",
-        "team": {
-          "id": "43818",
-          "name": "Iraq",
-          "code": "IRQ",
-          "flagUrl": "/flags/IRQ.png"
         },
         "value": 1
       }
