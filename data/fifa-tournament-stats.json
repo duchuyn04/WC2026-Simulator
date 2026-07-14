@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-12T06:44:58.495Z",
-  "completedMatches": 96,
+  "fetchedAt": "2026-07-14T22:11:44.203Z",
+  "completedMatches": 97,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -75,6 +75,19 @@
         "value": 5
       },
       {
+        "playerId": "430751",
+        "name": "Mikel OYARZABAL",
+        "shortName": "Mikel OYARZABAL",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2f46ed20-b155-4201-8b97-badbc3619450/OYARZABAL-Mikel_430751",
+        "team": {
+          "id": "43969",
+          "name": "Spain",
+          "code": "ESP",
+          "flagUrl": "/flags/ESP.png"
+        },
+        "value": 5
+      },
+      {
         "playerId": "398680",
         "name": "Ousmane DEMBELE",
         "shortName": "Ousmane DEMBELE",
@@ -110,19 +123,6 @@
           "name": "Mexico",
           "code": "MEX",
           "flagUrl": "/flags/MEX.png"
-        },
-        "value": 4
-      },
-      {
-        "playerId": "430751",
-        "name": "Mikel OYARZABAL",
-        "shortName": "Mikel OYARZABAL",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/2f46ed20-b155-4201-8b97-badbc3619450/OYARZABAL-Mikel_430751",
-        "team": {
-          "id": "43969",
-          "name": "Spain",
-          "code": "ESP",
-          "flagUrl": "/flags/ESP.png"
         },
         "value": 4
       },
@@ -409,15 +409,15 @@
         "successRate": 100
       },
       {
-        "playerId": "314197",
-        "name": "NEYMAR JR",
-        "shortName": "NEYMAR JR",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/49424ad5-f8d5-485a-a55b-07c22b49bd07/NEYMAR_314197",
+        "playerId": "430751",
+        "name": "Mikel OYARZABAL",
+        "shortName": "Mikel OYARZABAL",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/2f46ed20-b155-4201-8b97-badbc3619450/OYARZABAL-Mikel_430751",
         "team": {
-          "id": "43924",
-          "name": "Brazil",
-          "code": "BRA",
-          "flagUrl": "/flags/BRA.png"
+          "id": "43969",
+          "name": "Spain",
+          "code": "ESP",
+          "flagUrl": "/flags/ESP.png"
         },
         "value": 1,
         "scored": 1,
