@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-15T22:12:07.196Z",
-  "completedMatches": 98,
+  "fetchedAt": "2026-07-19T00:06:59.979Z",
+  "completedMatches": 99,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -20,7 +20,7 @@
           "code": "FRA",
           "flagUrl": "/flags/FRA.png"
         },
-        "value": 8
+        "value": 10
       },
       {
         "playerId": "229397",
@@ -49,23 +49,36 @@
         "value": 7
       },
       {
-        "playerId": "369419",
-        "name": "Harry KANE",
-        "shortName": "Harry KANE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
+        "playerId": "448202",
+        "name": "Jude BELLINGHAM",
+        "shortName": "Jude BELLINGHAM",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/d711b37f-ec06-4ea7-bb52-50ba0a42ef67/BELLINGHAM-Jude_448202",
         "team": {
           "id": "43942",
           "name": "England",
           "code": "ENG",
           "flagUrl": "/flags/ENG.png"
         },
-        "value": 5
+        "value": 6
       },
       {
-        "playerId": "448202",
-        "name": "Jude BELLINGHAM",
-        "shortName": "Jude BELLINGHAM",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/d711b37f-ec06-4ea7-bb52-50ba0a42ef67/BELLINGHAM-Jude_448202",
+        "playerId": "398680",
+        "name": "Ousmane DEMBELE",
+        "shortName": "Ousmane DEMBELE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/e6eee717-fd8c-4f8f-a7e0-c4f978fe327f/DEMBELE-Ousmane_398680",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
+        },
+        "value": 6
+      },
+      {
+        "playerId": "369419",
+        "name": "Harry KANE",
+        "shortName": "Harry KANE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/5ad83fe6-1139-4f92-a97c-669052eb1755/KANE-Harry_369419",
         "team": {
           "id": "43942",
           "name": "England",
@@ -84,19 +97,6 @@
           "name": "Spain",
           "code": "ESP",
           "flagUrl": "/flags/ESP.png"
-        },
-        "value": 5
-      },
-      {
-        "playerId": "398680",
-        "name": "Ousmane DEMBELE",
-        "shortName": "Ousmane DEMBELE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/e6eee717-fd8c-4f8f-a7e0-c4f978fe327f/DEMBELE-Ousmane_398680",
-        "team": {
-          "id": "43946",
-          "name": "France",
-          "code": "FRA",
-          "flagUrl": "/flags/FRA.png"
         },
         "value": 5
       },
@@ -152,7 +152,7 @@
           "code": "FRA",
           "flagUrl": "/flags/FRA.png"
         },
-        "value": 5
+        "value": 7
       },
       {
         "playerId": "430740",
@@ -177,6 +177,19 @@
           "name": "Brazil",
           "code": "BRA",
           "flagUrl": "/flags/BRA.png"
+        },
+        "value": 4
+      },
+      {
+        "playerId": "389867",
+        "name": "Kylian MBAPPE",
+        "shortName": "Kylian MBAPPE",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
+        "team": {
+          "id": "43946",
+          "name": "France",
+          "code": "FRA",
+          "flagUrl": "/flags/FRA.png"
         },
         "value": 4
       },
@@ -257,19 +270,6 @@
           "flagUrl": "/flags/GER.png"
         },
         "value": 3
-      },
-      {
-        "playerId": "389867",
-        "name": "Kylian MBAPPE",
-        "shortName": "Kylian MBAPPE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/66f6087d-9563-4644-8f10-5614ef6e1e51/MBAPPE-Kylian_389867",
-        "team": {
-          "id": "43946",
-          "name": "France",
-          "code": "FRA",
-          "flagUrl": "/flags/FRA.png"
-        },
-        "value": 3
       }
     ],
     "penalties": [
@@ -328,6 +328,21 @@
           "name": "Switzerland",
           "code": "SUI",
           "flagUrl": "/flags/SUI.png"
+        },
+        "value": 1,
+        "scored": 1,
+        "successRate": 100
+      },
+      {
+        "playerId": "448196",
+        "name": "Bukayo SAKA",
+        "shortName": "Bukayo SAKA",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b1182d25-62ad-4ad8-8bae-2b7577569484/MUMIN-Abdul_441336",
+        "team": {
+          "id": "43942",
+          "name": "England",
+          "code": "ENG",
+          "flagUrl": "/flags/ENG.png"
         },
         "value": 1,
         "scored": 1,
@@ -403,21 +418,6 @@
           "name": "Austria",
           "code": "AUT",
           "flagUrl": "/flags/AUT.png"
-        },
-        "value": 1,
-        "scored": 1,
-        "successRate": 100
-      },
-      {
-        "playerId": "430751",
-        "name": "Mikel OYARZABAL",
-        "shortName": "Mikel OYARZABAL",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/2f46ed20-b155-4201-8b97-badbc3619450/OYARZABAL-Mikel_430751",
-        "team": {
-          "id": "43969",
-          "name": "Spain",
-          "code": "ESP",
-          "flagUrl": "/flags/ESP.png"
         },
         "value": 1,
         "scored": 1,
