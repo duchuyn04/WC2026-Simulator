@@ -4,8 +4,8 @@
     "seasonId": "285023",
     "calendarUrl": "https://api.fifa.com/api/v3/calendar/matches?language=en&count=500&idSeason=285023"
   },
-  "fetchedAt": "2026-07-19T00:06:59.979Z",
-  "completedMatches": 99,
+  "fetchedAt": "2026-07-20T00:09:18.733Z",
+  "completedMatches": 100,
   "skippedMatches": 0,
   "leaderboards": {
     "goals": [
@@ -530,6 +530,19 @@
         "value": 2
       },
       {
+        "playerId": "431196",
+        "name": "Cristian ROMERO",
+        "shortName": "Cristian ROMERO",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/61d5d60a-7e5a-4a29-919d-c52bd80b9a5a/ROMERO-Cristian_431196",
+        "team": {
+          "id": "43922",
+          "name": "Argentina",
+          "code": "ARG",
+          "flagUrl": "/flags/ARG.png"
+        },
+        "value": 2
+      },
+      {
         "playerId": "390670",
         "name": "Cyle LARIN",
         "shortName": "Cyle LARIN",
@@ -539,19 +552,6 @@
           "name": "Canada",
           "code": "CAN",
           "flagUrl": "/flags/CAN.png"
-        },
-        "value": 2
-      },
-      {
-        "playerId": "335656",
-        "name": "DANILO",
-        "shortName": "DANILO",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/364f443f-83df-4e8e-803c-765feae146a3/DANILO_335656",
-        "team": {
-          "id": "43924",
-          "name": "Brazil",
-          "code": "BRA",
-          "flagUrl": "/flags/BRA.png"
         },
         "value": 2
       }
@@ -606,6 +606,19 @@
           "name": "Mexico",
           "code": "MEX",
           "flagUrl": "/flags/MEX.png"
+        },
+        "value": 1
+      },
+      {
+        "playerId": "448252",
+        "name": "Enzo FERNANDEZ",
+        "shortName": "Enzo FERNANDEZ",
+        "pictureUrl": "https://digitalhub.fifa.com/transform/b88c6da2-28db-4d61-a668-ac8e84114063/FERNANDEZ-Enzo_448252",
+        "team": {
+          "id": "43922",
+          "name": "Argentina",
+          "code": "ARG",
+          "flagUrl": "/flags/ARG.png"
         },
         "value": 1
       },
@@ -671,19 +684,6 @@
           "name": "Belgium",
           "code": "BEL",
           "flagUrl": "/flags/BEL.png"
-        },
-        "value": 1
-      },
-      {
-        "playerId": "424031",
-        "name": "Piero HINCAPIE",
-        "shortName": "Piero HINCAPIE",
-        "pictureUrl": "https://digitalhub.fifa.com/transform/b8f68e80-3057-4fbf-be1e-8cf885a713e1/HINCAPIE-Piero_424031",
-        "team": {
-          "id": "43927",
-          "name": "Ecuador",
-          "code": "ECU",
-          "flagUrl": "/flags/ECU.png"
         },
         "value": 1
       }
