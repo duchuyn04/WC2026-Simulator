@@ -4,7 +4,7 @@
     "squadUrlTemplate": "https://api.fifa.com/api/v3/teams/{teamId}/squad?idCompetition=17&idSeason=285023&language=en",
     "wikipediaSquadsUrl": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads"
   },
-  "fetchedAt": "2026-07-21T02:33:09.438Z",
+  "fetchedAt": "2026-07-22T02:31:53.025Z",
   "seasonId": "285023",
   "competitionId": "17",
   "count": 48,
@@ -1006,7 +1006,7 @@
           "wikiTitle": "Santiago Giménez",
           "wikiName": "Santiago Giménez",
           "club": {
-            "name": "Milan",
+            "name": "AC Milan",
             "wikiTitle": "AC Milan",
             "countryCode": "ITA"
           }
@@ -1644,7 +1644,7 @@
           "wikiTitle": "Christian Pulisic",
           "wikiName": "Christian Pulisic",
           "club": {
-            "name": "Milan",
+            "name": "AC Milan",
             "wikiTitle": "AC Milan",
             "countryCode": "ITA"
           }
@@ -5117,7 +5117,7 @@
           "wikiTitle": "Koni De Winter",
           "wikiName": "Koni De Winter",
           "club": {
-            "name": "Milan",
+            "name": "AC Milan",
             "wikiTitle": "AC Milan",
             "countryCode": "ITA"
           }
@@ -5255,7 +5255,7 @@
           "wikiTitle": "Alexis Saelemaekers",
           "wikiName": "Alexis Saelemaekers",
           "club": {
-            "name": "Milan",
+            "name": "AC Milan",
             "wikiTitle": "AC Milan",
             "countryCode": "ITA"
           }
@@ -9666,7 +9666,7 @@
           "wikiTitle": "Luka Modrić",
           "wikiName": "Luka Modrić",
           "club": {
-            "name": "Milan",
+            "name": "AC Milan",
             "wikiTitle": "AC Milan",
             "countryCode": "ITA"
           }
@@ -11600,7 +11600,7 @@
           "wikiTitle": "Pervis Estupiñán",
           "wikiName": "Pervis Estupiñán",
           "club": {
-            "name": "Milan",
+            "name": "AC Milan",
             "wikiTitle": "AC Milan",
             "countryCode": "ITA"
           }
@@ -13734,7 +13734,7 @@
           "wikiTitle": "Adrien Rabiot",
           "wikiName": "Adrien Rabiot",
           "club": {
-            "name": "Milan",
+            "name": "AC Milan",
             "wikiTitle": "AC Milan",
             "countryCode": "ITA"
           }
@@ -13780,7 +13780,7 @@
           "wikiTitle": "Mike Maignan",
           "wikiName": "Mike Maignan",
           "club": {
-            "name": "Milan",
+            "name": "AC Milan",
             "wikiTitle": "AC Milan",
             "countryCode": "ITA"
           }
@@ -23918,7 +23918,7 @@
           "wikiTitle": "Rafael Leão",
           "wikiName": "Rafael Leão",
           "club": {
-            "name": "Milan",
+            "name": "AC Milan",
             "wikiTitle": "AC Milan",
             "countryCode": "ITA"
           }
@@ -29147,7 +29147,7 @@
           "wikiTitle": "Ardon Jashari",
           "wikiName": "Ardon Jashari",
           "club": {
-            "name": "Milan",
+            "name": "AC Milan",
             "wikiTitle": "AC Milan",
             "countryCode": "ITA"
           }
