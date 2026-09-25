@@ -4,7 +4,7 @@
     "squadUrlTemplate": "https://api.fifa.com/api/v3/teams/{teamId}/squad?idCompetition=17&idSeason=285023&language=en",
     "wikipediaSquadsUrl": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads"
   },
-  "fetchedAt": "2026-09-24T03:14:46.895Z",
+  "fetchedAt": "2026-09-25T03:32:33.432Z",
   "seasonId": "285023",
   "competitionId": "17",
   "count": 48,
@@ -16318,7 +16318,7 @@
           "countryCode": "IRN",
           "pictureUrl": "https://digitalhub.fifa.com/transform/0d942331-39fb-421e-8a8d-d1f875958559/TAREMI-Mehdi_388475",
           "pictureSource": "fifa",
-          "caps": 105,
+          "caps": 106,
           "goals": 60,
           "wikiTitle": "Mehdi Taremi",
           "wikiName": "Mehdi Taremi",
